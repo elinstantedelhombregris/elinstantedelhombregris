@@ -1,0 +1,543 @@
+{
+  "code": "PLANSAL",
+  "nombre": "Plan Nacional de Salud Integral y Vitalidad Popular",
+  "version": "1.0 — Marzo 2026",
+  "tesis": "La salud sale de las doce dimensiones de la vida y no del sistema médico: una red comunitaria de Centros de Vitalidad, Familias Mentoras y una plataforma digital cultivan vitalidad, bajo un Pacto de Co-responsabilidad entre el Estado y cada ciudadano.",
+  "problema": "Según el documento, el 80% de las enfermedades crónicas surge de cómo se vive: comida ultraprocesada, estrés laboral y económico, soledad y entornos hostiles. Tres subsistemas (público, obras sociales, prepagas) sin coordinación administran la enfermedad crónica como flujo de ingresos, con gasto cercano al 10% del PBI y resultados pobres.",
+  "resumen": "Propone una red de Centros de Vitalidad barriales, gobernados por asambleas, y un Sistema de Familias Mentoras que transmite hábitos de familia a familia. Suma una Plataforma Digital Nacional de autodiagnóstico en 12 áreas, los Ancianos de Sabiduría y programas para los primeros mil días y el trauma intergeneracional. La Agencia Nacional de Vitalidad Popular (ANVIP) coordina. El sistema médico se reconvierte en tres fases hacia emergencia y complejidad, con un protocolo de des-medicalización acompañada. Siete leyes sostienen el marco y un Tablero Nacional de Vitalidad mide resultados. El plan aclara que no reemplaza la medicina de emergencia, la discapacidad ni las infecciosas.",
+  "horizonte": "Fase 0 (meses 1-6) prepara la ANVIP y 10 barrios piloto; Fase 1 (años 1-3) demuestra; Fase 2 (años 3-7) escala a 500 Centros; Fase 3 (años 7-15) consolida 3.000+ Centros. Las siete leyes se aprueban hacia el año 5.",
+  "financiamiento": "El encabezado fija 1.8B/año más 2.0B de inversión a 24 meses; el cuerpo estima USD 6.000M en diez años, financiados por reasignación del gasto en enfermedad prevenible, impuesto a la azúcar industrial, obras sociales y cooperación internacional.",
+  "temas": ["salud", "cuidado-ciclo-de-vida", "democracia-participacion", "digital-datos"],
+
+  "conceptos": [
+    {
+      "nombre": "La Fábrica de Enfermos",
+      "alias": ["Fábrica de Enfermos"],
+      "tipo": "termino",
+      "que_es": "Metáfora central del plan: la cadena de cinco fases (envenenamiento, desconexión, escape, síntoma, captura) que produce pacientes crónicos y que el sistema médico administra como último eslabón.",
+      "seccion": null,
+      "linea": 79,
+      "cita": "La cadena se llama La Fábrica de Enfermos."
+    },
+    {
+      "nombre": "12 Raíces de la Salud",
+      "alias": ["12 Raíces de la Salud", "12 Raíces"],
+      "tipo": "termino",
+      "que_es": "Las doce dimensiones de la vida (cuerpo, alimentación, vínculos, familia, tribu, trabajo, dinero, crecimiento, sentido, juego, entorno, comunidad) de cuyo cultivo resulta la salud; organizan diagnóstico, intervenciones e indicadores.",
+      "seccion": null,
+      "linea": 117,
+      "cita": "organizada en torno a las 12 Raíces de la Salud"
+    },
+    {
+      "nombre": "Red Nacional de Centros de Vitalidad",
+      "alias": ["Red Nacional de Centros de Vitalidad", "Centros de Vitalidad", "Centro de Vitalidad"],
+      "tipo": "mecanismo",
+      "que_es": "Espacio barrial comunitario, ni estatal ni privado, con huerta, cocina colectiva, sala de silencio y consultorio de orientación; gobernado por asamblea y financiado con gasto reasignado de enfermedad prevenible.",
+      "seccion": "9.1",
+      "linea": 1123,
+      "cita": "Red Nacional de Centros de Vitalidad"
+    },
+    {
+      "nombre": "Sistema de Familias Mentoras",
+      "alias": ["Sistema de Familias Mentoras", "Familias Mentoras", "Familia Mentora"],
+      "tipo": "mecanismo",
+      "que_es": "Red horizontal de familias que transformaron su vida y acompañan a tres a cinco familias del barrio durante un año; se eligen por transformación demostrada y no por título.",
+      "seccion": "9.2",
+      "linea": 1149,
+      "cita": "Sistema de Familias Mentoras"
+    },
+    {
+      "nombre": "Ancianos de Sabiduría",
+      "alias": ["Ancianos de Sabiduría", "Anciana de Sabiduría"],
+      "tipo": "programa",
+      "que_es": "Programa que da a los adultos mayores roles activos en los Centros: maestros de cocina, narradores, mediadores, mentores de huerta, historiadores orales y artesanos.",
+      "seccion": "9.3",
+      "linea": 1177,
+      "cita": "El programa **Ancianos de Sabiduría** invierte la ecuación."
+    },
+    {
+      "nombre": "Plataforma Digital Nacional",
+      "alias": ["Plataforma Digital Nacional"],
+      "tipo": "mecanismo",
+      "que_es": "Plataforma pública, de código abierto, sin publicidad ni venta de datos, con autodiagnóstico en las 12 áreas, plan personalizado, seguimiento de hábitos y conexión con Centros y Familias Mentoras.",
+      "seccion": "9.4",
+      "linea": 1192,
+      "cita": "Plataforma Digital Nacional"
+    },
+    {
+      "nombre": "Agencia Nacional de Vitalidad Popular",
+      "alias": ["Agencia Nacional de Vitalidad Popular", "ANVIP"],
+      "tipo": "institucion",
+      "que_es": "Órgano rector de PLANSAL: ente autárquico fuera del Ministerio de Salud, con directorio tripartito (Centros, Guías, Familias Mentoras), dirección por concurso con mandato de cinco años y partida presupuestaria propia.",
+      "seccion": "14.1",
+      "linea": 1483,
+      "cita": "Agencia Nacional de Vitalidad Popular (ANVIP)"
+    },
+    {
+      "nombre": "Guías de Vitalidad",
+      "alias": ["Guías de Vitalidad", "Guía de Vitalidad"],
+      "tipo": "figura",
+      "que_es": "Profesión nueva formada en salud integral, no médicos, que opera en los Centros y acompaña cambios de hábitos; en 2040 incluye médicos reconvertidos. Matrícula profesional creada por la Ley de Vitalidad Popular.",
+      "seccion": "9.1",
+      "linea": 1145,
+      "cita": "Guías de Vitalidad (formados en salud integral, no médicos"
+    },
+    {
+      "nombre": "Pacto de Co-responsabilidad",
+      "alias": ["Pacto de Co-responsabilidad"],
+      "tipo": "mecanismo",
+      "que_es": "Compromiso de dos firmas: diez obligaciones del Estado (dejar de envenenar) y ocho compromisos voluntarios del ciudadano (decidir, moverse, alimentarse, sentir, conectar, descansar, buscar sentido, acompañar).",
+      "seccion": "6",
+      "linea": 696,
+      "cita": "Eso es el Pacto de Co-responsabilidad"
+    },
+    {
+      "nombre": "Protocolo de Des-medicalización Acompañada",
+      "alias": ["Protocolo de Des-medicalización Acompañada", "Ruta de Des-medicalización Acompañada"],
+      "tipo": "mecanismo",
+      "que_es": "Cuatro reglas para reducir medicación crónica: nunca contra el médico, indicadores biológicos como juez, gradualidad de un fármaco por vez y registro digital completo en la plataforma.",
+      "seccion": "10.2",
+      "linea": 1287,
+      "cita": "**Protocolo de Des-medicalización Acompañada:**"
+    },
+    {
+      "nombre": "Tablero Nacional de Vitalidad",
+      "alias": ["Tablero Nacional de Vitalidad"],
+      "tipo": "metrica",
+      "que_es": "Panel público en tiempo real con los indicadores de vitalidad, desagregado por provincia, municipio y barrio, alimentado por Centros, Familias Mentoras y la Plataforma Digital.",
+      "seccion": "12",
+      "linea": 1435,
+      "cita": "**El Tablero Nacional de Vitalidad** es un panel público"
+    },
+    {
+      "nombre": "Índice Nacional de Vitalidad",
+      "alias": ["Índice Nacional de Vitalidad"],
+      "tipo": "metrica",
+      "que_es": "Indicador inspirado en la Felicidad Interior Bruta de Bután, operacionalizado por las 12 dimensiones de la vida, propuesto como complemento del PBI.",
+      "seccion": "2.4",
+      "linea": 387,
+      "cita": "PLANSAL propone un Índice Nacional de Vitalidad"
+    },
+    {
+      "nombre": "Programa Nacional de Recuperación de la Cena Familiar",
+      "alias": ["Programa Nacional de Recuperación de la Cena Familiar"],
+      "tipo": "programa",
+      "que_es": "Campaña nacional en tres niveles (sensibilización, recetas simples y económicas, medición) para recuperar la cena familiar compartida, que se incorpora como indicador de vitalidad.",
+      "seccion": "7.4",
+      "linea": 854,
+      "cita": "Programa Nacional de Recuperación de la Cena Familiar"
+    },
+    {
+      "nombre": "Programa Nacional de Parto Respetado",
+      "alias": ["Programa Nacional de Parto Respetado"],
+      "tipo": "programa",
+      "que_es": "Aplicación obligatoria de la Ley 25.929, formación perinatal, auditoría de cesáreas hacia el rango OMS de 10-15%, contacto piel con piel y clampeo tardío del cordón como estándar.",
+      "seccion": "4.4",
+      "linea": 594,
+      "cita": "**Programa Nacional de Parto Respetado.**"
+    },
+    {
+      "nombre": "Círculos de palabra",
+      "alias": ["círculos de palabra"],
+      "tipo": "mecanismo",
+      "que_es": "Encuentros grupales facilitados en cada Centro donde las personas cuentan historias familiares y nombran lo no dicho, como espacio comunitario para el trauma intergeneracional.",
+      "seccion": "5.4",
+      "linea": 668,
+      "cita": "*círculos de palabra*"
+    },
+    {
+      "nombre": "Trabajo de linaje",
+      "alias": ["trabajo de linaje"],
+      "tipo": "mecanismo",
+      "que_es": "Módulo del Sistema de Familias Mentoras en que cada familia traza su historia generacional, identifica traumas no procesados y realiza un acto simbólico de cierre.",
+      "seccion": "5.4",
+      "linea": 670,
+      "cita": "*trabajo de linaje*"
+    },
+    {
+      "nombre": "Fondo de Vitalidad",
+      "alias": ["Fondo de Vitalidad"],
+      "tipo": "fondo",
+      "que_es": "Fondo que financia la expansión de los Centros, capitalizado con el ahorro de la reforma sanitaria: menos internaciones, menos medicamentos crónicos, menos ausentismo.",
+      "seccion": "21",
+      "linea": 2116,
+      "cita": "El Fondo de Vitalidad que PLANSAL propone para financiar la expansión de los Centros"
+    },
+    {
+      "nombre": "Ley de Vitalidad Popular",
+      "alias": ["Ley de Vitalidad Popular"],
+      "tipo": "norma",
+      "que_es": "Ley nueva que reconoce a Centros, Familias Mentoras y Guías de Vitalidad y obliga a obras sociales y prepagas a cubrir programas de vitalidad como prestaciones.",
+      "seccion": "15.2",
+      "linea": 1566,
+      "cita": "Ley de Vitalidad Popular"
+    },
+    {
+      "nombre": "Ley de Alimentación Real",
+      "alias": ["Ley de Alimentación Real"],
+      "tipo": "norma",
+      "que_es": "Reforma sobre la Ley 27.642: restringe ultraprocesados en instituciones públicas, crea impuesto a la azúcar industrial afectado a los Centros y regula la publicidad dirigida a menores de 16.",
+      "seccion": "15.1",
+      "linea": 1554,
+      "cita": "Ley de Alimentación Real"
+    },
+    {
+      "nombre": "Recetas verdes",
+      "alias": ["Recetas verdes"],
+      "tipo": "mecanismo",
+      "que_es": "Prescripción médica formal de horas semanales en contacto con la naturaleza, incorporada al protocolo de atención de los Centros y del sistema público.",
+      "seccion": "7.11",
+      "linea": 1002,
+      "cita": "\"Recetas verdes\": prescripción médica de tiempo en naturaleza."
+    },
+    {
+      "nombre": "Paneles Ciudadanos de Salud",
+      "alias": ["Paneles Ciudadanos de Salud"],
+      "tipo": "mecanismo",
+      "que_es": "Paneles que deliberan las prioridades sanitarias de cada región con información real, inspirados en el modelo de PLANJUS.",
+      "seccion": null,
+      "linea": 151,
+      "cita": "Los Paneles Ciudadanos de Salud"
+    },
+    {
+      "nombre": "Consejo Nacional de Familias Mentoras",
+      "alias": ["Consejo Nacional de Familias Mentoras"],
+      "tipo": "institucion",
+      "que_es": "Órgano formado por los coordinadores regionales de las redes de Familias Mentoras, con representación directa en el tercio de Familias del Directorio de ANVIP.",
+      "seccion": "14.3",
+      "linea": 1527,
+      "cita": "Consejo Nacional de Familias Mentoras"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "ArgenCloud",
+      "alias": ["ArgenCloud"],
+      "origen": "PLANDIG",
+      "para_que": "Alojar la plataforma de autodiagnóstico, la historia clínica única y la IA poblacional; en tranche-1 queda diferido y se opera con capacidades del estadio A.",
+      "linea": 2150,
+      "cita": "ArgenCloud + IA poblacional son **capacidades del estadio B de PLANDIG**"
+    },
+    {
+      "nombre": "Casas JUS",
+      "alias": ["Casas JUS"],
+      "origen": "PLANJUS",
+      "para_que": "Mediación comunitaria gratuita y vinculante para conflictos internos de los Centros de Vitalidad.",
+      "linea": 1517,
+      "cita": "se derivan a *Casas JUS* (ver PLANJUS, Sección 6)"
+    },
+    {
+      "nombre": "Bastarda Sanitaria",
+      "alias": ["Bastarda Sanitaria", "Bastardas Sanitarias"],
+      "origen": "PLANEB",
+      "para_que": "Farmacias al costo que distribuyen genéricos y comparten datos con los Centros de Vitalidad.",
+      "linea": 2108,
+      "cita": "La Bastarda Sanitaria es el complemento perfecto del sistema público"
+    },
+    {
+      "nombre": "Estación Barrial",
+      "alias": ["Estación Barrial"],
+      "origen": "PLANSEG",
+      "para_que": "Unidad de seguridad barrial cuya pacificación del territorio PLANSAL mide como caída de consultas por ansiedad y violencia doméstica.",
+      "linea": 2130,
+      "cita": "donde una Estación Barrial de PLANSEG pacifica un territorio"
+    },
+    {
+      "nombre": "Mesas Largas",
+      "alias": ["Mesas Largas"],
+      "origen": "PLANCUL",
+      "para_que": "Espacios culturales de cocina y comida compartida que funcionan como salud comunitaria sin receta.",
+      "linea": 2166,
+      "cita": "Las Mesas Largas de PLANCUL son espacios de salud comunitaria"
+    },
+    {
+      "nombre": "peso-canasta",
+      "alias": ["peso-canasta"],
+      "origen": "PLANMON",
+      "para_que": "Unidad de cuenta estable para medir en términos duros el costo de prevenir frente al de tratar.",
+      "linea": 2116,
+      "cita": "Cuando el peso-canasta dice que prevenir diabetes cuesta X"
+    },
+    {
+      "nombre": "Ocho ramas de trabajo vivo",
+      "alias": ["ramas de trabajo vivo"],
+      "origen": "PLANREP",
+      "para_que": "Destino laboral con sentido para quienes dejan empleos que enferman; los Centros son puerta de entrada a esas ramas.",
+      "linea": 134,
+      "cita": "PLANREP propone ocho ramas de trabajo vivo"
+    },
+    {
+      "nombre": "Ley ANCV",
+      "alias": ["ANCV"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Marco de PLANCUIDADO con el que la atención primaria territorial se articula desde la Fase 1.",
+      "linea": 2278,
+      "cita": "Fase 0 de PLANCUIDADO es Ley ANCV + piloto registral"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Presupuesto canónico declarado en el encabezado",
+      "valor": "1.8B/año + 2.0B de inversión a 24 meses",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "1.8B/año + 2.0B inv 24m"
+    },
+    {
+      "concepto": "Inversión total en el sistema de vitalidad a diez años",
+      "valor": "~USD 6.000M [est.] (~USD 600M por año)",
+      "tipo": "presupuesto",
+      "linea": 1372,
+      "cita": "**Total inversión 10 años** | **~USD 6.000M [est.]**"
+    },
+    {
+      "concepto": "Costo anual estimado de la enfermedad prevenible",
+      "valor": "~USD 26.000M [est.] por año",
+      "tipo": "diagnostico",
+      "linea": 1346,
+      "cita": "**Total enfermedad prevenible** | **~USD 26.000M [est.]**"
+    },
+    {
+      "concepto": "Construcción o adaptación de 3.000 Centros de Vitalidad",
+      "valor": "~USD 1.500M [est.], ~USD 500.000 por Centro",
+      "tipo": "presupuesto",
+      "linea": 1365,
+      "cita": "3.000 Centros de Vitalidad — construcción/adaptación | ~USD 1.500M [est.]"
+    },
+    {
+      "concepto": "Cobertura de Centros de Vitalidad en la Fase 3",
+      "valor": "3.000+ Centros, 80% de los barrios del país",
+      "tipo": "meta",
+      "linea": 1802,
+      "cita": "**3.000+ Centros de Vitalidad:** Cobertura del 80% de los barrios del país."
+    },
+    {
+      "concepto": "Familias Mentoras en la Fase 3",
+      "valor": "25.000+ Familias Mentoras",
+      "tipo": "meta",
+      "linea": 1804,
+      "cita": "**25.000+ Familias Mentoras:** Red autosostenible."
+    },
+    {
+      "concepto": "Cobertura de familias argentinas por Familias Mentoras",
+      "valor": "80% de las familias en 10 años",
+      "tipo": "meta",
+      "linea": 117,
+      "cita": "cobertura del 80% de las familias argentinas en 10 años"
+    },
+    {
+      "concepto": "Centros operativos en la Fase 1 (pilotos)",
+      "valor": "10 Centros, uno por barrio piloto, años 1-3",
+      "tipo": "meta",
+      "linea": 1762,
+      "cita": "**10 Centros de Vitalidad operativos:** Uno por barrio piloto."
+    },
+    {
+      "concepto": "Promesa pública medible de centros de salud",
+      "valor": "5.000 centros funcionando en 24 meses",
+      "tipo": "plazo",
+      "linea": 2328,
+      "cita": "En 24 meses, cinco mil centros de salud van a estar funcionando con stock garantizado"
+    },
+    {
+      "concepto": "Piso presupuestario de la ANVIP",
+      "valor": "5% del gasto total en salud, creciente al 15% en 10 años",
+      "tipo": "parametro",
+      "linea": 1499,
+      "cita": "propuesta inicial: 5%, creciente al 15% en 10 años"
+    },
+    {
+      "concepto": "Ahorro neto proyectado con reducción del 30% del gasto prevenible",
+      "valor": "~USD 7.200M por año; beneficio fiscal neto ~USD 6.600M",
+      "tipo": "meta",
+      "linea": 1398,
+      "cita": "el ahorro neto es de ~USD 7.200 millones por año"
+    },
+    {
+      "concepto": "Retorno por peso invertido en prevención",
+      "valor": "5 a 8 pesos a 5 años; 12 a 20 pesos a 10 años",
+      "tipo": "parametro",
+      "linea": 1388,
+      "cita": "ahorra entre 5 y 8 pesos en tratamiento a 5 años, y entre 12 y 20 pesos a 10 años"
+    },
+    {
+      "concepto": "Esperanza de vida saludable (HALE) a 2036",
+      "valor": "~66 años en 2026 a 71 años (+5)",
+      "tipo": "meta",
+      "linea": 1416,
+      "cita": "Esperanza de vida saludable (HALE) | ~66 años (OMS) | 71 años (+5)"
+    },
+    {
+      "concepto": "Licencia parental extendida",
+      "valor": "6 meses para persona gestante, 3 meses para co-progenitor",
+      "tipo": "parametro",
+      "linea": 1600,
+      "cita": "6 meses para persona gestante (hoy son 90 días), 3 meses para co-progenitor"
+    },
+    {
+      "concepto": "Espacio verde público mínimo por habitante en proyectos nuevos",
+      "valor": "10 m² por habitante",
+      "tipo": "parametro",
+      "linea": 1623,
+      "cita": "Mínimo de 10 m² de espacio verde público por habitante en todo proyecto urbanístico nuevo"
+    },
+    {
+      "concepto": "Zona de exclusión de fumigación",
+      "valor": "mínimo 1.500 metros de áreas pobladas, escuelas, hospitales y cursos de agua",
+      "tipo": "parametro",
+      "linea": 1612,
+      "cita": "mínimo 1.500 metros de áreas pobladas, escuelas, hospitales y cursos de agua"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANDIG",
+      "que": "PLANDIG aporta infraestructura soberana, historia clínica básica cifrada y telemedicina; en tranche-1 solo estadio A, con la plataforma de autodiagnóstico diferida.",
+      "linea": 2154,
+      "cita": "HCE básica para los 5.000 centros piloto, sin ArgenCloud"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "La atención primaria territorial de PLANSAL funciona como ventana clínica que lee los Pactos de PLANCUIDADO como dato de salud; ambos comparten lo materno-infantil.",
+      "linea": 2288,
+      "cita": "APS territorial provee la ventana clínica que lee Pactos como dato de salud"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "PLANSUS habilita el uso terapéutico de sustancias y psicodélicos; sus protocolos clínicos alimentan la medicina mental de PLANSAL y la ANVIP coordina la prescripción.",
+      "linea": 2279,
+      "cita": "PLANSUS habilita el uso terapéutico de sustancias e incluidos psicodélicos"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "La red de monitoreo hídrico de PLANAGUA alimenta el tablero de salud ambiental de la ANVIP, que cruza contaminantes con síntomas en los Centros.",
+      "linea": 2110,
+      "cita": "La red IoT de monitoreo hídrico que PLANAGUA despliega alimenta directamente el tablero de salud ambiental de la ANVIP"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "PLANJUS provee la auditoría ciudadana que condiciona la remoción de la dirección de ANVIP, la mediación de las Casas JUS y la apelación de certificaciones.",
+      "linea": 1497,
+      "cita": "dictamen favorable de auditoría ciudadana vinculada a PLANJUS"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "PLANSAL demanda a PLANMOV logística de medicamentos esenciales, acceso vehicular a atención primaria y traslados sanitarios; PLANMOV recibe datos de prevalencia.",
+      "linea": 2296,
+      "cita": "logística de medicamentos esenciales + acceso vehicular a APS (línea L1) + traslados sanitarios"
+    },
+    {
+      "con": "PLANTER",
+      "que": "PLANSAL pide atención sanitaria intercultural en territorios originarios; PLANTER impone enforcement ambiental sobre contaminación y coordinación con INAI.",
+      "linea": 2303,
+      "cita": "enforcement ambiental sobre contaminación que afecta salud (L1); coordinación INAI"
+    },
+    {
+      "con": "PLANEB",
+      "que": "PLANEB aporta farmacias al costo y transparencia de costos; Centros y Bastardas Sanitarias comparten datos y protocolos, y los Centros pueden operar como Bastardas.",
+      "linea": 2108,
+      "cita": "PLANEB pone farmacias al costo que distribuyen genéricos"
+    },
+    {
+      "con": "PLANISV",
+      "que": "PLANISV aporta semillas, técnicas y protocolos para las huertas de los Centros y la regulación de agroquímicos; PLANSAL aporta la demanda de comida real.",
+      "linea": 2098,
+      "cita": "Las huertas comunitarias de cada Centro se alimentan de semillas, técnicas y protocolos que PLANISV desarrolla."
+    },
+    {
+      "con": "PLANEDU",
+      "que": "PLANEDU incorpora educación alimentaria y emocional en la escuela y la formación universitaria de Guías de Vitalidad; las escuelas son nodos de salud.",
+      "linea": 2100,
+      "cita": "educación alimentaria real desde los 4 años"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Cada ciudad nueva de PLAN24CN incorpora un Centro de Vitalidad como pieza urbanística y espacios verdes que PLANSAL trata como prescripción.",
+      "linea": 2096,
+      "cita": "incorpora un Centro de Vitalidad como pieza urbanística obligatoria"
+    },
+    {
+      "con": "PLANMON",
+      "que": "PLANMON aporta la canasta como vara de costos y la arquitectura financiera para que el ahorro sanitario capitalice el Fondo de Vitalidad.",
+      "linea": 2116,
+      "cita": "se capitaliza con el ahorro que genera la reforma del sistema de salud"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "PLANSEG reduce la inseguridad barrial y la ANVIP coordina con su agencia; PLANSAL mide el efecto en consultas por ansiedad, violencia doméstica y consumo problemático.",
+      "linea": 2130,
+      "cita": "registra la caída en consultas por ansiedad, violencia doméstica y consumo problemático"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Los Centros ofrecen empleo y orientación vocacional a trabajadores reconvertidos que PLANREP libera de empleos que vacían.",
+      "linea": 2102,
+      "cita": "los Centros de Vitalidad son fuente de empleo digno para trabajadores reconvertidos"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El encabezado prohíbe nuevas agencias autónomas en tranche-1, pero el plan crea la ANVIP como ente autárquico independiente del Ministerio de Salud desde la Fase 0.",
+      "linea": 18,
+      "cita": "sin nuevas agencias autónomas en tranche-1"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "La Plataforma Digital Nacional con autodiagnóstico es pilar del plan y está prevista en la Fase 0, pero el parche de PLANDIG difiere la plataforma de autodiagnóstico al estadio B.",
+      "linea": 2154,
+      "cita": "La plataforma de autodiagnóstico se difiere al estadio B."
+    },
+    {
+      "con": "interno",
+      "que": "El encabezado fija 1.8B/año de presupuesto canónico, mientras el argumento económico estima USD 600M por año (6.000M en diez años).",
+      "linea": 12,
+      "cita": "1.8B/año + 2.0B inv 24m"
+    },
+    {
+      "con": "interno",
+      "que": "La estrategia con la industria habla de 5.000 Centros y 2 millones de Familias Mentoras, cuando el cronograma y la inversión llegan a 3.000+ Centros y 25.000+ Familias Mentoras.",
+      "linea": 1677,
+      "cita": "A escala — 5.000 Centros, 2 millones de Familias Mentoras, 30 millones de personas impactadas"
+    },
+    {
+      "con": "interno",
+      "que": "Con una reducción del 30% el ahorro anual se calcula en USD 7.200 millones en la Sección 11 y en USD 7.800 millones en la respuesta a la Crítica 5.",
+      "linea": 1951,
+      "cita": "el ahorro anual sería de USD 7.800 millones"
+    },
+    {
+      "con": "interno",
+      "que": "El documento habla de dieciséis mandatos de ¡BASTA! cuando el canon actual es de 27 PLANes temáticos más PLANRUTA.",
+      "linea": 104,
+      "cita": "Hay una filosofía que atraviesa los dieciséis mandatos del proyecto ¡BASTA!"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "Varias líneas base del Tablero Nacional (soledad, adicciones, consultas crónicas, gasto en medicamentos, parto respetado) no existen y se medirán en tranche-1.",
+      "linea": 1421,
+      "cita": "[línea base a establecer en tranche-1 (2026-2027)]"
+    },
+    {
+      "que": "El plan declara que su propio texto será revisado y corregido según lo que la realidad enseñe y que no puede prever todo.",
+      "linea": 153,
+      "cita": "será revisada, ampliada y corregida a medida que la realidad nos enseñe"
+    },
+    {
+      "que": "Queda abierto si los Centros reducen las consultas por enfermedad crónica prevenible frente a barrios equivalentes sin Centro.",
+      "linea": 1246,
+      "cita": "¿Disminuyen las consultas por enfermedad crónica prevenible en los barrios"
+    },
+    {
+      "que": "La continuidad del plan depende de que los 10 pilotos muestren resultados; si no lo hacen no hay Fase 2.",
+      "linea": 1758,
+      "cita": "Si los 10 pilotos no muestran resultados, no hay Fase 2."
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "code": "PLANISV",
+  "nombre": "Plan Nacional para la Reconstrucción de la Infraestructura de Suelo Vivo de la Argentina",
+  "version": "3.0 — Marzo 2026",
+  "tesis": "El suelo agrícola argentino se gestiona como infraestructura nacional medible: un ente con ley propia, apoyado en INTA, paga a los productores por resultados verificados de salud del suelo y monetiza carbono y primas de exportación para reconstruirlo.",
+  "problema": "Según el documento, la Argentina mide sus reservas, su deuda y su balanza comercial, pero no el capital biológico del suelo que genera el 60-70% de las exportaciones. Pierde materia orgánica, nutrientes y suelo por erosión; depende de agroquímicos; y los subsidios pagan prácticas, no resultados.",
+  "resumen": "Propone declarar el suelo Infraestructura de Suelo Vivo y reconstruirlo con inoculación biológica y optimización del agua, ganadería regenerativa, diversificación de cultivos y saberes de pueblos originarios. Se organiza en cinco pilares: censo nacional, red de despliegue tecnológico, pagos por resultados, mercado de carbono y red de formación. Un ente autárquico creado por ley gobierna el programa con INTA como brazo de campo. Un tablero público mide el avance y alimenta la certificación de exportación. Incluye marco legal, comunicación, hoja de ruta por fases, presupuesto, riesgos y una visión a 2040.",
+  "horizonte": "Fase 0 de diseño (meses -6 a 0), Fase 1 (meses 0-12), Fase 2 (12-36), Fase 3 (36-72) y Fase 4 (años 6-15). El encabezado fija entrada operativa en tranche-1 desde 2026-Q2 y deja la visión 2040 como horizonte.",
+  "financiamiento": "El encabezado fija 50M/año más 150M de inversión a 24 meses. El cuerpo estima USD 1.000-3.000M en 15 años, con retenciones afectadas, financiamiento climático e internacional, créditos de carbono, coinversión provincial y capital privado.",
+  "temas": ["territorio-ambiente", "agua-energia", "trabajo-produccion", "digital-datos", "estado-instituciones"],
+
+  "conceptos": [
+    {
+      "nombre": "Infraestructura de Suelo Vivo",
+      "alias": ["Infraestructura de Suelo Vivo"],
+      "tipo": "termino",
+      "que_es": "Categoría de gobernanza que trata el capital biológico, químico y físico del suelo agrícola como activo nacional depreciable: se mide, se valora, se mantiene y se recapitaliza como una ruta o una red eléctrica.",
+      "seccion": "3.1",
+      "linea": 267,
+      "cita": "**Infraestructura de Suelo Vivo (ISV):**"
+    },
+    {
+      "nombre": "Ente Nacional de Suelo Vivo",
+      "alias": ["Ente Nacional de Suelo Vivo", "ENSV"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico creado por ley que ejecuta PLANISV: administra el Fondo, opera el Tablero, paga los PPR, certifica tecnologías y administra el mercado de carbono. Se apoya en INTA para el trabajo de campo.",
+      "seccion": "17.1",
+      "linea": 1459,
+      "cita": "**Ente Nacional de Suelo Vivo (ENSV)**"
+    },
+    {
+      "nombre": "Fondo Nacional de Suelo Vivo",
+      "alias": ["Fondo Nacional de Suelo Vivo"],
+      "tipo": "fondo",
+      "que_es": "Fondo dedicado, capitalizado con retenciones afectadas, financiamiento climático internacional e ingresos por carbono, administrado por un directorio tripartito. El texto lo define luego como fideicomiso público con auditoría de la AGN.",
+      "seccion": "9.1",
+      "linea": 834,
+      "cita": "**Fondo Nacional de Suelo Vivo (nuevo fondo)**"
+    },
+    {
+      "nombre": "Censo Nacional de Suelo Vivo",
+      "alias": ["Censo Nacional de Suelo Vivo", "Censo Nacional de Suelo"],
+      "tipo": "programa",
+      "que_es": "Pilar I: línea base nacional, estandarizada y georreferenciada de salud biológica, química y física del suelo, con las estaciones regionales de INTA como columna vertebral de recolección.",
+      "seccion": "5.2",
+      "linea": 467,
+      "cita": "**Censo Nacional de Suelo Vivo**"
+    },
+    {
+      "nombre": "Pagos por Resultados (PPR)",
+      "alias": ["Pagos por Resultados", "PPR"],
+      "tipo": "mecanismo",
+      "que_es": "Esquema que reemplaza subsidios por práctica con pagos escalonados según mejoras verificadas en materia orgánica, biomasa microbiana, carbono secuestrado y reducción de insumos químicos.",
+      "seccion": "10.1",
+      "linea": 880,
+      "cita": "PLANISV introduce Pagos por Resultados (PPR)"
+    },
+    {
+      "nombre": "Mercado Argentino de Carbono Agroecológico",
+      "alias": ["Mercado Argentino de Carbono Agroecológico", "Mercado de Carbono Agroecológico"],
+      "tipo": "mecanismo",
+      "que_es": "Pilar IV: protocolo de créditos de carbono del suelo verificado por el Estado, con registro nacional, para que los productores vendan el carbono secuestrado en mercados voluntarios y regulados.",
+      "seccion": "5.2",
+      "linea": 470,
+      "cita": "**Mercado de Carbono Agroecológico**"
+    },
+    {
+      "nombre": "Tablero Nacional de Salud del Suelo",
+      "alias": ["Tablero Nacional de Salud del Suelo", "TNSS"],
+      "tipo": "metrica",
+      "que_es": "Plataforma pública de datos que agrega siete capas de indicadores por operación, provincia y agro-región. Sirve a la gestión, a los pagos por resultados y a la trazabilidad de exportación.",
+      "seccion": "14.1",
+      "linea": 1163,
+      "cita": "Tablero Nacional de Salud del Suelo (TNSS)"
+    },
+    {
+      "nombre": "Índice Nacional de Salud del Suelo",
+      "alias": ["Índice Nacional de Salud del Suelo", "INSS"],
+      "tipo": "metrica",
+      "que_es": "Índice compuesto anual del estado del suelo agrícola, ponderado en seis componentes: biológico, carbono, hídrico, independencia química, nutrientes y preparación exportadora.",
+      "seccion": "14.3",
+      "linea": 1183,
+      "cita": "Índice Nacional de Salud del Suelo (INSS)"
+    },
+    {
+      "nombre": "Principio de Convergencia",
+      "alias": ["Principio de Convergencia", "Ecuación de Convergencia"],
+      "tipo": "mecanismo",
+      "que_es": "Regla técnica: la inoculación biológica y la optimización del agua se despliegan juntas, porque cada una levanta la restricción de la otra; el efecto combinado se declara superior a la suma.",
+      "seccion": "4.2",
+      "linea": 319,
+      "cita": "### 4.2 El Principio de Convergencia"
+    },
+    {
+      "nombre": "Marco de Adopción por Niveles",
+      "alias": ["Marco de Adopción por Niveles"],
+      "tipo": "mecanismo",
+      "que_es": "Pipeline de cuatro niveles (Demostrar, Regionalizar, Comercializar, Democratizar) que escala la tecnología desde sitios de INTA hasta agricultura familiar y comunidades.",
+      "seccion": "5.4",
+      "linea": 488,
+      "cita": "### 5.4 Marco de Adopción por Niveles"
+    },
+    {
+      "nombre": "Las Tres Leyes del Capital Edáfico",
+      "alias": ["Tres Leyes del Capital Edáfico"],
+      "tipo": "termino",
+      "que_es": "Tres principios que sostienen el plan: primacía biológica, acoplamiento agua-biología y retornos compuestos de la materia orgánica.",
+      "seccion": "3.2",
+      "linea": 277,
+      "cita": "### 3.2 Las Tres Leyes del Capital Edáfico"
+    },
+    {
+      "nombre": "Técnico de Suelo Vivo",
+      "alias": ["Técnico de Suelo Vivo", "Técnicos de Suelo Vivo"],
+      "tipo": "figura",
+      "que_es": "Profesión nueva que diagnostica, prescribe, monitorea y comunica la salud biológica del suelo. Tiene una carrera de cinco niveles y se forma en estaciones de INTA y centros de excelencia.",
+      "seccion": "15.3",
+      "linea": 1313,
+      "cita": "El Técnico de Suelo Vivo es alguien que:"
+    },
+    {
+      "nombre": "Embajadores del Suelo",
+      "alias": ["Embajadores del Suelo"],
+      "tipo": "figura",
+      "que_es": "Productores reales que cuentan su experiencia en primera persona como vía de comunicación entre pares, en reemplazo de la voz de funcionarios.",
+      "seccion": "19.3",
+      "linea": 1836,
+      "cita": "### 19.3 Embajadores del Suelo"
+    },
+    {
+      "nombre": "Comité Técnico Asesor",
+      "alias": ["Comité Técnico Asesor"],
+      "tipo": "institucion",
+      "que_es": "Órgano consultivo de 20-25 personas que emite recomendaciones públicas no vinculantes; el Directorio debe responder públicamente si no las sigue.",
+      "seccion": "17.7",
+      "linea": 1668,
+      "cita": "El **Comité Técnico Asesor (CTA)** está integrado por 20-25 personas:"
+    },
+    {
+      "nombre": "Coordinador Provincial PLANISV",
+      "alias": ["Coordinador Provincial PLANISV"],
+      "tipo": "figura",
+      "que_es": "Bisagra entre el ENSV y cada gobierno provincial, designado de común acuerdo; sin él no hay desembolso del Fondo para esa provincia.",
+      "seccion": "17.5",
+      "linea": 1632,
+      "cita": "**Coordinador Provincial PLANISV:**"
+    },
+    {
+      "nombre": "Convenio Marco Estratégico ENSV-INTA",
+      "alias": ["Convenio Marco Estratégico"],
+      "tipo": "mecanismo",
+      "que_es": "Acuerdo de 15 años renovable por el que INTA aporta infraestructura, personas, laboratorios, investigación y continuidad, y el ENSV destina un piso del Fondo a fortalecer a INTA.",
+      "seccion": "17.6",
+      "linea": 1652,
+      "cita": "**Convenio Marco Estratégico** de largo plazo"
+    },
+    {
+      "nombre": "Ley de Infraestructura de Suelo Vivo",
+      "alias": ["Ley de Infraestructura de Suelo Vivo"],
+      "tipo": "norma",
+      "que_es": "Ley piedra angular: crea la categoría jurídica, el ENSV y el Fondo, manda el Tablero y el Informe Anual, y fija un presupuesto piso contra el desfinanciamiento.",
+      "seccion": "18.1",
+      "linea": 1688,
+      "cita": "### 18.1 Ley de Infraestructura de Suelo Vivo"
+    },
+    {
+      "nombre": "Sello Suelo Vivo Verificado",
+      "alias": ["Suelo Vivo Verificado"],
+      "tipo": "mecanismo",
+      "que_es": "Certificado para productos de campos con suelo restaurado y verificado por el sistema MRV del ENSV, pensado para primas de exportación y preferencia comercial.",
+      "seccion": "19.7",
+      "linea": 1903,
+      "cita": "**Sello \"Suelo Vivo Verificado\":**"
+    },
+    {
+      "nombre": "Hecho en Suelo Vivo",
+      "alias": ["Hecho en Suelo Vivo"],
+      "tipo": "programa",
+      "que_es": "Marca país respaldada por datos del Tablero, aplicada a vinos, carne, granos y productos de nicho, con diferenciales de precio estimados.",
+      "seccion": "13.5",
+      "linea": 1127,
+      "cita": "**\"Hecho en Suelo Vivo\"**"
+    },
+    {
+      "nombre": "Red de Mujeres Regeneradoras",
+      "alias": ["Red de Mujeres Regeneradoras"],
+      "tipo": "programa",
+      "que_es": "Red de productoras del programa, con meta de 500+ integrantes en la Fase 2 y 5.000+ en la Fase 3.",
+      "seccion": "23.2",
+      "linea": 2286,
+      "cita": "Red de Mujeres Regeneradoras con 500+ productoras activas"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Licencia Territorial",
+      "alias": ["Licencia Territorial"],
+      "origen": "PLANTER",
+      "para_que": "Marco de co-soberanía indígena para regenerar suelo en tierras fiscales y comunidades originarias.",
+      "linea": 2651,
+      "cita": "PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena"
+    },
+    {
+      "nombre": "Economía de la Contribución",
+      "alias": ["Economía de la Contribución"],
+      "origen": "PLANREP",
+      "para_que": "Esquema donde la categoría «Regeneración ambiental» recibe las capacidades del Técnico de Suelo Vivo cuando el empleo formal se transforme.",
+      "linea": 1335,
+      "cita": "la Economía de la Contribución, donde"
+    },
+    {
+      "nombre": "Economía de la Inteligencia",
+      "alias": ["Economía de la Inteligencia", "Economía de la Belleza"],
+      "origen": "PLANREP",
+      "para_que": "Cantera de egresados capacitados que se especializan en agricultura de precisión, sistemas MRV y análisis de datos de suelo.",
+      "linea": 1291,
+      "cita": "Economía de la Inteligencia"
+    },
+    {
+      "nombre": "El Ingrediente",
+      "alias": ["El Ingrediente"],
+      "origen": "PLANREP",
+      "para_que": "Idea de la fuerza interna que lleva a una persona a cambiar; PLANISV la toma como condición para que un productor adopte el programa.",
+      "linea": 240,
+      "cita": "identifica algo que llama \"El Ingrediente\""
+    },
+    {
+      "nombre": "Pulso y peso-canasta",
+      "alias": ["peso-canasta"],
+      "origen": "PLANMON",
+      "para_que": "Recibe la telemetría de producción agrícola de Suelo Vivo como insumo para la estabilidad del peso-canasta.",
+      "linea": 2650,
+      "cita": "El Pulso consume la telemetría de producción agrícola"
+    },
+    {
+      "nombre": "Portfolio Ciudadano Único",
+      "alias": ["Portfolio Ciudadano Único"],
+      "origen": "PLANEDU",
+      "para_que": "Registro formal de las contribuciones de un productor a la regeneración del suelo familiar, validadas en la Economía de la Contribución.",
+      "linea": 2584,
+      "cita": "Su Portfolio Ciudadano Único, creado por PLANEDU"
+    },
+    {
+      "nombre": "Ciudades Nuevas",
+      "alias": ["Ciudades Nuevas"],
+      "origen": "PLAN24CN",
+      "para_que": "Destino del suelo regenerado y de los balances agua-suelo-carbono: agricultura urbana y anillos verdes.",
+      "linea": 2659,
+      "cita": "anillos verdes de las Ciudades Nuevas"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Presupuesto canónico de tranche-1 (encabezado)",
+      "valor": "50M/año + 150M inv 24m",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "50M/año + 150M inv 24m"
+    },
+    {
+      "concepto": "Alcance entregable de tranche-1",
+      "valor": "50–300 pilotos de suelo medidos con INTA",
+      "tipo": "meta",
+      "linea": 10,
+      "cita": "50–300 pilotos de suelo medidos con INTA"
+    },
+    {
+      "concepto": "Presupuesto canónico (segunda formulación del encabezado)",
+      "valor": "1.0% PBI / cap 50-300 pilotos",
+      "tipo": "presupuesto",
+      "linea": 44,
+      "cita": "**Presupuesto canónico:** 1.0% PBI / cap 50-300 pilotos"
+    },
+    {
+      "concepto": "Inversión total del programa a 15 años",
+      "valor": "USD 1.000-3.000M",
+      "tipo": "presupuesto",
+      "linea": 2450,
+      "cita": "Inversión total estimada a 15 años: USD 1.000-3.000M"
+    },
+    {
+      "concepto": "Presupuesto piso del ENSV por ley",
+      "valor": "no inferior al 0,1% del PBI en ningún ejercicio",
+      "tipo": "parametro",
+      "linea": 1704,
+      "cita": "no puede ser inferior al 0,1% del PBI en ningún ejercicio fiscal"
+    },
+    {
+      "concepto": "Afectación de retenciones al Fondo (sección legal)",
+      "valor": "0,5% a 1% de la recaudación por derechos de exportación agropecuarios; USD 25-80M/año",
+      "tipo": "fuente",
+      "linea": 1744,
+      "cita": "Entre el 0,5% y el 1% de la recaudación total por derechos de exportación agropecuarios"
+    },
+    {
+      "concepto": "Afectación del 1% de retenciones de soja (sección de financiamiento)",
+      "valor": "USD 300–500 millones/año",
+      "tipo": "fuente",
+      "linea": 833,
+      "cita": "Una afectación del 1% sobre las retenciones de soja sola generaría USD 300–500 millones/año"
+    },
+    {
+      "concepto": "Afectación de retenciones (tabla de fuentes a 15 años)",
+      "valor": "2-3% de derechos de exportación; USD 400-750M en 15 años",
+      "tipo": "fuente",
+      "linea": 2458,
+      "cita": "Afectación de retenciones (2-3% de derechos de exportación agropecuarios)"
+    },
+    {
+      "concepto": "Cofinanciamiento nación-provincia de despliegues Nivel 1-2",
+      "valor": "60% nacional, 40% provincial",
+      "tipo": "parametro",
+      "linea": 836,
+      "cita": "Modelo de cofinanciamiento: 60% nacional, 40% provincial."
+    },
+    {
+      "concepto": "Piso del Fondo para fortalecer a INTA",
+      "valor": "no menos del 25% del Fondo Nacional",
+      "tipo": "parametro",
+      "linea": 1660,
+      "cita": "un porcentaje fijo del Fondo Nacional (no menos del 25%)"
+    },
+    {
+      "concepto": "Sitios de demostración Nivel 1",
+      "valor": "50 sitios en 2027, en 6 agro-regiones",
+      "tipo": "meta",
+      "linea": 496,
+      "cita": "50 sitios en 2027 (tranche-1), en 6 agro-regiones"
+    },
+    {
+      "concepto": "Centros regionales Nivel 2",
+      "valor": "300 centros para 2029",
+      "tipo": "plazo",
+      "linea": 497,
+      "cita": "300 centros para 2029 (tranche-2 entrada) en zonas prioritarias"
+    },
+    {
+      "concepto": "Operaciones comerciales Nivel 3",
+      "valor": "1.000+ operaciones para 2031",
+      "tipo": "plazo",
+      "linea": 498,
+      "cita": "1.000+ operaciones para 2031 (tranche-2)"
+    },
+    {
+      "concepto": "Tamaño y mandato del Directorio del ENSV",
+      "valor": "15 miembros, mandatos escalonados de 5 años",
+      "tipo": "parametro",
+      "linea": 1480,
+      "cita": "El Directorio tiene 15 miembros con mandatos escalonados de 5 años"
+    },
+    {
+      "concepto": "Retorno de inversión conservador",
+      "valor": "8:1 a 15:1",
+      "tipo": "meta",
+      "linea": 2485,
+      "cita": "ROI conservador de **8:1 a 15:1**"
+    },
+    {
+      "concepto": "Prima de exportación por producción regenerativa verificada",
+      "valor": "5–15% sobre producción calificada",
+      "tipo": "parametro",
+      "linea": 894,
+      "cita": "Prima de exportación del 5–15% sobre producción calificada"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANMON",
+      "que": "Telemetría de producción agrícola y rendimientos de Suelo Vivo que el Pulso consume para la estabilidad del peso-canasta (flujo de datos).",
+      "linea": 2650,
+      "cita": "El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Autoridad territorial: PLANTER aporta la Licencia Territorial y la co-soberanía indígena; PLANISV regenera suelo en esas tierras con consulta previa.",
+      "linea": 2651,
+      "cita": "PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Suelo regenerado y balances agua-suelo-carbono para agricultura urbana y cinturones alimentarios de las ciudades piloto.",
+      "linea": 2649,
+      "cita": "Suelo regenerado para agricultura urbana e infraestructura verde"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Personas: egresados reorientados como técnicos de campo, operadores de drones y analistas de datos (200 en Fase 1, 50.000+ en Fase 4).",
+      "linea": 2248,
+      "cita": "Primera cohorte de 200 egresados PLANREP incorporados como técnicos de campo PLANISV"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "Logística de insumos y muestras de suelo hacia laboratorios; a cambio, datos de uso de suelo para trazas ferroviarias y servidumbres.",
+      "linea": 2667,
+      "cita": "logística de insumos y muestras de suelo a laboratorios (línea L1)"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "El documento lista a PLANAGUA entre los PLANes a los que PLANISV provee, con una sección propia de remediación de cuerpos de agua y cuencas.",
+      "linea": 2704,
+      "cita": "Provee a: PLANAGUA, PLANTER (L1), PLANEN, PLANSAL."
+    },
+    {
+      "con": "PLANRUTA",
+      "que": "Dependencia declarada de arranque: la lista de dependencias canónicas solo nombra a PLANRUTA como precondición.",
+      "linea": 2703,
+      "cita": "Depende de: PLANRUTA."
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Credencial: el Portfolio Ciudadano Único registra formalmente las contribuciones de un productor a la regeneración del suelo.",
+      "linea": 2584,
+      "cita": "Su Portfolio Ciudadano Único, creado por PLANEDU"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El preámbulo cuenta dieciséis mandatos y los lista; el marco canónico del propio encabezado es de 27 PLANes temáticos más PLANRUTA.",
+      "linea": 82,
+      "cita": "dieciséis mandatos estratégicos interconectados"
+    },
+    {
+      "con": "interno",
+      "que": "El encabezado prohíbe nuevas agencias autónomas en tranche-1, pero el cuerpo crea por ley un ente autárquico (ENSV) con Ley de Infraestructura de Suelo Vivo en la hoja legislativa 2027 (tranche-1).",
+      "linea": 18,
+      "cita": "sin nuevas agencias autónomas en tranche-1"
+    },
+    {
+      "con": "interno",
+      "que": "La afectación de retenciones aparece con tres magnitudes distintas: 1% de soja equivale a USD 300–500M/año; 0,5-1% del total equivale a USD 25-80M/año; 2-3% da USD 400-750M en 15 años.",
+      "linea": 1744,
+      "cita": "esto representaría entre USD 25 y 80 millones anuales"
+    },
+    {
+      "con": "interno",
+      "que": "El presupuesto canónico se enuncia como 50M/año más 150M, como 1.0% PBI, como piso legal de 0,1% PBI y como USD 1.000-3.000M en 15 años, sin conciliación entre ellos.",
+      "linea": 44,
+      "cita": "**Presupuesto canónico:** 1.0% PBI / cap 50-300 pilotos"
+    },
+    {
+      "con": "interno",
+      "que": "Las remisiones internas no coinciden con la numeración: el Fondo remite a la Sección 12, que trata cumplimiento UE, cuando el Fondo está en la Sección 9.",
+      "linea": 1467,
+      "cita": "**Administrar el Fondo Nacional de Suelo Vivo** (ver Sección 12)"
+    },
+    {
+      "con": "interno",
+      "que": "El Directorio y la Tabla 7 describen seis agro-regiones con nombres distintos: una agrupa Pampeana, Buenos Aires periurbano y Patagonia; la otra separa Pampa Húmeda y Pampa Semiárida.",
+      "linea": 1509,
+      "cita": "6 agro-regiones (Pampeana, NEA, NOA, Cuyo, Patagonia, Buenos Aires periurbano)"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "Los umbrales del Pilar III quedan como incógnitas X (aumento de materia orgánica, biomasa microbiana, reducción de insumos, toneladas de CO2e); la Tabla 15 fija valores distintos.",
+      "linea": 469,
+      "cita": "+X% MOS, +X% biomasa microbiana, −X% insumos químicos"
+    },
+    {
+      "que": "La compensación parcial de retenciones a los productores participantes se deja como opción a considerar, sin diseño.",
+      "linea": 1748,
+      "cita": "se puede considerar un mecanismo de deducción parcial de retenciones"
+    },
+    {
+      "que": "Ante resultados mediocres, el plan admite que los suelos pampeanos podrían necesitar más años que los previstos para mostrar resultados.",
+      "linea": 2536,
+      "cita": "quizás los suelos pampeanos necesitan 5 años, no 3, para mostrar resultados significativos"
+    }
+  ]
+}

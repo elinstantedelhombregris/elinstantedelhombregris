@@ -1,0 +1,145 @@
+{
+ "grupo": 2,
+ "revisados": [
+  "Protocolo Bastardo",
+  "El Mapa",
+  "LANIA",
+  "ANDIG",
+  "Red Bastarda",
+  "ANEB"
+ ],
+ "cruces": [
+  {
+   "concepto": "Protocolo Bastardo",
+   "tipo": "quien",
+   "dueno": "PLANDIG",
+   "lineaDueno": 1065,
+   "citaDueno": "Desarrollar y mantener los protocolos del ecosistema soberano (IDS, SAPI, Mensajero, Protocolo Bastardo, La Tribu)",
+   "otro": "PLANEB",
+   "lineaOtro": 554,
+   "citaOtro": "Mantiene y evoluciona el código abierto del Protocolo",
+   "que": "PLANDIG asigna a ANDIG desarrollar y mantener el Protocolo Bastardo (y dice que PLANDIG «lo define y lo construye»); PLANEB asigna a la ANEB mantener y evolucionar su código abierto."
+  },
+  {
+   "concepto": "Protocolo Bastardo",
+   "tipo": "que",
+   "dueno": "PLANDIG",
+   "lineaDueno": 712,
+   "citaDueno": "es la infraestructura técnica que hace posible la gobernanza descentralizada de ¡BASTA!. PLANDIG lo define y lo construye. Incluye:",
+   "otro": "PLANEB",
+   "lineaOtro": 86,
+   "citaOtro": "infraestructura compartida open-source que incluye identidad descentralizada, tesorería on-chain",
+   "que": "PLANDIG lista como componentes sorteo, votación, transparencia y registro inmutable de decisiones; PLANEB le suma identidad descentralizada y tesorería on-chain, que PLANDIG no incluye."
+  },
+  {
+   "concepto": "Protocolo Bastardo",
+   "tipo": "que",
+   "dueno": "PLANDIG",
+   "lineaDueno": 712,
+   "citaDueno": "es la infraestructura técnica que hace posible la gobernanza descentralizada de ¡BASTA!",
+   "otro": "PLANMOV",
+   "lineaOtro": 1857,
+   "citaOtro": "marco jurídico-financiero PLANEB que articula a las Bastardas con cross-solidaridad y contribuciones cruzadas",
+   "que": "PLANDIG lo define como infraestructura técnica de gobernanza; PLANMOV lo describe como marco jurídico-financiero de PLANEB que articula cross-solidaridad entre Bastardas."
+  },
+  {
+   "concepto": "ANDIG",
+   "tipo": "nombre",
+   "dueno": "PLANDIG",
+   "lineaDueno": 1035,
+   "citaDueno": "ANDIG — AGENCIA NACIONAL DE INFRAESTRUCTURA DIGITAL Y SOBERANÍA TECNOLÓGICA",
+   "otro": "PLANMOV",
+   "lineaOtro": 849,
+   "citaOtro": "Agencia Nacional de Datos, Información y Gobernanza (ANDIG)",
+   "que": "PLANDIG expande ANDIG como Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica; PLANMOV la expande como Agencia Nacional de Datos, Información y Gobernanza."
+  },
+  {
+   "concepto": "ANDIG",
+   "tipo": "nombre",
+   "dueno": "PLANDIG",
+   "lineaDueno": 1035,
+   "citaDueno": "ANDIG — AGENCIA NACIONAL DE INFRAESTRUCTURA DIGITAL Y SOBERANÍA TECNOLÓGICA",
+   "otro": "PLANMOV",
+   "lineaOtro": 1559,
+   "citaOtro": "representación formal de ANDIG (Agencia Nacional Digital)",
+   "que": "PLANDIG la llama Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica; PLANMOV, en otra sección, Agencia Nacional Digital."
+  },
+  {
+   "concepto": "El Mapa",
+   "tipo": "que",
+   "dueno": "PLANDIG",
+   "lineaDueno": 391,
+   "citaDueno": "reporte ciudadano geolocalizado: contaminación, emergencias, estado de infraestructura",
+   "otro": "PLANMESA",
+   "lineaOtro": 382,
+   "citaOtro": "sueños declarados, necesidades, bastas, recursos ofrecidos, capacidades disponibles, hipótesis productivas abiertas, cuidados necesarios y disponibles",
+   "que": "PLANDIG define El Mapa como sensores orbitales, IoT y reportes ciudadanos ambientales y de infraestructura; PLANMESA lo consulta como registro de sueños, necesidades, recursos ofrecidos y cuidados declarados, que PLANDIG no incluye."
+  },
+  {
+   "concepto": "LANIA",
+   "tipo": "estado",
+   "dueno": "PLANDIG",
+   "lineaDueno": 2113,
+   "citaDueno": "El estadio B (capacidades soberanas: ArgenCloud, SAPI completa, LANIA, gemelo digital, gobernanza algorítmica, rieles monetarios) está **diferido a tranche-3+**",
+   "otro": "PLANMOV",
+   "lineaOtro": 852,
+   "citaOtro": "Los modelos fundacionales entrenados por LANIA (el laboratorio de IA soberana de PLANDIG) se ponen a disposición del LNMA",
+   "que": "PLANDIG difiere LANIA a tranche-3+ como estadio B condicional; PLANMOV da por disponibles sus modelos fundacionales para el LNMA."
+  },
+  {
+   "concepto": "LANIA",
+   "tipo": "estado",
+   "dueno": "PLANDIG",
+   "lineaDueno": 2113,
+   "citaDueno": "El estadio B (capacidades soberanas: ArgenCloud, SAPI completa, LANIA, gemelo digital, gobernanza algorítmica, rieles monetarios) está **diferido a tranche-3+**",
+   "otro": "PLANEN",
+   "lineaOtro": 794,
+   "citaOtro": "el LANEF usa la infraestructura de cómputo soberana del LANIA para simulaciones y modelado",
+   "que": "PLANDIG difiere LANIA a tranche-3+ como estadio B condicional; PLANEN hace que el LANEF use su cómputo como si ya existiera."
+  },
+  {
+   "concepto": "ANEB",
+   "tipo": "estado",
+   "dueno": "PLANEB",
+   "lineaDueno": 16,
+   "citaDueno": "ANEB → execution cell en MinProducción, no agencia autónoma con presupuesto protegido",
+   "otro": "PLANGEO",
+   "lineaOtro": 1322,
+   "citaOtro": "Las agencias (ANEB, ANSUS, etc.) tienen mandatos de 6 años no coincidentes con el ciclo presidencial. Los presupuestos son constitucionales",
+   "que": "La cabecera de PLANEB dice que en tranche-1 la ANEB es una celda de ejecución en MinProducción y no una agencia autónoma con presupuesto protegido; PLANGEO le atribuye mandatos de 6 años y presupuesto constitucional."
+  },
+  {
+   "concepto": "ANEB",
+   "tipo": "quien",
+   "dueno": "PLANEB",
+   "lineaDueno": 371,
+   "citaDueno": "Rotacional: sorteo + certificación profesional",
+   "otro": "PLANVIV",
+   "lineaOtro": 501,
+   "citaOtro": "Auditoría Permanente (ANEB designa auditores rotativos)",
+   "que": "PLANEB elige a los auditores de cada Bastarda por sorteo y certificación profesional; PLANVIV dice que los designa la ANEB."
+  },
+  {
+   "concepto": "ANEB",
+   "tipo": "numero",
+   "dueno": "PLANEB",
+   "lineaDueno": 566,
+   "citaDueno": "Recibe el 1-2% de ingresos brutos de cada Bastarda activa con destino al Fondo Soberano Nacional",
+   "otro": "PLANAGUA",
+   "lineaOtro": 2131,
+   "citaOtro": "Contribución de Bastardas Hídricas (2% de ingresos, igual que ANEB)",
+   "que": "PLANEB fija 1-2% de ingresos con destino al Fondo Soberano (y 3-5% para el Fondo de Solidaridad); PLANAGUA dice 2% «igual que ANEB» y «alineado con Fondo de Solidaridad»."
+  },
+  {
+   "concepto": "ANEB",
+   "tipo": "que",
+   "dueno": "PLANEB",
+   "lineaDueno": 491,
+   "citaDueno": "Ente autárquico creado por ley del Congreso de la Nación.",
+   "otro": "PLANRUTA",
+   "lineaOtro": 1514,
+   "citaOtro": "Red Bastarda provincial completa, ANEB provincial",
+   "que": "PLANEB define una sola ANEB nacional creada por ley del Congreso; PLANRUTA prevé una «ANEB provincial»."
+  }
+ ]
+}

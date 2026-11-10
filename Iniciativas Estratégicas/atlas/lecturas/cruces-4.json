@@ -1,0 +1,72 @@
+{
+  "grupo": 4,
+  "revisados": ["Tres Niveles JUS", "Casas JUS", "Síndico de Archivo", "Mesa Civil", "Credencial de Materia", "Ciclo LDEA (Aprender, Diseñar, Experimentar, Analizar)"],
+  "cruces": [
+    {
+      "concepto": "Tres Niveles JUS",
+      "tipo": "que",
+      "dueno": "PLANJUS",
+      "lineaDueno": 346,
+      "citaDueno": "Disputas laborales, conflictos inquilino/propietario, reclamos comerciales medianos (USD 5.000–50.000)",
+      "otro": "PLANVIV",
+      "lineaOtro": 1255,
+      "citaOtro": "El desalojo se tramita por vía rápida de PLANJUS (panel JUS-1, resolución en 15 días).",
+      "que": "PLANJUS ubica los conflictos inquilino/propietario en JUS-2 (45 días); PLANVIV manda el desalojo a un panel JUS-1 con resolución en 15 días."
+    },
+    {
+      "concepto": "Casas JUS",
+      "tipo": "que",
+      "dueno": "PLANJUS",
+      "lineaDueno": 515,
+      "citaDueno": "Las Casas JUS son los puntos de presencia física de PLANJUS en cada comunidad.",
+      "otro": "PLANSUS",
+      "lineaOtro": 2099,
+      "citaOtro": "con mediación obligatoria en 30 días y resolución vinculante en 60",
+      "que": "PLANJUS define las Casas JUS como puntos de presencia física donde se hacen audiencias y mediaciones, y los casos se resuelven por paneles con plazos de 15, 45 o 90 días; PLANSUS les atribuye mediación obligatoria en 30 días y resolución vinculante en 60."
+    },
+    {
+      "concepto": "Casas JUS",
+      "tipo": "nombre",
+      "dueno": "PLANJUS",
+      "lineaDueno": 513,
+      "citaDueno": "### 5.5 Las Casas JUS",
+      "otro": "PLANSAL",
+      "lineaOtro": 1497,
+      "citaOtro": "(ver *Casas JUS*, Sección 6 de PLANJUS)",
+      "que": "PLANJUS define las Casas JUS en su sección 5.5 (la Sección 6 trata de los panelistas); PLANSAL remite a la «Sección 6 de PLANJUS» para las Casas JUS."
+    },
+    {
+      "concepto": "Síndico de Archivo",
+      "tipo": "quien",
+      "dueno": "PLANMEMORIA",
+      "lineaDueno": 386,
+      "citaDueno": "ciudadano con Credencial Consolidada en Memoria, contratado por la ANM",
+      "otro": "PLANMOV",
+      "lineaOtro": 783,
+      "citaOtro": "**Síndicos de Archivo** del PLANDIG auditan el data-logging",
+      "que": "PLANMEMORIA define al Síndico de Archivo como contratado por la ANM (Agencia Nacional de Memoria); PLANMOV lo presenta como «Síndicos de Archivo del PLANDIG»."
+    },
+    {
+      "concepto": "Síndico de Archivo",
+      "tipo": "quien",
+      "dueno": "PLANMEMORIA",
+      "lineaDueno": 386,
+      "citaDueno": "ciudadano con Credencial Consolidada en Memoria, contratado por la ANM",
+      "otro": "PLANMESA",
+      "lineaOtro": 632,
+      "citaOtro": "Habilita rol de Síndico de Archivo, coordinación de Mesa",
+      "que": "PLANMEMORIA exige Credencial Consolidada en Memoria para ser Síndico de Archivo; PLANMESA dice que cualquier Credencial Nivel 3 Consolidada, de cualquier materia, habilita ese rol."
+    },
+    {
+      "concepto": "Credencial de Materia",
+      "tipo": "que",
+      "dueno": "PLANMESA",
+      "lineaDueno": 88,
+      "citaDueno": "La Credencial se gana cumpliendo cinco capas: estudio, declaración, decisión, producción, vínculo.",
+      "otro": "PLANMEMORIA",
+      "lineaOtro": 90,
+      "citaOtro": "Ningún ciudadano alcanza Credencial Consolidada en cualquier materia sin Capa Memorial activa",
+      "que": "PLANMESA define la Credencial con cinco capas (estudio, declaración, decisión, producción, vínculo), sin capa memorial; PLANMEMORIA exige una «Capa Memorial» activa para alcanzar la Credencial Consolidada en cualquier materia."
+    }
+  ]
+}

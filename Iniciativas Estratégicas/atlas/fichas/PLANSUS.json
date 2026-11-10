@@ -1,0 +1,528 @@
+{
+  "code": "PLANSUS",
+  "nombre": "Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido",
+  "version": "1.2 — Agosto 2026",
+  "tesis": "Reemplazar la prohibición de sustancias por una regulación integral en cascada, administrada por ANSUS en cuatro vías de licenciamiento, para quitarle el mercado al narcotráfico, liberar a los presos por drogas y financiar salud, investigación y economía legal.",
+  "problema": "Según el documento, la prohibición no redujo consumo ni oferta: entrega al narcotráfico un mercado de USD 3.000–8.000 millones anuales sin impuestos ni control de calidad, encarcela a consumidores y vendedores pobres, mata por adulteración, corrompe instituciones, bloquea la investigación científica y obliga a cumplir convenciones de la ONU firmadas bajo presión.",
+  "resumen": "Propone denunciar las tres convenciones de la ONU sobre drogas y sancionar una Ley de Soberanía sobre Sustancias. Crea ANSUS y cuatro vías de licenciamiento (ceremonial, terapéutica, recreativa, industrial). Ofrece a los operadores del mercado negro una amnistía por tiers (El Puente), libera a los presos por drogas no violentos y suma control de calidad, protección de menores, marco de conducción, banca y seguros. Agrega un Puente Sanitario, zonificación, propiedad intelectual y protección del conocimiento tradicional. Un bloque final plantea atraer pacientes, investigación y capital mediante un Registro de resultados terapéuticos, una admisión clínica única y un régimen de estabilidad.",
+  "horizonte": "Pre-Fase de 12 meses; Fase 1 en 2027 con cannabis; Fase 2 en 2028–2029 con psicodélicos; Fase 3 en 2029–2031 con sustancias de mayor riesgo. Cada fase avanza solo con su Puerta en verde: los hitos son objetivos, no compromisos.",
+  "financiamiento": "Costo de implementación de USD 800M–2.2B en cinco años. Ingresos por impuestos especiales, licencias, tratamiento de no residentes y decomiso de activos Tier 3 (USD 2.2–4.4B en 2031); ahorro de enforcement de USD 550M–1.4B anuales; ROI de 5:1 a 15:1.",
+  "temas": ["justicia-seguridad", "salud", "trabajo-produccion", "soberania-exterior", "estado-instituciones"],
+
+  "conceptos": [
+    {
+      "nombre": "ANSUS — Agencia Nacional de Soberanía sobre Sustancias",
+      "alias": ["ANSUS", "Agencia Nacional de Soberanía sobre Sustancias"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico creado por ley que licencia, controla y publica el mercado de sustancias. Directorio de 9 miembros con mandatos escalonados, presupuesto blindado y transparencia en tiempo real.",
+      "seccion": "10.1",
+      "linea": 921,
+      "cita": "ANSUS — Agencia Nacional de Soberanía sobre Sustancias"
+    },
+    {
+      "nombre": "Vía Ceremonial",
+      "alias": ["Vía Ceremonial"],
+      "tipo": "mecanismo",
+      "que_es": "Vía de licenciamiento para comunidades indígenas y tradiciones espirituales con uso ancestral. Regulación comunitaria, observador de ANSUS sin voto, exenta de impuesto.",
+      "seccion": "5.1",
+      "linea": 473,
+      "cita": "Vía Ceremonial"
+    },
+    {
+      "nombre": "Vía Terapéutica",
+      "alias": ["Vía Terapéutica"],
+      "tipo": "mecanismo",
+      "que_es": "Vía para pacientes bajo supervisión de profesionales licenciados, con espacio clínico habilitado y protocolo de integración. Licencia de ANSUS, ANMAT y colegios; tasa reducida de 5-8%.",
+      "seccion": "5.2",
+      "linea": 495,
+      "cita": "Vía Terapéutica"
+    },
+    {
+      "nombre": "Vía Recreativa / Personal",
+      "alias": ["Vía Recreativa"],
+      "tipo": "mecanismo",
+      "que_es": "Vía de uso adulto regulado con tres niveles de licencia (Micro, Meso, Macro), edad mínima de 18 años, certificación de calidad obligatoria, empaquetado neutro e impuestos progresivos.",
+      "seccion": "5.3",
+      "linea": 513,
+      "cita": "Vía Recreativa / Personal"
+    },
+    {
+      "nombre": "Vía Industrial / Agrícola",
+      "alias": ["Vía Industrial"],
+      "tipo": "mecanismo",
+      "que_es": "Vía productiva para cultivo de cannabis y cáñamo, farmacéutica, industria y exportación, con estándares GAP y GMP, evaluación ambiental, trazabilidad y estándares laborales.",
+      "seccion": "5.4",
+      "linea": 546,
+      "cita": "Vía Industrial / Agrícola"
+    },
+    {
+      "nombre": "El Puente (Amnistía Graduada)",
+      "alias": ["El Puente"],
+      "tipo": "programa",
+      "que_es": "Transición para operadores del mercado negro en tres tiers: amnistía inmediata para la calle, condicional para distribuidores y por cooperación y cesión de activos para el alto nivel, con prioridad de licencia Micro o Meso.",
+      "seccion": "6",
+      "linea": 605,
+      "cita": "La premisa de El Puente es simple y poderosa"
+    },
+    {
+      "nombre": "Fondo de Reparación Comunitaria",
+      "alias": ["Fondo de Reparación Comunitaria"],
+      "tipo": "fondo",
+      "que_es": "Fondo alimentado con activos cedidos por el Tier 3 y con parte del impuesto especial; financia a los barrios dañados por la guerra contra las drogas, con decisión de paneles ciudadanos barriales.",
+      "seccion": "6.4",
+      "linea": 655,
+      "cita": "Fondo de Reparación Comunitaria"
+    },
+    {
+      "nombre": "Certificado de Injusticia",
+      "alias": ["Certificado de Injusticia"],
+      "tipo": "norma",
+      "que_es": "Documento oficial que el Estado entrega a cada persona encarcelada por delitos de drogas no violentos, reconociendo que su encarcelamiento fue producto de una ley injusta.",
+      "seccion": "7.3",
+      "linea": 736,
+      "cita": "**Certificado de Injusticia** | Documento oficial emitido a cada persona"
+    },
+    {
+      "nombre": "Hub de I+D Psicodélico",
+      "alias": ["Hub de I+D", "Hub de Investigación y Desarrollo"],
+      "tipo": "programa",
+      "que_es": "Centro de investigación psicodélica con CONICET y universidades, apoyado en un marco regulatorio claro y en ANMAT; prioriza psilocibina, MDMA, DMT, ayahuasca, mescalina, ketamina e ibogaína.",
+      "seccion": "9.2",
+      "linea": 854,
+      "cita": "Hub de I+D Psicodélico"
+    },
+    {
+      "nombre": "Tablero Nacional de Sustancias",
+      "alias": ["Tablero Nacional de Sustancias"],
+      "tipo": "metrica",
+      "que_es": "Tablero público en tiempo real con indicadores de mercado, salud, criminalidad, social, económico y enforcement; su dato de uso en menores es el indicador número uno.",
+      "seccion": "10.3",
+      "linea": 952,
+      "cita": "Tablero Nacional de Sustancias"
+    },
+    {
+      "nombre": "Panel de Adversarios",
+      "alias": ["Panel de Adversarios"],
+      "tipo": "mecanismo",
+      "que_es": "Panel trienal de 15-25 opositores que produce un informe público de ataque al modelo; evaluadores internacionales convierten las críticas sin respuesta en disparadores obligatorios de revisión.",
+      "seccion": "10.4",
+      "linea": 967,
+      "cita": "Panel de Adversarios"
+    },
+    {
+      "nombre": "Certificados Provisionales de Calidad",
+      "alias": ["Certificados Provisionales de Calidad"],
+      "tipo": "mecanismo",
+      "que_es": "Documentos que acreditan que un lote pasó testeo en laboratorios internacionales mientras se despliega la red doméstica; sin certificado no se vende.",
+      "seccion": "10.5",
+      "linea": 984,
+      "cita": "**Certificados Provisionales de Calidad (CPC):** documentos que acreditan que un lote pasó testeo internacional"
+    },
+    {
+      "nombre": "Circuit breaker de protección de menores",
+      "alias": ["Circuit breaker"],
+      "tipo": "mecanismo",
+      "que_es": "Disparador automático: si el uso en menores sube más de 10% sobre la línea base, ANSUS debe presentar medidas correctivas al Directorio en 90 días, sin decisión política.",
+      "seccion": "11.3",
+      "linea": 1050,
+      "cita": "**Circuit breaker:** si el uso de cualquier sustancia en menores"
+    },
+    {
+      "nombre": "Ley de Soberanía sobre Sustancias",
+      "alias": ["Ley de Soberanía sobre Sustancias"],
+      "tipo": "norma",
+      "que_es": "Ley marco que crea ANSUS, establece los cuatro tracks, la clasificación de sustancias, el marco impositivo, El Puente, la liberación de presos, las penas por venta a menores y autoriza la denuncia de tratados.",
+      "seccion": "12.2",
+      "linea": 1084,
+      "cita": "**1. Ley de Soberanía sobre Sustancias**"
+    },
+    {
+      "nombre": "Puertas de la cascada (PUERTA 1A, 2 y 3)",
+      "alias": ["PUERTA 1A", "PUERTA 2", "PUERTA 3"],
+      "tipo": "mecanismo",
+      "que_es": "Compuertas con métricas en verde o rojo que condicionan cada fase: ventas de cannabis, psicodélicos y sustancias de mayor riesgo. Una métrica en rojo pausa la fase siguiente y activa remediación.",
+      "seccion": "18",
+      "linea": 1404,
+      "cita": "PUERTA 1A — Requisito para primeras ventas legales de cannabis"
+    },
+    {
+      "nombre": "Puente Sanitario de 36 meses",
+      "alias": ["Puente Sanitario"],
+      "tipo": "programa",
+      "que_es": "Programa de tres años con 500 consejeros, 50 CAPAs reforzados, línea 24/7, equipos móviles, 1.000 pares comunitarios y espacios de consumo supervisado, hasta que PLANSAL pueda absorberlo.",
+      "seccion": "24.2",
+      "linea": 1862,
+      "cita": "Puente Sanitario de 36 Meses"
+    },
+    {
+      "nombre": "Atestación comunitaria intransferible",
+      "alias": ["atestación comunitaria"],
+      "tipo": "mecanismo",
+      "que_es": "Candado de la Vía Ceremonial: la atestación de una comunidad no se transfiere ni se alquila; impide que un operador comercial se cubra con una exención ajena.",
+      "seccion": "5.1",
+      "linea": 491,
+      "cita": "la atestación comunitaria no es transferible y no se alquila"
+    },
+    {
+      "nombre": "Registro Defensivo de Conocimiento Tradicional",
+      "alias": ["Registro Defensivo de Conocimiento Tradicional", "Registro Defensivo"],
+      "tipo": "mecanismo",
+      "que_es": "Base de datos voluntaria controlada por las comunidades que establece arte previo contra patentes de terceros sin hacer público el conocimiento.",
+      "seccion": "27.3",
+      "linea": 2137,
+      "cita": "**Registro Defensivo de Conocimiento Tradicional.**"
+    },
+    {
+      "nombre": "Registro Nacional de Resultados Terapéuticos",
+      "alias": ["Registro Nacional de Resultados Terapéuticos", "Registro Nacional de Resultados"],
+      "tipo": "mecanismo",
+      "que_es": "Fideicomiso público bajo ley argentina con los resultados de cada tratamiento, con consentimiento granular y revocable. No se vende, no se exporta como base y no se licencia en propiedad.",
+      "seccion": "28.2",
+      "linea": 2194,
+      "cita": "**Registro Nacional de Resultados Terapéuticos** es el repositorio público"
+    },
+    {
+      "nombre": "Admisión clínica única",
+      "alias": ["admisión clínica única"],
+      "tipo": "mecanismo",
+      "que_es": "Compuerta obligatoria para todo no residente que acceda a sustancias: asigna un médico argentino responsable con nombre antes del viaje, sin tocar la ceremonia comunitaria.",
+      "seccion": "29.4",
+      "linea": 2281,
+      "cita": "La admisión clínica única"
+    },
+    {
+      "nombre": "Régimen de estabilidad sectorial",
+      "alias": ["Régimen de estabilidad sectorial"],
+      "tipo": "norma",
+      "que_es": "Estabilidad de reglas por plazo cierto para quien invierta sobre un umbral, con cuatro obligaciones: transferencia tecnológica, copropiedad local, coautoría y participación en patentes.",
+      "seccion": "30.3",
+      "linea": 2380,
+      "cita": "Régimen de estabilidad sectorial, con obligaciones"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Casas JUS",
+      "alias": ["Casas JUS"],
+      "origen": "PLANJUS",
+      "para_que": "Resolver disputas de zonificación entre operadores y municipios con mediación obligatoria en 30 días y resolución vinculante en 60.",
+      "linea": 2099,
+      "cita": "Van a las **Casas JUS** (cross-ref PLANJUS)"
+    },
+    {
+      "nombre": "Triple candado anticorrupción",
+      "alias": ["triple candado"],
+      "origen": "PLANJUS",
+      "para_que": "Cruzar la transparencia de beneficiarios finales de los licenciatarios con el mecanismo anticorrupción de PLANJUS.",
+      "linea": 1642,
+      "cita": "triple candado anticorrupción de PLANJUS"
+    },
+    {
+      "nombre": "Fondo Soberano Ciudadano",
+      "alias": ["Fondo Soberano Ciudadano"],
+      "origen": "PLANMON",
+      "para_que": "Absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización.",
+      "linea": 2477,
+      "cita": "El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Acelerar microemprendimientos de operadores de El Puente y dictar la capacitación laboral del mercado legal.",
+      "linea": 618,
+      "cita": "a través de Centros de la Vida de PLANREP"
+    },
+    {
+      "nombre": "Escalera de PLANPACTO",
+      "alias": ["Escalera"],
+      "origen": "PLANPACTO",
+      "para_que": "Reparte el gasto primario entre los mandatos que reclaman piso; PLANSUS compara allí su piso de 0,10% del PBI.",
+      "linea": 2417,
+      "cita": "la **Escalera** de PLANPACTO conserva **2,40%**"
+    },
+    {
+      "nombre": "EB operativas de PLANSEG",
+      "alias": ["250+ EB"],
+      "origen": "PLANSEG",
+      "para_que": "Precondición temporal de la legalización: PLANSEG debe tener esas unidades operativas 12 meses antes.",
+      "linea": 2485,
+      "cita": "PLANSEG debe tener 250+ EB operativas 12 meses ANTES de legalización"
+    },
+    {
+      "nombre": "Criterio de arraigo",
+      "alias": ["arraigo, no por llegadas"],
+      "origen": "PLANPUERTA",
+      "para_que": "Medir el éxito de las visas de investigador, de paciente y del programa de retorno por permanencia y no por entradas.",
+      "linea": 2435,
+      "cita": "se mide por **arraigo, no por llegadas**"
+    },
+    {
+      "nombre": "Cascada diplomática",
+      "alias": ["cascada diplomática"],
+      "origen": "PLANGEO",
+      "para_que": "Ejecutar la salida diplomática de las convenciones de drogas con el cuerpo legal que provee PLANSUS.",
+      "linea": 2473,
+      "cita": "Cascada diplomática para denuncia de convenciones de drogas"
+    },
+    {
+      "nombre": "Sistema de áreas de vida",
+      "alias": ["áreas de vida"],
+      "origen": "PLANSAL",
+      "para_que": "Integrar el consumo de sustancias como variable de bienestar dentro de la dimensión de salud al heredar el Puente Sanitario.",
+      "linea": 1884,
+      "cita": "El sistema de áreas de vida de PLANSAL"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Costo de implementación en cinco años",
+      "valor": "USD 800M-2.2B",
+      "tipo": "presupuesto",
+      "linea": 1150,
+      "cita": "**TOTAL REVISADO** | **USD 800M-2.2B**"
+    },
+    {
+      "concepto": "Retorno sobre la inversión",
+      "valor": "5:1 a 15:1 en diez años",
+      "tipo": "meta",
+      "linea": 1186,
+      "cita": "el ROI de PLANSUS es de **5:1 a 15:1 en diez años**"
+    },
+    {
+      "concepto": "Ingresos totales proyectados 2031 y 2036",
+      "valor": "USD 2.2-4.4B (2031); USD 4.2-8.4B (2036)",
+      "tipo": "meta",
+      "linea": 1168,
+      "cita": "**USD 2.2-4.4B** | **USD 4.2-8.4B**"
+    },
+    {
+      "concepto": "Presupuesto blindado de ANSUS",
+      "valor": "0.1% del PBI + 10% de la recaudación fiscal de PLANSUS",
+      "tipo": "parametro",
+      "linea": 940,
+      "cita": "piso constitucional de 0.1% del PBI + 10% de la recaudación fiscal de PLANSUS"
+    },
+    {
+      "concepto": "Piso que PLANSUS reclama en la Escalera",
+      "valor": "0,10% del PBI",
+      "tipo": "parametro",
+      "linea": 2417,
+      "cita": "ese piso es de **0,10% del PBI**"
+    },
+    {
+      "concepto": "Impuesto especial al cannabis y su destino",
+      "valor": "15-20%; 40% reducción de daños, 30% reparación, 20% I+D, 10% ANSUS",
+      "tipo": "fuente",
+      "linea": 542,
+      "cita": "Cannabis / derivados | 15-20% | 40% reducción de daños"
+    },
+    {
+      "concepto": "Escalonamiento del excise del cannabis",
+      "valor": "8% en 2027, 15% en 2029, 20% en 2031",
+      "tipo": "parametro",
+      "linea": 1954,
+      "cita": "Arranca en 8%, sube a 15% en el 2029"
+    },
+    {
+      "concepto": "Presupuesto del Puente Sanitario",
+      "valor": "USD 50–120 millones en 3 años, con 5% de la recaudación",
+      "tipo": "presupuesto",
+      "linea": 1900,
+      "cita": "**USD 50–120 millones en 3 años**"
+    },
+    {
+      "concepto": "Pena por venta a menores",
+      "valor": "20 a 25 años de prisión efectiva",
+      "tipo": "parametro",
+      "linea": 1024,
+      "cita": "**pena de 20 a 25 años de prisión efectiva**"
+    },
+    {
+      "concepto": "Umbral del circuit breaker de menores",
+      "valor": "más de 10% sobre la línea base; 90 días para medidas",
+      "tipo": "parametro",
+      "linea": 1050,
+      "cita": "si el uso de cualquier sustancia en menores aumenta más de un 10% sobre la línea base"
+    },
+    {
+      "concepto": "Presupuesto de control de calidad",
+      "valor": "USD 80-150M en 5 años",
+      "tipo": "presupuesto",
+      "linea": 1012,
+      "cita": "**Presupuesto: USD 80-150M en 5 años**"
+    },
+    {
+      "concepto": "Reducción de presos vinculados a drogas",
+      "valor": "70-80% en los primeros 6 meses",
+      "tipo": "meta",
+      "linea": 723,
+      "cita": "**Objetivo:** Reducción del 70-80% de la población carcelaria"
+    },
+    {
+      "concepto": "Preaviso de denuncia de las convenciones",
+      "valor": "12 meses desde la notificación",
+      "tipo": "plazo",
+      "linea": 783,
+      "cita": "Período de preaviso: 12 meses desde la notificación."
+    },
+    {
+      "concepto": "Cesión de activos del Tier 3",
+      "valor": "30-50% de los activos al Fondo de Reparación Comunitaria",
+      "tipo": "fuente",
+      "linea": 647,
+      "cita": "cesión del 30-50% de activos al Fondo de Reparación Comunitaria"
+    },
+    {
+      "concepto": "Facturación anual del mercado negro",
+      "valor": "USD 3.000–8.000M",
+      "tipo": "diagnostico",
+      "linea": 148,
+      "cita": "Facturación anual del mercado negro de drogas en Argentina | USD 3.000–8.000M"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANSEG",
+      "que": "La reforma policial y el protocolo de transición narco de PLANSEG son precondición temporal de la legalización escalonada: PLANSUS depende de PLANSEG más que al revés.",
+      "linea": 1511,
+      "cita": "PLANSEG es **precondición**, no consecuencia"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "El Puente Sanitario construye consejeros, CAPAs, pares y línea de ayuda que PLANSAL hereda; los protocolos clínicos psicodélicos alimentan su medicina mental.",
+      "linea": 1886,
+      "cita": "PLANSUS construye la infraestructura sanitaria que PLANSAL va a heredar"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Aporta el modelo de paneles ciudadanos por sorteo y las Casas JUS para conflictos de licencias y zonificación; PLANSUS suma una Sala de Sustancias.",
+      "linea": 2099,
+      "cita": "Van a las **Casas JUS** (cross-ref PLANJUS)"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Los Centros de la Vida dictan la capacitación laboral y el acelerador de microemprendimientos; PLANREP aporta microcrédito y empleo a quienes salen de prisión.",
+      "linea": 1986,
+      "cita": "a través de los Centros de la Vida de PLANREP"
+    },
+    {
+      "con": "PLANMON",
+      "que": "La recaudación fiscal de sustancias capitaliza el Fondo Soberano Ciudadano; la repatriación de utilidades de PLANMON es la compuerta del tramo fábrica.",
+      "linea": 2477,
+      "cita": "El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "Debe dar estabilidad jurídica con plazo cierto, compuerta del tramo laboratorio; sin ella no se radica investigación. Además la Escalera reparte el piso presupuestario.",
+      "linea": 2490,
+      "cita": "**compuerta del tramo laboratorio**"
+    },
+    {
+      "con": "PLANPUERTA",
+      "que": "El régimen migratorio de PLANPUERTA sostiene la visa de investigador, la visa de paciente y el programa de retorno, con el arraigo como criterio rector.",
+      "linea": 2435,
+      "cita": "Todo esto se apoya en **PLANPUERTA**, el mandato migratorio"
+    },
+    {
+      "con": "PLANPREGUNTA",
+      "que": "El Registro Nacional de Resultados Terapéuticos es el bien público de investigación que tiene su casa conceptual en PLANPREGUNTA.",
+      "linea": 2230,
+      "cita": "Este bloque tiene su casa conceptual en **PLANPREGUNTA**"
+    },
+    {
+      "con": "PLANGEO",
+      "que": "PLANSUS provee el cuerpo legal de salida de las convenciones de drogas y PLANGEO ejecuta la cascada diplomática.",
+      "linea": 2488,
+      "cita": "Cuerpo legal de salida de convenciones internacionales de drogas provisto por PLANSUS"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "La educación sobre sustancias por edades (neurociencia, farmacología, reducción de daños) se integra en las capacidades de PLANEDU, desarrollada con ANSUS.",
+      "linea": 1036,
+      "cita": "Programa educativo integrado en **PLANEDU**"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Las nuevas ciudades nacen con zonas agrícolas, centros de investigación, infraestructura terapéutica y Casas JUS que ya contemplan el mercado de sustancias.",
+      "linea": 1218,
+      "cita": "Las 24 nuevas ciudades propuestas por PLAN24CN incorporan infraestructura PLANSUS desde el diseño."
+    },
+    {
+      "con": "PLANISV",
+      "que": "El cáñamo industrial entra en rotaciones de cultivo para restaurar suelos degradados; PLANSUS regula la sustancia y PLANISV desarrolla el insumo industrial.",
+      "linea": 2077,
+      "cita": "PLANSUS y PLANISV trabajan en tándem"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El costo de implementación a cinco años figura en la tesis como USD 500M–1.500M y en la Tabla 13.1 como USD 800M-2.2B.",
+      "linea": 128,
+      "cita": "El costo de implementación es de USD 500M–1.500M en 5 años"
+    },
+    {
+      "con": "interno",
+      "que": "La tesis proyecta ingresos de USD 2.000–8.000 millones anuales al 2031, pero la Tabla 13.2 suma USD 2.2-4.4B para ese año.",
+      "linea": 128,
+      "cita": "Los ingresos proyectados son de USD 2.000–8.000 millones/año al 2031"
+    },
+    {
+      "con": "interno",
+      "que": "El encabezado declara al plan research-only y sin ventana de legalización plena; el cuerpo fija ventas legales de cannabis en 2027 y legalización total hacia 2031.",
+      "linea": 42,
+      "cita": "Research-only / diferido en tranche-1/2/3; legalización plena eliminada de cualquier ventana"
+    },
+    {
+      "con": "interno",
+      "que": "La Sección 12.3 afirma que no hace falta reforma constitucional, pero ANSUS lleva un piso presupuestario descripto como constitucional.",
+      "linea": 940,
+      "cita": "piso constitucional de 0.1% del PBI + 10% de la recaudación fiscal de PLANSUS"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "El texto nombra «PLANSALUD», código ausente del registro, como mandato sanitario, mientras en otras secciones usa PLANSAL.",
+      "linea": 1856,
+      "cita": "PLANSALUD — el mandato ¡BASTA! para la reforma integral del sistema sanitario"
+    },
+    {
+      "con": "interno",
+      "que": "Cifra inconsistente de estados de EE.UU. con cannabis legal: 37 en la Tabla 8B y 24 en la Sección 15.",
+      "linea": 821,
+      "cita": "37 estados ya legalizaron cannabis internamente"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "Qué entregar por escrito, si crear historia clínica y cómo derivar al visitante que vuelve a una jurisdicción donde su tratamiento es delito: se deja a la Pre-Fase.",
+      "linea": 2313,
+      "cita": "**Y acá hay un problema sin resolver que este documento no va a fingir que resolvió.**"
+    },
+    {
+      "que": "La cifra de empleo del pilar de tratamiento de no residentes está retirada hasta que exista un modelo que la sostenga.",
+      "linea": 2453,
+      "cita": "Se calcula en la Pre-Fase o no se escribe."
+    },
+    {
+      "que": "Los valores de ingresos por no residentes no fueron recalculados contra el mercado de turismo médico; queda como tarea de la Pre-Fase.",
+      "linea": 1170,
+      "cita": "Nadie recalculó estos valores contra el mercado correcto: es tarea de la Pre-Fase."
+    },
+    {
+      "que": "El aviso de la embajada de EE.UU. sobre lejanía médica se cita por fuente secundaria y falta el original.",
+      "linea": 2446,
+      "cita": "Citado vía fuente secundaria; falta el original"
+    },
+    {
+      "que": "El problema macroeconómico que frena la inversión extranjera es anterior al plan y PLANSUS declara que no lo resuelve.",
+      "linea": 2347,
+      "cita": "Ese es un problema macroeconómico argentino, es anterior a este plan, y PLANSUS no lo resuelve."
+    }
+  ]
+}

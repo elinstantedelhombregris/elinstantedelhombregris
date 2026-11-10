@@ -1,0 +1,559 @@
+{
+  "code": "PLANDIG",
+  "nombre": "Plan Nacional de Soberanía Digital, Cognitiva y Ecología de la Atención",
+  "version": "2.0 — Abril 2026",
+  "tesis": "Argentina es una colonia digital; PLANDIG construye un sistema nervioso soberano (núcleo de datacenters, malla comunitaria, LANIA, datos en tres capas, protocolos públicos) gobernado por ANDIG, más derechos sobre la atención frente a los algoritmos.",
+  "problema": "Los datos del Estado y de los ciudadanos, el cómputo, los pagos, la identidad, los modelos de IA y las plataformas de vida digital están en manos de corporaciones extranjeras. El Estado no ve su propio territorio porque sus datos están en silos, y los algoritmos de recomendación modelan la atención sin consentimiento.",
+  "resumen": "Propone una infraestructura de dos capas, un núcleo soberano de datacenters reconvertidos y una malla de nodos comunitarios que ganan Créditos de Cómputo Nacional. Suma el LANIA con modelos de IA abiertos, la arquitectura de datos en tres capas con Cofre Digital Ciudadano, y protocolos de identidad, pagos, mensajería, gobernanza y coordinación. Agrega El Mapa de sensores, el Arquitecto de Fuerza Laboral IA, ciberseguridad, reversión de fuga de cerebros, auditoría algorítmica y derechos de atención. ANDIG lo administra.",
+  "horizonte": "Pre-Fase de 18 meses y cascada de 10 años en seis fases (2027 a 2035). La revisión de abril de 2026 limita tranche-1 (estadio A) a ocho servicios; ArgenCloud, LANIA y SAPI completos pasan a un estadio B condicional.",
+  "financiamiento": "Inversión acumulada a 10 años de USD 4.700–9.900M, cubierta por ahorro en cloud y comisiones, ciencia y tecnología, multilaterales, capitalización ciudadana e ingresos propios (USD 3.700–10.000M). El estadio A fija USD 0.4B/año más USD 1.2B de inversión a 24 meses.",
+  "temas": ["digital-datos", "estado-instituciones", "democracia-participacion", "palabra-publica", "soberania-exterior"],
+
+  "conceptos": [
+    {
+      "nombre": "ANDIG",
+      "alias": ["ANDIG"],
+      "tipo": "institucion",
+      "que_es": "Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica: ente autárquico con directorio por sorteo y concurso, presupuesto protegido y tope de 500 empleados. Opera núcleo, LANIA, malla y protocolos.",
+      "seccion": "13.1",
+      "linea": 1041,
+      "cita": "ANDIG es un ente autárquico del Estado nacional"
+    },
+    {
+      "nombre": "LANIA",
+      "alias": ["LANIA"],
+      "tipo": "institucion",
+      "que_es": "Laboratorio Nacional de Inteligencia Artificial: entrena, despliega y audita modelos fundacionales soberanos sobre datos argentinos, con cinco divisiones y modelos por dominio (legal, educativo, salud, territorial, gobernanza).",
+      "seccion": "5.1",
+      "linea": 465,
+      "cita": "El LANIA es la institución que le da cerebro al sistema nervioso"
+    },
+    {
+      "nombre": "ArgenCloud",
+      "alias": ["ArgenCloud"],
+      "tipo": "mecanismo",
+      "que_es": "Nube soberana del plan: el conjunto de núcleo soberano y malla comunitaria sobre el que corren IDS, SAPI y las plataformas de los demás PLANes. Su fracaso tiene tres escenarios de contingencia.",
+      "seccion": "33.1",
+      "linea": 1952,
+      "cita": "ArgenCloud — la infraestructura de nube soberana"
+    },
+    {
+      "nombre": "Núcleo soberano",
+      "alias": ["núcleo soberano", "Núcleo Soberano"],
+      "tipo": "mecanismo",
+      "que_es": "Capa 1 de infraestructura: 20–31 datacenters reconvertidos desde fábricas, bases militares y edificios públicos, operados por ANDIG o ARSAT, con 80% o más de energía renovable.",
+      "seccion": "6.2",
+      "linea": 542,
+      "cita": "El núcleo soberano es la columna vertebral de la infraestructura digital argentina"
+    },
+    {
+      "nombre": "Malla comunitaria",
+      "alias": ["malla comunitaria", "Malla Comunitaria", "Nodo Argentino"],
+      "tipo": "mecanismo",
+      "que_es": "Capa 2 de infraestructura: nodos certificados por ANDIG (hogar, escuela, cooperativa, municipal, productivo) que aportan cómputo y almacenamiento públicos y ganan créditos. Los datos sensibles no corren en ella.",
+      "seccion": "6.3",
+      "linea": 574,
+      "cita": "La malla comunitaria es la innovación más radical de PLANDIG en infraestructura"
+    },
+    {
+      "nombre": "Créditos de Cómputo Nacional",
+      "alias": ["Créditos de Cómputo Nacional", "CCN"],
+      "tipo": "mecanismo",
+      "que_es": "Crédito de servicio emitido por ANDIG a cambio de capacidad verificada de un nodo; se canjea por servicios, crédito fiscal, cómputo del LANIA o pesos vía SAPI. No es criptomoneda.",
+      "seccion": "6.3",
+      "linea": 580,
+      "cita": "Créditos de Cómputo Nacional (CCN)"
+    },
+    {
+      "nombre": "El Mapa",
+      "alias": ["El Mapa"],
+      "tipo": "mecanismo",
+      "que_es": "Sistema sensorial nacional que integra imágenes orbitales (SAOCOM), la Red Nacional de Sensores IoT y reportes ciudadanos en una conciencia situacional del territorio y un sistema de alerta temprana.",
+      "seccion": "4.1",
+      "linea": 383,
+      "cita": "**El Mapa** es la integración de todos estos sentidos"
+    },
+    {
+      "nombre": "Arquitectura de Datos en Tres Capas",
+      "alias": ["Arquitectura de Datos en Tres Capas"],
+      "tipo": "mecanismo",
+      "que_es": "Marco de gestión de datos: Capa 1 pública abierta, Capa 2 intergubernamental con protocolo tipo X-Road y registro de accesos, Capa 3 ciudadana cifrada con llave exclusiva del ciudadano.",
+      "seccion": "7.1",
+      "linea": 614,
+      "cita": "La **Arquitectura de Datos en Tres Capas** es esa estructura"
+    },
+    {
+      "nombre": "Cofre Digital Ciudadano",
+      "alias": ["Cofre Digital Ciudadano", "Cofre Digital"],
+      "tipo": "mecanismo",
+      "que_es": "Espacio cifrado de extremo a extremo en el núcleo soberano donde cada persona guarda sus datos personales (Capa 3). Solo el ciudadano tiene la llave; excepción: orden judicial bajo PLANJUS.",
+      "seccion": "7.4",
+      "linea": 654,
+      "cita": "Técnicamente, esto se implementa con un **Cofre Digital Ciudadano**"
+    },
+    {
+      "nombre": "Identidad Digital Soberana",
+      "alias": ["Identidad Digital Soberana", "IDS"],
+      "tipo": "mecanismo",
+      "que_es": "Credencial criptográfica (DNI Digital 2.0) para autenticarse ante el Estado, firmar con validez legal y acceder al Cofre, con divulgación selectiva y modo offline. Basada en estándares W3C.",
+      "seccion": "8.2",
+      "linea": 677,
+      "cita": "**Identidad Digital Soberana (IDS)**"
+    },
+    {
+      "nombre": "SAPI",
+      "alias": ["SAPI", "Sistema Argentino de Pagos Instantáneos"],
+      "tipo": "mecanismo",
+      "que_es": "Sistema de pagos instantáneos gratuito, 24/7, procesado en el núcleo soberano e inspirado en PIX. Interopera con bancos, fintechs, Bastardas y cooperativas.",
+      "seccion": "8.3",
+      "linea": 688,
+      "cita": "**Sistema Argentino de Pagos Instantáneos (SAPI)**"
+    },
+    {
+      "nombre": "Mensajero Nacional",
+      "alias": ["Mensajero Nacional"],
+      "tipo": "programa",
+      "que_es": "App de referencia del protocolo de mensajería soberana: cifrada de extremo a extremo, de código abierto, preinstalada con la IDS y con metadatos minimizados por diseño.",
+      "seccion": "8.4",
+      "linea": 708,
+      "cita": "**Mensajero Nacional**"
+    },
+    {
+      "nombre": "Protocolo Bastardo",
+      "alias": ["Protocolo Bastardo"],
+      "tipo": "mecanismo",
+      "que_es": "Infraestructura técnica de gobernanza descentralizada que PLANDIG define y construye: sorteo digital verificable, votación segura, transparencia radical automática y registro inmutable de decisiones.",
+      "seccion": "8.5",
+      "linea": 712,
+      "cita": "El Protocolo Bastardo — ya mencionado en PLANEB"
+    },
+    {
+      "nombre": "La Tribu",
+      "alias": ["La Tribu"],
+      "tipo": "mecanismo",
+      "que_es": "Protocolo de coordinación distribuida sobre el que se montan las herramientas de gobernanza participativa: espacios, deliberación, decisión, ejecución, transparencia e IA asistente.",
+      "seccion": "9.1",
+      "linea": 731,
+      "cita": "**La Tribu** es el protocolo de coordinación distribuida"
+    },
+    {
+      "nombre": "Arquitecto de Fuerza Laboral IA",
+      "alias": ["Arquitecto de Fuerza Laboral", "Compañero IA"],
+      "tipo": "mecanismo",
+      "que_es": "Sistema de IA que modela a escala macro qué funciones del Estado automatizar y en qué secuencia, y a escala micro acompaña a cada trabajador con un Compañero IA. Se acopla con PLANREP.",
+      "seccion": "11.1",
+      "linea": 962,
+      "cita": "El Arquitecto de Fuerza Laboral es el componente de PLANDIG que conecta con PLANREP"
+    },
+    {
+      "nombre": "Ecología de la Atención",
+      "alias": ["Ecología de la Atención"],
+      "tipo": "termino",
+      "que_es": "Marco que trata la atención humana como recurso escaso y protegible; consagra cuatro derechos cognitivos: atención no algorítmica, commons atencional, desconexión y ser no predecible.",
+      "seccion": "9.4",
+      "linea": 782,
+      "cita": "La **Ecología de la Atención** reconoce"
+    },
+    {
+      "nombre": "Commons Atencional",
+      "alias": ["Commons Atencional", "Commons Atencionales"],
+      "tipo": "programa",
+      "que_es": "Red de 3.000+ espacios públicos de pensamiento, sin perfilado ni publicidad. La rectoría es de ANDIG; el pago de las sedes propias fue asignado a PLANFOCO.",
+      "seccion": "9.4",
+      "linea": 788,
+      "cita": "**Derecho al Commons Atencional.**"
+    },
+    {
+      "nombre": "Mesa de Auditoría Algorítmica Pública",
+      "alias": ["Mesa de Auditoría Algorítmica Pública", "MAAP"],
+      "tipo": "institucion",
+      "que_es": "Mesa Civil especializada, articulada con ANDIG, que audita sistemas algorítmicos con más de 100.000 usuarios, usados en derechos fundamentales o contratados por el Estado, y los califica Verde, Ámbar o Rojo.",
+      "seccion": "9.5",
+      "linea": 819,
+      "cita": "**Mesa de Auditoría Algorítmica Pública** (MAAP)"
+    },
+    {
+      "nombre": "Protocolo Soberano de Atención",
+      "alias": ["Protocolo Soberano de Atención", "PSA"],
+      "tipo": "norma",
+      "que_es": "Estándar técnico abierto de ANDIG y LANIA para la Declaración de Atención: API que las aplicaciones deben respetar, certificación PSA Compliant y marca de No Conformes con sanciones escalonadas.",
+      "seccion": "9.6",
+      "linea": 896,
+      "cita": "**Protocolo Soberano de Atención (PSA):**"
+    },
+    {
+      "nombre": "Tablero Nacional Digital",
+      "alias": ["Tablero Nacional Digital"],
+      "tipo": "metrica",
+      "que_es": "Panel público de rendición de cuentas de PLANDIG en la Capa 1, con indicadores de infraestructura, IA, adopción, economía, talento, seguridad y sensores a cinco y diez años.",
+      "seccion": "19",
+      "linea": 1267,
+      "cita": "El Tablero Nacional Digital es la herramienta de rendición de cuentas de PLANDIG"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Jornada 6+2",
+      "alias": ["Jornada 6+2"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Fija las dos horas de cuidado comunitario como offline por definición y sostiene el derecho a la desconexión.",
+      "linea": 790,
+      "cita": "Articulación con la Jornada 6+2 del PLANCUIDADO"
+    },
+    {
+      "nombre": "Bastarda Financiera",
+      "alias": ["Bastarda Financiera"],
+      "origen": "PLANEB",
+      "para_que": "Es uno de los canjes de los CCN y un riel de SAPI para las Empresas Bastardas.",
+      "linea": 581,
+      "cita": "pesos argentinos vía la Bastarda Financiera (PLANEB)"
+    },
+    {
+      "nombre": "Credencial de Materia y Cédula Civil",
+      "alias": ["Credencial de Materia", "Cédula Civil"],
+      "origen": "PLANMESA",
+      "para_que": "PLANDIG aloja estas credenciales y las usa para integrar la MAAP y el informe mensual de extracción atencional.",
+      "linea": 1233,
+      "cita": "Credencial de Materia y Cédula Civil"
+    },
+    {
+      "nombre": "Desmontaje",
+      "alias": ["Desmontaje"],
+      "origen": "PLANFOCO",
+      "para_que": "Materia de alfabetización algorítmica que PLANFOCO incorpora al currículum y sobre la que se apoya la Ecología de la Atención.",
+      "linea": 803,
+      "cita": "el **Desmontaje**, que `PLANFOCO` incorpora al currículum"
+    },
+    {
+      "nombre": "Siete Capacidades",
+      "alias": ["Siete Capacidades"],
+      "origen": "PLANEDU",
+      "para_que": "Currículo sobre el que se ajusta el Modelo Educativo Argentino del LANIA y se incluye formación en soberanía digital.",
+      "linea": 490,
+      "cita": "entrenado sobre el currículo de las Siete Capacidades"
+    },
+    {
+      "nombre": "Portfolio Ciudadano",
+      "alias": ["Portfolio Ciudadano"],
+      "origen": "PLANEDU",
+      "para_que": "Historial educativo que cada persona guarda en su Cofre Digital Ciudadano (Capa 3).",
+      "linea": 654,
+      "cita": "el Portfolio Ciudadano de PLANEDU"
+    },
+    {
+      "nombre": "Plataforma de Aprendizaje Adaptativo",
+      "alias": ["Plataforma de Aprendizaje Adaptativo"],
+      "origen": "PLANEDU",
+      "para_que": "Plataforma educativa con co-tutor de IA que corre sobre ArgenCloud y el Modelo Educativo del LANIA.",
+      "linea": 1253,
+      "cita": "Plataforma de Aprendizaje Adaptativo (PAA) corre sobre ArgenCloud"
+    },
+    {
+      "nombre": "Ocho Ramas",
+      "alias": ["Ocho Ramas"],
+      "origen": "PLANREP",
+      "para_que": "Mapa de destinos laborales contra el que el Arquitecto de Fuerza Laboral cruza las habilidades de cada trabajador.",
+      "linea": 972,
+      "cita": "las necesidades de las Ocho Ramas de PLANREP"
+    },
+    {
+      "nombre": "Centros de la Vida y Centros de Inteligencia",
+      "alias": ["Centros de la Vida", "Centros de Inteligencia"],
+      "origen": "PLANREP",
+      "para_que": "Lugares donde el Compañero IA acompaña la formación de los trabajadores públicos en reconversión.",
+      "linea": 982,
+      "cita": "Centros de la Vida o Centros de Inteligencia de PLANREP"
+    },
+    {
+      "nombre": "Casas JUS",
+      "alias": ["Casas JUS"],
+      "origen": "PLANJUS",
+      "para_que": "Modelo presencial de atención en el que se inspiran los Centros de Acceso Digital Comunitario y que La Tribu complementa.",
+      "linea": 744,
+      "cita": "Las Casas JUS atienden cara a cara"
+    },
+    {
+      "nombre": "Dendritas Culturales",
+      "alias": ["Dendritas Culturales"],
+      "origen": "PLANCUL",
+      "para_que": "Espacios culturales que quedan definidos como Commons Atencionales por diseño.",
+      "linea": 803,
+      "cita": "Dendritas Culturales son Commons Atencionales por diseño"
+    },
+    {
+      "nombre": "Archivo de Depósito Ciudadano",
+      "alias": ["Archivo de Depósito Ciudadano"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Archivo sin publicidad ni recomendación, incluido entre los espacios de atención no algorítmica; también recibe la inscripción de capturas algorítmicas.",
+      "linea": 803,
+      "cita": "el Archivo de Depósito Ciudadano no tiene publicidad ni recomendación"
+    },
+    {
+      "nombre": "Gemelo Digital del Agua",
+      "alias": ["Gemelo Digital del Agua"],
+      "origen": "PLANAGUA",
+      "para_que": "Modelo hídrico que se aloja en la red IoT y el núcleo soberano y se alimenta de los sensores de agua de El Mapa.",
+      "linea": 413,
+      "cita": "PLANAGUA — Gemelo Digital del Agua"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Inversión acumulada a 10 años",
+      "valor": "USD 4.700–9.900M (promedio ~USD 7.000M, USD 700M/año)",
+      "tipo": "presupuesto",
+      "linea": 1102,
+      "cita": "Promedio: ~USD 7.000M en 10 años = USD 700M/año"
+    },
+    {
+      "concepto": "Total de fuentes de financiamiento a 10 años",
+      "valor": "USD 3.700–10.000M",
+      "tipo": "fuente",
+      "linea": 1118,
+      "cita": "| **TOTAL** | **3.700–10.000** |"
+    },
+    {
+      "concepto": "Ahorro por migración de cloud extranjera como fuente",
+      "valor": "USD 500–1.500M en 10 años",
+      "tipo": "fuente",
+      "linea": 1110,
+      "cita": "El gasto estatal en cloud se estima en USD 500–1.000M/año"
+    },
+    {
+      "concepto": "Retorno económico anual en régimen",
+      "valor": "USD 4.300–12.300M/año",
+      "tipo": "meta",
+      "linea": 1134,
+      "cita": "**4.300–12.300/año**"
+    },
+    {
+      "concepto": "ROI acumulado a 10 años",
+      "valor": "2:1 a 7:1",
+      "tipo": "meta",
+      "linea": 1136,
+      "cita": "un ROI de 2:1 a 7:1 sobre la inversión total"
+    },
+    {
+      "concepto": "Presupuesto constitucional protegido de ANDIG",
+      "valor": "piso 0,5% del PBI, escalando al 1% en 10 años",
+      "tipo": "parametro",
+      "linea": 1056,
+      "cita": "piso del 0,5% del PBI, escalando al 1% en 10 años"
+    },
+    {
+      "concepto": "Tope de empleados directos de ANDIG",
+      "valor": "500",
+      "tipo": "parametro",
+      "linea": 1058,
+      "cita": "Tope de 500 empleados directos"
+    },
+    {
+      "concepto": "Núcleo soberano: nodos y capacidad a 10 años",
+      "valor": "20–31 nodos, 90–190 MW",
+      "tipo": "meta",
+      "linea": 568,
+      "cita": "**20–31 nodos** | **90–190 MW**"
+    },
+    {
+      "concepto": "Meta de nodos comunitarios a 10 años",
+      "valor": "100.000 nodos",
+      "tipo": "meta",
+      "linea": 594,
+      "cita": "100.000 nodos comunitarios desplegados en todo el territorio"
+    },
+    {
+      "concepto": "Adopción esperada de SAPI en 5 años",
+      "valor": "25M+ de usuarios (60%+ de adultos)",
+      "tipo": "meta",
+      "linea": 698,
+      "cita": "25M+ de usuarios (60%+ de adultos)"
+    },
+    {
+      "concepto": "Usuarios de IDS en el Tablero Nacional Digital",
+      "valor": "15M a 5 años; 35M a 10 años",
+      "tipo": "meta",
+      "linea": 1280,
+      "cita": "Usuarios de IDS (Identidad Digital Soberana) | 15M | 35M"
+    },
+    {
+      "concepto": "Fase Soberanía de cómputo IA",
+      "valor": "16.000+ GPUs, USD 300–600M (2034–10)",
+      "tipo": "meta",
+      "linea": 508,
+      "cita": "16.000+ GPUs (o equivalente de nueva generación) | USD 300–600M"
+    },
+    {
+      "concepto": "Becas LANIA anuales",
+      "valor": "500 becas por año, USD 4.000–6.000/mes",
+      "tipo": "parametro",
+      "linea": 1019,
+      "cita": "500 becas anuales de investigación en IA"
+    },
+    {
+      "concepto": "Umbral de auditabilidad algorítmica obligatoria",
+      "valor": "más de 100.000 usuarios argentinos activos mensuales",
+      "tipo": "parametro",
+      "linea": 815,
+      "cita": "opere sobre más de 100.000 usuarios argentinos activos mensuales"
+    },
+    {
+      "concepto": "Multa PSA nivel 3",
+      "valor": "8% de la facturación argentina anual",
+      "tipo": "parametro",
+      "linea": 913,
+      "cita": "Multa equivalente al 8% facturación argentina anual"
+    },
+    {
+      "concepto": "Presupuesto canónico de tranche-1 (estadio A)",
+      "valor": "USD 0.4B operativo/año + USD 1.2B inversión 24m",
+      "tipo": "presupuesto",
+      "linea": 2134,
+      "cita": "USD 0.4B operativo/año + USD 1.2B inversión 24m"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANMON",
+      "que": "PLANDIG aloja los rieles SAPI y el registro del Pulso monetario; PLANMON puede operar SAPI sobre infraestructura bancaria como fallback si ArgenCloud no escala.",
+      "linea": 1245,
+      "cita": "IDS provee los nodos soberanos sobre los cuales corren los rieles SAPI"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Provee el substrato técnico del Protocolo Bastardo; las Bastardas operan por SAPI y la Bastarda Financiera es canje de CCN.",
+      "linea": 1246,
+      "cita": "IDS provee el substrato on-chain y los servicios federados que el Protocolo Bastardo necesita"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Las ciudades nuevas reciben IDS, SAPI y El Mapa como capa operativa, y sus 24 nodos de datacenter son punto de partida del núcleo soberano.",
+      "linea": 1247,
+      "cita": "IDS + SAPI + El Mapa proveen la capa operativa de las ciudades inteligentes"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "Datos: la red IoT y el Gemelo Digital del Agua se alojan en ArgenCloud; los sensores de agua de PLANAGUA alimentan El Mapa y la alerta de inundaciones.",
+      "linea": 1248,
+      "cita": "ArgenCloud y la Red IoT soberana alojan el Gemelo Digital del Agua"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "El LANIA aporta el Modelo Legal Argentino y la plataforma JUS Digital; PLANJUS aporta orden judicial para acceder al Cofre y el marco de IA que informa sin decidir.",
+      "linea": 1249,
+      "cita": "LANIA y la plataforma de Resolución Popular proveen el modelo IA legal"
+    },
+    {
+      "con": "PLANREP",
+      "que": "El Arquitecto de Fuerza Laboral usa datos de Capa 2 para modelar qué automatizar y deriva a los trabajadores a los centros de reconversión de PLANREP, que fija el ritmo.",
+      "linea": 962,
+      "cita": "El Arquitecto de Fuerza Laboral es el componente de PLANDIG que conecta con PLANREP"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Infraestructura, Modelo Educativo y auditoría ética para el co-tutor de IA; PLANEDU aporta currículo y la formación en soberanía digital.",
+      "linea": 1253,
+      "cita": "Plataforma de Aprendizaje Adaptativo (PAA) corre sobre ArgenCloud"
+    },
+    {
+      "con": "PLANGEO",
+      "que": "ArgenCloud es el producto exportable que PLANGEO comercializa en la Red Soberana; si ArgenCloud no escala, PLANGEO exporta solo marco regulatorio y modelos.",
+      "linea": 1254,
+      "cita": "IDS produce ArgenCloud como producto exportable que PLANGEO comercializa"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "PLANDIG aloja la auto-postulación, la Credencial de Materia y la Cédula Civil; la MAAP es una Mesa Civil y las salas de Mesa operan sin perfilado.",
+      "linea": 1255,
+      "cita": "IDS aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Aloja la Historia Clínica Unificada y la telemedicina con criptografía y consentimiento del paciente; el Modelo de Salud Argentino del LANIA asiste a PLANSAL.",
+      "linea": 1261,
+      "cita": "IDS aloja la Historia Clínica Unificada, telemedicina rural"
+    },
+    {
+      "con": "PLANFOCO",
+      "que": "La rectoría del Commons Atencional sigue en ANDIG, pero PLANFOCO paga y opera las sedes propias; PLANFOCO también incorpora el Desmontaje al currículum.",
+      "linea": 2195,
+      "cita": "la asume entera con USD 300–450M/año extinguiendo la publicidad oficial"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "El derecho a la desconexión se articula con la Jornada 6+2; PLANDIG aloja el Registro Nacional de Vínculos y el Libro de Cuidado.",
+      "linea": 790,
+      "cita": "Articulación con la Jornada 6+2 del PLANCUIDADO"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "Provee 7 nodos federados con hash criptográfico donde vive el archivo distribuido; las capturas algorítmicas Rojas se inscriben en PLANMEMORIA.",
+      "linea": 1258,
+      "cita": "IDS provee los 7 nodos federados con hash criptográfico resistente a borrado"
+    },
+    {
+      "con": "PLANPREGUNTA",
+      "que": "La fila de reasignación de ciencia y tecnología al 0,39% legal queda en PLANDIG; PLANPREGUNTA declara que no reclama ese incremento.",
+      "linea": 1114,
+      "cita": "**no reclama el incremento hasta el 0,39% legal**"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "SAPI se expande de dos maneras: Sistema Argentino de Pagos Instantáneos en la sección 8.3 y Sistema Abierto de Pagos e Identidad en la hoja de ruta, donde se lo describe también como identidad.",
+      "linea": 1694,
+      "cita": "Especificación técnica completa del Sistema Abierto de Pagos e Identidad"
+    },
+    {
+      "con": "interno",
+      "que": "La tabla de fuentes declara un total de USD 3.700–10.000M, pero sus seis filas suman USD 3.200–8.500M.",
+      "linea": 1118,
+      "cita": "| **TOTAL** | **3.700–10.000** |"
+    },
+    {
+      "con": "interno",
+      "que": "El costo operativo anual del estadio A figura como USD 1.2B en una sección y como USD 0.4B/año en el presupuesto canónico y en la revisión inicial.",
+      "linea": 2169,
+      "cita": "USD 1.2B operativo anual + USD 1.2B inversión 24m"
+    },
+    {
+      "con": "interno",
+      "que": "El estadio A excluye LANIA y El Mapa completos, pero la cascada de 2027–2029 ya programa GPUs del LANIA, el Modelo Argentino y El Mapa v1.",
+      "linea": 2163,
+      "cita": "LANIA, El Mapa completos."
+    },
+    {
+      "con": "interno",
+      "que": "El cierre del documento llama a PLANDIG décimo de dieciséis mandatos, cuando el corpus tiene 27 PLANes más PLANRUTA.",
+      "linea": 2070,
+      "cita": "décimo de los dieciséis mandatos de ¡BASTA!"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "Quién es dueño del estadio B queda sin asignar: se evalúa al cierre del estadio A y hasta entonces no se asigna recurso.",
+      "linea": 2189,
+      "cita": "se evalúa al cierre del estadio A. Hasta entonces no se asigna recurso."
+    },
+    {
+      "que": "ANDIG plena, su presupuesto constitucional protegido y su autarquía quedan sujetos a evaluación al cierre del estadio A.",
+      "linea": 42,
+      "cita": "ANDIG plena, presupuesto constitucional protegido y autarquía se evalúan al cierre del estadio A"
+    },
+    {
+      "que": "Las reformas constitucionales sobre identidad o datos se difieren al horizonte 2040+.",
+      "linea": 2136,
+      "cita": "Reformas constitucionales sobre identidad o datos **diferidas a horizonte 2040+**"
+    },
+    {
+      "que": "El documento admite que ningún diseño de salvaguardas es invulnerable a la captura de la infraestructura para vigilancia.",
+      "linea": 1418,
+      "cita": "Ningún diseño es invulnerable a la tiranía."
+    }
+  ]
+}

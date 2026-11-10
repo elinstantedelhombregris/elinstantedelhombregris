@@ -1,0 +1,39 @@
+{
+  "grupo": 5,
+  "revisados": ["Agencia de Mesa y Cédula Civil", "Cédula Civil", "Peso-canasta", "Fondo Soberano Bastardo", "ANMON", "El Pulso"],
+  "cruces": [
+    {
+      "concepto": "ANMON",
+      "tipo": "quien",
+      "dueno": "PLANMON",
+      "lineaDueno": 1879,
+      "citaDueno": "La Bastarda Financiera publica la tasa de referencia \"al costo.\"",
+      "otro": "PLANVIV",
+      "lineaOtro": 818,
+      "citaOtro": "Tasa de referencia ANMON + spread de 1-2% (administración)",
+      "que": "«PLANMON dice que la ANMON no puede fijar tasas y que la tasa de referencia la publica la Bastarda Financiera; PLANVIV fija la tasa del crédito hipotecario como tasa de referencia ANMON más 1-2%»."
+    },
+    {
+      "concepto": "Cédula Civil",
+      "tipo": "que",
+      "dueno": "PLANMESA",
+      "lineaDueno": 648,
+      "citaDueno": "La Cédula Civil es el perfil público del usuario en la plataforma ¡BASTA!, que integra:",
+      "otro": "PLANDIG",
+      "lineaOtro": 886,
+      "citaOtro": "cada usuario recibe informe automatizado de su Cédula Civil con datos agregados",
+      "que": "«PLANMESA define la Cédula Civil como perfil público de servicio cívico (Credenciales, Mesas, Talleres, Pactos, Memoria, Semillas); PLANDIG le hace llevar datos de tiempo por plataforma, publicidad recibida y perfilado para recomendación»."
+    },
+    {
+      "concepto": "Peso-canasta",
+      "tipo": "que",
+      "dueno": "PLANMON",
+      "lineaDueno": 449,
+      "citaDueno": "El peso-canasta está referenciado a una canasta ponderada de commodities y productos que Argentina efectivamente produce.",
+      "otro": "PLANSAL",
+      "lineaOtro": 2162,
+      "citaOtro": "alimentan la canasta con datos reales",
+      "que": "«PLANMON compone la canasta con commodities y productos que Argentina produce (soja, gas, litio, etc.); PLANSAL dice que los costos médicos de la Bastarda Sanitaria y la ANVIP alimentan la canasta»."
+    }
+  ]
+}

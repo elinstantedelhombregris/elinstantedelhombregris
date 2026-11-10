@@ -164,6 +164,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-148](#d-148--un-aporte-retirado-sigue-sumando-en-el-conteo-de-la-portada) | Un aporte retirado sigue sumando en el conteo de la portada | Media | **Resuelta** |
 | [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | Abierta |
 | [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
+| [D-151](#d-151--los-planes-no-cierran-entre-sí-en-339-lugares-y-ahora-hay-lista) | Los PLANes no cierran entre sí en 339 lugares, y ahora hay lista | Media | Abierta |
 
 ---
 
@@ -2444,3 +2445,16 @@ El sitio es una aplicación de una sola página: Vercel entrega el mismo `index.
 **Estado:** abierta.
 
 Las figuras del lector y la portada de cada crónica declaran una sombra dura color tinta, la marca de «Papel y Tinta». La sombra usa `var(--color-tinta)`, y esa variable no está definida en ningún CSS de la web: el navegador descarta la sombra entera y las figuras salen sin ella. Pasa lo mismo con `prose-figure:bg-papel-sombra`: no existe un color `papel-sombra`, así que el fondo tampoco se aplica. Pendiente: definir las variables o escribir los colores del sistema en esas clases, y mirar todas las páginas que usan `MdxPapel` antes de publicarlo, porque es un cambio visual en todas a la vez.
+
+### D-151 · Los PLANes no cierran entre sí en 339 lugares, y ahora hay lista
+
+**Dónde:** `Iniciativas Estratégicas/PLAN*_Argentina_ES.md`, `Iniciativas Estratégicas/DEPENDENCY_GRAPH.yml` y `SocialJusticeHub/shared/arquitecto-data.ts`. La lista entera, con archivo y línea, está en `Iniciativas Estratégicas/atlas/DESARMONIAS.md` y, navegable, en `/atlas/#desarmonias`.
+**Encontrada:** 2026-11-10, al construir el atlas del corpus (`Iniciativas Estratégicas/atlas/`).
+**Severidad:** media.
+**Estado:** abierta.
+
+El atlas cruzó los 28 documentos y encontró 8 desarmonías que se prueban contra el texto y 331 para revisar. Las ocho probadas: PLANPUERTA existe como documento y no figura en `DEPENDENCY_GRAPH.yml`, que además se declara de 26 PLANes; PLANPACTO cita dos veces `PLANJUS §400`, que es una cita por línea escrita con el signo de sección; PLANPUERTA remite a una Sección 7 de PLANMEMORIA que no existe; `PROTOCOLOS_OPERATIVOS_BASTA.md` remite a las secciones de integración de tres PLANes por un número que ya no tienen; y PLANSUS declara recibir de PLANPUERTA sin que PLANPUERTA lo liste entre lo que aporta.
+
+Las de revisar son de cuatro clases. Los conteos del canon sin fechar («dieciséis mandatos», «22 PLANes») siguen en 39 lugares. Diecinueve documentos listan a los mismos PLANes en «aporta» y en «necesita», de modo que la tabla no dice hacia dónde corre el vínculo. Hay 160 contradicciones internas que anotaron los lectores al fichar cada documento —dos cifras para la misma partida, una remisión a la sección equivocada— y 41 conceptos que un PLAN describe distinto de como los define su dueño (ANCE con dos nombres, ArgenCloud usado como operativo donde PLANDIG lo difiere). Estas dos últimas clases las encontró un modelo y no las verificó nadie más: cada una trae las líneas, y más de una va a resultar una diferencia de fase bien rotulada.
+
+Nada de esto se corrigió: el atlas lee, no edita. Lo que haría falta es recorrer la lista por documento, empezando por las ocho probadas, y decidir en cada caso cuál de los dos lados manda.

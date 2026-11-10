@@ -1,0 +1,444 @@
+{
+  "code": "PLANTER",
+  "nombre": "Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial",
+  "version": "1.0 — Abril 2026",
+  "tesis": "Los recursos del subsuelo y el territorio pasan de ser concesionados a bienes comunes custodiados por personas territoriales, con licencias de 12 años y cuatro requisitos concurrentes en lugar del RIGI, y con regalías que financian un dividendo ciudadano mensual.",
+  "problema": "El RIGI de 2024 concede concesiones de treinta años con estabilidad tributaria. Las regalías no llegan al territorio afectado. El reconocimiento constitucional de los pueblos originarios no se ejecuta y la consulta previa es ritual. Ríos, bosques y Mar Argentino no tienen personalidad jurídica para comparecer, y la deforestación y la pesca ilegal no tienen consecuencia efectiva.",
+  "resumen": "Crea la figura de Persona Territorial: ríos, acuíferos, bosques y el Mar Argentino pasan a tener representación legal por tres síndicos, con capacidad de comparecer y vetar proyectos. Declara el subsuelo bien común intergeneracional y envía todas las regalías al Fondo Soberano Ciudadano, que paga un Dividendo Ciudadano Mensual a cada adulto. Reemplaza el RIGI por una Licencia Territorial de doce años que exige cuatro requisitos concurrentes. Reconoce co-soberanía con 35 pueblos originarios, amplía los Guardacostas y propone deforestación cero con responsabilidad penal nominal. Todo lo administra la ANTSPO.",
+  "horizonte": "Tranche 3 con tres líneas: L1 enforcement ambiental (2030-2031), L2 auditoría de regalías (2031-2033) y L3 pilotos de consulta originaria (2033-2035). Régimen pleno, DCM universal y reforma constitucional quedan en horizonte 2040.",
+  "financiamiento": "Las regalías extractivas van al 100% al Fondo Soberano Ciudadano. Ingresos proyectados en régimen pleno: USD 16.500-31.000M anuales. La ANTSPO tiene presupuesto constitucional de 0.20% del PBI.",
+  "temas": ["territorio-ambiente", "moneda-finanzas", "estado-instituciones", "democracia-participacion"],
+
+  "conceptos": [
+    {
+      "nombre": "Persona Territorial",
+      "alias": ["Persona Territorial", "Personas Territoriales"],
+      "tipo": "figura",
+      "que_es": "Categoría jurídica nueva para ríos, acuíferos, bosques, montañas y el Mar Argentino. Cada una tiene tres síndicos rotativos, capacidad de comparecer en juicio y derecho de veto sobre proyectos que amenacen su integridad.",
+      "seccion": "3.1",
+      "linea": 308,
+      "cita": "\"Persona Territorial\" — categoría nueva en el Código Civil y Comercial"
+    },
+    {
+      "nombre": "Fondo Soberano Ciudadano",
+      "alias": ["Fondo Soberano Ciudadano", "FSC"],
+      "tipo": "fondo",
+      "que_es": "Ente autárquico que centraliza el 100% de regalías, cánones y multas extractivas, las audita mensualmente y las reparte según una fórmula protocolizada entre seis líneas, incluido el Dividendo Ciudadano Mensual.",
+      "seccion": "3.3",
+      "linea": 349,
+      "cita": "Fondo Soberano Ciudadano (FSC) y Dividendo Ciudadano Mensual (DCM)"
+    },
+    {
+      "nombre": "Dividendo Ciudadano Mensual",
+      "alias": ["Dividendo Ciudadano Mensual", "DCM"],
+      "tipo": "mecanismo",
+      "que_es": "Pago mensual a cada argentino mayor de 18 años, depositado en cuenta bancaria declarada, no transferible y calibrado según el ciclo de commodities.",
+      "seccion": "3.3",
+      "linea": 375,
+      "cita": "**Dividendo Ciudadano Mensual:**"
+    },
+    {
+      "nombre": "Fondo Intergeneracional",
+      "alias": ["Fondo Intergeneracional"],
+      "tipo": "fondo",
+      "que_es": "Línea del Fondo Soberano Ciudadano destinada a preservar capital para generaciones futuras y a servir de reserva contra el colapso del Dividendo.",
+      "seccion": "3.3",
+      "linea": 362,
+      "cita": "7% Fondo Intergeneracional (preservación de capital)"
+    },
+    {
+      "nombre": "Licencia Territorial",
+      "alias": ["Licencia Territorial"],
+      "tipo": "mecanismo",
+      "que_es": "Autorización para proyectos extractivos que reemplaza al RIGI. Exige cuatro requisitos concurrentes: voto territorial, consentimiento del síndico, consulta originaria y costo ecológico internalizado. Plazo máximo de doce años.",
+      "seccion": "3.4",
+      "linea": 387,
+      "cita": "**Reemplazo del RIGI y las concesiones actuales de largo plazo.**"
+    },
+    {
+      "nombre": "Commons del Subsuelo",
+      "alias": ["Commons del Subsuelo"],
+      "tipo": "norma",
+      "que_es": "Declaración de que los recursos del subsuelo pertenecen al cuerpo ciudadano intergeneracional como bien común irrepartible. Ninguna concesión confiere propiedad, solo un derecho temporal de explotación.",
+      "seccion": "3.2",
+      "linea": 341,
+      "cita": "Declaración legal: los recursos del subsuelo argentino"
+    },
+    {
+      "nombre": "ANTSPO",
+      "alias": ["ANTSPO", "Agencia Nacional de Tierra, Subsuelo y Pueblos Originarios"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico que administra el Fondo Soberano Ciudadano, coordina la red de síndicos, gestiona el registro de personas territoriales y opera la Licencia Territorial y el monitoreo forestal. Directorio de once miembros, cinco de ellos originarios.",
+      "seccion": "4",
+      "linea": 439,
+      "cita": "LA AGENCIA NACIONAL DE TIERRA, SUBSUELO Y PUEBLOS ORIGINARIOS (ANTSPO)"
+    },
+    {
+      "nombre": "Red Federal de Síndicos Territoriales",
+      "alias": ["Red Federal de Síndicos Territoriales"],
+      "tipo": "institucion",
+      "que_es": "Red coordinada por ANTSPO que agrupa a los síndicos de las personas territoriales.",
+      "seccion": null,
+      "linea": 93,
+      "cita": "coordina la Red Federal de Síndicos Territoriales"
+    },
+    {
+      "nombre": "Consejo de Co-Soberanía",
+      "alias": ["Consejo de Co-Soberanía"],
+      "tipo": "institucion",
+      "que_es": "Órgano permanente con representación proporcional de los pueblos originarios y del gobierno, cuya consulta es obligatoria en materias que afecten derechos indígenas.",
+      "seccion": "3.5",
+      "linea": 415,
+      "cita": "**Consejo de Co-Soberanía:** órgano permanente con representación proporcional de pueblos"
+    },
+    {
+      "nombre": "Co-Soberanía Intercultural",
+      "alias": ["Co-Soberanía Intercultural"],
+      "tipo": "programa",
+      "que_es": "Reconocimiento operativo de los 35 pueblos originarios como co-fundadores, con doble pista jurisdiccional, escaños reservados, veto vinculante sobre proyectos extractivos en territorio ancestral y bilingüismo operativo.",
+      "seccion": "3.5",
+      "linea": 404,
+      "cita": "### 3.5 Co-Soberanía Intercultural"
+    },
+    {
+      "nombre": "Mar Argentino Soberano",
+      "alias": ["Mar Argentino Soberano"],
+      "tipo": "programa",
+      "que_es": "Dispositivo para recuperar el control efectivo de la zona económica exclusiva mediante Guardacostas ampliados, sensores, régimen de cuotas como commons y sanción con incautación de buques.",
+      "seccion": "3.6",
+      "linea": 417,
+      "cita": "### 3.6 Mar Argentino Soberano y Bosques Nativos"
+    },
+    {
+      "nombre": "Servicio de Guardacostas ampliado",
+      "alias": ["Servicio de Guardacostas ampliado", "Servicio Ampliado de Guardacostas"],
+      "tipo": "programa",
+      "que_es": "Expansión de la flota de patrullaje marítimo, de 15 a 60 buques operativos, operada por ANTSPO.",
+      "seccion": "3.6",
+      "linea": 421,
+      "cita": "Servicio de Guardacostas ampliado de 15 a 60 buques operativos en 7 años"
+    },
+    {
+      "nombre": "Referentes de Territorio",
+      "alias": ["Referentes de Territorio"],
+      "tipo": "figura",
+      "que_es": "Rol remunerado de verificación terrestre de la deforestación, articulado con PLANMEMORIA y PLANTALLER. Se prevén 2.500 en régimen pleno.",
+      "seccion": "3.6",
+      "linea": 431,
+      "cita": "2.500 Referentes de Territorio (rol remunerado) para verificación terrestre"
+    },
+    {
+      "nombre": "Fondo de Compra de Tierras",
+      "alias": ["Fondo de Compra de Tierras"],
+      "tipo": "fondo",
+      "que_es": "Fondo para reconstituir territorios ancestrales que están bajo dominio privado, con consentimiento de los propietarios.",
+      "seccion": "3.5",
+      "linea": 414,
+      "cita": "Fondo de Compra de Tierras para reconstituir territorios ancestrales sobre tierras bajo dominio privado"
+    },
+    {
+      "nombre": "Factor de estabilización",
+      "alias": ["Factor de estabilización"],
+      "tipo": "mecanismo",
+      "que_es": "Regla que amortigua la volatilidad de las regalías: transfiere hasta 4% del capital intergeneracional en caídas y reserva 50% de los excedentes extraordinarios.",
+      "seccion": "5.1",
+      "linea": 485,
+      "cita": "Factor de estabilización amortigua volatilidad de commodities"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Mesa Civil de Territorio",
+      "alias": ["Mesa Civil de Territorio"],
+      "origen": "PLANMESA",
+      "para_que": "Cuerpo decisional que evalúa la internalización de costos ecológicos de cada Licencia Territorial.",
+      "linea": 93,
+      "cita": "Mesa Civil de Territorio como cuerpo decisional"
+    },
+    {
+      "nombre": "Credencial de Materia en Tierra",
+      "alias": ["Credencial de Materia en Tierra"],
+      "origen": "PLANMESA",
+      "para_que": "Requisito para ser sorteado como síndico territorial y para integrar las mesas de Licencia.",
+      "linea": 333,
+      "cita": "uno sorteado entre ciudadanos con Credencial de Materia en Tierra o Subsuelo"
+    },
+    {
+      "nombre": "Archivo Territorial",
+      "alias": ["Archivo Territorial"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Depósito de testimonios y documentos de comunidades originarias, consultable por cada Mesa de Licencia.",
+      "linea": 647,
+      "cita": "PLANMEMORIA aloja el Archivo Territorial"
+    },
+    {
+      "nombre": "Consulta Ancestral",
+      "alias": ["Consulta Ancestral"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Paso obligatorio de cada Licencia Territorial, previo a la resolución vinculante.",
+      "linea": 93,
+      "cita": "Consulta Ancestral obligatoria en toda Licencia"
+    },
+    {
+      "nombre": "Pactos de Cuidado Intercultural",
+      "alias": ["Pactos de Cuidado Intercultural"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Reconocen parentescos originarios que PLANTER toma en cuenta en su tramo de co-soberanía.",
+      "linea": 93,
+      "cita": "Pactos de Cuidado Intercultural que reconocen formas de parentesco originarias"
+    },
+    {
+      "nombre": "Fondo de la Pregunta",
+      "alias": ["Fondo de la Pregunta"],
+      "origen": "PLANPREGUNTA",
+      "para_que": "Recibe 8% de los egresos del Fondo Soberano Ciudadano; su flujo se subordina en años de derrumbe del Dividendo.",
+      "linea": 363,
+      "cita": "8% Fondo de la Pregunta — PLANPREGUNTA"
+    },
+    {
+      "nombre": "Bastardas Pesqueras",
+      "alias": ["Bastardas Pesqueras"],
+      "origen": "PLANEB",
+      "para_que": "Ejecutores productivos cooperativos que reemplazan las concesiones de pesca en el Mar Argentino Soberano.",
+      "linea": 424,
+      "cita": "Reconversión de concesiones a Bastardas Pesqueras cooperativas."
+    },
+    {
+      "nombre": "Fondo Soberano Bastardo",
+      "alias": ["Fondo Soberano Bastardo"],
+      "origen": "PLANMON",
+      "para_que": "Reconciliación de flujos con el Fondo Soberano Ciudadano, según el dictamen de PLANARCO.",
+      "linea": 373,
+      "cita": "el Fondo Soberano Bastardo de `PLANMON`"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Dividendo Ciudadano Mensual por adulto",
+      "valor": "USD 40-120 mensuales por adulto",
+      "tipo": "parametro",
+      "linea": 93,
+      "cita": "calibrado inicialmente entre USD 40-120 mensuales por adulto según año del ciclo de commodities"
+    },
+    {
+      "concepto": "Reparto del Fondo Soberano Ciudadano hacia el DCM",
+      "valor": "40%",
+      "tipo": "parametro",
+      "linea": 360,
+      "cita": "40% DCM universal."
+    },
+    {
+      "concepto": "Ingresos anuales del FSC en régimen pleno",
+      "valor": "USD 16.500-31.000M por año",
+      "tipo": "presupuesto",
+      "linea": 677,
+      "cita": "| **TOTAL** | **16.500-31.000** |"
+    },
+    {
+      "concepto": "Presupuesto constitucional de ANTSPO",
+      "valor": "0.20% del PBI (USD 1.280M)",
+      "tipo": "presupuesto",
+      "linea": 444,
+      "cita": "**Presupuesto constitucional:** 0.20% del PBI (USD 1.280M)"
+    },
+    {
+      "concepto": "Costo operativo anual de ANTSPO en régimen pleno",
+      "valor": "USD 1.480-2.200M por año",
+      "tipo": "presupuesto",
+      "linea": 704,
+      "cita": "| **TOTAL OPERATIVO ANUAL** | **1.480-2.200** |"
+    },
+    {
+      "concepto": "Flujo anual del DCM con 33 millones de adultos y USD 80 mensuales",
+      "valor": "USD 31.680M por año",
+      "tipo": "presupuesto",
+      "linea": 383,
+      "cita": "el flujo anual es aproximadamente USD 31.680M"
+    },
+    {
+      "concepto": "Guardacostas ampliado",
+      "valor": "15 a 60 buques operativos en 7 años (inversión USD 4.200M)",
+      "tipo": "meta",
+      "linea": 421,
+      "cita": "Servicio de Guardacostas ampliado de 15 a 60 buques operativos en 7 años (inversión USD 4.200M)"
+    },
+    {
+      "concepto": "Plazo máximo de la Licencia Territorial",
+      "valor": "12 años",
+      "tipo": "parametro",
+      "linea": 396,
+      "cita": "**Plazo máximo:** 12 años (no 30)."
+    },
+    {
+      "concepto": "Umbral del referéndum territorial",
+      "valor": "participación 40%, mayoría 55%",
+      "tipo": "parametro",
+      "linea": 391,
+      "cita": "Referéndum con umbral de participación 40%, mayoría 55%"
+    },
+    {
+      "concepto": "Restauración por desmonte ilegal",
+      "valor": "3 hectáreas restauradas por cada hectárea desmontada",
+      "tipo": "parametro",
+      "linea": 433,
+      "cita": "por cada hectárea desmontada ilegalmente, 3 hectáreas restauradas por la empresa responsable."
+    },
+    {
+      "concepto": "Reducción de la deforestación del Gran Chaco",
+      "valor": "80% en diez años",
+      "tipo": "meta",
+      "linea": 93,
+      "cita": "reducción del 80% en deforestación del Chaco en diez años"
+    },
+    {
+      "concepto": "Deforestación ilegal en la etapa T4",
+      "valor": "15% del promedio histórico (2033-2035)",
+      "tipo": "meta",
+      "linea": 603,
+      "cita": "deforestación ilegal reducida al 15% del promedio histórico"
+    },
+    {
+      "concepto": "Pérdida de bosque nativo en los últimos 25 años",
+      "valor": "8 millones de hectáreas",
+      "tipo": "diagnostico",
+      "linea": 149,
+      "cita": "Argentina perdió aproximadamente 8 millones de hectáreas de bosque nativo en los últimos 25 años"
+    },
+    {
+      "concepto": "Fondo Intergeneracional",
+      "valor": "7% de los egresos del FSC (antes 15%)",
+      "tipo": "fuente",
+      "linea": 362,
+      "cita": "7% Fondo Intergeneracional (preservación de capital)"
+    },
+    {
+      "concepto": "Escaños reservados para pueblos originarios",
+      "valor": "10 diputaciones + 8 senadurías adicionales",
+      "tipo": "parametro",
+      "linea": 410,
+      "cita": "10 diputaciones + 8 senadurías federales adicionales a las actuales"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANMON",
+      "que": "PLANTER aporta el FSC como palanca de soberanía monetaria. La reconciliación con el Fondo Soberano Bastardo de PLANMON sigue el dictamen de PLANARCO.",
+      "linea": 640,
+      "cita": "Fondo Soberano Ciudadano es palanca macro de la soberanía monetaria"
+    },
+    {
+      "con": "PLANEN",
+      "que": "La Licencia Territorial reemplaza al RIGI en hidrocarburos y minería, y condiciona cada proyecto a consulta previa y retorno comunitario.",
+      "linea": 641,
+      "cita": "Licencia Territorial reemplaza RIGI para proyectos de hidrocarburos y minería"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Coordinación del suelo vivo con la Licencia Territorial en tierras fiscales y comunidades originarias, y reconversión agropecuaria forestal.",
+      "linea": 642,
+      "cita": "Plan Suelo Vivo se coordina con Licencia Territorial"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "PLANSEG extiende protección a defensores territoriales y amplía la Guardia Costera para la soberanía marítima, que PLANTER necesita para el Mar Argentino.",
+      "linea": 643,
+      "cita": "PLANSEG extiende protección formal a defensores territoriales"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Implementa la co-jurisdicción con derecho originario y arbitra las disputas territoriales entre pueblos originarios y Estado.",
+      "linea": 644,
+      "cita": "JUS implementa la co-jurisdicción con derecho originario"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Provee el monitoreo satelital, el registro ciudadano territorial y el tablero del dividendo sobre los que PLANTER opera.",
+      "linea": 645,
+      "cita": "IDS provee monitoreo satelital soberano"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Los Pactos de PLANCUIDADO reconocen parentescos interculturales de comunidades originarias, que PLANTER toma como Pactos Interculturales.",
+      "linea": 646,
+      "cita": "La red de Pactos reconoce y formaliza los parentescos interculturales"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "El Archivo Territorial de PLANMEMORIA recibe depósitos de comunidades originarias, y cada Licencia Territorial exige Consulta Ancestral registrada allí.",
+      "linea": 647,
+      "cita": "PLANMEMORIA aloja el Archivo Territorial"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Las concesiones de pesca y minería se reconvierten en Bastardas cooperativas, que ejecutan la producción soberana bajo Licencia Territorial.",
+      "linea": 424,
+      "cita": "Reconversión de concesiones a Bastardas Pesqueras cooperativas."
+    },
+    {
+      "con": "PLANGEO",
+      "que": "Diplomacia de soberanía de recursos con bloque subregional, y tratados internacionales específicos de protección de recursos estratégicos.",
+      "linea": 93,
+      "cita": "diplomacia de soberanía de recursos con bloque subregional"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "Los ríos con Persona Territorial son las mismas cuencas que PLANAGUA gestiona, y PLANTER aporta la representación legal de esas cuencas.",
+      "linea": 93,
+      "cita": "los ríos con personalidad jurídica son los mismos cuya cuenca se gestiona en PLANAGUA"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La sección 3.3 proyecta una media de USD 70-90 mensuales a régimen; la sección 5.2 calcula USD 18, 32 y 45 mensuales en sus tres escenarios.",
+      "linea": 379,
+      "cita": "rango proyectado USD 40-120 mensuales a régimen con proyección media de USD 70-90"
+    },
+    {
+      "con": "interno",
+      "que": "La sección 3.3 calcula USD 31.680M anuales para el DCM; la sección 11.2 le asigna el 40% de USD 16.500-31.000M, es decir USD 6.600-12.400M.",
+      "linea": 383,
+      "cita": "el flujo anual es aproximadamente USD 31.680M"
+    },
+    {
+      "con": "interno",
+      "que": "La sección 3.6 fija 60 buques en siete años; la sección 8.1 los ubica en la tercera etapa, años 8 a 12.",
+      "linea": 421,
+      "cita": "Servicio de Guardacostas ampliado de 15 a 60 buques operativos en 7 años"
+    },
+    {
+      "con": "interno",
+      "que": "La tabla de integración llama Dividendo del Suelo a lo que el resto del documento llama Dividendo Ciudadano Mensual; el nombre no coincide.",
+      "linea": 658,
+      "cita": "El Dividendo del Suelo y el FSC son la palanca territorial"
+    },
+    {
+      "con": "interno",
+      "que": "La sección 6.3 permite extender la Licencia hasta 18 años totales, pero la sección 3.4 fija 12 años como plazo máximo.",
+      "linea": 544,
+      "cita": "hasta 18 años totales"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Cómo responderán las empresas con concesiones RIGI.",
+      "linea": 781,
+      "cita": "Respuesta real de las corporaciones con concesiones RIGI."
+    },
+    {
+      "que": "Si la tecnología actual puede monitorear toda la Zona Económica Exclusiva.",
+      "linea": 782,
+      "cita": "Capacidad técnica de monitoreo del ZEE completo con tecnología actual."
+    },
+    {
+      "que": "Qué participación originaria tendrá efectivamente el Consejo de Co-Soberanía.",
+      "linea": 783,
+      "cita": "Tasa efectiva de participación originaria en Consejo de Co-Soberanía."
+    },
+    {
+      "que": "Con qué ritmo se judicializarán las Personas Territoriales.",
+      "linea": 784,
+      "cita": "Ritmo de judicialización de Personas Territoriales."
+    }
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "code": "PLANTALLER",
+  "nombre": "Plan Nacional de Talleres Federales, Experimentación Productiva y Pertenencia Económica Universal",
+  "version": "1.0 — Abril 2026",
+  "tesis": "Dar a cada ciudadano con oficio un galpón con herramental compartido, hipótesis productiva declarada y canal de venta al costo, organizado en una red federal de Talleres con método LDEA y archivo público de hallazgos.",
+  "problema": "Hay unos 4,5 millones de personas con oficio demostrable fuera del empleo formal que no tienen dónde producir sin capital propio. Los programas de empleo financian capacitación y subsidios, y casi no construyen infraestructura productiva compartida.",
+  "resumen": "Crea el Taller Federal: un espacio público con máquinas compartidas, insumo a costo, mentores y un método de cuatro fases (Aprender, Diseñar, Experimentar, Analizar). Cualquier argentino con Credencial Básica puede entrar, declarar qué quiere producir y vender al costo por la Red Bastarda. Cada Taller publica sus hallazgos y sus fracasos en un archivo federal. La Agencia Nacional de Talleres administra el Protocolo común, certifica nuevos Tallers y audita la red, sin gobernar a cada Taller. El primer prototipo se propone en La Matanza, para reparación de electrodomésticos.",
+  "horizonte": "Tranche-2 (2028-2030): estándares de seguridad y seguro obligatorio firmados, primer Taller en La Matanza y 20 Tallers en 8 provincias. 200 Tallers hacia 2032; 4.000 en el horizonte 2040, como visión.",
+  "financiamiento": "Fase 1 con reasignación presupuestaria de Trabajo, Desarrollo Social y Producción, sin deuda nueva. Después, el Fondo Federal de Tallers: 0.10% del PBI para la ANT, aportes de la Red Bastarda y convenios estatales. Costo anual por Taller tipo: USD 156.000-250.000.",
+  "temas": ["trabajo-produccion", "educacion-conocimiento", "estado-instituciones", "fiscal-presupuesto"],
+
+  "conceptos": [
+    {
+      "nombre": "Taller Federal",
+      "alias": ["Taller Federal"],
+      "tipo": "mecanismo",
+      "que_es": "Espacio físico con herramental compartido, operado bajo el Protocolo Taller, que produce con hipótesis declarada, método LDEA, archivo público y venta al costo.",
+      "seccion": "3.1",
+      "linea": 329,
+      "cita": "Un Taller Federal es un espacio físico equipado con herramental compartido"
+    },
+    {
+      "nombre": "Protocolo Taller",
+      "alias": ["Protocolo Taller"],
+      "tipo": "mecanismo",
+      "que_es": "Infraestructura común de la red: inventario de herramental, trazabilidad de insumos, registro de horas, plantilla de hipótesis, canal a Bastardas y publicación de hallazgos.",
+      "seccion": null,
+      "linea": 91,
+      "cita": "bajo el **Protocolo Taller** — infraestructura open-source"
+    },
+    {
+      "nombre": "Agencia Nacional de Talleres (ANT)",
+      "alias": ["Agencia Nacional de Talleres", "ANT"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico que administra el Protocolo Taller, certifica nuevos Tallers, audita la red y articula con la Red Bastarda y la AMCC. No gobierna Tallers individuales.",
+      "seccion": "5",
+      "linea": 506,
+      "cita": "LA AGENCIA NACIONAL DE TALLERS (ANT)"
+    },
+    {
+      "nombre": "Fondo Federal de Tallers",
+      "alias": ["Fondo Federal de Tallers"],
+      "tipo": "fondo",
+      "que_es": "Fondo de capitalización mixta para apertura de Tallers, herramental rotativo, investigación aplicada y emergencias productivas regionales.",
+      "seccion": "6.4",
+      "linea": 603,
+      "cita": "El Fondo Federal de Tallers"
+    },
+    {
+      "nombre": "Fondo de Herramental Compartido",
+      "alias": ["Fondo de Herramental Compartido"],
+      "tipo": "fondo",
+      "que_es": "Compra centralizada de herramientas caras, con rotación entre Tallers, administrada por la ANT.",
+      "seccion": "5.4",
+      "linea": 545,
+      "cita": "Administración del Fondo de Herramental Compartido"
+    },
+    {
+      "nombre": "Archivo Federal de Hallazgos Productivos",
+      "alias": ["Archivo Federal de Hallazgos Productivos"],
+      "tipo": "mecanismo",
+      "que_es": "Registro público y auditable de hipótesis, procesos, costos, resultados y fracasos de cada Taller, con igual peso para éxitos y fracasos.",
+      "seccion": "3.5",
+      "linea": 424,
+      "cita": "El Archivo Federal de Hallazgos Productivos"
+    },
+    {
+      "nombre": "Coordinador/a del Taller",
+      "alias": ["Coordinador/a del Taller"],
+      "tipo": "figura",
+      "que_es": "Ciudadano con Credencial Productiva Consolidada, elegido por el Taller entre sus miembros, con mandato rotativo de 18 meses; responde de la operación diaria.",
+      "seccion": "3.3",
+      "linea": 361,
+      "cita": "**Coordinador/a del Taller.**"
+    },
+    {
+      "nombre": "Coordinación Técnica",
+      "alias": ["Coordinación Técnica"],
+      "tipo": "figura",
+      "que_es": "Uno o dos técnicos responsables del mantenimiento del herramental, la seguridad operativa y la formación inicial en máquinas.",
+      "seccion": "3.3",
+      "linea": 363,
+      "cita": "**Coordinación Técnica.**"
+    },
+    {
+      "nombre": "Practicantes activos",
+      "alias": ["Practicantes activos"],
+      "tipo": "figura",
+      "que_es": "Ciudadanos con Credencial Básica o superior que producen en el Taller; no tienen relación laboral con él y cobran por lo que producen y se vende al costo.",
+      "seccion": "3.3",
+      "linea": 365,
+      "cita": "**Practicantes activos.**"
+    },
+    {
+      "nombre": "Secretarías Regionales",
+      "alias": ["Secretarías Regionales"],
+      "tipo": "institucion",
+      "que_es": "Seis unidades regionales (NEA, NOA, Cuyo, Patagonia, Centro-Pampas, AMBA) que articulan Tallers, herramental rotativo regional y mentoría cruzada.",
+      "seccion": "5.6",
+      "linea": 559,
+      "cita": "Secretarías Regionales"
+    },
+    {
+      "nombre": "Mesa de Emergencia Taller",
+      "alias": ["Mesa de Emergencia Taller"],
+      "tipo": "mecanismo",
+      "que_es": "Órgano de crisis que la ANT activa en 72 horas ante robo masivo, accidente grave o captura documentada; puede suspender operaciones.",
+      "seccion": "9.2",
+      "linea": 698,
+      "cita": "ANT activa Mesa de Emergencia Taller dentro de 72 hs"
+    },
+    {
+      "nombre": "Tablero Nacional de Talleres",
+      "alias": ["TABLERO NACIONAL DE TALLERS"],
+      "tipo": "metrica",
+      "que_es": "Panel agregado de la red: Tallers activos, practicantes, hipótesis en curso, hallazgos publicados, volumen producido y ahorro popular capturado.",
+      "seccion": "11",
+      "linea": 762,
+      "cita": "TABLERO NACIONAL DE TALLERS"
+    },
+    {
+      "nombre": "Cédula Productiva",
+      "alias": ["Cédula Productiva"],
+      "tipo": "mecanismo",
+      "que_es": "Registro biográfico de práctica productiva de cada ciudadano, sincronizado con sus Tallers; según la visión 2040 es un documento tan real como el DNI.",
+      "seccion": null,
+      "linea": 91,
+      "cita": "sincronización con Cédula Productiva del participante"
+    },
+    {
+      "nombre": "Taller de Reparación de Electrodomésticos y Reconstrucción Doméstica",
+      "alias": ["Taller de Reparación de Electrodomésticos y Reconstrucción Doméstica"],
+      "tipo": "programa",
+      "que_es": "Primer Taller prototipo, previsto en La Matanza; ataca el derecho a reparar y reduce el gasto de reposición de artefactos domésticos.",
+      "seccion": "4.1",
+      "linea": 446,
+      "cita": "**Taller de Reparación de Electrodomésticos y Reconstrucción Doméstica.**"
+    },
+    {
+      "nombre": "Cláusula de Continuidad Digna",
+      "alias": ["Cláusula de Continuidad Digna"],
+      "tipo": "norma",
+      "que_es": "Si el sistema entra en crisis catastrófica, los Tallers siguen bajo figura cooperativa tradicional y el Archivo Federal se preserva.",
+      "seccion": "16.2",
+      "linea": 884,
+      "cita": "Cláusula de Continuidad Digna"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Red Bastarda",
+      "alias": ["Red Bastarda"],
+      "origen": "PLANEB",
+      "para_que": "Canal de salida al costo para la producción de los Tallers.",
+      "linea": 637,
+      "cita": "Red Bastarda es canal de salida at-cost de producción de Tallers"
+    },
+    {
+      "nombre": "ANEB",
+      "alias": ["ANEB"],
+      "origen": "PLANEB",
+      "para_que": "Coordinación Bastarda; un representante integra el Directorio de la ANT.",
+      "linea": 515,
+      "cita": "ANEB (PLANEB)"
+    },
+    {
+      "nombre": "AMCC",
+      "alias": ["AMCC"],
+      "origen": "PLANMESA",
+      "para_que": "Articulación del Protocolo Taller con la infraestructura de Mesas.",
+      "linea": 515,
+      "cita": "AMCC (PLANMESA)"
+    },
+    {
+      "nombre": "Ciclo LDEA",
+      "alias": ["LDEA"],
+      "origen": "PLANMESA",
+      "para_que": "Método de cuatro fases que cada Taller aplica a su producción.",
+      "linea": 91,
+      "cita": "método LDEA de cuatro fases"
+    },
+    {
+      "nombre": "Credencial de Materia",
+      "alias": ["Credencial de Materia"],
+      "origen": "PLANMESA",
+      "para_que": "Registro biográfico de práctica por materia de cada participante.",
+      "linea": 91,
+      "cita": "con la Credencial de Materia de cada participante"
+    },
+    {
+      "nombre": "Capa de Estudio de la Credencial",
+      "alias": ["Capa de Estudio de la Credencial"],
+      "origen": "PLANEDU",
+      "para_que": "Parte de estudio de la Credencial que se completa dentro de los Tallers.",
+      "linea": 91,
+      "cita": "la Capa de Estudio de la Credencial se construye parcialmente en Tallers"
+    },
+    {
+      "nombre": "Círculos de Cuidado",
+      "alias": ["Círculos de Cuidado"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Sostienen a practicantes en momentos de sobrecarga.",
+      "linea": 91,
+      "cita": "sostienen a practicantes de Taller en momentos de sobrecarga"
+    },
+    {
+      "nombre": "Infraestructura de estadio A de PLANDIG",
+      "alias": ["estadio A de PLANDIG"],
+      "origen": "PLANDIG",
+      "para_que": "Datos abiertos, audit logs e interoperabilidad sobre los que corre el Protocolo Taller.",
+      "linea": 630,
+      "cita": "Protocolo Taller corre sobre **estadio A de PLANDIG**"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Presupuesto de la ANT",
+      "valor": "0.10% del PBI (aproximadamente USD 640M anuales en régimen)",
+      "tipo": "presupuesto",
+      "linea": 523,
+      "cita": "0.10% del PBI (aproximadamente USD 640M anuales en régimen)"
+    },
+    {
+      "concepto": "Inversión inicial por Taller",
+      "valor": "USD 120-180K",
+      "tipo": "presupuesto",
+      "linea": 91,
+      "cita": "La inversión inicial estimada por Taller es de USD 120-180K"
+    },
+    {
+      "concepto": "Costo anual de un Taller tipo (30 practicantes)",
+      "valor": "USD 156.000-250.000 por año",
+      "tipo": "presupuesto",
+      "linea": 583,
+      "cita": "**156.000-250.000**"
+    },
+    {
+      "concepto": "Costo por practicante activo",
+      "valor": "USD 5.200-8.300 por año",
+      "tipo": "parametro",
+      "linea": 585,
+      "cita": "Costo por practicante activo: USD 5.200-8.300 año."
+    },
+    {
+      "concepto": "Tallers en la primera etapa",
+      "valor": "20 Tallers en 8 provincias piloto",
+      "tipo": "meta",
+      "linea": 728,
+      "cita": "20 Tallers en 8 provincias piloto."
+    },
+    {
+      "concepto": "Tallers operativos en régimen pleno (horizonte 2040, visión)",
+      "valor": "4.000 Tallers",
+      "tipo": "meta",
+      "linea": 748,
+      "cita": "4.000 Tallers. Régimen pleno."
+    },
+    {
+      "concepto": "Ventana de entrada a tranche-2",
+      "valor": "2028-2030",
+      "tipo": "plazo",
+      "linea": 723,
+      "cita": "entrada 24-30m, ventana absoluta 2028-2030"
+    },
+    {
+      "concepto": "Contribución cruzada de la Red Bastarda al Fondo Taller",
+      "valor": "5% del ahorro que genera a los usuarios",
+      "tipo": "fuente",
+      "linea": 608,
+      "cita": "Contribución cruzada de la Red Bastarda (5% del ahorro que genera a los usuarios revierte al Fondo Taller)"
+    },
+    {
+      "concepto": "Personas con oficio demostrable fuera de infraestructura productiva",
+      "valor": "aproximadamente 4,5 millones",
+      "tipo": "diagnostico",
+      "linea": 191,
+      "cita": "aproximadamente **4,5 millones son personas con oficio demostrable"
+    },
+    {
+      "concepto": "Costo operativo anual de la red en régimen",
+      "valor": "USD 640-1.000M",
+      "tipo": "presupuesto",
+      "linea": 655,
+      "cita": "Costo operativo anual de la red | USD 640-1.000M"
+    },
+    {
+      "concepto": "Practicantes activos en régimen pleno",
+      "valor": "1,5-2 millones",
+      "tipo": "meta",
+      "linea": 651,
+      "cita": "Practicantes activos | 1,5-2 millones"
+    },
+    {
+      "concepto": "Inversión acumulada en programas de empleo 2015-2024",
+      "valor": "USD 11.000M+",
+      "tipo": "diagnostico",
+      "linea": 209,
+      "cita": "Inversión acumulada: USD 11.000M+."
+    },
+    {
+      "concepto": "Practicantes por Taller",
+      "valor": "entre 25 y 60",
+      "tipo": "parametro",
+      "linea": 365,
+      "cita": "Pueden ser entre 25 y 60 según tamaño y materia."
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANMESA",
+      "que": "Mesa envía a los Tallers propuestas para piloto acotado en la Fase EXPERIMENTAR; los Tallers devuelven hallazgos a Mesa.",
+      "linea": 628,
+      "cita": "Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Canal de distribución al costo de la producción de los Tallers, con insumos a Bastardas y excedentes al mercado popular.",
+      "linea": 629,
+      "cita": "Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Datos abiertos, audit logs e interoperabilidad sobre los que corre el Protocolo Taller; la capacidad del estadio B queda diferida a tranche-3+.",
+      "linea": 630,
+      "cita": "Protocolo Taller corre sobre **estadio A de PLANDIG**"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Personal público reconvertido pasa a coordinación, mentoría técnica y gestión operativa de los Tallers.",
+      "linea": 631,
+      "cita": "Empleo público reconvertido se redirige hacia coordinación, mentoría técnica y gestión operativa de los Tallers federales"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "La Capa de Estudio de la Credencial se construye en parte dentro de los Tallers.",
+      "linea": 91,
+      "cita": "con **PLANEDU** (la Capa de Estudio de la Credencial se construye parcialmente en Tallers)"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Red de vínculos de cuidado que sostiene a practicantes en sobrecarga, como sustrato relacional del Taller.",
+      "linea": 371,
+      "cita": "Red de vínculos de cuidado que sostiene a practicantes en sobrecarga (ver PLANCUIDADO)"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "Dos Síndicos de Archivo integran el Directorio de la ANT; los hallazgos y fracasos se inscriben en la memoria operativa.",
+      "linea": 532,
+      "cita": "2 Síndicos de Archivo (representación de PLANMEMORIA)"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Taller de panificación y conservas produce alimentos al costo para comedores, merenderos y clubes.",
+      "linea": 454,
+      "cita": "Conexión con PLANISV."
+    },
+    {
+      "con": "PLANEN",
+      "que": "Taller de energía distribuida con paneles solares comunitarios y pequeños generadores como nodos de generación.",
+      "linea": 466,
+      "cita": "Conexión con PLANEN."
+    },
+    {
+      "con": "PLANVIV",
+      "que": "Taller de construcción incremental con técnicas recuperadas y modernas.",
+      "linea": 468,
+      "cita": "Conexión con PLANVIV."
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Taller de electrónica industrial para dispositivos médicos sencillos y automatización básica.",
+      "linea": 478,
+      "cita": "Conexión con PLANSAL."
+    },
+    {
+      "con": "PLANCUL",
+      "que": "Taller de instrumentos musicales vinculado al sector cultural.",
+      "linea": 472,
+      "cita": "Conexión con PLANCUL."
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Cada Ciudad Nueva nace con 6 a 10 Tallers incorporados a su diseño urbano base.",
+      "linea": 813,
+      "cita": "Cada Ciudad Nueva nace con 6-10 Tallers incorporados al diseño urbano"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La Sección 5 y la 6.4 fijan un presupuesto constitucional para la ANT (0.10% del PBI); el cronograma dice sin constitucionalización en tranche-3 y lo difiere a 2040.",
+      "linea": 744,
+      "cita": "Presupuesto operativo estable (sin constitucionalización)."
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Tasa de sobrevivencia de los Tallers a cinco años; se ajustará con los pilotos.",
+      "linea": 755,
+      "cita": "Tasa exacta de sobrevivencia de Tallers a 5 años"
+    },
+    {
+      "que": "Demanda sostenida real de cada sector de Taller.",
+      "linea": 756,
+      "cita": "Demanda sostenida real de cada sector de Taller"
+    },
+    {
+      "que": "Si la Red Bastarda puede absorber el volumen proyectado de producción al costo.",
+      "linea": 757,
+      "cita": "Capacidad de la Red Bastarda de absorber el volumen proyectado de producción al costo"
+    }
+  ]
+}

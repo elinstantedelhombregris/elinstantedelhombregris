@@ -5,6 +5,11 @@
   "outputDirectory": "apps/web/dist",
   "redirects": [
     {
+      "source": "/atlas",
+      "destination": "/atlas/",
+      "permanent": false
+    },
+    {
       "source": "/recursos/guias-estudio/:curso/leccion/:leccion",
       "destination": "/entrenamientos/:curso/leccion/:leccion",
       "permanent": true

@@ -68,6 +68,24 @@ export function IndicePlanes() {
           </p>
         </>
       ) : null}
+
+      <h2 className="font-space text-tinta-50 mb-5 mt-14 text-[11px] uppercase tracking-[0.16em]">
+        Cómo se apoyan entre sí
+      </h2>
+      <div className="border-tinta border-t pt-5">
+        <p className="text-tinta-90 mb-3 max-w-[720px] text-base leading-relaxed [text-wrap:pretty]">
+          El atlas del corpus dibuja los {PLAN_COUNT} planes y el plan meta como una red: qué le da
+          cada uno a los demás, qué nombra como propio y dónde todavía no cierran entre sí.
+        </p>
+        {/* `<a>` y no `<Link>`: el atlas es una página estática (`public/atlas/`, la genera
+            «Iniciativas Estratégicas/atlas/construir.mjs»), fuera del router de la app. */}
+        <a
+          href="/atlas/"
+          className="font-space text-violeta text-xs font-bold uppercase tracking-[0.1em]"
+        >
+          Abrir el atlas →
+        </a>
+      </div>
     </section>
   );
 }

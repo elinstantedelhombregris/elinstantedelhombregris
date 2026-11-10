@@ -1,0 +1,5 @@
+{"code":"PLANPUERTA","leido":"todo","hallazgos":[
+{"lineas":[324,871],"que":"La SECCIÓN 3 dice que sin Estado corren dos dispositivos (Compadrazgo y Cuerpo de Scouts en la Fase 0), pero la SECCIÓN 12 cuenta «uno solo» en los tramos 1 y 2 y después vuelve a decir «los dos dispositivos que corren sin Estado»."},
+{"lineas":[348,742,871],"que":"ANAR opera cuatro dispositivos (Lista, Cuerpo, Contrato, Tablero) y la Ventana no es poder suyo, pero la SECCIÓN 12 enumera sus cuatro como Lista, Cuerpo, Ventana y Contrato, omitiendo el Tablero."},
+{"lineas":[1052],"que":"La oración «Y de la serie que juzga a este PLAN va a estar afuera siempre» está truncada: falta el sujeto, probablemente Delfina."}
+]}

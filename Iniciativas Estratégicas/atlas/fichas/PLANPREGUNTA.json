@@ -1,0 +1,613 @@
+{
+  "code": "PLANPREGUNTA",
+  "nombre": "Plan Nacional de la Pregunta, el Censo de Ignorancia y la Prueba de Barro",
+  "version": "1.0 — Agosto 2026",
+  "tesis": "La unidad del conocimiento público pasa a ser la Pregunta Nacional: una ignorancia declarada, numerada, con dueño de sistema, costo de no saberla y cierre solo tras doce meses de uso por alguien que no la inventó.",
+  "problema": "El país discute cuánto invierte en ciencia y nunca para qué. No hay registro público de lo que no sabe, ni dueño de cada ignorancia, ni obligación de contestar a quien preguntó. La ley fija 0,39% del PBI y se ejecuta 0,16%. El saber de quienes están en el terreno no tiene puerta de entrada.",
+  "resumen": "Crea un circuito que junta ignorancias (Censo de Ignorancia), las devuelve contestadas por escrito en ciento veinte días y abre las elegidas como Preguntas Nacionales, repartidas en nueve verticales. Se cierran con la Prueba de Barro. Suma infraestructura común (Banco de Materia Viva, Turno de Máquina, Sello Abierto, Modelos de Órgano), Cátedras que se mudan al problema con cupo para saber sin carrera, un Seguro sorteado del diez por ciento, la Serie Centenaria y un régimen de doble uso. Lo administra la ANCON, que arranca como célula de ejecución.",
+  "horizonte": "Fase 0 (2029-2030) registro en papel o plataforma; Fase 1 (2031-2032) ley de la ANCON y primeras cien Preguntas; Fase 2 (2033-2034) Cátedras; Fase 3 (2035-2040) régimen pleno; Fase 4 (2041 en adelante) exportación del método.",
+  "financiamiento": "USD 16.500–26.000M a quince años, con régimen anual de USD 1.500–2.300M. Sale de un nuevo split del Fondo Soberano Ciudadano: 8 puntos tomados del Fondo Intergeneracional, que baja de 15 a 7. No pide porcentaje del PBI.",
+  "temas": [
+    "educacion-conocimiento",
+    "estado-instituciones",
+    "democracia-participacion",
+    "digital-datos",
+    "fiscal-presupuesto"
+  ],
+  "conceptos": [
+    {
+      "nombre": "Pregunta Nacional",
+      "alias": [
+        "Pregunta Nacional",
+        "Preguntas Nacionales"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Documento público de una página con ocho campos obligatorios que enuncia una falta de saber, con número, dueño de sistema, costo de no saberla, vertical, plazo, criterio de cierre y padrón de Testigos.",
+      "seccion": "3.1",
+      "linea": 246,
+      "cita": "Una Pregunta Nacional es un documento público de una página con ocho campos obligatorios"
+    },
+    {
+      "nombre": "Censo de Ignorancia",
+      "alias": [
+        "Censo de Ignorancia"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Circuito por el que cualquier persona deposita algo que no sabe y recibe respuesta escrita y firmada en ciento veinte días; funciona en plataforma o en papel.",
+      "seccion": "4",
+      "linea": 326,
+      "cita": "El Censo de Ignorancia es el circuito por el cual una persona deposita algo que no sabe"
+    },
+    {
+      "nombre": "Padrón de Testigos",
+      "alias": [
+        "Padrón de Testigos",
+        "Testigos"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Entre cinco y nueve personas por Pregunta que firman el acta de cierre y juzgan solo si lo producido contesta lo que se preguntó; la disidencia se publica junto al acta.",
+      "seccion": "4.3",
+      "linea": 356,
+      "cita": "Cada Pregunta abierta lleva un padrón de entre cinco y nueve Testigos"
+    },
+    {
+      "nombre": "Pregunta de Adopción",
+      "alias": [
+        "Pregunta de Adopción"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "La Pregunta número uno, permanente: por qué no se usa lo que ya se sabe. Su objeto son las otras Preguntas y el conocimiento existente; tiene informe anual público.",
+      "seccion": "4.4",
+      "linea": 364,
+      "cita": "Hay una Pregunta que no se abre ni se cierra"
+    },
+    {
+      "nombre": "Prueba de Barro",
+      "alias": [
+        "Prueba de Barro",
+        "Pruebas de Barro"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Criterio de cierre de una Pregunta: lo producido funciona doce meses seguidos, en condiciones reales, operado por personas que no participaron de producirlo.",
+      "seccion": "6.1",
+      "linea": 454,
+      "cita": "Una Pregunta Nacional se cierra cuando lo que se produjo para contestarla"
+    },
+    {
+      "nombre": "Nueve verticales",
+      "alias": [
+        "Nueve Verticales",
+        "nueve verticales"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Reparto de las Preguntas en nueve materias con dueño de vertical permanente: Tierra, Agua, Aire, Flora, Fauna, Cuerpo, Energía y materia, República y Evaluación de mandatos.",
+      "seccion": "5.1",
+      "linea": 388,
+      "cita": "Son nueve. Siete recortan el mundo físico que la dirección del fundador nombra"
+    },
+    {
+      "nombre": "Incompatibilidad de autoría",
+      "alias": [
+        "incompatibilidad de autoría"
+      ],
+      "tipo": "norma",
+      "que_es": "Quien escribe una Pregunta no puede dirigir el equipo que la contesta; puede integrarlo y es Testigo por derecho. Cierra el modo de falla de captura por el sistema científico.",
+      "seccion": "3.4",
+      "linea": 294,
+      "cita": "Quien escribe una Pregunta no puede dirigir el equipo que la contesta."
+    },
+    {
+      "nombre": "Banco de Materia Viva",
+      "alias": [
+        "Banco de Materia Viva"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Ocho nodos federados que conservan, catalogan y prestan material biológico contra Pregunta abierta; federa el banco de germoplasma existente sin cambiarle el dueño.",
+      "seccion": "7.1",
+      "linea": 504,
+      "cita": "Ocho nodos federados que conservan, catalogan y **prestan** material biológico"
+    },
+    {
+      "nombre": "Turno de Máquina",
+      "alias": [
+        "Turno de Máquina"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Cómputo asignado por Pregunta con turno público y cola visible; protocoliza el acceso a máquinas de PLANDIG y declara no contestables las Preguntas sin cómputo disponible.",
+      "seccion": "7.2",
+      "linea": 518,
+      "cita": "Cómputo asignado por Pregunta, con turno público y cola visible"
+    },
+    {
+      "nombre": "Sello Abierto",
+      "alias": [
+        "Sello Abierto"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Obligación de publicar todo lo producido para contestar una Pregunta: resultado, método, datos, código y acta, más una carilla en lengua llana. Excepciones: procesos industriales, datos personales y doble uso.",
+      "seccion": "7.3",
+      "linea": 530,
+      "cita": "Todo lo producido para contestar una Pregunta Nacional se publica"
+    },
+    {
+      "nombre": "Modelos de Órgano",
+      "alias": [
+        "Modelos de Órgano"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Modelos computacionales públicos de sistemas físicos (cuenca, suelo, padrón epidemiológico, red energética), con rango de validez y error declarados; no pueden cerrar una Pregunta.",
+      "seccion": "7.4",
+      "linea": 542,
+      "cita": "Modelos computacionales públicos de los sistemas que las verticales estudian"
+    },
+    {
+      "nombre": "Cátedra Portátil",
+      "alias": [
+        "Cátedra Portátil",
+        "Cátedras Portátiles"
+      ],
+      "tipo": "programa",
+      "que_es": "Asignación de tiempo completo, de uno a tres años, para instalarse donde está la Pregunta, con contraparte local financiada; nace y se extingue con la Pregunta.",
+      "seccion": "8.1",
+      "linea": 566,
+      "cita": "Una Cátedra Portátil es una asignación de tiempo completo, de uno a tres años"
+    },
+    {
+      "nombre": "Cátedra de Regreso",
+      "alias": [
+        "Cátedra de Regreso"
+      ],
+      "tipo": "programa",
+      "que_es": "Cátedra Portátil dirigida a quien se formó en el país y trabaja afuera; pide un año con Pregunta asignada, misma escala de pago, sin compromiso de mudanza definitiva.",
+      "seccion": "8.2",
+      "linea": 584,
+      "cita": "Está dirigida a quien se formó acá y trabaja afuera."
+    },
+    {
+      "nombre": "Cupo de Credencial Consolidada",
+      "alias": [
+        "Cupo de Credencial Consolidada"
+      ],
+      "tipo": "norma",
+      "que_es": "Entre 5 y 8% de las Cátedras reservado a personas con Credencial Consolidada de PLANMESA sin trayectoria académica, en la materia de la Pregunta; no queda vacante para el período siguiente.",
+      "seccion": "8.3",
+      "linea": 594,
+      "cita": "Entre el **5 y el 8% de las Cátedras** de cada período se reservan"
+    },
+    {
+      "nombre": "Seguro contra lo Imprevisto",
+      "alias": [
+        "Seguro contra lo Imprevisto"
+      ],
+      "tipo": "programa",
+      "que_es": "Diez por ciento del presupuesto anual sorteado sin objetivo ni vertical, sorteo puro, sin criterio de cierre y con audiencia pública a los tres años.",
+      "seccion": "9",
+      "linea": 612,
+      "cita": "El diez por ciento del presupuesto anual de este PLAN se sortea, sin objetivo declarado y sin vertical."
+    },
+    {
+      "nombre": "Serie Centenaria",
+      "alias": [
+        "Serie Centenaria"
+      ],
+      "tipo": "programa",
+      "que_es": "Entre siete y doce mediciones elegidas una vez y sostenidas cien años, con método repetible, punto físico declarado, dato crudo publicado el mismo día y un responsable con nombre por año.",
+      "seccion": "10",
+      "linea": 640,
+      "cita": "Entre siete y doce mediciones, elegidas una sola vez, sostenidas cien años"
+    },
+    {
+      "nombre": "Agencia Nacional del Conocimiento (ANCON)",
+      "alias": [
+        "ANCON",
+        "Agencia Nacional del Conocimiento"
+      ],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico que administra el circuito de las Preguntas; arranca como célula de ejecución por decreto en la Fase 0, con lista expresa de prohibiciones y directorio sin mayoría del sistema científico.",
+      "seccion": "12",
+      "linea": 710,
+      "cita": "es un ente autárquico creado por ley, con presupuesto propio"
+    },
+    {
+      "nombre": "Fondo de la Pregunta",
+      "alias": [
+        "Fondo de la Pregunta"
+      ],
+      "tipo": "fondo",
+      "que_es": "Línea de 8 puntos del flujo del Fondo Soberano Ciudadano, tomados del Fondo Intergeneracional; se subordina a reponer esa reserva en el año de derrumbe del Dividendo.",
+      "seccion": "13.2",
+      "linea": 798,
+      "cita": "| Fondo de la Pregunta | 0 | 8 | +8 |"
+    },
+    {
+      "nombre": "Régimen de doble uso",
+      "alias": [
+        "doble uso"
+      ],
+      "tipo": "norma",
+      "que_es": "Demora acotada (360 días) a publicar lo que describe cómo producir un agente de daño masivo, comité externo que fija lo que no se presta y responsable nominado por nodo, con contador público.",
+      "seccion": "11",
+      "linea": 674,
+      "cita": "una demora acotada, con fecha, con motivo escrito y con contador público"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Fondo Soberano Ciudadano",
+      "alias": [
+        "Fondo Soberano Ciudadano",
+        "FSC"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Es la fuente única de financiamiento: este PLAN reabre su reparto para crear el Fondo de la Pregunta.",
+      "linea": 781,
+      "cita": "La fuente es el Fondo Soberano Ciudadano de `PLANTER`."
+    },
+    {
+      "nombre": "Fondo Intergeneracional",
+      "alias": [
+        "Fondo Intergeneracional"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Línea de la que salen los 8 puntos; baja de 15 a 7 y queda su reserva anti-colapso en menos de la mitad.",
+      "linea": 797,
+      "cita": "| Fondo Intergeneracional | 15 | 7 | −8 |"
+    },
+    {
+      "nombre": "Dividendo Ciudadano Mensual",
+      "alias": [
+        "Dividendo Ciudadano Mensual"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Su derrumbe declarado activa la cláusula de subordinación del Fondo de la Pregunta.",
+      "linea": 793,
+      "cita": "| Dividendo Ciudadano Mensual | 40 | 40 | — |"
+    },
+    {
+      "nombre": "Ciclo LDEA",
+      "alias": [
+        "LDEA"
+      ],
+      "origen": "PLANMESA",
+      "para_que": "Su fase EXPERIMENTAR choca con la Prueba de Barro; se resuelve poniéndolas en serie.",
+      "linea": 466,
+      "cita": "define la fase EXPERIMENTAR de todo ciclo LDEA así"
+    },
+    {
+      "nombre": "Credencial de Materia",
+      "alias": [
+        "Credencial de Materia"
+      ],
+      "origen": "PLANMESA",
+      "para_que": "Base del sorteo estratificado de jurados y del cupo de Cátedras.",
+      "linea": 306,
+      "cita": "la **Credencial de Materia** de `PLANMESA`"
+    },
+    {
+      "nombre": "Mesa Federal",
+      "alias": [
+        "Mesa Federal"
+      ],
+      "origen": "PLANMESA",
+      "para_que": "Órgano natural que decidirá qué Preguntas de materia CyT se abren; recibe la facultad del jurado interino de la ANCON.",
+      "linea": 280,
+      "cita": "entre las materias de la Mesa Federal"
+    },
+    {
+      "nombre": "Laboratorio Nacional de Energía del Futuro",
+      "alias": [
+        "LANEF"
+      ],
+      "origen": "PLANEN",
+      "para_que": "Contesta las Preguntas de energía y es el precedente de obligación de transferencia que este PLAN generaliza.",
+      "linea": 208,
+      "cita": "funda el Laboratorio Nacional de Energía del Futuro como red distribuida"
+    },
+    {
+      "nombre": "Archivo de Depósito Ciudadano",
+      "alias": [
+        "Archivo de Depósito Ciudadano"
+      ],
+      "origen": "PLANMEMORIA",
+      "para_que": "Modelo del circuito de depósito; su Archivo custodia catálogos, actas y préstamos con hash en siete nodos.",
+      "linea": 328,
+      "cita": "el **Archivo de Depósito Ciudadano** de `PLANMEMORIA:283`"
+    },
+    {
+      "nombre": "Síndicos de Archivo",
+      "alias": [
+        "Síndicos de Archivo"
+      ],
+      "origen": "PLANMEMORIA",
+      "para_que": "Padrón para habilitar jurados capaces de detectar que una Pregunta ya fue contestada.",
+      "linea": 306,
+      "cita": "los **Síndicos de Archivo** de `PLANMEMORIA:315`"
+    },
+    {
+      "nombre": "Registro Nacional de Peritos",
+      "alias": [
+        "Registro Nacional de Peritos"
+      ],
+      "origen": "PLANJUS",
+      "para_que": "Padrón ajeno de pericia técnica acreditada, usado para habilitar jurados fuera de la ANCON.",
+      "linea": 306,
+      "cita": "el **Registro Nacional de Peritos** de `PLANJUS:639`"
+    },
+    {
+      "nombre": "ArgenCloud y LANIA",
+      "alias": [
+        "ArgenCloud",
+        "LANIA"
+      ],
+      "origen": "PLANDIG",
+      "para_que": "Cómputo soberano de estadio B que el Turno de Máquina no puede suponer disponible en la Fase 0.",
+      "linea": 522,
+      "cita": "ArgenCloud a escala y el LANIA con cómputo de frontera **no son tranche-1**"
+    },
+    {
+      "nombre": "Escalera de Garantías",
+      "alias": [
+        "Escalera de Garantías"
+      ],
+      "origen": "PLANPACTO",
+      "para_que": "Este PLAN no agrega un noveno escalón: no reclama piso constitucional.",
+      "linea": 96,
+      "cita": "La Escalera de Garantías de PLANPACTO cierra en ocho escalones"
+    },
+    {
+      "nombre": "Acervo Abierto",
+      "alias": [
+        "Acervo Abierto"
+      ],
+      "origen": "PLANFOCO",
+      "para_que": "Repositorio donde publica el Sello Abierto en lugar de construir uno propio.",
+      "linea": 971,
+      "cita": "el Sello Abierto publica adentro del Acervo Abierto"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Presupuesto canónico a quince años",
+      "valor": "USD 16.500–26.000M",
+      "tipo": "presupuesto",
+      "linea": 11,
+      "cita": "USD 16.500–26.000M a quince años"
+    },
+    {
+      "concepto": "Total de la rampa por fases",
+      "valor": "USD 16.500M (bajo) – 25.500M (alto)",
+      "tipo": "presupuesto",
+      "linea": 773,
+      "cita": "El extremo bajo da 16.500 exacto y el alto 25.500"
+    },
+    {
+      "concepto": "Banda anual de gasto en régimen",
+      "valor": "USD 1.500–2.300M por año",
+      "tipo": "presupuesto",
+      "linea": 775,
+      "cita": "La banda anual de régimen queda entonces en USD 1.500–2.300M/año"
+    },
+    {
+      "concepto": "Flujo anual del Fondo Soberano Ciudadano en régimen",
+      "valor": "USD 16.500–31.000M por año",
+      "tipo": "fuente",
+      "linea": 781,
+      "cita": "El flujo total en régimen es de USD 16.500–31.000M por año"
+    },
+    {
+      "concepto": "Fondo de la Pregunta sobre el flujo del FSC",
+      "valor": "8 puntos (USD 1.320 a 2.480M por año)",
+      "tipo": "fuente",
+      "linea": 821,
+      "cita": "dan USD 1.320 a 2.480M por año"
+    },
+    {
+      "concepto": "Fondo Intergeneracional tras el recorte",
+      "valor": "de 15 a 7 puntos",
+      "tipo": "parametro",
+      "linea": 797,
+      "cita": "| Fondo Intergeneracional | 15 | 7 | −8 |"
+    },
+    {
+      "concepto": "Faltante en el año malo del ciclo",
+      "valor": "180 millones (1.320 contra 1.500)",
+      "tipo": "parametro",
+      "linea": 823,
+      "cita": "En el año malo del ciclo faltan 180 millones."
+    },
+    {
+      "concepto": "Magnitud sobre el PBI del flujo del Fondo de la Pregunta",
+      "valor": "0,26 a 0,50% del PBI",
+      "tipo": "parametro",
+      "linea": 827,
+      "cita": "dan **0,26 a 0,50% del PBI**"
+    },
+    {
+      "concepto": "Cupo de Cátedras para Credencial Consolidada",
+      "valor": "5–8% de las Cátedras",
+      "tipo": "parametro",
+      "linea": 594,
+      "cita": "Entre el **5 y el 8% de las Cátedras** de cada período"
+    },
+    {
+      "concepto": "Tope del interinato del jurado de la ANCON",
+      "valor": "2036",
+      "tipo": "plazo",
+      "linea": 287,
+      "cita": "El interinato tiene tope: 2036"
+    },
+    {
+      "concepto": "Ejecución de ciencia y técnica contra la meta legal",
+      "valor": "0,16% del PBI ejecutado; meta legal 0,39%",
+      "tipo": "diagnostico",
+      "linea": 74,
+      "cita": "la ejecución de ciencia y técnica es de **0,16% del PBI**"
+    },
+    {
+      "concepto": "Fase 0: registro antes que la plata",
+      "valor": "2029-2030, USD 150–200M por año",
+      "tipo": "plazo",
+      "linea": 883,
+      "cita": "**Fase 0 — el registro antes que la plata (2029-2030).**"
+    },
+    {
+      "concepto": "Régimen pleno",
+      "valor": "2035-2040",
+      "tipo": "plazo",
+      "linea": 889,
+      "cita": "**Fase 3 — régimen pleno (2035-2040).**"
+    },
+    {
+      "concepto": "Posiciones perdidas por el sistema de ciencia y técnica",
+      "valor": "4.148 posiciones; 11.868 investigadores en el CONICET",
+      "tipo": "diagnostico",
+      "linea": 72,
+      "cita": "el sistema de ciencia y tecnología perdió **4.148 posiciones**"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANDIG",
+      "que": "Provee la plataforma del Censo, el cómputo del Turno de Máquina y el sustrato de los Modelos de Órgano; el Censo se diseña contra el estadio A y baja a papel.",
+      "linea": 374,
+      "cita": "El Censo se diseña entero contra el estadio A"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "Presta la mecánica de sorteo estratificado, la Credencial de Materia y, cuando exista, la Mesa Federal que reemplaza al jurado interino de la ANCON.",
+      "linea": 272,
+      "cita": "El jurado se sortea con la mecánica de `PLANMESA`"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Dueño del Fondo Soberano Ciudadano, único origen de la plata; cede 8 puntos de su Fondo Intergeneracional.",
+      "linea": 781,
+      "cita": "La fuente es el Fondo Soberano Ciudadano de `PLANTER`."
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "Su Archivo custodia con hash en siete nodos el catálogo del Banco, las actas y los préstamos sensibles; el Banco custodia materia y el Archivo registro.",
+      "linea": 510,
+      "cita": "se inscribe en el Archivo con la forma de `PLANMEMORIA:283`"
+    },
+    {
+      "con": "PLANEN",
+      "que": "El LANEF contesta las Preguntas de energía con su dirección intacta; la vertical solo escribe lo que el laboratorio no averigua. Piso de 0,2% no reclamado.",
+      "linea": 316,
+      "cita": "tiene la materia, tiene su red de nodos"
+    },
+    {
+      "con": "PLANISV",
+      "que": "El Banco de Materia Viva federa su banco de germoplasma nacional sin cambiarle el dueño; el caso de la guardiana de semillas es el precedente.",
+      "linea": 506,
+      "cita": "El Banco de Materia Viva lo federa: le agrega nodos, catálogo común y régimen de préstamo"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Aporta la forma de su sorteo puro, aplicada solo al Seguro contra lo Imprevisto, y el Registro de Peritos como padrón de jurados.",
+      "linea": 622,
+      "cita": "Acá sí es aplicable la forma de `PLANJUS:400`"
+    },
+    {
+      "con": "PLANARCO",
+      "que": "Dictaminó que el Fondo Soberano Ciudadano y el Fondo Soberano Bastardo son un solo fondo, y renunció a financiarse con el Fondo Intergeneracional; este PLAN hereda lo primero y reabre lo segundo.",
+      "linea": 785,
+      "cita": "`PLANARCO:449` dictaminó que el Fondo Soberano Ciudadano de PLANTER"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "Provee el producto de referencia para medir la afectación sobre el Techo B; la afectación nueva es cero, y no se agrega escalón a la Escalera de Garantías.",
+      "linea": 827,
+      "cita": "sobre el producto de referencia de 500.000 millones que usa `PLANPACTO:122`"
+    },
+    {
+      "con": "PLANFOCO",
+      "que": "Par recíproco: el Sello Abierto publica en su Acervo, y el Desmontaje y el Censo de Ignorancia son la misma capacidad cívica a dos escalas.",
+      "linea": 734,
+      "cita": "publica adentro del **Acervo** de aquel PLAN"
+    },
+    {
+      "con": "PLANTALLER",
+      "que": "Presta infraestructura territorial donde se instalan las Cátedras Portátiles, sin construir sedes nuevas.",
+      "linea": 578,
+      "cita": "`PLANTALLER` ya tiene infraestructura territorial"
+    },
+    {
+      "con": "PLANGEO",
+      "que": "El circuito entero se empaqueta desde 2041 como módulo del Stack de Soberanía, abierto y sin lock-in; el material que sale del país sigue su régimen.",
+      "linea": 891,
+      "cita": "se empaqueta como módulo del Stack de Soberanía de `PLANGEO`"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Ocupa la vertical Cuerpo: PLANSAL atiende y la vertical averigua; donde coinciden manda PLANSAL.",
+      "linea": 416,
+      "cita": "PLANSAL atiende, esta vertical averigua"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "Sostiene la cultura viva mientras la vertical República pregunta cómo funciona; donde coinciden manda PLANCUL.",
+      "linea": 428,
+      "cita": "PLANCUL sostiene la cultura viva y esta vertical pregunta cómo funciona"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "PLANMESA",
+      "que": "El piloto LDEA de 60-180 días exige al autor adentro y la Prueba de Barro de doce meses lo exige afuera; el texto lo resuelve poniéndolas en serie, sin enmendar a PLANMESA.",
+      "linea": 468,
+      "cita": "**Las dos reglas son opuestas en las dos variables.**"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "El órgano natural para decidir qué Preguntas se abren es la Mesa Federal de PLANMESA, que en 2029 no puede existir; la ANCON lo suple como interina hasta 2036.",
+      "linea": 280,
+      "cita": "ya está previsto en el corpus, y no es la ANCON"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Bajar el Fondo Intergeneracional de 15 a 7 deja la reserva anti-colapso del Dividendo en menos de la mitad, justo cuando el Dividendo más importa.",
+      "linea": 813,
+      "cita": "Bajarla de 15 a 7 deja esa reserva anti-colapso en menos de la mitad."
+    },
+    {
+      "con": "PLANDIG",
+      "que": "El Turno de Máquina y los Modelos dependen de cómputo que PLANDIG difiere como estadio B condicional; el texto declara no contestables las Preguntas sin máquina.",
+      "linea": 522,
+      "cita": "Suponerlos disponibles en la Fase 0 de este PLAN sería escribir sobre infraestructura"
+    },
+    {
+      "con": "interno",
+      "que": "La Serie Centenaria empieza a medirse en la Fase 1 (2031-2032), pero la visión 2040 habla de doce años corridos de medición para 2041, cuando la cuenta da cerca de diez.",
+      "linea": 935,
+      "cita": "series de medición con doce años corridos"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Un capítulo de precedentes internacionales verificados contra fuente externa queda como deuda de la próxima revisión profunda.",
+      "linea": 196,
+      "cita": "Quedan como deuda declarada de la próxima revisión profunda"
+    },
+    {
+      "que": "La magnitud del problema de adopción argentino no está medida; el primer informe de la Pregunta de Adopción será probablemente la primera medición.",
+      "linea": 370,
+      "cita": "este documento no tiene la magnitud del problema de adopción argentino"
+    },
+    {
+      "que": "La vertical de evaluación de mandatos puede recibir pocos pedidos o ninguno y el documento no tiene cómo forzarlos.",
+      "linea": 442,
+      "cita": "Es probable que durante años reciba pocos pedidos o ninguno"
+    },
+    {
+      "que": "Falta evaluación de riesgo cuantitativa, lista de agentes y niveles de contención para el doble uso; queda como deuda con dueño en el comité.",
+      "linea": 704,
+      "cita": "Van como deuda de la primera revisión profunda, con dueño"
+    },
+    {
+      "que": "Las Preguntas que más necesita el país pueden ser las que ningún jurado quiere abrir, sobre todo en la vertical República; no hay respuesta de diseño.",
+      "linea": 857,
+      "cita": "**No hay respuesta de diseño para eso.**"
+    }
+  ]
+}

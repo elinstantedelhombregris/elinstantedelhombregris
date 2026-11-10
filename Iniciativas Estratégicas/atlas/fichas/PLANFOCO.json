@@ -1,0 +1,509 @@
+{
+  "code": "PLANFOCO",
+  "nombre": "Plan Nacional de la Palabra Pública, la Biblioteca Viva y el Acervo Común",
+  "version": "1.0 — Agosto 2026",
+  "tesis": "La palabra pública no se arregla regulando a quien habla sino construyendo adónde aterriza la atención: el Estado extingue la pauta oficial en cinco años y con esa plata abre sedes de biblioteca con alguien adentro, sin controlar contenido.",
+  "problema": "Según el documento, el Estado transfiere unos USD 450M anuales de publicidad oficial a medios elegidos sin contrato de resultado. El corpus consagró el Commons Atencional sin presupuestarlo, midió cinco horas de pantalla diarias sin ofrecer destino, y los lugares cívicos abren en horarios heredados. El acervo audiovisual estatal no tiene custodio.",
+  "resumen": "Fase 0 por decreto: la pauta oficial se asigna por sorteo y se apaga en quintos hasta cero en 2031. Con esa plata se financian entre 1.200 y 1.500 sedes de la Biblioteca Viva, apoyadas en bibliotecas populares existentes, con bibliotecario designado por concurso ciego y sorteo. Suma La Antena (dotación de canal), La Cartelera, el Acervo Abierto, la Sala Común, la Procedencia (firma de origen del material público) y el Desmontaje, dictado por PLANEDU. La agencia ANBAC tiene prohibido licenciar, curar o dar de baja contenido.",
+  "horizonte": "Fase 0 (2027–2028) pauta ciega e inventario; Fase 1 (2029–2031) primeras 600 sedes; Fase 2 (2032–2034) red completa; Fase 3 (2035–2041) régimen. Evaluación de fallo en 2038.",
+  "financiamiento": "Una sola fuente: la publicidad oficial consolidada, USD 450M por año, que el PLAN extingue. Régimen de USD 300–450M/año; total de quince años USD 3.540–5.400M. No reclama presupuesto nuevo del Tesoro.",
+  "temas": ["palabra-publica", "cultura-memoria", "educacion-conocimiento", "fiscal-presupuesto"],
+
+  "conceptos": [
+    {
+      "nombre": "Pauta Ciega",
+      "alias": ["Pauta Ciega"],
+      "tipo": "mecanismo",
+      "que_es": "Dispositivo de Fase 0, por decreto: la colocación de publicidad oficial pasa a un sorteo con estratos y semilla públicos, y la bolsa se apaga en cinco años hasta cero.",
+      "seccion": "3",
+      "linea": 281,
+      "cita": "Este es el primer dispositivo, es el único que no le pide permiso a nadie"
+    },
+    {
+      "nombre": "Cronograma de extinción",
+      "alias": ["cronograma de extinción"],
+      "tipo": "mecanismo",
+      "que_es": "Calendario publicado en el decreto fundacional: la pauta baja en quintos iguales de 90 millones entre 2027 y 2031, sin pauta residual.",
+      "seccion": "3.2",
+      "linea": 307,
+      "cita": "Se apaga en cinco años, en quintos iguales de 90 millones"
+    },
+    {
+      "nombre": "Biblioteca Viva",
+      "alias": ["Biblioteca Viva"],
+      "tipo": "programa",
+      "que_es": "Red de 1.200 a 1.500 sedes abiertas en el horario real del territorio, con bibliotecario rentado, acervo local, conectividad libre y sala que se presta.",
+      "seccion": "4",
+      "linea": 358,
+      "cita": "Este es el destino. Es donde va la plata que la Pauta Ciega libera"
+    },
+    {
+      "nombre": "Regla de precedencia",
+      "alias": ["regla de precedencia"],
+      "tipo": "termino",
+      "que_es": "Donde ya funciona una biblioteca popular, la sede es esa biblioteca: se firma convenio y se la financia sin tocar su comisión, personería, nombre ni acervo.",
+      "seccion": "4.2",
+      "linea": 393,
+      "cita": "**La regla de precedencia, que es la que evita el peor resultado posible de este PLAN.**"
+    },
+    {
+      "nombre": "Concurso ciego más sorteo",
+      "alias": ["concurso ciego"],
+      "tipo": "mecanismo",
+      "que_es": "Designación de bibliotecarios: prueba de trabajo anonimizada y luego sorteo estratificado entre los aprobados, con mandato a término y renovación por sorteo.",
+      "seccion": "4.3",
+      "linea": 407,
+      "cita": "**Concurso ciego.** Los antecedentes se evalúan anonimizados"
+    },
+    {
+      "nombre": "Asamblea de usuarios de la sede",
+      "alias": ["asamblea de usuarios"],
+      "tipo": "mecanismo",
+      "que_es": "Modo degradado: hasta que se constituya la Mesa Territorial, el acervo lo decide una asamblea abierta convocada por el bibliotecario, con acta y transparencia de gasto.",
+      "seccion": "4.4",
+      "linea": 423,
+      "cita": "una **asamblea abierta de usuarios de la sede**"
+    },
+    {
+      "nombre": "La Antena",
+      "alias": ["La Antena", "dotación de canal"],
+      "tipo": "programa",
+      "que_es": "Paquete estandarizado (alojamiento, dominio, herramientas, identidad verificable, almacenamiento) que se entrega a cualquiera por orden de cola, sin curaduría ni causal de baja por contenido.",
+      "seccion": "5",
+      "linea": 443,
+      "cita": "La Antena es una **dotación de canal**"
+    },
+    {
+      "nombre": "La Cartelera",
+      "alias": ["La Cartelera"],
+      "tipo": "mecanismo",
+      "que_es": "Tablón físico y digital de eventos futuros con dos campos obligatorios, territorio y fecha; sin ranking, recomendación, métricas ni historial.",
+      "seccion": "6",
+      "linea": 469,
+      "cita": "donde cualquiera publica que algo va a pasar"
+    },
+    {
+      "nombre": "Panel de Legalidad de Publicación",
+      "alias": ["Panel de Legalidad de Publicación"],
+      "tipo": "institucion",
+      "que_es": "Fuero que este PLAN pide a PLANJUS: panel ciudadano sorteado de tres, quince días, sin baja previa, que resuelve sobre publicaciones ilegales de la Cartelera.",
+      "seccion": "6",
+      "linea": 481,
+      "cita": "un fuero que hoy no existe: el Panel de Legalidad de Publicación"
+    },
+    {
+      "nombre": "Acervo Abierto",
+      "alias": ["Acervo Abierto"],
+      "tipo": "programa",
+      "que_es": "Rescate y publicación del audiovisual estatal; manifiesto y hash van a los siete nodos de PLANMEMORIA y el archivo a la nube soberana de PLANDIG. ANBAC cataloga y paga, no custodia.",
+      "seccion": "7",
+      "linea": 111,
+      "cita": "**El Acervo Abierto**"
+    },
+    {
+      "nombre": "Sala Común",
+      "alias": ["Sala Común"],
+      "tipo": "mecanismo",
+      "que_es": "La planta técnica de los medios estatales deja de programar y se presta por sorteo, con menos peso para quien ya la usó y cupo fuera del AMBA.",
+      "seccion": "7.4",
+      "linea": 537,
+      "cita": "La Sala Común es esa planta dejando de programar y empezando a prestarse."
+    },
+    {
+      "nombre": "La Procedencia",
+      "alias": ["La Procedencia"],
+      "tipo": "mecanismo",
+      "que_es": "Firma criptográfica y registro de origen de todo material producido con plata pública, con estándar abierto; prueba el origen y no la veracidad.",
+      "seccion": "8",
+      "linea": 558,
+      "cita": "Todo material producido con plata pública"
+    },
+    {
+      "nombre": "Desmontaje",
+      "alias": ["Desmontaje"],
+      "tipo": "termino",
+      "que_es": "Capacidad de analizar una pieza de comunicación con cinco preguntas verificables (quién, con qué materiales, con qué técnica, qué falta, qué haría falta para saber si es cierto). Lo dicta PLANEDU.",
+      "seccion": "9.1",
+      "linea": 582,
+      "cita": "El Desmontaje es una **capacidad técnica, no una actitud moral**"
+    },
+    {
+      "nombre": "Beca del Desierto",
+      "alias": ["Beca del Desierto", "mediador-cronista"],
+      "tipo": "figura",
+      "que_es": "Rol anclado a cada sede: mediador hacia adentro y cronista hacia afuera, que también anota el saber local no escrito; por postulación abierta y sorteo, a término.",
+      "seccion": "10.2",
+      "linea": 660,
+      "cita": "la Beca del Desierto es el mediador-cronista de la Biblioteca local"
+    },
+    {
+      "nombre": "ANBAC",
+      "alias": ["ANBAC", "Agencia Nacional de la Biblioteca y el Acervo Común"],
+      "tipo": "institucion",
+      "que_es": "Agencia autárquica con directorio de siete y presupuesto de USD 15–20M/año; paga sedes, ejecuta la extinción, financia el Acervo, administra La Antena y la Procedencia. Tiene una lista de facultades negadas.",
+      "seccion": "12",
+      "linea": 726,
+      "cita": "Agencia Nacional de la Biblioteca y el Acervo Común: **ANBAC**"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Derecho al Commons Atencional",
+      "alias": ["Commons Atencional", "Commons Atencionales"],
+      "origen": "PLANDIG",
+      "para_que": "Es el derecho que la Biblioteca Viva financia; la cobertura de 3.000+ espacios es la meta que este PLAN cumple con sedes propias más espacios certificados.",
+      "linea": 362,
+      "cita": "**Derecho al Commons Atencional**"
+    },
+    {
+      "nombre": "Informe Mensual de Extracción Atencional",
+      "alias": ["Informe Mensual de Extracción Atencional"],
+      "origen": "PLANDIG",
+      "para_que": "Dispara el diagnóstico de las cinco horas diarias y es el hueco que el PLAN llena con un destino físico.",
+      "linea": 87,
+      "cita": "**Informe Mensual de Extracción Atencional**"
+    },
+    {
+      "nombre": "modo algorítmicamente off",
+      "alias": ["modo algorítmicamente off"],
+      "origen": "PLANDIG",
+      "para_que": "Único criterio con que ANBAC certifica un espacio como Commons Atencional.",
+      "linea": 379,
+      "cita": "el `modo algorítmicamente off` de `PLANDIG:786`"
+    },
+    {
+      "nombre": "ANDIG",
+      "alias": ["ANDIG"],
+      "origen": "PLANDIG",
+      "para_que": "Sigue siendo la agencia rectora de la política de atención; PLANFOCO solo aporta el dinero, el acervo y el bibliotecario.",
+      "linea": 366,
+      "cita": "que sigue siendo ANDIG"
+    },
+    {
+      "nombre": "La Tribu",
+      "alias": ["La Tribu"],
+      "origen": "PLANDIG",
+      "para_que": "Plataforma de coordinación de quienes hacen algo juntos; se la distingue de la Cartelera, que anuncia lo que va a pasar.",
+      "linea": 475,
+      "cita": "a **El Mapa** y a **La Tribu**"
+    },
+    {
+      "nombre": "Mesa Territorial Base",
+      "alias": ["Mesa Territorial Base", "Mesa Territorial"],
+      "origen": "PLANMESA",
+      "para_que": "Órgano local que decide las compras de cada sede de la Biblioteca Viva.",
+      "linea": 419,
+      "cita": "**Capa 1 — Mesa Territorial Base**"
+    },
+    {
+      "nombre": "sorteo estratificado",
+      "alias": ["sorteo estratificado"],
+      "origen": "PLANMESA",
+      "para_que": "Mecánica de sorteo para designar bibliotecarios, cronistas y dos directores de ANBAC.",
+      "linea": 409,
+      "cita": "**sorteo estratificado** por Credencial en la materia"
+    },
+    {
+      "nombre": "Credencial de Materia",
+      "alias": ["Credencial de Materia"],
+      "origen": "PLANMESA",
+      "para_que": "La capacitación de doce semanas de mediadores acredita como Capa de Estudio de esta credencial.",
+      "linea": 227,
+      "cita": "son las cinco capas de la Credencial de Materia"
+    },
+    {
+      "nombre": "Sello Abierto",
+      "alias": ["Sello Abierto"],
+      "origen": "PLANPREGUNTA",
+      "para_que": "Publica sus resultados dentro del Acervo Abierto; restricción heredada que obliga a ampliar el Acervo a datos y código.",
+      "linea": 523,
+      "cita": "su **Sello Abierto**"
+    },
+    {
+      "nombre": "Censo de Ignorancia",
+      "alias": ["Censo de Ignorancia"],
+      "origen": "PLANPREGUNTA",
+      "para_que": "Par recíproco del Desmontaje: la misma capacidad cívica a escala de país.",
+      "linea": 626,
+      "cita": "su propio **Censo de Ignorancia**"
+    },
+    {
+      "nombre": "JUS-1",
+      "alias": ["JUS-1"],
+      "origen": "PLANJUS",
+      "para_que": "Procedimiento de conflicto simple con panel de tres sorteados, al que se agrega la materia de publicación.",
+      "linea": 485,
+      "cita": "Es un JUS-1 por materia y por plazo"
+    },
+    {
+      "nombre": "Escalera de Garantías",
+      "alias": ["Escalera de Garantías"],
+      "origen": "PLANPACTO",
+      "para_que": "Este PLAN no tiene escalón en ella; es el motivo por el que se recorta primero en una crisis fiscal.",
+      "linea": 845,
+      "cita": "la Escalera de Garantías, donde este PLAN no tiene escalón"
+    },
+    {
+      "nombre": "Centros de Vitalidad",
+      "alias": ["Centros de Vitalidad"],
+      "origen": "PLANSAL",
+      "para_que": "Su disciplina de publicar ingresos, gastos y saldo por sede se adopta tal cual en cada sede y en ANBAC.",
+      "linea": 257,
+      "cita": "los Centros de Vitalidad"
+    },
+    {
+      "nombre": "Doble Desplazamiento",
+      "alias": ["Doble Desplazamiento"],
+      "origen": "PLANMOV",
+      "para_que": "Doctrina de reconversión que ampara al personal de programación de los medios estatales.",
+      "linea": 543,
+      "cita": "`PLANMOV` la llama Doble Desplazamiento"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Publicidad oficial consolidada (fuente única)",
+      "valor": "USD 450M por año",
+      "tipo": "fuente",
+      "linea": 307,
+      "cita": "La publicidad oficial consolidada son **USD 450M por año**"
+    },
+    {
+      "concepto": "Extinción de la pauta: quintos iguales",
+      "valor": "90 millones por año, 2027 a 2031",
+      "tipo": "plazo",
+      "linea": 307,
+      "cita": "en quintos iguales de 90 millones"
+    },
+    {
+      "concepto": "Pauta remanente al final del cronograma",
+      "valor": "0 en 2031; liberado 450",
+      "tipo": "meta",
+      "linea": 315,
+      "cita": "| 2031 | 0 | 450 |"
+    },
+    {
+      "concepto": "Presupuesto canónico en régimen",
+      "valor": "USD 300–450M/año",
+      "tipo": "presupuesto",
+      "linea": 11,
+      "cita": "**USD 300–450M/año en régimen**"
+    },
+    {
+      "concepto": "Total de quince años",
+      "valor": "USD 3.540–5.400M",
+      "tipo": "presupuesto",
+      "linea": 818,
+      "cita": "a USD 3.540–5.400M"
+    },
+    {
+      "concepto": "Sedes que el PLAN construye, dota y paga",
+      "valor": "1.200–1.500",
+      "tipo": "meta",
+      "linea": 375,
+      "cita": "1.200–1.500 | PLANFOCO (este documento)"
+    },
+    {
+      "concepto": "Línea Biblioteca Viva (operación)",
+      "valor": "USD 190–275M/año",
+      "tipo": "presupuesto",
+      "linea": 826,
+      "cita": "| Biblioteca Viva — operación de 1.200–1.500 sedes | 190 | 275 |"
+    },
+    {
+      "concepto": "Costo por sede por año",
+      "valor": "USD 127–229 mil",
+      "tipo": "parametro",
+      "linea": 835,
+      "cita": "entre **127 y 229 mil dólares por sede por año**"
+    },
+    {
+      "concepto": "Línea de La Antena",
+      "valor": "USD 25–45M por año",
+      "tipo": "presupuesto",
+      "linea": 441,
+      "cita": "**USD 25 a 45M por año**"
+    },
+    {
+      "concepto": "Dotaciones de La Antena activas con la línea de 25 a 45 millones",
+      "valor": "entre treinta y ciento cincuenta mil dotaciones",
+      "tipo": "meta",
+      "linea": 453,
+      "cita": "Contra la línea de 25 a 45 millones, eso da"
+    },
+    {
+      "concepto": "Línea de la Procedencia",
+      "valor": "USD 12–20M por año",
+      "tipo": "presupuesto",
+      "linea": 562,
+      "cita": "**USD 12 a 20M por año**"
+    },
+    {
+      "concepto": "Línea de ANBAC",
+      "valor": "USD 15–20M por año",
+      "tipo": "presupuesto",
+      "linea": 734,
+      "cita": "**USD 15 a 20M por año**"
+    },
+    {
+      "concepto": "Línea de La Cartelera",
+      "valor": "USD 8–15M por año",
+      "tipo": "presupuesto",
+      "linea": 832,
+      "cita": "| La Cartelera — operación | 8 | 15 |"
+    },
+    {
+      "concepto": "Remanente para la Fuente 1 del corpus",
+      "valor": "entre 0 y 150M por año (antes 180–270M)",
+      "tipo": "parametro",
+      "linea": 790,
+      "cita": "recibe entre 0 y 150"
+    },
+    {
+      "concepto": "Alarma por crecimiento de ANBAC",
+      "valor": "del 5% al 8% del total del PLAN",
+      "tipo": "parametro",
+      "linea": 994,
+      "cita": "**La línea de ANBAC pasando del 5% al 8% del total del PLAN es la alarma**"
+    },
+    {
+      "concepto": "Año de evaluación del indicador principal",
+      "valor": "2038",
+      "tipo": "plazo",
+      "linea": 984,
+      "cita": "En 2038 —tres años después del inicio del régimen pleno—"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANDIG",
+      "que": "PLANFOCO paga el Commons Atencional que PLANDIG consagró sin presupuestar; recibe de PLANDIG nube soberana, malla y estadio A para Acervo, sedes y La Antena.",
+      "linea": 752,
+      "cita": "PLANFOCO paga el Commons Atencional que `PLANDIG:788` consagró"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "PLANCUL conserva todo lo suyo salvo la Acción 3 sobre pauta, derogada en ambos documentos; PLANCUL aporta el diagnóstico de 5,2 horas y el conteo de bibliotecas populares.",
+      "linea": 754,
+      "cita": "**PLANCUL conserva todo lo suyo menos una tarea.**"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "El manifiesto y el hash de cada pieza del Acervo van a los siete nodos de PLANMEMORIA; el bitstream va a PLANDIG.",
+      "linea": 756,
+      "cita": "**PLANMEMORIA custodia la prueba y PLANFOCO custodia nada.**"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "PLANMESA aporta las Mesas Territoriales que deciden compras, el sorteo estratificado y la Credencial de Materia; la dependencia de calendario obliga a un modo degradado.",
+      "linea": 758,
+      "cita": "**PLANMESA decide dos cosas de este PLAN y presta la mecánica de una tercera.**"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "PLANEDU dicta el Desmontaje; PLANFOCO produce el material abierto y forma a los mediadores, sin escribir currículum.",
+      "linea": 760,
+      "cita": "**PLANEDU dicta el Desmontaje**"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "PLANJUS recibe el pedido de crear el Panel de Legalidad de Publicación con su procedimiento de sorteo; puede negarse.",
+      "linea": 762,
+      "cita": "**PLANJUS recibe un pedido y puede negarse.**"
+    },
+    {
+      "con": "PLANREP",
+      "que": "El empleo de la Biblioteca Viva entra al régimen de empleo público de PLANREP; PLANFOCO agrega solo el mecanismo de ingreso.",
+      "linea": 764,
+      "cita": "**PLANREP da el régimen laboral**"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "La regla de fuentes de PLANPACTO asigna la pauta oficial a PLANFOCO como único dueño; el PLAN no suma escalón a la Escalera.",
+      "linea": 764,
+      "cita": "**PLANPACTO da la regla de fuentes**"
+    },
+    {
+      "con": "PLANPREGUNTA",
+      "que": "Par recíproco: el Sello Abierto publica dentro del Acervo y cada Pregunta Nacional tiene versión desmontable; el Censo de Ignorancia espeja al Desmontaje.",
+      "linea": 750,
+      "cita": "El par recíproco FOCO ↔ PREGUNTA queda completo"
+    },
+    {
+      "con": "PLANTALLER",
+      "que": "Aporta la única referencia de costo comparable para una red federal de sedes (USD 640–1.000M/año).",
+      "linea": 764,
+      "cita": "**PLANTALLER presta la única referencia de costo comparable**"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Presta la disciplina de transparencia por sede (ingresos, gastos y saldo mensuales) que adoptan las sedes y ANBAC.",
+      "linea": 764,
+      "cita": "**PLANSAL presta su disciplina de transparencia por sede**"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "Remite a la Sección 13.2 para medir los horarios en la Fase 0, pero 13.2 trata la extinción y la pérdida del ecosistema; el relevamiento de horarios está en 4.5 y en la hoja de ruta.",
+      "linea": 171,
+      "cita": "la Fase 0 lo primero que hace es medirlo — ver `13.2`"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "PLANDIG remite a una materia de alfabetización algorítmica en PLANEDU que PLANEDU no tiene; la referencia queda rota hasta que PLANEDU la incorpore.",
+      "linea": 606,
+      "cita": "`PLANDIG:803` afirma que la Ecología de la Atención"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "PLANFOCO deroga la Acción 3 de PLANCUL (fórmula de reparto de pauta con 50% por audiencia), que PLANCUL sostenía en presente.",
+      "linea": 303,
+      "cita": "**Este PLAN deroga expresamente la Acción 3 de `PLANCUL:387`**"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "El PLAN coexiste con la cifra de 3.000 Commons de PLANDIG y declara que no la corrige a 1.200–1.500; cada cifra mide algo distinto.",
+      "linea": 368,
+      "cita": "**no se corrige la cifra de otro PLAN escribiendo una más chica en el propio.**"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "Las compras dependen de Mesas que entran en 2028–2030, y las sedes abren en 2029: durante años no hay Mesa que compre y rige un modo degradado.",
+      "linea": 421,
+      "cita": "Durante los primeros años no va a haber Mesa que compre"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "La pauta provincial y municipal no puede extinguirse desde la Nación y la adhesión es voluntaria; en algunas provincias la correa local seguirá.",
+      "linea": 328,
+      "cita": "**puede no pasar nunca en algunas provincias**"
+    },
+    {
+      "que": "No se sabe cuánto del acervo audiovisual tiene titularidad enredada; si es la mayoría, el Acervo Abierto será mucho más chico que su nombre.",
+      "linea": 505,
+      "cita": "**la de derechos es la que puede hacer fracasar el dispositivo**"
+    },
+    {
+      "que": "El costo por dotación de La Antena es un supuesto de trabajo a verificar en el piloto, y de él depende la escala.",
+      "linea": 453,
+      "cita": "**supuesto de trabajo sujeto a verificación en el piloto**"
+    },
+    {
+      "que": "Si las sedes abren y nadie va: el documento declara que no tiene mitigación, solo medición.",
+      "linea": 882,
+      "cita": "**El riesgo que no tiene respuesta, y va escrito como tal:**"
+    },
+    {
+      "que": "Si PLANJUS no acepta el Panel de Legalidad, la Cartelera queda sin recurso ni mecanismo de retiro.",
+      "linea": 489,
+      "cita": "el día que PLANJUS no lo acepte, este dispositivo queda sin recurso"
+    }
+  ]
+}

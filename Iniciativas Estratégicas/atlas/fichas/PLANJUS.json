@@ -1,0 +1,532 @@
+{
+  "code": "PLANJUS",
+  "nombre": "Plan Nacional de Justicia Popular y Resolución de Conflictos",
+  "version": "1.1 — Marzo 2026",
+  "tesis": "La justicia deja de ser un edificio con jueces de carrera y pasa a ser un sistema distribuido: paneles de ciudadanos sorteados resuelven conflictos en 15, 45 o 90 días, sin abogado obligatorio, con candados anticorrupción y ejecución automática bajo la ANJUS.",
+  "problema": "Según el documento, un juicio civil tarda de 3 a 6 años, cuesta al ciudadano USD 2.000–15.000 o más, el 96% del presupuesto judicial federal va a salarios y la confianza ciudadana es menor al 20%. Atribuye la lentitud al patrocinio letrado obligatorio y a un gremio que se protege a sí mismo. Las sentencias, además, tardan en ejecutarse.",
+  "resumen": "Propone un sistema paralelo al judicial, de jurisdicción voluntaria, con tres niveles según complejidad. Los paneles se arman por sorteo entre ciudadanos formados y rotan. Hay Casas JUS en cada comunidad y una plataforma digital. La ANJUS gobierna el sistema; la OEJ ejecuta las resoluciones con una escalera de cumplimiento. En relaciones desiguales elige el foro la parte débil. Suma un protocolo de género, accesibilidad universal, disputas transfronterizas, un fondo que adelanta lo adeudado y una ruta para absorber a los empleados judiciales. El sistema viejo se vacía de casos de a poco.",
+  "horizonte": "Fase 0 en 2030 con cuatro provincias piloto. Fase 1 «El Alivio», años 1–3. Fase 2 «La Preferencia», años 3–7, con cobertura nacional en 2035. Fase 3 «La Sucesión Natural», años 7–15. El encabezado lo ubica en tranche-3.",
+  "financiamiento": "Costo de USD 3.310–5.650M en diez años. Fuentes: reasignación del presupuesto judicial, ahorro por menor litigiosidad estatal, aporte del sector privado y Tasa Comercial JUS, partida nacional nueva y cooperación internacional inicial. Se autofinancia desde 2037.",
+  "temas": ["justicia-seguridad", "estado-instituciones", "democracia-participacion", "digital-datos"],
+
+  "conceptos": [
+    {
+      "nombre": "ANJUS — Agencia Nacional de Justicia Popular",
+      "alias": ["ANJUS", "Agencia Nacional de Justicia Popular"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico que gobierna PLANJUS: directorio de 9 miembros con mandatos de 6 años no renovables, piso presupuestario protegido, remoción solo con 2/3 del Congreso.",
+      "seccion": "12.1",
+      "linea": 1031,
+      "cita": "un ente autárquico con las siguientes características"
+    },
+    {
+      "nombre": "Tres Niveles JUS",
+      "alias": ["Tres Niveles JUS", "JUS-1", "JUS-2", "JUS-3"],
+      "tipo": "mecanismo",
+      "que_es": "Clasificación de los conflictos por complejidad, cada uno con su panel, canal y plazo: JUS-1 simples en 15 días, JUS-2 medianos en 45 días, JUS-3 complejos en 90 días.",
+      "seccion": "5.1",
+      "linea": 340,
+      "cita": "PLANJUS organiza todos los conflictos en tres niveles según su complejidad"
+    },
+    {
+      "nombre": "Casas JUS",
+      "alias": ["Casas JUS", "Casa JUS"],
+      "tipo": "institucion",
+      "que_es": "Puntos de presencia física del sistema en cada comunidad: audiencias presenciales, asistencia para casos digitales, formación y mediación. Una por cada 50.000 habitantes como mínimo.",
+      "seccion": "5.5",
+      "linea": 515,
+      "cita": "Las Casas JUS son los puntos de presencia física de PLANJUS en cada comunidad"
+    },
+    {
+      "nombre": "Sorteo democrático de panelistas",
+      "alias": ["sorteo democrático", "Sorteo Democrático"],
+      "tipo": "mecanismo",
+      "que_es": "Selección al azar de ciudadanos elegibles que reciben formación, se certifican y entran a un pool; se asignan por caso con verificación de conflictos de interés y rotan a los 18 meses.",
+      "seccion": "6.1",
+      "linea": 649,
+      "cita": "PLANJUS selecciona a sus panelistas mediante **sorteo democrático**"
+    },
+    {
+      "nombre": "Triple Candado Anticorrupción",
+      "alias": ["Triple Candado Anticorrupción", "triple candado anticorrupción"],
+      "tipo": "mecanismo",
+      "que_es": "Defensa en tres capas contra la corrupción: imposibilidad estructural por sorteo, transparencia radical de votos y resoluciones, e incentivos económicos que hacen irracional corromperse.",
+      "seccion": "5.3",
+      "linea": 463,
+      "cita": "haciendo que la corrupción sea **imposible, visible, e irracional**"
+    },
+    {
+      "nombre": "Piso de Derechos",
+      "alias": ["Piso de Derechos", "piso de derechos"],
+      "tipo": "mecanismo",
+      "que_es": "Sistema de reglas, no un modelo de IA, que evalúa cada resolución contra derechos fundamentales en tres capas (absolutas, ponderadas, alertas). Lo mantiene un consorcio universitario con autonomía técnica.",
+      "seccion": "5.2",
+      "linea": 406,
+      "cita": "**4. Piso de derechos.** Antes de que una resolución sea válida"
+    },
+    {
+      "nombre": "Jurisdicción asimétrica",
+      "alias": ["jurisdicción asimétrica", "Jurisdicción Asimétrica"],
+      "tipo": "norma",
+      "que_es": "En relaciones de poder desigual (consumo, trabajo, locación, ciudadano-Estado, PyME-gran empresa) la parte débil elige el foro y la otra debe participar. En casos simétricos rige la voluntariedad.",
+      "seccion": "5.1.2",
+      "linea": 378,
+      "cita": "PLANJUS establece el principio de **jurisdicción asimétrica**"
+    },
+    {
+      "nombre": "Litigante Frecuente",
+      "alias": ["Litigante Frecuente"],
+      "tipo": "figura",
+      "que_es": "Parte que aparece en más de 10 casos por año calendario; su perfil se publica y activa alertas sistémicas, variación procedimental, Asistente JUS automático y panel reforzado.",
+      "seccion": "5.3.1",
+      "linea": 487,
+      "cita": "es clasificada como **Litigante Frecuente**"
+    },
+    {
+      "nombre": "Asistente JUS",
+      "alias": ["Asistente JUS", "Asistentes JUS"],
+      "tipo": "figura",
+      "que_es": "Facilitador de acceso pagado por ANJUS, no abogado, que ayuda a una parte a entender el proceso y presentar su evidencia. Se asigna automáticamente en varios supuestos.",
+      "seccion": "6.7",
+      "linea": 736,
+      "cita": "La solución: el **Asistente JUS**."
+    },
+    {
+      "nombre": "Oficina de Ejecución JUS (OEJ)",
+      "alias": ["OEJ", "Oficina de Ejecución JUS"],
+      "tipo": "institucion",
+      "que_es": "Cuerpo de ejecución civil de la ANJUS, sin armas ni arrestos, de unos 730 funcionarios. Convierte la resolución en cumplimiento mediante retenciones, anotaciones registrales y coordinación con BCRA y AFIP.",
+      "seccion": "22.2",
+      "linea": 1497,
+      "cita": "La **Oficina de Ejecución JUS (OEJ)** es ese puño."
+    },
+    {
+      "nombre": "Escalera de Cumplimiento",
+      "alias": ["Escalera de Cumplimiento"],
+      "tipo": "mecanismo",
+      "que_es": "Protocolo automático de cinco peldaños desde la resolución firme: notificación, mediación de cumplimiento, medidas patrimoniales, sanciones por contumacia y derivación judicial para ejecución física.",
+      "seccion": "22.3",
+      "linea": 1515,
+      "cita": "Toda resolución firme de PLANJUS activa automáticamente la Escalera de Cumplimiento"
+    },
+    {
+      "nombre": "Registro Nacional de Incumplimiento JUS (RENIJ)",
+      "alias": ["RENIJ", "Registro Nacional de Incumplimiento JUS"],
+      "tipo": "mecanismo",
+      "que_es": "Base pública de quienes incumplieron una resolución firme y llegaron al cuarto peldaño. Afecta crédito, habilita la inhabilitación para contratar con el Estado y se anota en el Registro Público de Comercio.",
+      "seccion": "22.7",
+      "linea": 1583,
+      "cita": "**Registro Nacional de Incumplimiento JUS (RENIJ)** es una base de datos pública"
+    },
+    {
+      "nombre": "Protocolo de Ejecución de Emergencia (PEE)",
+      "alias": ["PEE", "Protocolo de Ejecución de Emergencia"],
+      "tipo": "mecanismo",
+      "que_es": "Ejecución en 24 a 48 horas, sin período de cumplimiento voluntario, para violencia de género, protección de menores, riesgo laboral, despojo y cortes de servicio como represalia.",
+      "seccion": "22.6",
+      "linea": 1560,
+      "cita": "PLANJUS establece el **Protocolo de Ejecución de Emergencia (PEE):**"
+    },
+    {
+      "nombre": "Fondo de Restitución JUS (FREJUS)",
+      "alias": ["FREJUS", "Fondo de Restitución JUS"],
+      "tipo": "fondo",
+      "que_es": "Fondo fiduciario de la ANJUS que adelanta lo adeudado a la parte acreedora (escrow comercial, anticipo laboral de hasta 70%, garantía alimentaria) y se subroga para ejecutar contra el deudor.",
+      "seccion": "23.3",
+      "linea": 1681,
+      "cita": "El **Fondo de Restitución JUS (FREJUS)** es un fondo fiduciario administrado por la ANJUS"
+    },
+    {
+      "nombre": "Billetera JUS",
+      "alias": ["Billetera JUS"],
+      "tipo": "mecanismo",
+      "que_es": "Monedero digital vinculado a la identidad del panelista, compatible con cuentas bancarias y billeteras virtuales, por el que cobra automáticamente su compensación según nivel.",
+      "seccion": "23.2",
+      "linea": 1659,
+      "cita": "PLANJUS crea la **Billetera JUS**"
+    },
+    {
+      "nombre": "Tasa Comercial JUS",
+      "alias": ["Tasa Comercial JUS"],
+      "tipo": "mecanismo",
+      "que_es": "Tasa escalonada de 0,5% a 2% del monto en disputa que paga quien inicia un caso comercial, reembolsable si gana. Gratuita hasta USD 10.000. Financia al FREJUS y a las Casas JUS.",
+      "seccion": "23.7",
+      "linea": 1759,
+      "cita": "**La Tasa Comercial JUS:**"
+    },
+    {
+      "nombre": "Fondo de Emergencia Provincial",
+      "alias": ["Fondo de Emergencia Provincial"],
+      "tipo": "fondo",
+      "que_es": "Mecanismo de solidaridad federal con el 5% del presupuesto de la ANJUS, que se activa por umbrales de costo per cápita o demanda para nivelar a las provincias con menos capacidad.",
+      "seccion": "23.8",
+      "linea": 1792,
+      "cita": "El **Fondo de Emergencia Provincial** funciona como un mecanismo de solidaridad federal"
+    },
+    {
+      "nombre": "Ley de Justicia Popular",
+      "alias": ["Ley de Justicia Popular"],
+      "tipo": "norma",
+      "que_es": "Ley marco que crea la ANJUS, los tres niveles JUS con jurisdicción voluntaria, la fuerza ejecutoria de las resoluciones, el sorteo, el Estatuto del Panelista Ciudadano y el régimen sancionatorio.",
+      "seccion": "13.2",
+      "linea": 1070,
+      "cita": "**Ley de Justicia Popular (Ley PLANJUS):**"
+    },
+    {
+      "nombre": "Tablero Nacional de Justicia",
+      "alias": ["Tablero Nacional de Justicia"],
+      "tipo": "metrica",
+      "que_es": "Tablero público en tiempo real con casos ingresados y resueltos, tiempos, satisfacción, apelaciones, cumplimiento, intentos de corrupción y presupuesto ejecutado, desagregado por nivel y provincia.",
+      "seccion": "15",
+      "linea": 1234,
+      "cita": "TABLERO NACIONAL DE JUSTICIA — MONITOREO EN TIEMPO REAL"
+    },
+    {
+      "nombre": "Registro Nacional de Expertos PLANJUS (RNEP)",
+      "alias": ["RNEP", "Registro Nacional de Expertos PLANJUS"],
+      "tipo": "mecanismo",
+      "que_es": "Registro público de profesionales acreditados para integrar paneles JUS-2 y JUS-3, con declaración de intereses, sorteo, honorario fijo por caso y límite de 30 casos por año.",
+      "seccion": "6.6",
+      "linea": 715,
+      "cita": "**Registro Nacional de Expertos PLANJUS (RNEP).** ANJUS mantiene un registro público"
+    },
+    {
+      "nombre": "Pacto de la Transición",
+      "alias": ["Pacto de la Transición"],
+      "tipo": "mecanismo",
+      "que_es": "Acuerdo con las organizaciones judiciales: nadie pierde el empleo, hay formación paga, reconocimiento de antigüedad, 5 años de transición para empleados y 10 para magistrados, y retiro digno opcional.",
+      "seccion": "9.2",
+      "linea": 901,
+      "cita": "PLANJUS propone un **Pacto de la Transición**"
+    },
+    {
+      "nombre": "Panel de Legalidad de Publicación",
+      "alias": ["Panel de Legalidad de Publicación"],
+      "tipo": "mecanismo",
+      "que_es": "Materia nueva del nivel JUS-1, incorporada desde PLANFOCO, que decide el retiro de una publicación de la Cartelera. Sin baja previa, el que publicó es parte, y la decisión no crea doctrina general.",
+      "seccion": "Anexo",
+      "linea": 2498,
+      "cita": "El Panel de Legalidad de Publicación es un **JUS-1 por materia y por plazo**"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Paneles Ciudadanos de Futuro Económico",
+      "alias": ["Paneles Ciudadanos de Futuro Económico"],
+      "origen": "PLANREP",
+      "para_que": "Las Casas JUS pueden alojar estos paneles sorteados, y PLANREP adopta la arquitectura del panelista.",
+      "linea": 523,
+      "cita": "PLANREP Sección 15.5 establece los Paneles Ciudadanos de Futuro Económico"
+    },
+    {
+      "nombre": "Pacto de la Dignidad",
+      "alias": ["Pacto de la Dignidad"],
+      "origen": "PLANEDU",
+      "para_que": "Modelo con el que se compara el Pacto de la Transición ofrecido a los sindicatos judiciales.",
+      "linea": 901,
+      "cita": "similar al Pacto de la Dignidad de PLANEDU con los sindicatos docentes"
+    },
+    {
+      "nombre": "Protocolo Bastardo",
+      "alias": ["Protocolo Bastardo"],
+      "origen": "PLANEB",
+      "para_que": "Principio de transparencia financiera que PLANJUS aplica a su infraestructura de dinero.",
+      "linea": 1655,
+      "cita": "el mismo principio de transparencia radical que el Protocolo Bastardo de PLANEB"
+    },
+    {
+      "nombre": "LANIA",
+      "alias": ["LANIA"],
+      "origen": "PLANDIG",
+      "para_que": "Provee el modelo de IA legal y la traza digital de disputas sobre los que opera la plataforma.",
+      "linea": 2435,
+      "cita": "LANIA y la plataforma de Resolución Popular proveen el modelo IA legal"
+    },
+    {
+      "nombre": "Resolución Popular",
+      "alias": ["Resolución Popular"],
+      "origen": "PLANEB",
+      "para_que": "Primera instancia no jurisdiccional para disputas de usuarios de cada Bastarda, con apelación a JUS formal.",
+      "linea": 2442,
+      "cita": "Resolución Popular resuelve disputas de usuarios de cada Bastarda"
+    },
+    {
+      "nombre": "Inscripción de Captura",
+      "alias": ["Inscripción de Captura"],
+      "origen": "PLANMEMORIA",
+      "para_que": "PLANJUS coopera con sus investigaciones sin sustituir su función mnémica autónoma.",
+      "linea": 2448,
+      "cita": "JUS coopera con la Inscripción de Captura en investigaciones"
+    },
+    {
+      "nombre": "Resoluciones de Mesa",
+      "alias": ["Resoluciones de Mesa"],
+      "origen": "PLANMESA",
+      "para_que": "PLANJUS ejerce control legal sobre ellas y arbitra disputas sobre auto-postulación y credenciales revocadas.",
+      "linea": 2446,
+      "cita": "JUS aporta control legal de las Resoluciones de Mesa"
+    },
+    {
+      "nombre": "Cartelera",
+      "alias": ["Cartelera"],
+      "origen": "PLANFOCO",
+      "para_que": "Superficie de publicación cuyas bajas de contenido se decidirían en el Panel de Legalidad de Publicación.",
+      "linea": 2494,
+      "cita": "PLANFOCO opera **la Cartelera**"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Plazos máximos por nivel JUS",
+      "valor": "JUS-1 15 días; JUS-2 45 días; JUS-3 90 días",
+      "tipo": "parametro",
+      "linea": 349,
+      "cita": "| **Plazo máximo** | 15 días | 45 días | 90 días |"
+    },
+    {
+      "concepto": "Costo total acumulado de implementación a 10 años",
+      "valor": "USD 3.310–5.650M",
+      "tipo": "presupuesto",
+      "linea": 1166,
+      "cita": "**USD 3.310–5.650M**"
+    },
+    {
+      "concepto": "Piso presupuestario protegido de la ANJUS",
+      "valor": "1% del presupuesto nacional, no inferior a USD 800M/año",
+      "tipo": "parametro",
+      "linea": 1033,
+      "cita": "piso del 1% del presupuesto nacional, no inferior a USD 800M/año"
+    },
+    {
+      "concepto": "Reasignación del presupuesto judicial como fuente",
+      "valor": "USD 200–400M/año",
+      "tipo": "fuente",
+      "linea": 1172,
+      "cita": "| Reasignación de presupuesto judicial | USD 200–400M/año |"
+    },
+    {
+      "concepto": "ROI directo a 10 años",
+      "valor": "6:1 a 10:1",
+      "tipo": "meta",
+      "linea": 1183,
+      "cita": "| **ROI directo** | **6:1 a 10:1** |"
+    },
+    {
+      "concepto": "Costo por caso resuelto, de 2031 a 2040",
+      "valor": "USD 566 en 2031; USD 156 en 2040",
+      "tipo": "meta",
+      "linea": 1838,
+      "cita": "| **Costo por caso resuelto** | USD 566 | USD 275 | USD 203 | USD 170 | USD 156 |"
+    },
+    {
+      "concepto": "Cobertura nacional completa",
+      "valor": "24 provincias + CABA al 2035",
+      "tipo": "plazo",
+      "linea": 932,
+      "cita": "2035 (tranche-2): Cobertura nacional completa (24 provincias + CABA)"
+    },
+    {
+      "concepto": "Casos resueltos en el primer año y al tercero",
+      "valor": "500.000 en el primer año; 2 millones al tercer año",
+      "tipo": "meta",
+      "linea": 824,
+      "cita": "Meta: 500.000 casos resueltos en el primer año, 2 millones al tercer año"
+    },
+    {
+      "concepto": "Adopción ciudadana de PLANJUS en conflictos civiles, comerciales y laborales",
+      "valor": "50% al 2035; 70% al 2037",
+      "tipo": "meta",
+      "linea": 1318,
+      "cita": "50% al 2035 (tranche-2), 70% al 2037 (tranche-3)"
+    },
+    {
+      "concepto": "Densidad de Casas JUS",
+      "valor": "Una por cada 50.000 habitantes como mínimo",
+      "tipo": "parametro",
+      "linea": 517,
+      "cita": "Una Casa JUS por cada 50.000 habitantes como mínimo"
+    },
+    {
+      "concepto": "Tope de la Tasa Comercial JUS",
+      "valor": "2% del monto en disputa, con tope de USD 50.000",
+      "tipo": "parametro",
+      "linea": 1767,
+      "cita": "2% del monto en disputa (con tope de USD 50.000)"
+    },
+    {
+      "concepto": "Capitalización anual estimada del FREJUS",
+      "valor": "USD 115–250M/año",
+      "tipo": "fuente",
+      "linea": 1703,
+      "cita": "| **TOTAL estimado** | **USD 115–250M/año** | **100%** |"
+    },
+    {
+      "concepto": "Inicio de la derivación judicial en la Escalera de Cumplimiento",
+      "valor": "A partir del día 46",
+      "tipo": "plazo",
+      "linea": 1525,
+      "cita": "| **5. Derivación Judicial para Ejecución Física** | A partir del día 46 |"
+    },
+    {
+      "concepto": "Rotación máxima del panelista",
+      "valor": "18 meses consecutivos; 6 meses de descanso",
+      "tipo": "parametro",
+      "linea": 675,
+      "cita": "Ningún panelista puede servir más de 18 meses consecutivos"
+    },
+    {
+      "concepto": "Gasto judicial argentino actual",
+      "valor": "USD 9.300–11.200M/año",
+      "tipo": "diagnostico",
+      "linea": 1146,
+      "cita": "| **TOTAL** | **9.300–11.200M/año** | **100%** |"
+    },
+    {
+      "concepto": "Costo económico anual de la injusticia",
+      "valor": "USD 23.000–43.000M/año (5–8% del PBI)",
+      "tipo": "diagnostico",
+      "linea": 188,
+      "cita": "| **COSTO TOTAL ESTIMADO** | **USD 23.000–43.000M/año** | **5–8% del PBI** |"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANREP",
+      "que": "Las Casas JUS alojan los Paneles Ciudadanos de Futuro Económico de PLANREP, que adoptan la arquitectura del panelista sorteado.",
+      "linea": 523,
+      "cita": "PLANREP Sección 15.5 establece los Paneles Ciudadanos de Futuro Económico"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "PLANEDU prepara estudiantes desde los 16 años para paneles simulados con la misma metodología de sorteo, y aporta formación y completación educativa.",
+      "linea": 707,
+      "cita": "PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados"
+    },
+    {
+      "con": "PLANEB",
+      "que": "La Resolución Popular de PLANEB resuelve en primera instancia no jurisdiccional las disputas de usuarios de cada Bastarda, con apelación a JUS.",
+      "linea": 2442,
+      "cita": "Resolución Popular resuelve disputas de usuarios de cada Bastarda en primera instancia no-jurisdiccional"
+    },
+    {
+      "con": "PLANMON",
+      "que": "Una Sala Financiera de JUS arbitra disputas on-chain del Pulso y del Fondo Soberano, con ejecución automatizada.",
+      "linea": 2443,
+      "cita": "Sala Financiera de JUS arbitra disputas on-chain del Pulso y del Fondo Soberano con enforcement automatizado"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "PLANDIG provee la plataforma digital de resolución y el modelo de IA legal.",
+      "linea": 2441,
+      "cita": "Plataforma digital de resolución y modelo IA legal"
+    },
+    {
+      "con": "PLANTER",
+      "que": "PLANJUS implementa la co-jurisdicción con derecho originario y arbitra disputas territoriales entre pueblos y Estado.",
+      "linea": 2449,
+      "cita": "JUS implementa la co-jurisdicción con derecho originario y arbitra disputas territoriales entre pueblos y Estado"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "Una Sala de Sustancias resuelve conflictos de licencias, zonificación y disputas comunitarias sobre uso de sustancias.",
+      "linea": 2444,
+      "cita": "Sala de Sustancias resuelve conflictos de licencias, zonificación y disputas comunitarias sobre uso de sustancias"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "Una Sala de Propiedad resuelve disputas de inquilinos, fideicomisos y títulos digitales de vivienda.",
+      "linea": 2445,
+      "cita": "Sala de Propiedad resuelve disputas de inquilinos, fideicomisos y títulos digitales de vivienda"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "PLANJUS da control legal a las Resoluciones de Mesa y arbitra disputas sobre auto-postulación o credenciales revocadas.",
+      "linea": 2446,
+      "cita": "JUS aporta control legal de las Resoluciones de Mesa y arbitra disputas sobre auto-postulación o Credenciales revocadas"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "PLANJUS media en primera instancia no jurisdiccional las disputas de Pactos antes de que escalen al sistema formal.",
+      "linea": 2447,
+      "cita": "JUS provee mediación de disputas de Pactos en primera instancia no-jurisdiccional"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "PLANJUS coopera con la Inscripción de Captura en investigaciones, sin reemplazar su función de memoria.",
+      "linea": 2448,
+      "cita": "JUS coopera con la Inscripción de Captura en investigaciones sin sustituir su función mnémica autónoma"
+    },
+    {
+      "con": "PLANFOCO",
+      "que": "La potestad de retirar publicaciones de la Cartelera se ubica en la justicia mediante el Panel de Legalidad de Publicación, y no en la agencia que opera la Cartelera.",
+      "linea": 2496,
+      "cita": "la potestad de retirar una publicación tiene que vivir en la justicia y no en la administración"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "El parche post-auditoría declara a PLANSEG como dependencia: PLANJUS no avanza sin PLANSEG estabilizado.",
+      "linea": 2478,
+      "cita": "Depende de: PLANSEG, PLANDIG, PLANRUTA."
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La tesis fija el costo en USD 800–2.500M por año, pero el marco presupuestario fija USD 300–600M por año para la primera fase y USD 400–700M como máximo en las demás.",
+      "linea": 107,
+      "cita": "El costo estimado es de USD 800–2.500M/año (progresivo en 10 años)"
+    },
+    {
+      "con": "interno",
+      "que": "El piso constitucional de la ANJUS no puede bajar de USD 800M por año, pero los egresos proyectados son USD 283M en 2031 y USD 550M en 2033.",
+      "linea": 1033,
+      "cita": "no inferior a USD 800M/año"
+    },
+    {
+      "con": "interno",
+      "que": "El encabezado de tranche difiere indefinidamente la reforma constitucional de la justicia, y la hoja de ruta de la Fase 3 la incluye como hito.",
+      "linea": 16,
+      "cita": "Reforma constitucional de la justicia → diferida indefinidamente"
+    },
+    {
+      "con": "interno",
+      "que": "El análisis de sensibilidad da 5.000.000 de casos al año en 2035 en el escenario base, y la proyección consolidada da 4.000.000 para el mismo año.",
+      "linea": 1195,
+      "cita": "| Casos resueltos/año (2035 (tranche-2)) | 2.000.000 | 5.000.000 | 8.000.000 |"
+    },
+    {
+      "con": "interno",
+      "que": "La sección de dependencias canónicas lista tres fuentes y cuatro destinatarios, mientras la tabla de integración enumera nueve PLANes receptores y fuentes, entre ellos PLANEB, PLANMON, PLANVIV y PLANMESA, sin PLANSEG.",
+      "linea": 2478,
+      "cita": "Depende de: PLANSEG, PLANDIG, PLANRUTA."
+    },
+    {
+      "con": "interno",
+      "que": "El cierre habla de «los otros cuatro mandatos» y del «quinto pilar», conteo que no coincide con los 27 PLANes de la arquitectura canónica del encabezado.",
+      "linea": 1477,
+      "cita": "los otros cuatro mandatos de ¡BASTA! están construyendo"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El Panel de Legalidad de Publicación depende de que PLANJUS acepte la materia; el anexo reconoce que este PLAN puede negarse.",
+      "linea": 2506,
+      "cita": "**Este PLAN puede negarse**, y PLANFOCO lo escribió así de su lado"
+    },
+    {
+      "que": "La promoción a piloto exige una opinión legal externa firmada, que el documento solo remite a un stub.",
+      "linea": 2485,
+      "cita": "opinión externa firmada requerida antes de promoción a piloto"
+    },
+    {
+      "que": "La cooperación acelerada entre agencias de justicia popular del Mercosur queda condicionada a que esas agencias existan en los otros países.",
+      "linea": 1606,
+      "cita": "los países del bloque (cuando existan)"
+    }
+  ]
+}

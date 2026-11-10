@@ -1,0 +1,55 @@
+{
+  "code": "PLANPACTO",
+  "leido": "todo",
+  "hallazgos": [
+    {
+      "lineas": [
+        88,
+        142,
+        335,
+        719
+      ],
+      "que": "El PLAN cuenta «22 PLANes» (diecisiete con piso y cinco sin él) y 23 documentos previos (154), pero la cabecera declara 27 temáticos más PLANRUTA."
+    },
+    {
+      "lineas": [
+        154
+      ],
+      "que": "Dice que AFIP y ATN se cuentan en «46.234 líneas de los veintitrés documentos anteriores», cifra que ya no describe el corpus de 27 PLANes."
+    },
+    {
+      "lineas": [
+        727,
+        745
+      ],
+      "que": "La numeración de secciones salta de la SECCIÓN 12 (Tablero) a la SECCIÓN 14 (Dimensión Federal): no existe la SECCIÓN 13."
+    },
+    {
+      "lineas": [
+        369,
+        362
+      ],
+      "que": "El gasto consolidado de 42,8% del PBI se presenta como el nivel argentino real de 2015–2023, pero el escenario central del mismo PLAN fija G en 34,9% del PBI."
+    },
+    {
+      "lineas": [
+        633
+      ],
+      "que": "Dice que veinticinco votos con doce provincias afines son mayoría, pero doce de veinticinco no alcanzan la mayoría simple de trece."
+    },
+    {
+      "lineas": [
+        721,
+        814
+      ],
+      "que": "La integración dice que PLANARCO «aún no existe», mientras la nota final de 2026-08-02 informa que PLANARCO ya está escrito (ordinal 24)."
+    },
+    {
+      "lineas": [
+        138,
+        523
+      ],
+      "que": "Ingresos Brutos se da como 4,0–4,5% del PBI (138) y luego como «cuatro puntos y medio» (523) o «cuatro a cuatro y medio» (527): el extremo bajo cambia."
+    }
+  ]
+}

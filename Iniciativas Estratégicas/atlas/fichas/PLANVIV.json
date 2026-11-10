@@ -1,0 +1,571 @@
+{
+  "code": "PLANVIV",
+  "nombre": "Plan Nacional de Vivienda Digna y Hábitat para las Ciudades Existentes",
+  "version": "3.0 — Marzo 2026",
+  "tesis": "El déficit habitacional se cierra atacando seis dimensiones a la vez: vivienda al costo en suelo en fideicomiso perpetuo, hipoteca en unidad de cuenta estable, urbanización in situ de villas, retrofit térmico, mercado transparente y una plataforma digital que coordina a todos los actores.",
+  "problema": "Según el documento, el déficit es de 3,5 millones de viviendas, con 1,7 millones de hogares hacinados, 1.800 asentamientos sin servicios ni títulos y cuatro millones de familias en alquileres precarios. El crédito hipotecario pesa 1% del PBI por la inflación, la especulación encarece el suelo y PROCREAR construyó menos de 100.000 viviendas en diez años.",
+  "resumen": "PLANVIV propone seis pilares: la Bastarda Inmobiliaria, que construye y alquila al costo sobre suelo en fideicomiso perpetuo; el Crédito Hipotecario Bastardo en peso-canasta, con Canasta-Lite como unidad de arranque; la urbanización de 1.800 asentamientos sin demolerlos; el retrofit térmico de 500.000 viviendas sociales; la facilitación del mercado con la Bolsa de Alquiler Bastarda; y la plataforma Housing OS con Hubs de Manufactura Local. Suma estrategias transversales (cooperativas, densificación, vouchers, captura de valor del suelo, kits de autoconstrucción) y una agencia, ANVIV, con panel ciudadano y tablero público.",
+  "horizonte": "Pre-Fase de preparación y Pre-Fase 0 de pilotos de validación; Fase 0 en 2026 sin leyes nuevas; Fase 1 años 1-5 (hasta 2031); Fase 2 años 5-10 (hasta 2036); Fase 3 años 10-15, con metas a 2040.",
+  "financiamiento": "Costo central de USD 80.000-120.000 millones en 15 años. Fuentes: retorno de créditos, alquileres y fees del ecosistema, Fondo Soberano, crédito multilateral y un piso presupuestario nacional del 2% del PBI. El texto admite que el rango inferior queda ajustado frente al costo.",
+  "temas": ["vivienda-ciudad", "moneda-finanzas", "digital-datos", "trabajo-produccion"],
+
+  "conceptos": [
+    {
+      "nombre": "ANVIV — Agencia Nacional de Vivienda y Hábitat",
+      "alias": ["ANVIV"],
+      "tipo": "institucion",
+      "que_es": "Agencia que coordina todo el programa: directorio de nueve miembros, piso presupuestario, panel ciudadano y convenios de adhesión con las provincias. Opera además el Tablero y Housing OS.",
+      "seccion": "11",
+      "linea": 1489,
+      "cita": "ANVIV — AGENCIA NACIONAL DE VIVIENDA Y HÁBITAT"
+    },
+    {
+      "nombre": "Bastarda Inmobiliaria",
+      "alias": ["Bastarda Inmobiliaria"],
+      "tipo": "institucion",
+      "que_es": "Empresa Bastarda constituida como fideicomiso de propósito perpetuo que construye y alquila vivienda al costo, sin accionistas ni margen, con gobernanza DAO de cuatro capas.",
+      "seccion": "5.1",
+      "linea": 497,
+      "cita": "La Bastarda Inmobiliaria es una Empresa Bastarda"
+    },
+    {
+      "nombre": "Fideicomiso de Suelo Perpetuo",
+      "alias": ["Fideicomiso de Suelo Perpetuo"],
+      "tipo": "mecanismo",
+      "que_es": "El suelo adquirido por compra o cesión estatal queda en el fideicomiso para siempre; los residentes compran o alquilan la vivienda pero no el suelo.",
+      "seccion": "5.2",
+      "linea": 507,
+      "cita": "El Fideicomiso de Suelo Perpetuo"
+    },
+    {
+      "nombre": "Células de Desarrollo Comunitario",
+      "alias": ["Células de Desarrollo Comunitario"],
+      "tipo": "mecanismo",
+      "que_es": "Modelo de comunidad en tres escalas (Núcleo, Célula, Barrio) con equipamiento comunitario presupuestado desde el día cero y co-diseño obligatorio de cuatro semanas con las familias.",
+      "seccion": "5.4",
+      "linea": 537,
+      "cita": "Células de Desarrollo Comunitario — Espacios de Vida"
+    },
+    {
+      "nombre": "Crédito Hipotecario Bastardo",
+      "alias": ["Crédito Hipotecario Bastardo"],
+      "tipo": "programa",
+      "que_es": "Hipoteca a 20-30 años denominada en peso-canasta, canalizada por la Bastarda Financiera, con cuota máxima del 25% del ingreso, mora con plan de reestructuración y sin penalidad de prepago.",
+      "seccion": "6.2",
+      "linea": 806,
+      "cita": "El Crédito Hipotecario Bastardo es un préstamo denominado en peso-canasta"
+    },
+    {
+      "nombre": "Canasta-Lite",
+      "alias": ["Canasta-Lite"],
+      "tipo": "mecanismo",
+      "que_es": "Unidad de cuenta propia de PLANVIV, que no requiere PLANMON ni ley: canasta de RIPTE, dólar MEP, costo de construcción y canasta alimentaria, publicada mensualmente por ANVIV y habilitada por circular del BCRA.",
+      "seccion": "6.4",
+      "linea": 831,
+      "cita": "Una unidad de cuenta que funciona desde el Día 1"
+    },
+    {
+      "nombre": "Housing OS",
+      "alias": ["Housing OS"],
+      "tipo": "mecanismo",
+      "que_es": "Plataforma digital de coordinación que conecta ciudadanos, municipios, constructoras, proveedores y bancos; ruta datos sin centralizarlos. Tiene versión Lite por WhatsApp para municipios sin informática.",
+      "seccion": "10.1",
+      "linea": 1290,
+      "cita": "Housing OS es una plataforma digital de coordinación de ecosistema"
+    },
+    {
+      "nombre": "Housing Switch y Dirección Habitacional Virtual (DHV)",
+      "alias": ["Housing Switch", "Dirección Habitacional Virtual", "DHV"],
+      "tipo": "mecanismo",
+      "que_es": "Identidad habitacional portable para cada ciudadano y conmutador que verifica identidad, propiedad, ingresos y crédito en tiempo real por interfaces estandarizadas, sin almacenar todo en un solo sistema.",
+      "seccion": "10.2",
+      "linea": 1298,
+      "cita": "Housing Switch + Dirección Habitacional Virtual (DHV)"
+    },
+    {
+      "nombre": "Stack Conductual de Morosidad",
+      "alias": ["Stack Conductual"],
+      "tipo": "mecanismo",
+      "que_es": "Ocho capas de intervención antes de la acción legal, desde el recordatorio amistoso hasta la refinanciación; busca bajar la morosidad histórica del 38% a menos del 10%.",
+      "seccion": "10.2",
+      "linea": 1310,
+      "cita": "4. Stack Conductual de Morosidad"
+    },
+    {
+      "nombre": "ViviendaCover",
+      "alias": ["ViviendaCover"],
+      "tipo": "mecanismo",
+      "que_es": "Garantía y seguro para todas las partes: reemplaza la garantía propietaria, protege al constructor contra impagos y cubre al comprador contra defectos.",
+      "seccion": "10.2",
+      "linea": 1314,
+      "cita": "5. Arquitectura de Confianza — ViviendaCover"
+    },
+    {
+      "nombre": "Hubs de Manufactura Local",
+      "alias": ["Hubs de Manufactura Local"],
+      "tipo": "mecanismo",
+      "que_es": "Fábricas distribuidas de impresión 3D, paneles prefabricados, CLT y materiales locales, de infraestructura pública operada por PyMEs en concesión; también producen kits y forman oficios.",
+      "seccion": "10.3",
+      "linea": 1346,
+      "cita": "Hubs de Manufactura Local — El Hardware de la Revolución Constructiva"
+    },
+    {
+      "nombre": "Bolsa de Alquiler Bastarda",
+      "alias": ["Bolsa de Alquiler Bastarda"],
+      "tipo": "programa",
+      "que_es": "Servicio voluntario de gestión integral del alquiler para propietarios, con renta garantizada en peso-canasta y fee de gestión del 5-8%; apunta a unas 500.000 viviendas vacías activables.",
+      "seccion": "9.1",
+      "linea": 1214,
+      "cita": "La Bolsa de Alquiler Bastarda** es un servicio de gestión integral del alquiler"
+    },
+    {
+      "nombre": "Kit Bastardo",
+      "alias": ["Kit Bastardo", "Kits Bastardos"],
+      "tipo": "programa",
+      "que_es": "Paquete industrializado de vivienda con planos, manual, tres visitas de supervisión y seguro de obra, vendido en los Hubs a familias o cooperativas; meta de 200.000 kits en 15 años.",
+      "seccion": "5.10",
+      "linea": 696,
+      "cita": "El Kit Bastardo Individual:** Cualquier familia que tenga un lote"
+    },
+    {
+      "nombre": "Minga Digital",
+      "alias": ["Minga Digital"],
+      "tipo": "mecanismo",
+      "que_es": "Registro de Grupos de Minga de 5-10 familias que se ayudan a construir con calendario rotativo, con descuento del 10% en el kit y un Artesano del Refugio que supervisa al grupo.",
+      "seccion": "5.10",
+      "linea": 705,
+      "cita": "El modelo \"Minga Digital\":"
+    },
+    {
+      "nombre": "Voucher de Vivienda Bastardo",
+      "alias": ["Voucher de Vivienda Bastardo"],
+      "tipo": "programa",
+      "que_es": "Subsidio transitorio en Canasta-Lite que cubre la diferencia entre el 25% del ingreso familiar y el alquiler de mercado; va directo al propietario o a la Bolsa.",
+      "seccion": "5.8",
+      "linea": 647,
+      "cita": "El Voucher de Vivienda Bastardo:"
+    },
+    {
+      "nombre": "Escalera PLANVIV",
+      "alias": ["Escalera PLANVIV"],
+      "tipo": "mecanismo",
+      "que_es": "Secuencia de cinco peldaños de voucher a propiedad plena, con ahorro automático y seguimiento en Housing OS; nadie baja de peldaño involuntariamente.",
+      "seccion": "5.8",
+      "linea": 657,
+      "cita": "La Escalera PLANVIV — De Voucher a Propietario"
+    },
+    {
+      "nombre": "Programa de Urbanización de Villas",
+      "alias": ["Programa de Urbanización de Villas"],
+      "tipo": "programa",
+      "que_es": "Urbanización in situ de los 1.800 asentamientos del RENABAP en cuatro fases (servicios, conectividad, espacio público, títulos), con 50 barrios piloto y reubicación solo en casos inhabitables.",
+      "seccion": null,
+      "linea": 131,
+      "cita": "El Programa de Urbanización de Villas** — los 1.800 asentamientos"
+    },
+    {
+      "nombre": "Tablero Nacional de Vivienda",
+      "alias": ["Tablero Nacional de Vivienda"],
+      "tipo": "metrica",
+      "que_es": "Plataforma pública en tiempo real con déficit, urbanización, unidades, créditos, mercado, retrofits y satisfacción residencial; sustenta los indicadores de alerta temprana y el scorecard 2040.",
+      "seccion": "11.2",
+      "linea": 1514,
+      "cita": "El Tablero Nacional de Vivienda es una plataforma digital pública"
+    },
+    {
+      "nombre": "Panel Ciudadano de Vivienda",
+      "alias": ["Panel Ciudadano de Vivienda", "Paneles Ciudadanos de Vivienda"],
+      "tipo": "institucion",
+      "que_es": "Cincuenta ciudadanos por sorteo, con representación provincial y por condición habitacional; evalúan a ANVIV, evalúan los pilotos y tienen veto sobre decisiones que afecten a más de 50.000 familias.",
+      "seccion": "11.1",
+      "linea": 1510,
+      "cita": "Panel Ciudadano de Vivienda:** 50 ciudadanos seleccionados por sorteo cívico"
+    },
+    {
+      "nombre": "Fondo de Mantenimiento Perpetuo",
+      "alias": ["Fondo de Mantenimiento Perpetuo"],
+      "tipo": "fondo",
+      "que_es": "Fideicomiso separado por proyecto, alimentado con el 5-8% del alquiler o la cuota, destinado solo al mantenimiento; reserva el 30% para una renovación mayor.",
+      "seccion": "20.3",
+      "linea": 2152,
+      "cita": "El Fondo de Mantenimiento Perpetuo"
+    },
+    {
+      "nombre": "Consejo Barrial",
+      "alias": ["Consejo Barrial"],
+      "tipo": "institucion",
+      "que_es": "Órgano de 7-11 miembros sorteados del padrón barrial, con paridad de género y mandato de dos años, que administra el fondo de mantenimiento y los espacios comunes del Barrio.",
+      "seccion": "20.2",
+      "linea": 2132,
+      "cita": "20.2 El Consejo Barrial"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Peso-canasta",
+      "alias": ["peso-canasta"],
+      "origen": "PLANMON",
+      "para_que": "Unidad de cuenta que denomina el Crédito Hipotecario Bastardo, los alquileres de la Bastarda y los contratos de la Bolsa.",
+      "linea": 804,
+      "cita": "PLANMON crea el peso-canasta"
+    },
+    {
+      "nombre": "Fondo Soberano",
+      "alias": ["Fondo Soberano"],
+      "origen": "PLANMON",
+      "para_que": "Capitaliza el fideicomiso de suelo y financia la Pre-Fase 0 y el valle de caja de los primeros años.",
+      "linea": 513,
+      "cita": "asignación del Fondo Soberano (PLANMON)"
+    },
+    {
+      "nombre": "ANMON",
+      "alias": ["ANMON"],
+      "origen": "PLANMON",
+      "para_que": "Fija la tasa de referencia del crédito hipotecario y su ley condiciona la indexación de alquileres en peso-canasta.",
+      "linea": 818,
+      "cita": "Tasa de referencia ANMON + spread de 1-2% (administración)"
+    },
+    {
+      "nombre": "Protocolo Bastardo",
+      "alias": ["Protocolo Bastardo"],
+      "origen": "PLANEB",
+      "para_que": "Molde institucional de la Bastarda Inmobiliaria: propiedad cero, gobernanza DAO, transparencia radical y precio igual a costo.",
+      "linea": 497,
+      "cita": "sigue el Protocolo Bastardo de PLANEB con exactitud quirúrgica"
+    },
+    {
+      "nombre": "ANEB",
+      "alias": ["ANEB"],
+      "origen": "PLANEB",
+      "para_que": "Designa auditores rotativos de la Bastarda Inmobiliaria y aporta dos miembros al directorio de ANVIV.",
+      "linea": 501,
+      "cita": "Auditoría Permanente (ANEB designa auditores rotativos)"
+    },
+    {
+      "nombre": "Artesanos del Refugio",
+      "alias": ["Artesanos del Refugio", "Artesano del Refugio"],
+      "origen": "PLANREP",
+      "para_que": "Fuerza laboral que construye, retrofitea y supervisa kits y obras de mantenimiento.",
+      "linea": 1142,
+      "cita": "PLANREP forma a los Artesanos del Refugio"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Sede de la formación de cooperativistas y de los módulos de aislación, carpinterías y energía solar.",
+      "linea": 1142,
+      "cita": "Los Centros de la Vida de PLANREP ofrecen módulos específicos"
+    },
+    {
+      "nombre": "ANAGUA",
+      "alias": ["ANAGUA"],
+      "origen": "PLANAGUA",
+      "para_que": "Co-diseña y supervisa la infraestructura hídrica de cada asentamiento urbanizado.",
+      "linea": 1010,
+      "cita": "ANAGUA (Agencia Nacional del Agua) y ANVIV co-diseñan"
+    },
+    {
+      "nombre": "Estación Barrial",
+      "alias": ["Estación Barrial"],
+      "origen": "PLANSEG",
+      "para_que": "Se instala en el asentamiento antes de la obra para dar confianza a los vecinos durante la urbanización.",
+      "linea": 1000,
+      "cita": "**Estación Barrial PLANSEG** instalada en el asentamiento"
+    },
+    {
+      "nombre": "Centro de Vitalidad",
+      "alias": ["Centro de Vitalidad", "Centros de Vitalidad"],
+      "origen": "PLANSAL",
+      "para_que": "Salud primaria a 200 metros de cada Célula y en asentamientos de más de 500 familias.",
+      "linea": 558,
+      "cita": "**Centro de Vitalidad** (PLANSAL)"
+    },
+    {
+      "nombre": "panel JUS-1",
+      "alias": ["panel JUS-1"],
+      "origen": "PLANJUS",
+      "para_que": "Resuelve desalojos por vía rápida y escala los conflictos de convivencia barrial.",
+      "linea": 1255,
+      "cita": "panel JUS-1, resolución en 15 días"
+    },
+    {
+      "nombre": "Infraestructura Digital Soberana",
+      "alias": ["IDS"],
+      "origen": "PLANDIG",
+      "para_que": "Nodos sobre los que corren Housing OS y el registro digital de títulos de propiedad.",
+      "linea": 1811,
+      "cita": "corren sobre nodos IDS con firma criptográfica soberana"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Costo total de PLANVIV en 15 años",
+      "valor": "USD 80.000-120.000 millones (USD 5.300-8.000 millones por año)",
+      "tipo": "presupuesto",
+      "linea": 1675,
+      "cita": "Estimación central: USD 80.000-120.000 millones en 15 años."
+    },
+    {
+      "concepto": "Presupuesto canónico declarado en el encabezado de auditoría",
+      "valor": "2.5B/año + 8.0B de inversión a 24 meses",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "2.5B/año + 8.0B inv 24m"
+    },
+    {
+      "concepto": "Déficit habitacional de partida",
+      "valor": "3,5 millones de viviendas",
+      "tipo": "diagnostico",
+      "linea": 112,
+      "cita": "La Argentina tiene un déficit habitacional de 3,5 millones de viviendas."
+    },
+    {
+      "concepto": "Meta de déficit habitacional al 2040",
+      "valor": "menos de 500.000 unidades",
+      "tipo": "meta",
+      "linea": 145,
+      "cita": "déficit habitacional reducido de 3,5 millones a menos de 500.000 unidades"
+    },
+    {
+      "concepto": "Plazo de urbanización de los asentamientos RENABAP",
+      "valor": "1.800 asentamientos en 15 años",
+      "tipo": "plazo",
+      "linea": 131,
+      "cita": "los 1.800 asentamientos informales del RENABAP se urbanizan en 15 años"
+    },
+    {
+      "concepto": "Meta de retrofit térmico",
+      "valor": "500.000 unidades de vivienda social en 15 años",
+      "tipo": "meta",
+      "linea": 1122,
+      "cita": "500.000 unidades de vivienda social existentes en 15 años"
+    },
+    {
+      "concepto": "Costo del retrofit por unidad",
+      "valor": "USD 5.000-10.000 por unidad, con ahorro energético del 40-60%",
+      "tipo": "parametro",
+      "linea": 1136,
+      "cita": "**TOTAL por unidad** | **USD 5.000-10.000**"
+    },
+    {
+      "concepto": "Piso presupuestario constitucional de ANVIV",
+      "valor": "no menos del 2% del PBI y del 8% del presupuesto nacional",
+      "tipo": "parametro",
+      "linea": 1499,
+      "cita": "no menos del 2% del PBI, no menos del 8% del presupuesto nacional"
+    },
+    {
+      "concepto": "Cuota máxima del Crédito Hipotecario Bastardo",
+      "valor": "25% del ingreso familiar verificable (20% del ingreso estimado en informales)",
+      "tipo": "parametro",
+      "linea": 819,
+      "cita": "Cuota máxima | 25% del ingreso familiar verificable"
+    },
+    {
+      "concepto": "Fórmula de Canasta-Lite",
+      "valor": "40% RIPTE, 30% dólar MEP, 20% ICC, 10% CBA",
+      "tipo": "parametro",
+      "linea": 846,
+      "cita": "CL(t) = 0.40 × RIPTE(t)/RIPTE(0) + 0.30 × MEP(t)/MEP(0)"
+    },
+    {
+      "concepto": "Precio de unidad tipo de 50 m²: Bastarda frente a constructora privada",
+      "valor": "USD 32.000-48.000 frente a USD 90.000-130.000",
+      "tipo": "parametro",
+      "linea": 2020,
+      "cita": "**90.000-130.000** | **32.000-48.000**"
+    },
+    {
+      "concepto": "Total de fuentes de financiamiento a 15 años",
+      "valor": "USD 77.000-131.000 millones",
+      "tipo": "fuente",
+      "linea": 1711,
+      "cita": "**TOTAL** | **77.000-131.000**"
+    },
+    {
+      "concepto": "Total de fuentes sin doble conteo",
+      "valor": "USD 71.000-120.000 millones",
+      "tipo": "fuente",
+      "linea": 1767,
+      "cita": "**Total (sin doble conteo)** | **71.000-120.000**"
+    },
+    {
+      "concepto": "Presupuesto nacional como fuente",
+      "valor": "USD 20.000-30.000 millones (2% del PBI anual)",
+      "tipo": "fuente",
+      "linea": 1709,
+      "cita": "Presupuesto nacional (piso constitucional) | 20.000-30.000 | 2% del PBI anual"
+    },
+    {
+      "concepto": "Costo de desarrollo de Housing OS en 15 años",
+      "valor": "USD 200-400 millones",
+      "tipo": "presupuesto",
+      "linea": 1447,
+      "cita": "**USD 200-400M**"
+    },
+    {
+      "concepto": "Costo de los vouchers para 300.000 familias",
+      "valor": "USD 600M-1.200M por año",
+      "tipo": "presupuesto",
+      "linea": 653,
+      "cita": "Para 300.000 familias (las más vulnerables): USD 600M-1.200M/año"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANMON",
+      "que": "Entrega el peso-canasta que denomina hipotecas y alquileres, la tasa de referencia ANMON y asignaciones del Fondo Soberano; Canasta-Lite cubre la falta de PLANMON.",
+      "linea": 1814,
+      "cita": "Peso-canasta denomina el Crédito Hipotecario Bastardo"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Aporta el Protocolo Bastardo y la Bastarda Financiera; la Bastarda Inmobiliaria nace como fideicomiso y pasa a Empresa Bastarda cuando se sancione PLANEB.",
+      "linea": 497,
+      "cita": "sigue el Protocolo Bastardo de PLANEB con exactitud quirúrgica"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Provee los Artesanos del Refugio y la formación en Centros de la Vida para obra, retrofit, supervisión de kits y mantenimiento.",
+      "linea": 1813,
+      "cita": "Artesanos del Refugio formados por PLANREP construyen y retrofitean las 1800 urbanizaciones planificadas"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "ANAGUA y ANVIV co-diseñan las redes de agua y cloacas de cada asentamiento; la Bastarda Hídrica opera el servicio posterior.",
+      "linea": 1010,
+      "cita": "ANAGUA (Agencia Nacional del Agua) y ANVIV co-diseñan la infraestructura hídrica de cada asentamiento"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Aporta nube soberana, identidad digital y fibra sobre las que corre Housing OS, y los nodos IDS para el registro de títulos.",
+      "linea": 1433,
+      "cita": "se construye sobre la infraestructura soberana de PLANDIG"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "ANSEG instala Estaciones Barriales antes de la obra y aplica el estándar CPTED en urbanizaciones y retrofits.",
+      "linea": 998,
+      "cita": "coordinado entre ANVIV y ANSEG"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Provee el marco de regularización dominial acelerada, el panel JUS-1 para desalojos y la Sala de Propiedad para disputas de inquilinos y títulos.",
+      "linea": 1255,
+      "cita": "El desalojo se tramita por vía rápida de PLANJUS (panel JUS-1, resolución en 15 días)"
+    },
+    {
+      "con": "PLANEN",
+      "que": "El retrofit reduce la demanda energética y aporta el cableado fotovoltaico y electricidad formal en las urbanizaciones; el ahorro se computa como fuente de financiamiento.",
+      "linea": 1192,
+      "cita": "el ahorro agregado es equivalente a una planta de generación de 200-300 MW"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Centros de Vitalidad en Células y barrios; PLANSAL e ANVIV priorizan el retrofit de hogares con enfermos respiratorios crónicos.",
+      "linea": 1194,
+      "cita": "Los Centros de Vitalidad de PLANSAL coordinan con ANVIV para priorizar el retrofit"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "PLANMOV deposita reservas de suelo cerca de estaciones para alquiler protegido; PLANVIV demanda integración con corredores de transporte y accesibilidad universal.",
+      "linea": 2360,
+      "cita": "Capacidad que PLANMOV deposita en este PLAN: reservas de suelo cerca de estaciones para alquiler protegido."
+    },
+    {
+      "con": "PLANTER",
+      "que": "PLANTER bloquea la expansión urbana sobre suelo productivo o ecológico y exige consulta en territorio originario; PLANVIV le pide regularización dominial en territorio en conflicto.",
+      "linea": 2366,
+      "cita": "expansión urbana sobre suelo productivo o ecológico bloqueada por enforcement ambiental (L1)"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "La Bastarda Inmobiliaria opera en las ciudades nuevas y en las existentes, con la misma entidad y gobernanza; el modelo de Células adapta el de PLAN24CN.",
+      "linea": 517,
+      "cita": "las 24 ciudades nuevas de PLAN24CN y las ciudades existentes"
+    },
+    {
+      "con": "PLANISV",
+      "que": "La forestación regenerativa del NEA abastece madera certificada para CLT y wood frame en los Hubs.",
+      "linea": 1354,
+      "cita": "Conexión directa con la forestación regenerativa del NEA (PLANISV)"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "En asentamientos con narcomenudeo, la urbanización se sincroniza con el protocolo de transición de PLANSUS.",
+      "linea": 1004,
+      "cita": "la urbanización se sincroniza con el protocolo de transición de PLANSUS"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El texto declara a ANVIV con autonomía constitucional y piso presupuestario, pero el encabezado de auditoría la fija como celda de ejecución en un ministerio y difiere la autarquía a tranches posteriores.",
+      "linea": 43,
+      "cita": "ANVIV opera como **execution cell en MinHabitat**"
+    },
+    {
+      "con": "interno",
+      "que": "El presupuesto canónico del encabezado (2.5B por año más 8.0B a 24 meses) no coincide con el costo de USD 80.000-120.000 millones en 15 años del cuerpo del documento.",
+      "linea": 12,
+      "cita": "2.5B/año + 8.0B inv 24m"
+    },
+    {
+      "con": "interno",
+      "que": "El piso del 2% del PBI aparece como fuente por USD 20.000-30.000 millones en 15 años, cifra menor a lo que ese porcentaje implicaría, y el costo total se presenta como 1,0-1,5% del PBI.",
+      "linea": 1709,
+      "cita": "Presupuesto nacional (piso constitucional) | 20.000-30.000 | 2% del PBI anual"
+    },
+    {
+      "con": "PLANPUERTA",
+      "que": "La tabla de fuerza laboral deroga la fuente de trabajadores regionales por PLANPUERTA, pero la matriz de riesgos sigue contándola entre las fuentes de mano de obra.",
+      "linea": 1847,
+      "cita": "trabajadores regionales formalizados (5-10K)"
+    },
+    {
+      "con": "interno",
+      "que": "El indicador 14 remite a un cuestionario de §14.2, pero el documento no tiene sección 14 numerada: pasa de la sección 13 a la integración sin numerar y a la sección 15.",
+      "linea": 1872,
+      "cita": "cuestionario estandarizado de §14.2 en 90 días"
+    },
+    {
+      "con": "interno",
+      "que": "El texto cuenta dieciséis mandatos y se presenta como Decimoquinto Mandato, mientras el encabezado de auditoría fija la arquitectura canónica en 27 PLANes temáticos más PLANRUTA.",
+      "linea": 86,
+      "cita": "dieciséis mandatos que cubren cada dimensión de la vida argentina"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El propio plan declara sin validar el modelo que mantiene estable la cuota de Canasta-Lite bajo crisis; se somete a un piloto de 200 créditos en Mendoza.",
+      "linea": 459,
+      "cita": "Canasta-Lite que mantiene la cuota estable bajo crisis — modelo sin validar"
+    },
+    {
+      "que": "La mayor parte del suelo fiscal está en la periferia y no donde se necesita construir; cuántas Células caben donde importa depende de un relevamiento catastral aún no hecho.",
+      "linea": 576,
+      "cita": "El problema es la LOCALIZACIÓN: la mayoría de la tierra fiscal está en la periferia"
+    },
+    {
+      "que": "El documento reconoce que no tiene holgura financiera cómoda: el rango inferior de fuentes deja un gap posible de USD 9.000-49.000 millones.",
+      "linea": 1769,
+      "cita": "PLANVIV NO tiene holgura financiera cómoda"
+    },
+    {
+      "que": "La fuerza laboral proyectada para 2031 queda 30.000 trabajadores por debajo del objetivo de 80.000 en el rango inferior.",
+      "linea": 1569,
+      "cita": "El rango inferior (50.000) queda 30.000 corto del objetivo de 80.000"
+    },
+    {
+      "que": "No existe un censo confiable de personas en situación de calle; las estimaciones van de 10.000 a 50.000, lo que condiciona la meta del componente Housing First.",
+      "linea": 2039,
+      "cita": "Argentina no tiene un censo confiable de personas en situación de calle."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "grupo": 3,
+  "revisados": ["Empresa Bastarda", "ANCE", "Escuelas del Futuro", "Bastarda Energética", "Sorteo democrático de panelistas", "ANJUS"],
+  "cruces": [
+    {"concepto":"Empresa Bastarda","tipo":"estado","dueno":"PLANEB","lineaDueno":311,"citaDueno":"La Empresa Bastarda se constituye como Fideicomiso bajo el Código Civil y Comercial de la Nación","otro":"PLANVIV","lineaOtro":1938,"citaOtro":"La Bastarda Inmobiliaria se convierte legalmente en Empresa Bastarda.","que":"PLANEB define a la Empresa Bastarda como un fideicomiso bajo el CCyC, vigente sin ley nueva; PLANVIV dice que la Bastarda Inmobiliaria opera como fideicomiso y recién se convierte en Empresa Bastarda cuando PLANEB se sancione."},
+    {"concepto":"ANCE","tipo":"nombre","dueno":"PLANEDU","lineaDueno":937,"citaDueno":"La ANCE: Agencia Nacional de Calidad Educativa","otro":"PLANAGUA","lineaOtro":3472,"citaOtro":"Acuerdos Nacionales de Compromiso Educativo (ANCE)","que":"PLANEDU expande ANCE como Agencia Nacional de Calidad Educativa; PLANAGUA la expande como Acuerdos Nacionales de Compromiso Educativo."},
+    {"concepto":"ANCE","tipo":"nombre","dueno":"PLANEDU","lineaDueno":937,"citaDueno":"La ANCE: Agencia Nacional de Calidad Educativa","otro":"PLANAGUA","lineaOtro":3796,"citaOtro":"ANCE (Acuerdos Nacionales de Compromiso Educativo)","que":"PLANEDU expande ANCE como Agencia Nacional de Calidad Educativa; PLANAGUA vuelve a expandirla como Acuerdos Nacionales de Compromiso Educativo, aunque en PLANAGUA:1956 la cuenta entre las agencias."},
+    {"concepto":"ANCE","tipo":"quien","dueno":"PLANEDU","lineaDueno":937,"citaDueno":"La ANCE: Agencia Nacional de Calidad Educativa","otro":"PLANSUS","lineaOtro":923,"citaOtro":"ANCE (PLANREP)","que":"PLANEDU es el dueño de la ANCE; PLANSUS la atribuye a PLANREP."},
+    {"concepto":"Bastarda Energética","tipo":"que","dueno":"PLANEN","lineaDueno":982,"citaDueno":"La Bastarda Energética es una EPP bajo el Protocolo Bastardo de PLANEB.","otro":"PLANRUTA","lineaOtro":1568,"citaOtro":"Cooperativa energética provincial con gobernanza DAO bajo Protocolo Bastardo","que":"PLANEN define la Bastarda Energética como una EPP sin propietarios; PLANRUTA la describe como «Cooperativa energética provincial»."}
+  ]
+}

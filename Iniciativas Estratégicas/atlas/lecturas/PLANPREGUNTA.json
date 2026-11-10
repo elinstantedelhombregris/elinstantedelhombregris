@@ -1,0 +1,55 @@
+{
+  "code": "PLANPREGUNTA",
+  "leido": "todo",
+  "hallazgos": [
+    {
+      "lineas": [
+        438,
+        903
+      ],
+      "que": "Los otros PLANes se cuentan como veinticinco (438, 724, 744, 869) y como veintiséis (444, 903); con el canon en 27, el resto es 26."
+    },
+    {
+      "lineas": [
+        813,
+        863
+      ],
+      "que": "La reserva anti-colapso del Fondo Intergeneracional se cita en PLANTER:710 y :839 en la sección 13.3, y en PLANTER:722 y :839 en el mapa de perdedores."
+    },
+    {
+      "lineas": [
+        935,
+        885
+      ],
+      "que": "La visión habla de doce años corridos de la Serie Centenaria para 2041, pero la Fase 1 dice que empieza a medirse en 2031-2032, o sea unos diez."
+    },
+    {
+      "lineas": [
+        634,
+        775
+      ],
+      "que": "El Seguro es el 10% del presupuesto y se describe como varias decenas de millones por año, pero 10% de la banda de régimen de 1.500–2.300M son 150–230M, cientos de millones."
+    },
+    {
+      "lineas": [
+        895,
+        909
+      ],
+      "que": "La numeración de secciones salta de la 17 a la 19: no existe la Sección 18."
+    },
+    {
+      "lineas": [
+        196,
+        166,
+        668
+      ],
+      "que": "Se dice que el taller tiene veinticuatro documentos (196, 166, 668), pero la cabecera fija el canon en 27 PLANes más PLANRUTA."
+    },
+    {
+      "lineas": [
+        710
+      ],
+      "que": "Dice que quince de las veintidós agencias del corpus siguen el patrón AN+sufijo; el canon actual tiene 27 PLANes y la cuenta de agencias está desactualizada."
+    }
+  ]
+}

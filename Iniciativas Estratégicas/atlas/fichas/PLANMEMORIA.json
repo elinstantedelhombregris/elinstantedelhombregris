@@ -1,0 +1,415 @@
+{
+  "code": "PLANMEMORIA",
+  "nombre": "Plan Nacional de Memoria Operativa, Vínculo Ancestral y No-Reversibilidad Republicana",
+  "version": "1.0 — Abril 2026",
+  "tesis": "Argentina repite sus reversiones porque no consulta su propia memoria operativa. Un archivo federado con depósitos ciudadanos, consulta obligatoria de precedentes antes de cada decisión e inscripción permanente de capturas obliga a cada gobierno a pesar sobre lo ya ocurrido.",
+  "problema": "Argentina tiene memoria literaria pero no operativa: las decisiones no consultan lo ya intentado. Más del 40% de las políticas públicas estructurales se revierten en el siguiente gobierno, la rotación técnica al primer año es del 60% y solo el 11% de las decisiones de alto impacto consulta precedentes.",
+  "resumen": "PLANMEMORIA crea un Archivo de Depósito Ciudadano distribuido en siete nodos con hash criptográfico. Cada persona deposita historias heredadas, cicatrices, aprendizajes y deseos en tres momentos de vida: a los 12 (Bastón Memorial), a los 30 y a los 60. Toda Mesa Civil debe traer la Consulta Ancestral de precedentes antes de diseñar, las capturas de política pública se inscriben con el nombre del responsable y una Agencia Nacional de Memoria administra el sistema y publica un tablero.",
+  "horizonte": "Tranche-3. 2030-2031: protocolo v1.0, dos nodos y primeros 300 Síndicos. 2031-2032: siete nodos y 2.000 Síndicos. 2032-2033: protocolo v2.0 y Bastón Memorial como política nacional. Régimen pleno en los años 6 a 10.",
+  "financiamiento": "Fase inicial con presupuesto público, convenios con universidades y con organizaciones memoriales existentes. Costo anual en régimen pleno de USD 792-1.184 millones según la tabla 8.1 del documento.",
+  "temas": ["cultura-memoria", "digital-datos", "estado-instituciones"],
+
+  "conceptos": [
+    {
+      "nombre": "Agencia Nacional de Memoria (ANM)",
+      "alias": ["Agencia Nacional de Memoria", "ANM"],
+      "tipo": "institucion",
+      "que_es": "Ente que administra el Protocolo Memorial, custodia la integridad del hash, coordina los nodos y publica el Tablero Nacional de Memoria. En tranche-3 inicial opera como comisión asesora.",
+      "seccion": null,
+      "linea": 90,
+      "cita": "**Agencia Nacional de Memoria (ANM)** — ente autárquico con presupuesto constitucional protegido"
+    },
+    {
+      "nombre": "Archivo de Depósito Ciudadano",
+      "alias": ["Archivo de Depósito Ciudadano"],
+      "tipo": "mecanismo",
+      "que_es": "Archivo federado en siete nodos que recibe depósitos de cada ciudadano en tres momentos vitales, con cuatro componentes: historia heredada, cicatriz comunitaria, aprendizaje de fracaso y deseo.",
+      "seccion": "3.1",
+      "linea": 281,
+      "cita": "El Archivo de Depósito Ciudadano"
+    },
+    {
+      "nombre": "Bastón Memorial",
+      "alias": ["Bastón Memorial"],
+      "tipo": "programa",
+      "que_es": "Rito cívico a los 12 años en la escuela: el chico deposita tres historias de sus mayores, una cicatriz comunitaria y un deseo, y recibe un objeto simbólico.",
+      "seccion": "3.1",
+      "linea": 287,
+      "cita": "Bastón Memorial de los 12"
+    },
+    {
+      "nombre": "Testimonio de los 60",
+      "alias": ["Testimonio de los 60"],
+      "tipo": "mecanismo",
+      "que_es": "Testimonio extenso de saber vivido de un adulto mayor, acompañado por un Síndico de Archivo, con los niveles de acceso que elige el depositante. Otorga Credencial Memorial Consolidada.",
+      "seccion": "3.1",
+      "linea": 310,
+      "cita": "Testimonio de los 60"
+    },
+    {
+      "nombre": "Ratificación de los 30",
+      "alias": ["Ratificación de los 30"],
+      "tipo": "mecanismo",
+      "que_es": "Momento voluntario a los 30 años: el adulto revisa su depósito de los 12, agrega aprendizajes de fracasos propios y ratifica su archivo. Cuenta para la Capa Memorial de la Credencial.",
+      "seccion": "3.1",
+      "linea": 299,
+      "cita": "Ratificación de los 30"
+    },
+    {
+      "nombre": "Consulta Ancestral Obligatoria",
+      "alias": ["Consulta Ancestral Obligatoria", "Consulta Ancestral"],
+      "tipo": "mecanismo",
+      "que_es": "Operación automática al inicio de la Fase APRENDER de cada Mesa Civil que trae precedentes, destino de resoluciones y capturas. Termina en un dossier que la Mesa debe firmar antes de diseñar.",
+      "seccion": "3.2",
+      "linea": 321,
+      "cita": "La Consulta Ancestral Obligatoria"
+    },
+    {
+      "nombre": "Precedentes Considerados",
+      "alias": ["Precedentes Considerados"],
+      "tipo": "termino",
+      "que_es": "Dossier estructurado con síntesis, casos con evidencia, actores, patrones y preguntas abiertas, que la Mesa firma para pasar a la Fase DISEÑAR.",
+      "seccion": "3.2",
+      "linea": 335,
+      "cita": "Precedentes Considerados"
+    },
+    {
+      "nombre": "Inscripción de Captura en Tiempo Real",
+      "alias": ["Inscripción de Captura en Tiempo Real", "Inscripción de Captura"],
+      "tipo": "mecanismo",
+      "que_es": "Registro permanente de desvíos de resoluciones, iniciativas vaciadas y conflictos de interés, con derecho a defensa del actor. No es sanción penal; pesa en la Credencial del actor.",
+      "seccion": "3.3",
+      "linea": 344,
+      "cita": "La Inscripción de Captura en Tiempo Real"
+    },
+    {
+      "nombre": "Memoria Operativa del Arquitecto",
+      "alias": ["Memoria Operativa del Arquitecto"],
+      "tipo": "mecanismo",
+      "que_es": "Biografía completa de cada iniciativa del Arquitecto: veces intentada, versiones, resultados medidos, presupuesto, capturas y cicatrices en el territorio.",
+      "seccion": "3.4",
+      "linea": 368,
+      "cita": "La Memoria Operativa del Arquitecto"
+    },
+    {
+      "nombre": "Síndico de Archivo",
+      "alias": ["Síndico de Archivo", "Síndicos de Archivo"],
+      "tipo": "figura",
+      "que_es": "Ciudadano con Credencial Consolidada en Memoria, contratado por la ANM, que custodia partes del corpus, valida depósitos y marca precedentes. Dedicación de tiempo completo con rotación entre temas.",
+      "seccion": "3.5",
+      "linea": 384,
+      "cita": "Los Síndicos de Archivo"
+    },
+    {
+      "nombre": "Siete Nodos Federados",
+      "alias": ["Siete Nodos Federados"],
+      "tipo": "mecanismo",
+      "que_es": "Red de siete nodos: Archivo General de la Nación, cinco nodos regionales rotativos entre universidades y un nodo cooperativo ciudadano. Replicación en menos de 30 segundos y hash SHA-256.",
+      "seccion": "4.1",
+      "linea": 431,
+      "cita": "Los Siete Nodos Federados"
+    },
+    {
+      "nombre": "Protocolo Memorial",
+      "alias": ["Protocolo Memorial"],
+      "tipo": "norma",
+      "que_es": "Protocolo nacional unificado de inscripción, con adaptación provincial, que rige el depósito, la consulta y la curaduría del archivo.",
+      "seccion": "0.6",
+      "linea": 158,
+      "cita": "Protocolo Memorial nacional unificado"
+    },
+    {
+      "nombre": "Comisión Asesora Interministerial de Memoria",
+      "alias": ["Comisión Asesora Interministerial de Memoria"],
+      "tipo": "institucion",
+      "que_es": "Execution cell de tranche-3 que gobierna el archivo con consejo plural rotativo y auditoría externa, hasta que se evalúe su conversión en agencia autárquica.",
+      "seccion": "0.1",
+      "linea": 110,
+      "cita": "(Comisión Asesora Interministerial de Memoria)"
+    },
+    {
+      "nombre": "Mesa Civil Permanente de Memoria",
+      "alias": ["Mesa Civil Permanente de Memoria"],
+      "tipo": "institucion",
+      "que_es": "Mesa Civil federal permanente que delibera sobre qué se inscribe, cómo se actualiza el Protocolo, cómo se resuelven disputas y la política de delay y desclasificación.",
+      "seccion": "6.1",
+      "linea": 536,
+      "cita": "Mesa Civil Permanente de Memoria"
+    },
+    {
+      "nombre": "Mesa de Emergencia Memorial",
+      "alias": ["Mesa de Emergencia Memorial"],
+      "tipo": "institucion",
+      "que_es": "Mesa que se convoca en 48 horas ante un ataque técnico, politización severa o falla de integridad, con facultad de suspender nodos comprometidos.",
+      "seccion": "10.2",
+      "linea": 694,
+      "cita": "Mesa de Emergencia Memorial"
+    },
+    {
+      "nombre": "Mayor Acompañante",
+      "alias": ["Mayor Acompañante"],
+      "tipo": "figura",
+      "que_es": "Mayor del territorio, no familiar directo, que acompaña el depósito del Bastón Memorial y formaliza la relación con un Pacto de Cuidado ligero.",
+      "seccion": "3.6",
+      "linea": 419,
+      "cita": "un mayor del territorio (no familiar directo para evitar presión)"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Ciclo LDEA",
+      "alias": ["LDEA"],
+      "origen": "PLANMESA",
+      "para_que": "Método de deliberación de cada Mesa Civil; PLANMEMORIA lo aplica también a su propio archivo.",
+      "linea": 90,
+      "cita": "ciclo LDEA de toda Mesa Civil (PLANMESA)"
+    },
+    {
+      "nombre": "Mesa Civil",
+      "alias": ["Mesa Civil"],
+      "origen": "PLANMESA",
+      "para_que": "Unidad deliberativa que dispara la Consulta Ancestral en su Fase APRENDER y firma los Precedentes Considerados.",
+      "linea": 323,
+      "cita": "de cualquier Mesa Civil (PLANMESA)"
+    },
+    {
+      "nombre": "Credencial de Materia",
+      "alias": ["Credencial de Materia"],
+      "origen": "PLANMESA",
+      "para_que": "Su Capa Memorial se alimenta de depósitos cumplidos, consultas realizadas y contribución curatorial.",
+      "linea": 90,
+      "cita": "Capa Memorial de la Credencial de Materia (PLANMESA)"
+    },
+    {
+      "nombre": "Infraestructura Digital Soberana",
+      "alias": ["IDS"],
+      "origen": "PLANDIG",
+      "para_que": "Provee la red de siete nodos federados con hash donde vive el archivo distribuido.",
+      "linea": 578,
+      "cita": "IDS provee los 7 nodos federados con hash criptográfico resistente a borrado"
+    },
+    {
+      "nombre": "Pacto de Cuidado",
+      "alias": ["Pacto de Cuidado"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Formaliza la relación del Mayor Acompañante con el chico o chica del Bastón Memorial.",
+      "linea": 419,
+      "cita": "La relación se formaliza con Pacto de Cuidado ligero (PLANCUIDADO)"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Costo anual del régimen pleno (total de rubros)",
+      "valor": "USD 792-1.184 M anuales",
+      "tipo": "presupuesto",
+      "linea": 611,
+      "cita": "**TOTAL ANUAL RÉGIMEN** | **792-1.184**"
+    },
+    {
+      "concepto": "Presupuesto de la ANM en régimen pleno",
+      "valor": "0.10-0.14% del PBI (USD 680-920M anuales)",
+      "tipo": "presupuesto",
+      "linea": 486,
+      "cita": "0.10-0.14% del PBI (USD 680-920M anuales en régimen pleno)"
+    },
+    {
+      "concepto": "Fase inicial del tranche-3",
+      "valor": "ventana 2030-2033",
+      "tipo": "plazo",
+      "linea": 629,
+      "cita": "Fase inicial (tranche-3 inicial, ventana 2030-2033)"
+    },
+    {
+      "concepto": "Replicación de una inscripción en los siete nodos",
+      "valor": "menos de 30 segundos",
+      "tipo": "parametro",
+      "linea": 447,
+      "cita": "cada inscripción se replica en los 7 nodos en menos de 30 segundos"
+    },
+    {
+      "concepto": "Umbral de integridad criptográfica",
+      "valor": "99.9%",
+      "tipo": "meta",
+      "linea": 783,
+      "cita": "Integridad caída por debajo de 99.9%"
+    },
+    {
+      "concepto": "Síndicos de Archivo a régimen pleno",
+      "valor": "3.500-4.500 Síndicos",
+      "tipo": "meta",
+      "linea": 409,
+      "cita": "aproximadamente 3.500-4.500 Síndicos distribuidos federalmente"
+    },
+    {
+      "concepto": "Piloto de Bastón Memorial",
+      "valor": "20 escuelas",
+      "tipo": "meta",
+      "linea": 726,
+      "cita": "Piloto de Bastón Memorial en 20 escuelas"
+    },
+    {
+      "concepto": "Consulta de precedente en decisiones de alto impacto",
+      "valor": "11% en relevamiento de 120 decisiones",
+      "tipo": "diagnostico",
+      "linea": 201,
+      "cita": "11% en relevamiento de 120 decisiones de alto impacto"
+    },
+    {
+      "concepto": "Costo histórico de reversiones de política pública",
+      "valor": "USD 420.000M+ (2000-2024)",
+      "tipo": "diagnostico",
+      "linea": 90,
+      "cita": "supera los USD 420.000M en reversiones de política pública entre 2000 y 2024"
+    },
+    {
+      "concepto": "Miembros del Directorio de la ANM",
+      "valor": "15",
+      "tipo": "parametro",
+      "linea": 492,
+      "cita": "15 miembros (más amplio que otras Agencias para reflejar pluralidad memorial)"
+    },
+    {
+      "concepto": "Mandato del Directorio",
+      "valor": "5 años no renovables consecutivos",
+      "tipo": "parametro",
+      "linea": 505,
+      "cita": "Mandato: 5 años no renovables consecutivos"
+    },
+    {
+      "concepto": "Reducción anual de reversiones de política",
+      "valor": "USD 4.000-6.000M/año",
+      "tipo": "meta",
+      "linea": 616,
+      "cita": "Reducción de reversiones de política: USD 4.000-6.000M/año"
+    },
+    {
+      "concepto": "Reducción de reversiones por cambio de gobierno a 15 años",
+      "valor": "30-45%",
+      "tipo": "meta",
+      "linea": 90,
+      "cita": "puede reducir las reversiones de política pública por cambio de gobierno en 30-45% a horizonte 15 años"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANMESA",
+      "que": "La Consulta Ancestral entra en la Fase APRENDER de cada ciclo LDEA; las Resoluciones se inscriben automáticamente y la Credencial de Materia se alimenta del archivo.",
+      "linea": 575,
+      "cita": "Consulta Ancestral obligatoria en Fase APRENDER de cada ciclo LDEA"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Aporta la infraestructura federada y criptográfica donde vive el archivo: siete nodos con hash que detecta cualquier alteración.",
+      "linea": 578,
+      "cita": "IDS provee los 7 nodos federados con hash criptográfico resistente a borrado"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Las escuelas ejecutan el Bastón Memorial a los 12 años como ceremonia de ingreso, y los depósitos sirven de material pedagógico.",
+      "linea": 579,
+      "cita": "la escuela incorpora el rito cívico del Bastón Memorial a los 12 años"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "La Inscripción de Captura coopera con investigaciones judiciales sin reemplazarlas; la inscripción no es sanción penal.",
+      "linea": 580,
+      "cita": "JUS coopera con la Inscripción de Captura en investigaciones"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Aloja el Archivo Territorial con los testimonios y documentos de las comunidades originarias, con consentimiento de cada pueblo.",
+      "linea": 590,
+      "cita": "PLANMEMORIA aloja el Archivo Territorial con los depósitos testimoniales y documentales de comunidades originarias"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Formaliza el acompañamiento del Bastón Memorial con un Pacto de Cuidado ligero.",
+      "linea": 419,
+      "cita": "La relación se formaliza con Pacto de Cuidado ligero (PLANCUIDADO)"
+    },
+    {
+      "con": "PLANRUTA",
+      "que": "El Kit de Despliegue de Crisis de PLANRUTA incorpora los archivos de cada crisis argentina previa.",
+      "linea": 90,
+      "cita": "el Kit de Despliegue de Crisis incluye archivos de cada crisis argentina previa"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "Registro permanente de violencias territoriales y de las respuestas que se dieron a cada una.",
+      "linea": 90,
+      "cita": "registro permanente de violencias territoriales y respuestas"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Las Empresas Bastardas inscriben su funcionamiento operativo en un archivo cooperativo dentro del Archivo.",
+      "linea": 90,
+      "cita": "las Bastardas inscriben su propio funcionamiento operativo en archivo cooperativo"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "La cultura viva funciona como archivo viviente; los rituales públicos consultan el Archivo.",
+      "linea": 90,
+      "cita": "la cultura viva es archivo viviente; rituales públicos incorporan consulta al Archivo"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La sección 5.1 describe la ANM como ente autárquico con presupuesto constitucional protegido, pero la revisión de 2026-04-28 difiere esa figura a tranche-3+ (líneas 108 y 633).",
+      "linea": 484,
+      "cita": "Ente autárquico con presupuesto constitucional protegido"
+    },
+    {
+      "con": "interno",
+      "que": "La tabla 8.1 suma USD 792-1.184M anuales; el texto de la sección 5.1 y la tesis dan USD 680-920M anuales para el mismo régimen pleno.",
+      "linea": 611,
+      "cita": "**TOTAL ANUAL RÉGIMEN** | **792-1.184**"
+    },
+    {
+      "con": "interno",
+      "que": "El parche dice que depende solo de PLANDIG y PLANRUTA, pero la tabla de integración (líneas 584-591) lista también a PLANEDU, PLANJUS, PLANMESA, PLANTER y PLANMOV como fuentes.",
+      "linea": 892,
+      "cita": "Depende de: PLANDIG, PLANRUTA"
+    },
+    {
+      "con": "interno",
+      "que": "Menciona una Fase 0 que la hoja de ruta no define; el cronograma arranca en la Etapa M1 con dos nodos iniciales, no con siete.",
+      "linea": 587,
+      "cita": "Fase 0 de PLANMEMORIA es arranque del archivo federado de 7 nodos"
+    },
+    {
+      "con": "interno",
+      "que": "La tabla 1.1 mide el costo en 30 años; la tesis (línea 90) mide las reversiones entre 2000 y 2024, que son 24 años.",
+      "linea": 186,
+      "cita": "Costo estimado en 30 años"
+    },
+    {
+      "con": "interno",
+      "que": "El parche asigna el plan a tranche-3, pero esta línea sigue hablando de tranche-1.",
+      "linea": 899,
+      "cita": "No requiere opinión legal stub específica en tranche-1"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Desconoce la tasa real de adopción voluntaria de la Ratificación de los 30 y del Testimonio de los 60.",
+      "linea": 754,
+      "cita": "Tasa real de adopción voluntaria de Ratificación de los 30 y Testimonio de los 60"
+    },
+    {
+      "que": "No ha medido el impacto cuantitativo de la Consulta Ancestral en reducir reversiones; es hipótesis pendiente.",
+      "linea": 755,
+      "cita": "Impacto cuantitativo de Consulta Ancestral en reducir reversiones (hipótesis, pendiente de medir)"
+    },
+    {
+      "que": "Desconoce la resistencia institucional real a la Inscripción de Captura.",
+      "linea": 756,
+      "cita": "Resistencia institucional real a Inscripción de Captura"
+    },
+    {
+      "que": "Desconoce la dinámica técnica de mantener la integridad entre los siete nodos a largo plazo.",
+      "linea": 757,
+      "cita": "Dinámica técnica de mantener integridad entre 7 nodos a largo plazo"
+    }
+  ]
+}

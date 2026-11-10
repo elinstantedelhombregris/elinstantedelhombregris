@@ -1,0 +1,535 @@
+{
+  "code": "PLANRUTA",
+  "nombre": "Protocolo Nacional de Ruta de Arranque y Disciplina de Portfolio",
+  "version": "1.0 — Marzo 2026",
+  "tesis": "PLANRUTA no diseña política sectorial: ordena en secuencia a los demás PLANes. Una célula temporal (PEO) con registro único, libro mayor y gates de promoción impide que algún PLAN opere fuera del portfolio; una narrativa histórica de cinco fases queda como visión.",
+  "problema": "Los PLANes sectoriales dependen unos de otros, nadie define el orden ni quién arranca sin poder estatal, y los planes argentinos suelen terminar archivados. El documento nombra diez modos de falla: paradoja del bootstrap, espiral de interdependencias, fatiga participativa, aritmética fiscal y brecha entre documento e implementación.",
+  "resumen": "El protocolo vinculante de tranche-1 se reduce a una célula temporal, el PEO, que mantiene el registro de PLANes, el libro mayor de fuentes de fondos y el grafo de dependencias, y firma promociones mediante tres gates con cláusula de disolución. El resto del documento conserva como visión histórica cinco fases (Semilla, Prueba, Circunscripción, Cabecera de Puente, Ejecución), un kit de despliegue de crisis para las primeras 72 horas, un bootstrap fiscal por fase, un mapa adversarial y un cronograma indicativo.",
+  "horizonte": "PEO de 36 meses con tres gates (0–3, 12–24 y 36 meses o más). La narrativa histórica de cinco fases suma 12–16 años en el escenario base, 5–8 en el acelerado por crisis y 18–24 en el retardado.",
+  "financiamiento": "Tranche-1 no tiene presupuesto sectorial propio. La narrativa de fases se autofinancia: Fase 0 con USD 10,8–23,9 millones de capital ciudadano, Fase 1 con USD 3–8 millones anuales reasignados, Fase 2 con USD 250–500 millones anuales; Fase 4 remite al presupuesto consolidado.",
+  "temas": ["transicion-implementacion", "estado-instituciones", "democracia-participacion", "fiscal-presupuesto"],
+
+  "conceptos": [
+    {
+      "nombre": "Portfolio Execution Office (PEO)",
+      "alias": ["PEO", "Portfolio Execution Office"],
+      "tipo": "institucion",
+      "que_es": "Célula temporal de ejecución, no agencia autónoma, vinculada al primer tranche. Máximo 25 personas y 36 meses; reporta a la Mesa de Coordinación de Gobierno y opera el protocolo.",
+      "seccion": null,
+      "linea": 42,
+      "cita": "El PEO es una célula temporal con **máximo 25 personas**"
+    },
+    {
+      "nombre": "Gates vinculantes del PEO",
+      "alias": ["Gate 1", "Gate 2", "Gate 3"],
+      "tipo": "mecanismo",
+      "que_es": "Tres compuertas de tranche-1 (0–3 meses, 12–24 meses, 36 meses o más) con condición de KILL propia; el PEO no firma promoción entre tranches sin gate cerrado.",
+      "seccion": null,
+      "linea": 46,
+      "cita": "Son los **3 gates** del PEO"
+    },
+    {
+      "nombre": "Sunset clause",
+      "alias": ["Sunset clause", "sunset clause"],
+      "tipo": "norma",
+      "que_es": "Si tranche-1 cumple menos del 50% de las métricas del Gate 2, PLANRUTA vuelve a freeze, el PEO se disuelve y se convoca auditor externo; no hay reintento automático.",
+      "seccion": null,
+      "linea": 54,
+      "cita": "**PLANRUTA vuelve a freeze**"
+    },
+    {
+      "nombre": "Promesa pública medible",
+      "alias": ["Promesa pública medible"],
+      "tipo": "metrica",
+      "que_es": "Frase verificable a 24 meses: ningún PLAN operó fuera del registro, del libro mayor o de los gates. Si falla, se activa la sunset clause.",
+      "seccion": null,
+      "linea": 56,
+      "cita": "### Promesa pública medible"
+    },
+    {
+      "nombre": "PLAN_REGISTRY.yml",
+      "alias": ["PLAN_REGISTRY.yml"],
+      "tipo": "mecanismo",
+      "que_es": "Registro de PLANes que PLANRUTA mantiene como única fuente de verdad sobre el portfolio y el conteo canónico.",
+      "seccion": null,
+      "linea": 19,
+      "cita": "Mantiene `PLAN_REGISTRY.yml` como única fuente de verdad"
+    },
+    {
+      "nombre": "SOURCE_OF_FUNDS_LEDGER",
+      "alias": ["SOURCE_OF_FUNDS_LEDGER"],
+      "tipo": "mecanismo",
+      "que_es": "Libro mayor único de fuentes de fondos del portfolio, operado por PLANRUTA; si una fuente cae a confianza baja se activan stress tests.",
+      "seccion": null,
+      "linea": 20,
+      "cita": "Opera el `SOURCE_OF_FUNDS_LEDGER.md` como libro mayor único."
+    },
+    {
+      "nombre": "DEPENDENCY_GRAPH",
+      "alias": ["DEPENDENCY_GRAPH"],
+      "tipo": "mecanismo",
+      "que_es": "Grafo de dependencias entre PLANes que PLANRUTA custodia; ante conflicto cruzado la prosa cede ante el grafo.",
+      "seccion": null,
+      "linea": 22,
+      "cita": "Custodia `DEPENDENCY_GRAPH.yml` y resuelve conflictos cruzados."
+    },
+    {
+      "nombre": "Top-3 attack paths",
+      "alias": ["Top-3 attack paths"],
+      "tipo": "mecanismo",
+      "que_es": "Los tres caminos de ataque de PLANRUTA con mitigación, owner y presupuesto de contingencia: captura interna del PEO, parálisis por consenso y dilución de gates.",
+      "seccion": null,
+      "linea": 62,
+      "cita": "### Top-3 attack paths"
+    },
+    {
+      "nombre": "Regla de Oro",
+      "alias": ["Regla de Oro"],
+      "tipo": "termino",
+      "que_es": "Cada fase crea solamente lo que la siguiente necesita; ninguna toma prestado de una fase posterior, de modo que no hay dependencias circulares.",
+      "seccion": "3.2",
+      "linea": 670,
+      "cita": "Cada fase crea SOLAMENTE lo que la siguiente necesita."
+    },
+    {
+      "nombre": "Regla de la Ventana",
+      "alias": ["Regla de la Ventana"],
+      "tipo": "termino",
+      "que_es": "Si se abre la ventana de crisis en cualquier fase, se despliega lo que haya construido hasta ese momento.",
+      "seccion": "3.3",
+      "linea": 690,
+      "cita": "En CUALQUIER fase, si se abre la ventana de crisis, desplegamos lo que tengamos."
+    },
+    {
+      "nombre": "Fase 0 — La Semilla",
+      "alias": ["La Semilla"],
+      "tipo": "programa",
+      "que_es": "Fase civil de 18–36 meses, sin poder estatal: primera Bastarda aseguradora, plataforma open-source, formación cívica y protocolo de crisis. Se cierra con la primera póliza emitida.",
+      "seccion": "4",
+      "linea": 741,
+      "cita": "SECCIÓN 4: FASE 0 — LA SEMILLA"
+    },
+    {
+      "nombre": "Fase 2 — La Circunscripción",
+      "alias": ["La Circunscripción"],
+      "tipo": "programa",
+      "que_es": "Fase de gobierno provincial, de 4–8 años: stack provincial en dos años, Red Bastarda de 300.000–500.000 miembros y defensa federalista.",
+      "seccion": "8",
+      "linea": 1491,
+      "cita": "SECCIÓN 8: FASE 2 — LA CIRCUNSCRIPCIÓN"
+    },
+    {
+      "nombre": "Fase 3 — La Cabecera de Puente",
+      "alias": ["La Cabecera de Puente", "Cabecera de Puente"],
+      "tipo": "programa",
+      "que_es": "Fase de presencia legislativa nacional: 3–5 leyes de baja confrontación y alta popularidad, campaña nacional, cero financiamiento corporativo, sindical o extranjero.",
+      "seccion": "10",
+      "linea": 1773,
+      "cita": "SECCIÓN 10: FASE 3 — LA CABECERA DE PUENTE"
+    },
+    {
+      "nombre": "Kit de Despliegue de Crisis",
+      "alias": ["Kit de Despliegue de Crisis", "Kit de Despliegue", "Kit de Crisis"],
+      "tipo": "mecanismo",
+      "que_es": "Manual de activación válido en cualquier fase: primeras 72 horas, primera semana, primer mes con versiones comprimidas de los PLANes, respuestas por escenario de ruptura y comunicación.",
+      "seccion": "12",
+      "linea": 1992,
+      "cita": "SECCIÓN 12: EL KIT DE DESPLIEGUE DE CRISIS"
+    },
+    {
+      "nombre": "Protocolo de las 72 horas",
+      "alias": ["Primeras 72 Horas", "PROTOCOLO 72 HORAS"],
+      "tipo": "mecanismo",
+      "que_es": "Secuencia de activación en crisis por tramos (0–6, 6–24, 24–72 horas): push a miembros, dashboard público, asambleas barriales, censo de necesidades, comedores y consultorios.",
+      "seccion": "12.1",
+      "linea": 2000,
+      "cita": "12.1 Las Primeras 72 Horas"
+    },
+    {
+      "nombre": "Puntos de No Retorno",
+      "alias": ["Puntos de No Retorno", "HITOS DE IRREVERSIBILIDAD"],
+      "tipo": "metrica",
+      "que_es": "Hitos tras los cuales el proyecto se vuelve muy costoso de destruir: código abierto publicado, 100.000 y 500.000 miembros, municipio y provincia gobernados, un millón de miembros.",
+      "seccion": "14.3",
+      "linea": 2312,
+      "cita": "Los Puntos de No Retorno"
+    },
+    {
+      "nombre": "Gradiente de Confrontación",
+      "alias": ["Gradiente de Confrontación"],
+      "tipo": "metrica",
+      "que_es": "Escala de intensidad adversarial por fase (1/10 en Fase 0 hasta 10/10 en Fase 4), emparejada con la defensa disponible en cada una.",
+      "seccion": "14.2",
+      "linea": 2296,
+      "cita": "El Gradiente de Confrontación"
+    },
+    {
+      "nombre": "Los diez modos de falla",
+      "alias": ["Modo de Falla #", "Diez Modos de Falla"],
+      "tipo": "termino",
+      "que_es": "Diez fallas del ecosistema, desde la paradoja del bootstrap hasta la brecha tecno-utópica; la Sección 0 las plantea y la Sección 15 da la resolución y el riesgo residual de cada una.",
+      "seccion": "15",
+      "linea": 2349,
+      "cita": "LOS DIEZ MODOS DE FALLA — RESOLUCIONES"
+    },
+    {
+      "nombre": "Preparación, no paciencia",
+      "alias": ["Preparación, No Paciencia"],
+      "tipo": "termino",
+      "que_es": "Doctrina de la secuencia: cada fase fabrica las condiciones de la siguiente; se construye como si la crisis llegara mañana y se planifica como si llegara en quince años.",
+      "seccion": "3",
+      "linea": 644,
+      "cita": "ARQUITECTURA DE LA SECUENCIA — PREPARACIÓN, NO PACIENCIA"
+    },
+    {
+      "nombre": "Plataforma tecnológica open-source",
+      "alias": ["Plataforma Tecnológica (Open Source)"],
+      "tipo": "mecanismo",
+      "que_es": "Infraestructura cívica digital de la Fase 0: identidad, contabilidad transparente, gobernanza, comunicación y tableros; repositorio público desde el primer commit.",
+      "seccion": "4.3",
+      "linea": 906,
+      "cita": "La Plataforma Tecnológica (Open Source)"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Empresa Bastarda / Red Bastarda",
+      "alias": ["Empresa Bastarda", "Red Bastarda"],
+      "origen": "PLANEB",
+      "para_que": "La primera Bastarda aseguradora es la semilla civil de la Fase 0 y la Red Bastarda es la base social y de ingresos de todas las fases.",
+      "linea": 770,
+      "cita": "La primera Empresa Bastarda es una aseguradora"
+    },
+    {
+      "nombre": "ANEB",
+      "alias": ["ANEB"],
+      "origen": "PLANEB",
+      "para_que": "Agencia de la Red Bastarda que formaliza la red a escala nacional en la Fase 4.",
+      "linea": 134,
+      "cita": "ANEB — Agencia Nacional de la Red Bastarda"
+    },
+    {
+      "nombre": "Mesas Largas y Dendritas",
+      "alias": ["Mesas Largas", "Dendritas"],
+      "origen": "PLANCUL",
+      "para_que": "Reuniones barriales presenciales que dan tejido social a los fundadores y funcionan como nodos operativos en crisis.",
+      "linea": 947,
+      "cita": "Mesas Largas y Dendritas (referencia: PLANCUL Sección 8)"
+    },
+    {
+      "nombre": "Centros de Vitalidad",
+      "alias": ["Centro de Vitalidad", "Centros de Vitalidad"],
+      "origen": "PLANSAL",
+      "para_que": "Modelo de atención primaria que Fase 1 y Fase 2 despliegan y el kit de crisis adapta a infraestructura cero.",
+      "linea": 2021,
+      "cita": "PLANSAL Sección 3 — Centros de Vitalidad adaptados a infraestructura cero"
+    },
+    {
+      "nombre": "Tableros Nacionales",
+      "alias": ["Tableros Nacionales"],
+      "origen": "PLANDIG",
+      "para_que": "El tablero de transparencia municipal y provincial se presenta como embrión de los Tableros Nacionales.",
+      "linea": 918,
+      "cita": "el embrión de lo que PLANDIG describe como Tableros Nacionales"
+    },
+    {
+      "nombre": "Casas JUS",
+      "alias": ["Casas JUS"],
+      "origen": "PLANJUS",
+      "para_que": "Mediación comunitaria desplegada en la Fase 2 y respaldo de la ley de mediación propuesta en la Fase 3.",
+      "linea": 1790,
+      "cita": "Las Casas JUS funcionan donde se implementaron"
+    },
+    {
+      "nombre": "Ley de Entidades de Propósito Perpetuo",
+      "alias": ["Entidades de Propósito Perpetuo"],
+      "origen": "PLANEB",
+      "para_que": "Primera ley que la Fase 3 introduce para dar marco legal nacional a las Bastardas.",
+      "linea": 1788,
+      "cita": "| Ley de Entidades de Propósito Perpetuo | PLANEB | Baja | Alta |"
+    },
+    {
+      "nombre": "Ley de Presupuesto Abierto",
+      "alias": ["Ley de Presupuesto Abierto"],
+      "origen": "PLANDIG",
+      "para_que": "Ley de baja confrontación de la Fase 3: tablero público del gasto nacional en tiempo real.",
+      "linea": 1789,
+      "cita": "| Ley de Presupuesto Abierto | PLANDIG | Muy Baja | Muy Alta |"
+    },
+    {
+      "nombre": "Ley de Transparencia de Costos",
+      "alias": ["Ley de Transparencia de Costos"],
+      "origen": "PLANEB",
+      "para_que": "Ley de baja confrontación que obliga a publicar los costos de las empresas.",
+      "linea": 1787,
+      "cita": "| Ley de Transparencia de Costos | PLANEB | Baja | Muy Alta |"
+    },
+    {
+      "nombre": "SAPI",
+      "alias": ["SAPI"],
+      "origen": "PLANDIG",
+      "para_que": "Infraestructura de pagos de la que depende PLANMON; el kit de crisis la declara ausente en el despliegue comprimido.",
+      "linea": 2061,
+      "cita": "Sin ArgenCloud, sin SAPI, sin infraestructura propia"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Tamaño y duración del PEO",
+      "valor": "máximo 25 personas; 36 meses",
+      "tipo": "parametro",
+      "linea": 42,
+      "cita": "El PEO es una célula temporal con **máximo 25 personas** y duración prevista de **36 meses**"
+    },
+    {
+      "concepto": "Umbrales del Gate 3 (sunset)",
+      "valor": "≥ 70%: oficina permanente de ≤ 10 personas; 50–70%: 12 meses más; < 50%: disolución",
+      "tipo": "parametro",
+      "linea": 50,
+      "cita": "si tranche-1 cumplió ≥ 70%, PEO se reduce a oficina permanente ≤ 10 personas"
+    },
+    {
+      "concepto": "Condición de fracaso del tranche-1",
+      "valor": "cumplir < 50% de las métricas de Gate 2",
+      "tipo": "parametro",
+      "linea": 54,
+      "cita": "cumplir < 50% de las métricas de Gate 2"
+    },
+    {
+      "concepto": "Plazo de la promesa pública",
+      "valor": "24 meses",
+      "tipo": "plazo",
+      "linea": 58,
+      "cita": "\"En 24 meses, ningún PLAN del sistema vivió fuera del registro"
+    },
+    {
+      "concepto": "Presupuesto total de Fase 0",
+      "valor": "USD 10.800.000 – 23.900.000, 100% ciudadano",
+      "tipo": "presupuesto",
+      "linea": 1001,
+      "cita": "**TOTAL FASE 0** | **10.800.000 – 23.900.000**"
+    },
+    {
+      "concepto": "Fase 0: ingreso total declarado en la tabla maestra",
+      "valor": "USD 10-22M (ciudadano)",
+      "tipo": "presupuesto",
+      "linea": 660,
+      "cita": "USD 10-22M (ciudadano)"
+    },
+    {
+      "concepto": "Crowdfunding fundacional de la Bastarda",
+      "valor": "25,000 ciudadanos × USD 400-880 = USD 10-22M",
+      "tipo": "fuente",
+      "linea": 2196,
+      "cita": "25,000 ciudadanos × USD 400-880 promedio = USD 10-22M"
+    },
+    {
+      "concepto": "Duración de la Fase 0",
+      "valor": "18 a 36 meses",
+      "tipo": "plazo",
+      "linea": 1068,
+      "cita": "**18 a 36 meses.**"
+    },
+    {
+      "concepto": "Punto de equilibrio de la Bastarda",
+      "valor": "8,000-12,000 clientes con cuota mensual",
+      "tipo": "meta",
+      "linea": 2201,
+      "cita": "8,000-12,000 clientes que pagan cuota mensual"
+    },
+    {
+      "concepto": "Inversión adicional PLANRUTA en Fase 1",
+      "valor": "USD 3-8M/año",
+      "tipo": "presupuesto",
+      "linea": 1297,
+      "cita": "**TOTAL ADICIONAL** | **USD 3-8M/año**"
+    },
+    {
+      "concepto": "Inversión adicional PLANRUTA en Fase 2",
+      "valor": "USD 250-500M/año",
+      "tipo": "presupuesto",
+      "linea": 1622,
+      "cita": "**TOTAL ADICIONAL** | **USD 250-500M/año**"
+    },
+    {
+      "concepto": "Miembros de la Red Bastarda al final de Fase 2",
+      "valor": "300,000-500,000",
+      "tipo": "meta",
+      "linea": 1594,
+      "cita": "| Miembros Red Bastarda | 100,000 | **300,000-500,000** |"
+    },
+    {
+      "concepto": "Costo total de la Fase 4",
+      "valor": "USD 283-526B a lo largo de 15-20 años",
+      "tipo": "presupuesto",
+      "linea": 2242,
+      "cita": "**Total estimado**: USD 283-526B a lo largo de 15-20 años"
+    },
+    {
+      "concepto": "Ahorros de PLANREP como motor fiscal de Fase 4",
+      "valor": "USD 15-25B/año en régimen",
+      "tipo": "fuente",
+      "linea": 2243,
+      "cita": "generan ahorros de USD 15-25B/año en régimen"
+    },
+    {
+      "concepto": "Costo público neto nuevo de Fase 4",
+      "valor": "2-3% del PBI",
+      "tipo": "presupuesto",
+      "linea": 2245,
+      "cita": "**Costo público neto nuevo**: 2-3% del PBI"
+    },
+    {
+      "concepto": "Duración total del escenario base hasta Fase 4",
+      "valor": "12-16 años",
+      "tipo": "plazo",
+      "linea": 2617,
+      "cita": "**Total desde el lunes hasta Fase 4**: 12-16 años"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANEB",
+      "que": "Aporta la primera Bastarda y la Red Bastarda como base de miembros e ingresos de todas las fases; la Fase 3 propone su ley de entidades.",
+      "linea": 1796,
+      "cita": "legaliza las Bastardas a nivel nacional"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Provee el modelo de tablero de transparencia que PLANRUTA arranca en la Fase 0 y escala por fases hasta el nacional.",
+      "linea": 918,
+      "cita": "el embrión de lo que PLANDIG describe como Tableros Nacionales"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "Aporta Mesas Largas y Dendritas, únicos formatos culturales activables en la Fase 0 junto con PLANEB.",
+      "linea": 947,
+      "cita": "Mesas Largas y Dendritas (referencia: PLANCUL Sección 8)"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Los Centros de Vitalidad pasan de uno municipal a una red provincial y a una versión de emergencia del kit de crisis.",
+      "linea": 2021,
+      "cita": "PLANSAL Sección 3 — Centros de Vitalidad adaptados a infraestructura cero"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "Los principios de policía comunitaria se adaptan a redes de vigilia vecinal desarmadas durante las primeras 72 horas.",
+      "linea": 2016,
+      "cita": "PLANSEG Sección 5 — principios de policía comunitaria adaptados a crisis"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "La mediación comunitaria y las Casas JUS sirven de ley a presentar en la Fase 3 y de unidad desplegable en la Fase 2.",
+      "linea": 1790,
+      "cita": "| Reforma de Mediación Comunitaria | PLANJUS | Media | Alta |"
+    },
+    {
+      "con": "PLANMON",
+      "que": "Aporta el crédito mutual para la economía de emergencia; queda fuera de las fases 0 a 2 por su carga confrontacional.",
+      "linea": 2041,
+      "cita": "PLANMON Sección 6 — sistema de crédito mutual"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Sus ahorros de USD 15-25B anuales son el motor fiscal que sostiene la Fase 4.",
+      "linea": 2243,
+      "cita": "generan ahorros de USD 15-25B/año en régimen"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "La Fase 3 propone la ley de regularización de asentamientos; la Fase 1 lanza un piloto de 50 unidades.",
+      "linea": 1791,
+      "cita": "| Ley de Regularización de Asentamientos (RENABAP) | PLANVIV | Media | Alta |"
+    },
+    {
+      "con": "PLANEN",
+      "que": "En crisis se despliega como micro-redes energéticas; en la Fase 2 como Bastarda Energética.",
+      "linea": 2063,
+      "cita": "| **PLANEN** | Micro-Redes Energéticas |"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "En crisis, distribución coordinada de agua; en la Fase 2, red de sensores hídricos.",
+      "linea": 2060,
+      "cita": "| **PLANAGUA** | Distribución de Agua Coordinada |"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "En crisis, las escuelas operan como centros comunitarios; en Fase 1 y 2 hay escuelas piloto y una red educativa provincial.",
+      "linea": 2058,
+      "cita": "| **PLANEDU** | Escuelas como Centros Comunitarios |"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "Su recaudación por el mercado legal de drogas figura como autofinanciamiento sectorial de la Fase 4; el debate se difiere a la Fase 3.",
+      "linea": 2244,
+      "cita": "PLANSUS genera recaudación vía impuestos al mercado legal de drogas"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "El PEO reporta a la Mesa de Coordinación de Gobierno y, cuando exista, a un PLANMESA piloto.",
+      "linea": 42,
+      "cita": "(cuando exista) PLANMESA piloto"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El encabezado declara 27 PLANes temáticos más PLANRUTA, pero la revisión de abril y el texto que sigue hablan de 22 temáticos y de diecisiete y dieciséis mandatos.",
+      "linea": 11,
+      "cita": "**22 thematic + PLANRUTA protocol**"
+    },
+    {
+      "con": "interno",
+      "que": "El preámbulo histórico sigue contando diecisiete mandatos, mientras la revisión reencuadra PLANRUTA como protocolo y no como mandato sectorial.",
+      "linea": 172,
+      "cita": "diecisiete mandatos que cubren cada dimensión de la vida argentina"
+    },
+    {
+      "con": "interno",
+      "que": "La tabla maestra da la Fase 0 en USD 10-22M, pero el presupuesto detallado de la Fase 0 suma USD 10,8–23,9 millones.",
+      "linea": 660,
+      "cita": "USD 10-22M (ciudadano)"
+    },
+    {
+      "con": "interno",
+      "que": "El aporte de la Fase 2 se calcula como 2,5–10% del presupuesto provincial típico en 8.4 y como 2,5–5% en 13.4.",
+      "linea": 2221,
+      "cita": "(~2.5-5% del presupuesto provincial)"
+    },
+    {
+      "con": "interno",
+      "que": "La sección de dependencias declara que PLANRUTA depende de sí mismo y que provee a todos.",
+      "linea": 2731,
+      "cita": "- Depende de: PLANRUTA."
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El documento reconoce que no puede garantizar que 25.000 personas inviertan en una Bastarda ni que un municipio se gane.",
+      "linea": 2693,
+      "cita": "No puede garantizar que 25.000 personas inviertan en una Bastarda."
+    },
+    {
+      "que": "La probabilidad de completar las cinco fases en el orden y los tiempos previstos, sin una crisis que altere la secuencia, se declara baja.",
+      "linea": 2693,
+      "cita": "es baja. Pero PLANRUTA no depende de que todo salga según lo planificado"
+    },
+    {
+      "que": "El propio cronograma admite que nadie sabe cuánto va a tardar cada fase.",
+      "linea": 2578,
+      "cita": "Nadie sabe cuánto va a tardar."
+    },
+    {
+      "que": "El evaluador de privacidad queda diferido: si la implementación detecta datos personales, debe generarse un PIA antes del piloto.",
+      "linea": 2735,
+      "cita": "generar PIA antes de piloto"
+    }
+  ]
+}

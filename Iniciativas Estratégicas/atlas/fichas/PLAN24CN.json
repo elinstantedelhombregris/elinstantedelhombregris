@@ -1,0 +1,553 @@
+{
+  "code": "PLAN24CN",
+  "nombre": "Plan Nacional de Fundación de 24 Ciudades Nuevas para la Argentina",
+  "version": "2.0 — Marzo 2026",
+  "tesis": "Fundar 24 ciudades nuevas, una por provincia, diseñadas de cero como organismos urbanos integrados, financiadas con tierra pública valorizada y gobernadas con democracia directa, gestión profesional y contraloría por sorteo, para demostrar que el bienestar puede diseñarse.",
+  "problema": "Las ciudades argentinas se acumularon sin diseño: macrocefalia del AMBA (37% de la población), déficit habitacional de 3,5 millones de viviendas, commutes de 90 minutos, deterioro urbano que el documento estima en USD 25.000–40.000 millones anuales, y gobiernos municipales capturados por aparatos partidarios, opacos y dependientes de transferencias. La reforma incremental rinde cada vez menos.",
+  "resumen": "Propone una ciudad nueva por provincia (960.000 habitantes en total), cada una con siete anillos concéntricos y una capa digital soberana, metas graduadas de energía, agua y residuos, y una identidad material provincial. Se financia con valorización de tierra fiscal, el FGS, bonos, cooperativas y una Corporación Nacional de Desarrollo Urbano. Se gobierna con Asamblea Ciudadana, Gerencia Urbana profesional y Contraloría por sorteo, y se mide con un Tablero Nacional y un índice (INCN). La cabecera de auditoría lo declara research-only: hoy solo labs de diseño con universidades, sin construcción ni tierra comprometida.",
+  "horizonte": "Cuatro fases: Cimentar (meses 0–18, 4 pilotos), Escalar (meses 18–60, 12 más), Completar (meses 60–120, 24 ciudades) y Transformar (años 10–25). La tabla vigente es Visión 2040+, no compromiso operativo.",
+  "financiamiento": "Inversión total de USD 27.000–76.000 millones en 10–15 años, sin inversión extranjera como principio. Fuentes: valorización de tierra pública, FGS (10–20% de sus activos), bonos de ciudad nueva, FONAVI 2.0, cooperativas, PPP doméstica y otras; potencial estimado USD 56.500–132.000M.",
+  "temas": ["vivienda-ciudad", "territorio-ambiente", "democracia-participacion", "fiscal-presupuesto", "digital-datos"],
+
+  "conceptos": [
+    {
+      "nombre": "Ciudad Célula",
+      "alias": ["Ciudad Célula"],
+      "tipo": "termino",
+      "que_es": "Nombre de cada ciudad nueva como célula de un organismo territorial: siete anillos físicos más la Capa Digital transversal, interdependiente de las otras 23.",
+      "seccion": "3.2",
+      "linea": 379,
+      "cita": "describen la forma tangible de la Ciudad Célula"
+    },
+    {
+      "nombre": "Siete Anillos",
+      "alias": ["Siete Anillos"],
+      "tipo": "mecanismo",
+      "que_es": "Estructura concéntrica de cada ciudad: núcleo cívico, residencial denso, barrios, productivo, agroproductivo, ecotono y paisaje circundante, con mezcla de usos.",
+      "seccion": "3.2",
+      "linea": 325,
+      "cita": "Estructura Urbana — Los Siete Anillos"
+    },
+    {
+      "nombre": "Capa Digital",
+      "alias": ["Capa Digital"],
+      "tipo": "mecanismo",
+      "que_es": "Infraestructura digital soberana transversal a los anillos: fibra, datacenter, sensores IoT, IA y plataforma de gobernanza digital.",
+      "seccion": "3.2",
+      "linea": 377,
+      "cita": "**La Capa Digital — La Infraestructura Invisible**"
+    },
+    {
+      "nombre": "Seis Leyes del Urbanismo Vivo",
+      "alias": ["Seis Leyes", "Ley de la Interconexión Vital", "Ley de la Belleza Necesaria"],
+      "tipo": "norma",
+      "que_es": "Seis principios no negociables: escala humana, integración bioclimática, belleza necesaria, economía circular, ciudadanía activa e interconexión vital entre ciudades.",
+      "seccion": "2.2",
+      "linea": 212,
+      "cita": "### 2.2 Las Seis Leyes del Urbanismo Vivo"
+    },
+    {
+      "nombre": "Corporación Nacional de Desarrollo Urbano",
+      "alias": ["Corporación Nacional de Desarrollo Urbano"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico estatal de desarrollo urbano: recibe tierra fiscal, urbaniza, vende o concede lotes, garantiza los primeros bonos y ejecuta el programa; directorio de 9 miembros.",
+      "seccion": "5.2",
+      "linea": 1962,
+      "cita": "**Corporación Nacional de Desarrollo Urbano** es una pieza institucional clave"
+    },
+    {
+      "nombre": "Unidad Ciudad",
+      "alias": ["Unidad Ciudad"],
+      "tipo": "mecanismo",
+      "que_es": "Unidad de cuenta propia del programa, indexada al costo de construir un metro cuadrado de infraestructura urbana estandarizada, para blindar contratos y presupuestos.",
+      "seccion": "5.1.1",
+      "linea": 1917,
+      "cita": "una unidad de cuenta propia: la **Unidad Ciudad (UC)**"
+    },
+    {
+      "nombre": "Protocolo Semilla",
+      "alias": ["Protocolo Semilla"],
+      "tipo": "mecanismo",
+      "que_es": "Secuencia de poblamiento: instituciones ancla, relocalización de organismos, cooperativas pre-fundacionales, bootstrap constructivo y reconversión de empleo público.",
+      "seccion": "6.4.1",
+      "linea": 2128,
+      "cita": "#### 6.4.1 El Protocolo Semilla"
+    },
+    {
+      "nombre": "Modelo Ciudad Viva (gobernanza)",
+      "alias": ["Modelo Ciudad Viva"],
+      "tipo": "mecanismo",
+      "que_es": "Modelo de gobierno de las ciudades nuevas: democracia directa para lo estratégico, gestión profesional para lo técnico y fiscalización por ciudadanos sorteados; seis órganos.",
+      "seccion": "9.2",
+      "linea": 2302,
+      "cita": "se llama **Ciudad Viva** porque respira con sus habitantes"
+    },
+    {
+      "nombre": "Gerencia Urbana Profesional",
+      "alias": ["Gerencia Urbana Profesional"],
+      "tipo": "institucion",
+      "que_es": "Equipo técnico de cada ciudad a cargo de un gerente elegido por concurso, con contrato de 5 años rescindible si caen los indicadores de resultado.",
+      "seccion": "9.2",
+      "linea": 2329,
+      "cita": "**La Gerencia Urbana Profesional** es el corazón operativo"
+    },
+    {
+      "nombre": "Contraloría Ciudadana",
+      "alias": ["Contraloría Ciudadana"],
+      "tipo": "institucion",
+      "que_es": "Órgano de fiscalización de 15 a 25 ciudadanos por sorteo cívico, con auditores profesionales y acceso irrestricto a la información de la ciudad.",
+      "seccion": "9.2",
+      "linea": 2333,
+      "cita": "**La Contraloría Ciudadana** funciona por sorteo cívico"
+    },
+    {
+      "nombre": "Consejo de Sabiduría",
+      "alias": ["Consejo de Sabiduría"],
+      "tipo": "institucion",
+      "que_es": "Órgano sin poder ejecutivo con voz obligatoria: emite dictamen de largo plazo, cultural y ecológico, que debe debatirse en la Asamblea.",
+      "seccion": "9.2",
+      "linea": 2335,
+      "cita": "**El Consejo de Sabiduría** no tiene poder ejecutivo ni legislativo"
+    },
+    {
+      "nombre": "Presupuesto Participativo Universal",
+      "alias": ["Presupuesto Participativo Universal"],
+      "tipo": "programa",
+      "que_es": "El 30% del presupuesto de la ciudad lo decide directamente la ciudadanía en un ciclo anual, con plataforma digital, asambleas barriales y trazabilidad.",
+      "seccion": "9.3",
+      "linea": 2357,
+      "cita": "### 9.3 Presupuesto Participativo Universal"
+    },
+    {
+      "nombre": "Tablero de Transparencia Municipal",
+      "alias": ["Tablero de Transparencia Municipal"],
+      "tipo": "metrica",
+      "que_es": "Tablero público en tiempo real de finanzas, contrataciones, decisiones de gobierno, indicadores y declaraciones juradas de cada ciudad.",
+      "seccion": "9.4",
+      "linea": 2383,
+      "cita": "**Tablero de Transparencia Municipal en tiempo real.**"
+    },
+    {
+      "nombre": "Ley de Ciudades Nuevas",
+      "alias": ["Ley de Ciudades Nuevas"],
+      "tipo": "norma",
+      "que_es": "Ley marco: define ciudad nueva, crea la Corporación, el Fondo Nacional de Ciudades Nuevas, el régimen de tierras y los estándares de diseño.",
+      "seccion": "10.1",
+      "linea": 2418,
+      "cita": "**La Ley de Ciudades Nuevas** es la piedra angular"
+    },
+    {
+      "nombre": "Fondo Nacional de Ciudades Nuevas",
+      "alias": ["Fondo Nacional de Ciudades Nuevas"],
+      "tipo": "fondo",
+      "que_es": "Mecanismo de financiamiento creado por la Ley de Ciudades Nuevas; da bonificaciones por participación y recursos de nivelación a las ciudades con menor INCN.",
+      "seccion": "10.1",
+      "linea": 2418,
+      "cita": "Fondo Nacional de Ciudades Nuevas, bonos soberanos de urbanización"
+    },
+    {
+      "nombre": "Convenio Marco de Ciudad Nueva",
+      "alias": ["Convenio Marco de Ciudad Nueva"],
+      "tipo": "norma",
+      "que_es": "Modelo estándar de convenio bilateral Nación-provincia: aporte de tierra, cofinanciamiento, aceptación del modelo de gobernanza, continuidad y marco regulatorio.",
+      "seccion": "10.2",
+      "linea": 2444,
+      "cita": "el **Convenio Marco de Ciudad Nueva**"
+    },
+    {
+      "nombre": "Tablero Nacional de Ciudades Nuevas",
+      "alias": ["Tablero Nacional de Ciudades Nuevas", "TNCN"],
+      "tipo": "metrica",
+      "que_es": "Infraestructura pública de monitoreo en tiempo real de las 24 ciudades en siete capas de datos, con alertas y API abierta.",
+      "seccion": "11.1",
+      "linea": 2491,
+      "cita": "El **Tablero Nacional de Ciudades Nuevas (TNCN)**"
+    },
+    {
+      "nombre": "Índice Nacional de Ciudades Nuevas",
+      "alias": ["Índice Nacional de Ciudades Nuevas", "INCN"],
+      "tipo": "metrica",
+      "que_es": "Índice de 0 a 100 que pondera cinco capas del tablero; rescinde al gerente bajo 60 dos años seguidos y define el estatus de Ciudad Faro sobre 80.",
+      "seccion": "11.3",
+      "linea": 2539,
+      "cita": "El **Índice Nacional de Ciudades Nuevas (INCN)**"
+    },
+    {
+      "nombre": "Red Viva",
+      "alias": ["Red Viva"],
+      "tipo": "mecanismo",
+      "que_es": "Red de interconexión de las 24 ciudades: corredores físicos, red digital, flujos económicos planificados, intercambio humano y protocolo de emergencia solidaria.",
+      "seccion": "4B",
+      "linea": 1831,
+      "cita": "SECCIÓN 4B: LA RED VIVA — 24 CÉLULAS, UN ORGANISMO"
+    },
+    {
+      "nombre": "Red de Datacenters Soberanos",
+      "alias": ["Red de Datacenters Soberanos"],
+      "tipo": "mecanismo",
+      "que_es": "Nodo de 2–5 MW en cada ciudad, federados como cloud soberana, cluster de IA, archivado descentralizado y procesamiento de pagos propio.",
+      "seccion": "3.3.5",
+      "linea": 560,
+      "cita": "**La Red de Datacenters Soberanos**"
+    },
+    {
+      "nombre": "Cuatro ciudades piloto",
+      "alias": ["Ciudad Raíz", "Ciudad Sol Alto", "Ciudad Viento", "Ciudad Selva"],
+      "tipo": "programa",
+      "que_es": "Fase 1: Ciudad Raíz (Pampa), Ciudad Sol Alto (NOA), Ciudad Viento (Patagonia norte) y Ciudad Selva (NEA), una por macro-región.",
+      "seccion": "12.1",
+      "linea": 2573,
+      "cita": "**Las 4 ciudades piloto:**"
+    },
+    {
+      "nombre": "Plan B Ciudad Delta Terrestre",
+      "alias": ["Ciudad Delta"],
+      "tipo": "programa",
+      "que_es": "Ciudad en isla artificial en el Río de la Plata; si la vía diplomática con Uruguay se bloquea, se reconvierte en un proyecto sobre la Costanera Sur, sin acuerdo internacional.",
+      "seccion": "4.3",
+      "linea": 843,
+      "cita": "**Plan B — Ciudad Delta Terrestre:**"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Infraestructura Digital Soberana y SAPI",
+      "alias": ["IDS", "SAPI"],
+      "origen": "PLANDIG",
+      "para_que": "Capa operativa de las ciudades inteligentes, que debe existir antes de que lleguen residentes.",
+      "linea": 2976,
+      "cita": "Ciudades inteligentes necesitan IDS + SAPI + El Mapa"
+    },
+    {
+      "nombre": "Bastarda Energética",
+      "alias": ["Bastarda Energética"],
+      "origen": "PLANEN",
+      "para_que": "Red 100% renovable disponible antes de que la primera ciudad reciba residentes.",
+      "linea": 2977,
+      "cita": "Bastarda Energética antes de que la primera ciudad reciba residentes"
+    },
+    {
+      "nombre": "Red Bastarda",
+      "alias": ["Red Bastarda"],
+      "origen": "PLANEB",
+      "para_que": "Aloja al costo los servicios urbanos de las 24 ciudades: energía, agua, telecomunicaciones y transporte.",
+      "linea": 2970,
+      "cita": "Red Bastarda aloja al costo todos los servicios urbanos de las 24 ciudades"
+    },
+    {
+      "nombre": "ANAGUA",
+      "alias": ["ANAGUA"],
+      "origen": "PLANAGUA",
+      "para_que": "Provee red hídrica troncal, acueductos y tratamiento cuando la ciudad pasa de diseño a ocupación.",
+      "linea": 2969,
+      "cita": "provistos por ANAGUA cuando la ciudad pasa de diseño a ocupación"
+    },
+    {
+      "nombre": "Dendritas",
+      "alias": ["Dendritas"],
+      "origen": "PLANCUL",
+      "para_que": "Células culturales que nacen nativas en las comunidades nuevas de las ciudades.",
+      "linea": 2965,
+      "cita": "Ciudades nuevas proveen comunidades vírgenes donde Dendritas son nativas"
+    },
+    {
+      "nombre": "Fideicomisos de Propósito Perpetuo",
+      "alias": ["Fideicomisos de Propósito Perpetuo", "Fideicomiso de Energía Renovable", "Fideicomiso de Infraestructura Digital", "Fideicomiso de Vivienda Social"],
+      "origen": "PLANREP",
+      "para_que": "Futuros copropietarios de la infraestructura de las ciudades en Fase 3-4, base patrimonial del dividendo.",
+      "linea": 2053,
+      "cita": "La Sección 15 de PLANREP establece cinco Fideicomisos de Propósito Perpetuo"
+    },
+    {
+      "nombre": "Dividendo Nacional de Productividad",
+      "alias": ["Dividendo Nacional de Productividad", "DNP"],
+      "origen": "PLANREP",
+      "para_que": "Se financia con los retornos de los fideicomisos que absorben infraestructura de las ciudades en el largo plazo.",
+      "linea": 2053,
+      "cita": "Dividendo Nacional de Productividad (DNP)"
+    },
+    {
+      "nombre": "Economía de la Contribución",
+      "alias": ["Economía de la Contribución", "Nodos de Contribución"],
+      "origen": "PLANREP",
+      "para_que": "Los espacios productivos se reconfiguran como Nodos de Contribución en el Horizonte 2, sin demoler.",
+      "linea": 2169,
+      "cita": "**Nodos de Contribución** — espacios comunitarios de trabajo"
+    },
+    {
+      "nombre": "Portfolio Ciudadano Único",
+      "alias": ["Portfolio Ciudadano Único"],
+      "origen": "PLANEDU",
+      "para_que": "La infraestructura digital de las ciudades sería su columna vertebral en el Horizonte 3.",
+      "linea": 2173,
+      "cita": "Portfolio Ciudadano Único (PLANEDU)"
+    },
+    {
+      "nombre": "Agencia Nacional del Arco de la Vida",
+      "alias": ["ANAV"],
+      "origen": "PLANARCO",
+      "para_que": "Contraparte identificable frente al reclamo de este PLAN sobre el FGS, que respalda jubilaciones.",
+      "linea": 2992,
+      "cita": "con la ANAV escrita, el reclamo de este PLAN pasa a competir"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Inversión total del programa",
+      "valor": "USD 27.000–76.000 millones en 10–15 años",
+      "tipo": "presupuesto",
+      "linea": 2664,
+      "cita": "USD 27.000–76.000 millones** desplegados a lo largo de 10–15 años"
+    },
+    {
+      "concepto": "Total de la Tabla 14 por fase (Visión 2040+)",
+      "valor": "USD 26.350–73.000M",
+      "tipo": "presupuesto",
+      "linea": 2025,
+      "cita": "**USD 26.350–73.000M**"
+    },
+    {
+      "concepto": "Potencial de financiamiento nacional a 15 años",
+      "valor": "USD 56.500–132.000M",
+      "tipo": "fuente",
+      "linea": 1956,
+      "cita": "TOTAL POTENCIAL ESTIMADO: USD 56.500–132.000M en 15 años"
+    },
+    {
+      "concepto": "Aporte del FGS-ANSES (Tabla 12)",
+      "valor": "USD 5.000–10.000M",
+      "tipo": "fuente",
+      "linea": 1943,
+      "cita": "USD 5.000–10.000M | Rendimiento >inflación; activos reales"
+    },
+    {
+      "concepto": "Porción del FGS destinada a las ciudades",
+      "valor": "10–20% de los activos del fondo",
+      "tipo": "parametro",
+      "linea": 1958,
+      "cita": "destinar el 10–20% a infraestructura de ciudades nuevas"
+    },
+    {
+      "concepto": "Estructura de financiamiento por fuente",
+      "valor": "Presupuesto nacional 30-35%, FGS 15-20%, bonos 15-20%",
+      "tipo": "fuente",
+      "linea": 2676,
+      "cita": "presupuesto nacional (30-35%), FGS (15-20%), bonos de ciudad nueva (15-20%)"
+    },
+    {
+      "concepto": "Capitalización inicial de la Corporación",
+      "valor": "USD 2.000–5.000M vía FGS",
+      "tipo": "presupuesto",
+      "linea": 2937,
+      "cita": "transferencia del FGS (USD 2.000–5.000M)"
+    },
+    {
+      "concepto": "Población objetivo total de las 24 ciudades",
+      "valor": "960.000 habitantes",
+      "tipo": "meta",
+      "linea": 728,
+      "cita": "población objetivo total de **960.000 habitantes**"
+    },
+    {
+      "concepto": "Net-zero energético",
+      "valor": "Desde el año 5; net-positive desde el año 10",
+      "tipo": "meta",
+      "linea": 423,
+      "cita": "Año 5 | **Net-zero anual**"
+    },
+    {
+      "concepto": "Residuos finales per cápita",
+      "valor": "<50 kg/año (promedio argentino ~400 kg/año)",
+      "tipo": "meta",
+      "linea": 482,
+      "cita": "Kg residuo final per cápita objetivo: <50 kg/año (promedio argentino: ~400 kg/año)"
+    },
+    {
+      "concepto": "Presupuesto de la ciudad decidido por la ciudadanía",
+      "valor": "30% del presupuesto total",
+      "tipo": "parametro",
+      "linea": 2359,
+      "cita": "El 30% del presupuesto total de la ciudad se decide directamente por los ciudadanos"
+    },
+    {
+      "concepto": "Cofinanciamiento provincial",
+      "valor": "15% a 25% del costo total de la ciudad",
+      "tipo": "parametro",
+      "linea": 2436,
+      "cita": "La provincia aporta entre el 15% y el 25% del costo total de la ciudad"
+    },
+    {
+      "concepto": "Plazo de breakeven de una ciudad",
+      "valor": "Año 5 a año 8 post-fundación",
+      "tipo": "plazo",
+      "linea": 2049,
+      "cita": "El breakeven se alcanza entre el año 5 y el año 8 post-fundación"
+    },
+    {
+      "concepto": "Retorno agregado sobre la inversión pública",
+      "valor": "5:1 a 12:1",
+      "tipo": "meta",
+      "linea": 2714,
+      "cita": "estimación de **5:1 a 12:1** de retorno sobre la inversión pública total"
+    },
+    {
+      "concepto": "Valorización de tierra pública a 15 años (Tabla 24)",
+      "valor": "USD 20.000–100.000M",
+      "tipo": "fuente",
+      "linea": 2690,
+      "cita": "Multiplicación del valor del suelo fiscal invertido | USD 20.000–100.000M"
+    },
+    {
+      "concepto": "Umbral del INCN para rescindir al gerente",
+      "valor": "INCN <60 durante dos años consecutivos",
+      "tipo": "parametro",
+      "linea": 2559,
+      "cita": "si el índice de su ciudad cae por debajo de 60 durante dos años consecutivos"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANDIG",
+      "que": "PLANDIG provee IDS, SAPI y El Mapa como capa operativa antes de los residentes; PLAN24CN aporta los nodos de datacenter donde corre la infraestructura digital soberana.",
+      "linea": 2966,
+      "cita": "IDS + SAPI + El Mapa proveen la capa operativa de las ciudades inteligentes"
+    },
+    {
+      "con": "PLANEN",
+      "que": "PLANEN debe entregar la Bastarda Energética y una red 100% renovable antes de que cada ciudad reciba residentes.",
+      "linea": 2967,
+      "cita": "Bastarda Energética y red 100% renovable provistas antes de que cada Ciudad Nueva reciba residentes"
+    },
+    {
+      "con": "PLANEB",
+      "que": "La Red Bastarda aloja al costo los servicios urbanos; las ciudades nacen Bastarda-nativas.",
+      "linea": 2980,
+      "cita": "Ciudades nacen Bastarda-nativas: todos los servicios al costo"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Suelo regenerado y balances agua-suelo-carbono pasan a la agricultura urbana y los anillos verdes de las ciudades.",
+      "linea": 2968,
+      "cita": "Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "ANAGUA entrega red hídrica troncal, acueductos y tratamiento en el paso de diseño a ocupación.",
+      "linea": 2979,
+      "cita": "Infraestructura hídrica para ciudades en construcción"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "Las ciudades nuevas ofrecen comunidades donde las Dendritas nacen nativas.",
+      "linea": 2981,
+      "cita": "Las Ciudades Nuevas son lienzos donde Dendritas"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Empleados públicos reconvertidos reciben oferta de radicación (vivienda, empleo por 3 años); los fideicomisos de PLANREP absorberían infraestructura de las ciudades.",
+      "linea": 2147,
+      "cita": "**PLANREP como fuente demográfica.**"
+    },
+    {
+      "con": "PLANTER",
+      "que": "PLANTER impone consulta previa originaria sobre cualquier sitio, auditoría de regalías adyacentes y enforcement ambiental del sitio.",
+      "linea": 3011,
+      "cita": "consulta previa originaria obligatoria sobre cualquier sitio (línea L3)"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "PLAN24CN demanda conectividad ferroviaria al sitio piloto y movilidad interna autónoma; PLANMOV devuelve datos de planificación urbana.",
+      "linea": 3005,
+      "cita": "Demanda que este PLAN deposita en PLANMOV: conectividad ferroviaria a sitio piloto"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "PLANVIV gana la competencia urbana en los tranches 1 a 3; una ciudad nueva requiere antes resultados visibles de PLANVIV en ciudad existente.",
+      "linea": 16,
+      "cita": "PLANVIV gana competencia urbana en tranche-1/2/3"
+    },
+    {
+      "con": "PLANARCO",
+      "que": "PLANARCO administra la materia previsional que respalda el FGS; declinó reclamar el fondo y no le fija tope a la banda de PLAN24CN.",
+      "linea": 2990,
+      "cita": "PLAN24CN no pierde el FGS a manos de PLANARCO"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "PLANPACTO lista a PLAN24CN entre los PLANes que no reclaman piso fiscal.",
+      "linea": 2992,
+      "cita": "lo lista entre los que **no reclaman piso**"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "En el Horizonte 3 la infraestructura digital de las ciudades sostendría el Portfolio Ciudadano Único.",
+      "linea": 2173,
+      "cita": "columna vertebral del Portfolio Ciudadano Único (PLANEDU)"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El nombre Ciudad Viento corresponde a Chubut en la matriz, pero como piloto de Fase 1 se ubica en Río Negro, donde la matriz pone a Ciudad Valle.",
+      "linea": 2579,
+      "cita": "Patagonia norte (zona de General Roca/Cipolletti, Río Negro)"
+    },
+    {
+      "con": "interno",
+      "que": "El preámbulo habla de dieciséis mandatos del proyecto ¡BASTA!, mientras la cabecera declara la arquitectura canónica de 27 temáticos más PLANRUTA.",
+      "linea": 63,
+      "cita": "dieciséis mandatos estratégicos interconectados"
+    },
+    {
+      "con": "interno",
+      "que": "La promesa pública del parche dice que en 24 meses no se habrá empezado ninguna ciudad, mientras la Sección 12 programa 4 pilotos con obra en los primeros 18 meses.",
+      "linea": 3037,
+      "cita": "no vamos a haber empezado ninguna ciudad nueva"
+    },
+    {
+      "con": "interno",
+      "que": "La valorización de tierra tiene dos rangos: USD 20.000M–210.000M en la cascada de la Tabla 13 y USD 20.000–100.000M en el retorno de la Tabla 24.",
+      "linea": 1998,
+      "cita": "× 24 ciudades (escalonado, 15 años) | — | — | USD 20.000M–210.000M"
+    },
+    {
+      "con": "interno",
+      "que": "La Sección 5 se titula sin inversión extranjera y dice que ningún acreedor externo tiene voto, pero la estructura de la Sección 13 y la Fase 1 incluyen organismos multilaterales.",
+      "linea": 2597,
+      "cita": "Negociación con organismos multilaterales (CAF, BID, Banco Mundial)"
+    },
+    {
+      "con": "interno",
+      "que": "La ficha de Ciudad Raíz ubica el sitio en Trenque Lauquen, Pehuajó y General Villegas; la Fase 1 lo ubica en Junín/Pergamino.",
+      "linea": 2575,
+      "cita": "Interior de Buenos Aires (zona de Junín/Pergamino)"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El análisis de riesgo para el respaldo de las jubilaciones si las ciudades no llegan al breakeven no está calculado en el corpus; queda abierto hasta que el PLAN salga de research-only.",
+      "linea": 2994,
+      "cita": "falta acá porque no está calculado en ninguna parte del corpus"
+    },
+    {
+      "que": "Ninguna ciudad nueva avanza sin compromisos de tierra hasta una nueva auditoría, resultados de PLANVIV y consulta previa originaria documentada.",
+      "linea": 2649,
+      "cita": "sin compromisos de tierra hasta nueva auditoría"
+    },
+    {
+      "que": "La viabilidad de Ciudad Delta depende de un acuerdo con Uruguay; la decisión Go/No-Go se fija en el año 3.",
+      "linea": 2742,
+      "cita": "Decisión Go/No-Go en Año 3 con alternativa lista"
+    },
+    {
+      "que": "Las fichas técnicas provinciales son una línea de base aproximada y no reemplazan el estudio de factibilidad completo.",
+      "linea": 740,
+      "cita": "La ficha no reemplaza al estudio de factibilidad completo"
+    }
+  ]
+}

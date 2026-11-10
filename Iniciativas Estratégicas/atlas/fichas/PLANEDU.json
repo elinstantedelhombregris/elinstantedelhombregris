@@ -1,0 +1,572 @@
+{
+  "code": "PLANEDU",
+  "nombre": "Plan Nacional de Refundación Educativa para la Soberanía del Conocimiento Humano",
+  "version": "Versión 2.0 — Marzo 2026",
+  "tesis": "Reemplazar el currículo enciclopédico por Siete Capacidades, con Maestros Creadores bien pagados, aprendizaje por dominio mediado por una plataforma adaptativa y creación como evaluación, sostenido por una agencia autárquica (ANCE) y una Red de 500 Escuelas del Futuro.",
+  "problema": "Argentina ocupa el puesto 63 de 81 en PISA 2022: el 46% no alcanza el nivel mínimo de lectura y el 69% el de matemáticas, y cerca de la mitad no termina la secundaria. Los docentes ganan poco y trabajan en varias escuelas; el sistema premia la antigüedad y la repetición, y cada ministro reinicia los programas.",
+  "resumen": "Propone refundar la escuela como Taller de Humanidad. Un bloque matutino de tres horas de dominio adaptativo con la PAA y sesiones socráticas, y cinco horas de talleres, proyectos y emprendimientos, sin tarea. La lectura es condición previa (Leer para Encender). Crea la carrera de Maestro Creador con piso salarial de 1.5 veces el salario mediano profesional, la ANCE como ente autárquico, 500 Escuelas del Futuro que irradian al resto, el Pacto de la Dignidad con los sindicatos, pactos bilaterales con las provincias bajo el modelo 70/30, y un Portfolio Ciudadano Único que acompaña a cada persona toda la vida.",
+  "horizonte": "Cuatro fases: Siembra 2027-2028, Demostración 2029-2031 (50 Escuelas del Futuro), Irradiación 2031-2036 (500 escuelas, 25.000 Maestros Creadores) y Transformación Sistémica 2036-2041. Tres horizontes de transición: 2026-2035, 2035-2045 y 2045 en adelante.",
+  "financiamiento": "Costo incremental de USD 3.000–10.000M/año sobre un gasto actual de ~USD 30.000M, con seis fuentes: reasignación administrativa, ahorro de PLANREP desde 2030, suba del 5% al 7% del PBI, sinergias de PLAN24CN, alianzas edtech y créditos internacionales.",
+  "temas": [
+    "educacion-conocimiento",
+    "cuidado-ciclo-de-vida",
+    "estado-instituciones",
+    "digital-datos",
+    "trabajo-produccion"
+  ],
+
+  "conceptos": [
+    {
+      "nombre": "ANCE — Agencia Nacional de Calidad Educativa",
+      "alias": ["ANCE", "Agencia Nacional de Calidad Educativa"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico con directorio de 9 miembros, mandatos escalonados de 6 años y piso del 0.5% del PBI. Define estándares, certifica Maestros Creadores, mantiene la PAA, evalúa y administra el Fondo de Convergencia.",
+      "seccion": "8.2",
+      "linea": 937,
+      "cita": "La ANCE: Agencia Nacional de Calidad Educativa"
+    },
+    {
+      "nombre": "Maestro Creador",
+      "alias": ["Maestro Creador", "Maestros Creadores"],
+      "tipo": "figura",
+      "que_es": "Docente seleccionado del tercio superior, formado como mentor en el modelo 3+5, con carrera de cuatro niveles (Maestro Creador, Senior, Formador, Referente Nacional) y salario de nivel profesional.",
+      "seccion": "Pilar I",
+      "linea": 755,
+      "cita": "Maestros Creadores — La Revolución Docente"
+    },
+    {
+      "nombre": "Siete Capacidades",
+      "alias": ["Siete Capacidades"],
+      "tipo": "termino",
+      "que_es": "Marco curricular que reemplaza las materias aisladas: Crear, Cuidar, Pensar, Comunicar, Construir, Colaborar y Conocer. Se enseñan por proyectos y se evalúan por portfolio.",
+      "seccion": "4.2",
+      "linea": 370,
+      "cita": "4.2 Las Siete Capacidades"
+    },
+    {
+      "nombre": "PAA — Plataforma de aprendizaje y Dash Argentino",
+      "alias": ["PAA", "Dash Argentino"],
+      "tipo": "mecanismo",
+      "que_es": "Plataforma open-source, socrática y adaptativa, con motor de orquestación (Dash Argentino): ruta individual, repetición espaciada, tablero docente, seguimiento de portfolio y emprendimientos, y modo offline.",
+      "seccion": "Pilar II",
+      "linea": 786,
+      "cita": "PAA 2.0 — Socrática + Adaptativa"
+    },
+    {
+      "nombre": "Escuelas del Futuro",
+      "alias": ["Escuelas del Futuro", "Escuela del Futuro"],
+      "tipo": "programa",
+      "que_es": "Red de 500 escuelas modelo, mínimo 10 por provincia, abiertas de 7:00 a 21:00 los 350 días, con talleres, huerta, biblioteca e incubación de emprendimientos. Mentorean a las escuelas vecinas.",
+      "seccion": "Pilar III",
+      "linea": 829,
+      "cita": "Red de 500 Escuelas del Futuro"
+    },
+    {
+      "nombre": "Modelo 3+5",
+      "alias": ["Modelo 3+5"],
+      "tipo": "mecanismo",
+      "que_es": "Jornada de tres horas matutinas de dominio adaptativo (PAA más sesión socrática del Maestro) y cinco horas de talleres, proyectos y emprendimientos. Sin tarea domiciliaria.",
+      "seccion": "4.6",
+      "linea": 516,
+      "cita": "El Modelo 3+5: Tres Horas de Dominio Adaptativo"
+    },
+    {
+      "nombre": "Leer para Encender",
+      "alias": ["Leer para Encender"],
+      "tipo": "programa",
+      "que_es": "Pilar Cero del plan: aceleración lectora en la PAA para quien lee por debajo de su nivel, lectura integrada en todos los talleres, sistema de umbrales, tutores humanos y gamificación.",
+      "seccion": "4.5",
+      "linea": 401,
+      "cita": "Leer para Encender: El Pilar Cero de la Transformación Educativa"
+    },
+    {
+      "nombre": "Programa de Alfabetización Familiar (Encender en Casa)",
+      "alias": ["Encender en Casa", "Alfabetización Familiar"],
+      "tipo": "programa",
+      "que_es": "Línea de seis frentes para que las familias lean: módulo PAA para adultos, círculos de lectura en la Escuela Abierta, alianzas intergeneracionales, desafíos familiares, talleres de crianza lectora y conexión con los CDT.",
+      "seccion": "4.5.4",
+      "linea": 468,
+      "cita": "Encender en Casa: El Programa de Alfabetización Familiar"
+    },
+    {
+      "nombre": "Aprendizaje por Dominio",
+      "alias": ["Aprendizaje por Dominio"],
+      "tipo": "mecanismo",
+      "que_es": "Progresión por demostración de competencia y no por edad ni calendario: el alumno avanza cuando domina, con la IA identificando qué no entendió. El diploma certifica capacidades reales.",
+      "seccion": "4.3",
+      "linea": 391,
+      "cita": "4.3 Aprendizaje por Dominio"
+    },
+    {
+      "nombre": "Portfolio Ciudadano Único",
+      "alias": ["Portfolio Ciudadano Único", "Portfolio Ciudadano"],
+      "tipo": "mecanismo",
+      "que_es": "Registro único, sobre estándar abierto y propiedad del ciudadano, que nace a los seis años y documenta creaciones, residencias y participación cívica. En la vida adulta amplifica el dividendo de la Economía de la Contribución.",
+      "seccion": "20",
+      "linea": 1721,
+      "cita": "El Portfolio Ciudadano Único es la misma herramienta"
+    },
+    {
+      "nombre": "Pacto de la Dignidad Docente",
+      "alias": ["Pacto de la Dignidad"],
+      "tipo": "norma",
+      "que_es": "Acuerdo formal con los sindicatos docentes: piso salarial indexado, un asiento sindical en la ANCE, co-diseño de la evaluación, 100 horas de formación paga y mérito sumado a la antigüedad.",
+      "seccion": "10.2",
+      "linea": 1062,
+      "cita": "El Pacto de la Dignidad: Sindicatos como Co-Arquitectos"
+    },
+    {
+      "nombre": "Fondo de Convergencia Educativa",
+      "alias": ["Fondo de Convergencia Educativa", "Fondo de Convergencia"],
+      "tipo": "fondo",
+      "que_es": "Partida de USD 1.000–2.000M/año administrada por la ANCE con fórmula automática, inversamente proporcional a resultados y directamente a pobreza infantil, condicionada a adoptar las Siete Capacidades y firmar el Pacto Bilateral.",
+      "seccion": "12.4",
+      "linea": 1346,
+      "cita": "El Fondo de Convergencia Educativa"
+    },
+    {
+      "nombre": "Pactos Educativos Bilaterales",
+      "alias": ["Pactos Educativos Bilaterales", "Pacto Bilateral"],
+      "tipo": "mecanismo",
+      "que_es": "Acuerdos entre la ANCE y cada gobierno provincial con compromisos mutuos sobre escuelas, docentes, plataforma, evaluación y financiamiento. Se firman por tandas: 6-8 provincias el primer año, el resto hasta el año 5.",
+      "seccion": "12.3",
+      "linea": 1325,
+      "cita": "a través de **Pactos Educativos Bilaterales**"
+    },
+    {
+      "nombre": "Modelo 70/30",
+      "alias": ["Modelo 70/30"],
+      "tipo": "mecanismo",
+      "que_es": "Reparto federal del diseño educativo: 70% nacional (estándares, evaluación, plataforma) definido por la ANCE y 30% provincial (contenidos locales, tercer idioma, proyectos).",
+      "seccion": "12.2",
+      "linea": 1299,
+      "cita": "La Estrategia Federal: El Modelo 70/30"
+    },
+    {
+      "nombre": "Centros de Desarrollo Temprano",
+      "alias": ["Centros de Desarrollo Temprano", "CDT", "Centros de Primera Infancia"],
+      "tipo": "programa",
+      "que_es": "Red de centros para niños de 0 a 3 años, uno cada 5.000 habitantes, integrados a la salud pública, con personal de título terciario, estimulación, detección temprana y apoyo a familias.",
+      "seccion": "7.1",
+      "linea": 851,
+      "cita": "red de **Centros de Desarrollo Temprano (CDT)**"
+    },
+    {
+      "nombre": "Tablero Nacional de Educación",
+      "alias": ["Tablero Nacional de Educación", "Tablero Nacional PLANEDU"],
+      "tipo": "metrica",
+      "que_es": "Tablero público con 16 indicadores y metas a 2031, 2036 y 2041: capacidades, lectura, bilingüismo, graduación, inserción, emprendimientos, participación familiar. Todos con responsable, casi siempre la ANCE.",
+      "seccion": "8.4",
+      "linea": 966,
+      "cita": "Tablero Nacional de Educación"
+    },
+    {
+      "nombre": "Residencia de Transformación",
+      "alias": ["Residencia de Transformación"],
+      "tipo": "programa",
+      "que_es": "Formación intensiva de 12 meses en las Siete Capacidades para la cohorte fundacional de 2.000-5.000 docentes del top 1-3%, que mantienen su salario y cobran el nuevo desde el primer día.",
+      "seccion": "Pilar I",
+      "linea": 763,
+      "cita": "ingresan a una **Residencia de Transformación** de 12 meses"
+    },
+    {
+      "nombre": "Micro-Emprendimiento Educativo",
+      "alias": ["Micro-Emprendimiento Educativo"],
+      "tipo": "norma",
+      "que_es": "Figura legal simplificada para emprendimientos estudiantiles de 14 años en adelante: facturación simple, exención impositiva hasta un umbral, protección del menor y supervisión del Maestro Creador. El alumno conserva las ganancias.",
+      "seccion": "4.7.2",
+      "linea": 661,
+      "cita": "un estatus simplificado que permite a los emprendimientos estudiantiles operar legalmente"
+    },
+    {
+      "nombre": "Residencia de Contribución",
+      "alias": ["Residencia de Contribución", "Residencias de Contribución"],
+      "tipo": "programa",
+      "que_es": "Modalidad desde el Horizonte 2 en que el alumno trabaja en un Nodo de Actividad como contribuidor, sin jefe ni horario, en un proyecto comunitario que elige. Complementa las pasantías.",
+      "seccion": "13.3",
+      "linea": 1463,
+      "cita": "la **Residencia de Contribución**"
+    },
+    {
+      "nombre": "Ley de Refundación Educativa Nacional",
+      "alias": ["Ley de Refundación Educativa"],
+      "tipo": "norma",
+      "que_es": "Ley central con diez contenidos mínimos: crea la ANCE, las Siete Capacidades como marco curricular, la carrera de Maestro Creador, el portfolio, la PAA y el Fondo Nacional de Refundación Educativa. Complementa la Ley 26.206 sin derogarla.",
+      "seccion": "9.1",
+      "linea": 996,
+      "cita": "Ley de Refundación Educativa Nacional"
+    },
+    {
+      "nombre": "Paritaria de Calidad",
+      "alias": ["Paritaria de Calidad"],
+      "tipo": "mecanismo",
+      "que_es": "Reforma de la paritaria docente: el salario se indexa solo por IPC más un coeficiente de productividad, y la negociación semestral pasa a condiciones de aula, carga horaria, formación y criterios de mérito.",
+      "seccion": "10.3",
+      "linea": 1087,
+      "cita": "La Paritaria de Calidad"
+    },
+    {
+      "nombre": "Taller de Humanidad",
+      "alias": ["Taller de Humanidad"],
+      "tipo": "termino",
+      "que_es": "Nueva categoría de escuela que reemplaza a la «escuela fábrica»: desarrolla capacidades humanas completas, progresa por dominio, evalúa con portfolio y está abierta a la comunidad.",
+      "seccion": "4.1",
+      "linea": 351,
+      "cita": "De fábrica de ciudadanos alfabetizados a **Taller de Humanidad**"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Espacio de taller ampliado, equipamiento y mentores donde nacen y crecen los emprendimientos estudiantiles de 14 años en adelante.",
+      "linea": 671,
+      "cita": "**Centros de la Vida** (120 en todo el país)"
+    },
+    {
+      "nombre": "Maestros de Oficio",
+      "alias": ["Maestros de Oficio"],
+      "origen": "PLANREP",
+      "para_que": "Mentorean pasantías y emprendimientos estudiantiles y garantizan estándares de calidad profesional; los graduados PLANREP se vuelven docentes de oficio.",
+      "linea": 672,
+      "cita": "**Maestros de Oficio**"
+    },
+    {
+      "nombre": "Nodos de Actividad",
+      "alias": ["Nodos de Actividad"],
+      "origen": "PLANREP",
+      "para_que": "Sede de las Residencias de Contribución de los alumnos a partir del Horizonte 2.",
+      "linea": 1463,
+      "cita": "**Nodos de Actividad** (los espacios comunitarios de trabajo y contribución establecidos por PLANREP)"
+    },
+    {
+      "nombre": "Dividendo Nacional de Productividad",
+      "alias": ["Dividendo Nacional de Productividad", "DNP"],
+      "origen": "PLANREP",
+      "para_que": "Concepto post-laboral que los alumnos aprenden en la Capacidad Conocer; el portfolio verificado amplifica el DNP base.",
+      "linea": 739,
+      "cita": "**Dividendo Nacional de Productividad (DNP):**"
+    },
+    {
+      "nombre": "Fideicomisos de Propósito Perpetuo",
+      "alias": ["Fideicomisos de Propósito Perpetuo"],
+      "origen": "PLANREP",
+      "para_que": "Se enseñan como alfabetización post-laboral y como caso de estudio y deliberación simulada en las Escuelas del Futuro.",
+      "linea": 737,
+      "cita": "**Fideicomisos de Propósito Perpetuo:**"
+    },
+    {
+      "nombre": "Economía de la Contribución",
+      "alias": ["Economía de la Contribución"],
+      "origen": "PLANREP",
+      "para_que": "Marco que reconoce valor más allá del mercado; el Portfolio Ciudadano Único registra las contribuciones que ese marco recompensa.",
+      "linea": 741,
+      "cita": "**Economía de la Contribución:**"
+    },
+    {
+      "nombre": "ArgenCloud",
+      "alias": ["ArgenCloud"],
+      "origen": "PLANDIG",
+      "para_que": "Infraestructura soberana sobre la que correría la PAA en la integración declarada; en tranche-1 se reformula como dependiente del estadio A de PLANDIG.",
+      "linea": 1862,
+      "cita": "corre sobre ArgenCloud con modelos educativos abiertos y gobernanza pública"
+    },
+    {
+      "nombre": "Red Digital Nacional",
+      "alias": ["Red Digital Nacional"],
+      "origen": "PLAN24CN",
+      "para_que": "Conectividad troncal pública para la PAA y para las Escuelas del Futuro, con última milla privada donde haga falta.",
+      "linea": 1413,
+      "cita": "Red Digital Nacional (PLAN24CN) + operadores privados"
+    },
+    {
+      "nombre": "Rondas de Escucha y Dendritas",
+      "alias": ["Rondas de Escucha", "Dendritas"],
+      "origen": "PLANCUL",
+      "para_que": "Las escuelas enseñan las Rondas de Escucha desde primaria, de modo que los niños crecen como Dendritas nativas.",
+      "linea": 1872,
+      "cita": "La escuela enseña Rondas de Escucha desde primaria"
+    },
+    {
+      "nombre": "Credencial de Materia",
+      "alias": ["Credencial de Materia"],
+      "origen": "PLANMESA",
+      "para_que": "PLANEDU construye su Capa de Estudio: currículum obligatorio y evaluación continua de los servidores de Mesa.",
+      "linea": 1873,
+      "cita": "PLANEDU construye la Capa de Estudio de la Credencial de Materia"
+    },
+    {
+      "nombre": "Bastón Memorial",
+      "alias": ["Bastón Memorial"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Rito cívico a los 12 años que la escuela incorpora como ceremonia de ingreso a la memoria activa.",
+      "linea": 1875,
+      "cita": "la escuela incorpora el rito cívico del Bastón Memorial a los 12 años"
+    },
+    {
+      "nombre": "Biblioteca Viva y Acervo de PLANFOCO",
+      "alias": ["Biblioteca Viva", "Acervo de PLANFOCO"],
+      "origen": "PLANFOCO",
+      "para_que": "Aporta el material de ejemplos con procedencia trazable para el Desmontaje, y mediadores que trabajan con adultos.",
+      "linea": 1947,
+      "cita": "la formación de los mediadores de la Biblioteca Viva"
+    },
+    {
+      "nombre": "Desmontaje",
+      "alias": ["Desmontaje"],
+      "origen": "PLANFOCO",
+      "para_que": "Práctica de cinco preguntas sobre piezas de comunicación, incorporada como anexo desde PLANFOCO y evaluada por portfolio en Pensar, Comunicar y Conocer.",
+      "linea": 1937,
+      "cita": "**Qué es el Desmontaje.**"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Presupuesto canónico declarado en la cabecera",
+      "valor": "0.6B/año + 0.8B inv 24m (fuentes F01, F10)",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "0.6B/año + 0.8B inv 24m (línea PLANEDU del `SOURCE_OF_FUNDS_LEDGER.md`)"
+    },
+    {
+      "concepto": "Costo incremental total por fase (USD M/año)",
+      "valor": "~3.400 (2027-2029) · ~5.680 (2030-2033) · ~6.780 (2034-2038) · ~10.280 (régimen 2038+)",
+      "tipo": "presupuesto",
+      "linea": 1188,
+      "cita": "**~3.400** | **~5.680** | **~6.780** | **~10.280**"
+    },
+    {
+      "concepto": "Ruta del gasto educativo como porcentaje del PBI",
+      "valor": "del 5% al 7% del PBI en 12 años",
+      "tipo": "meta",
+      "linea": 1213,
+      "cita": "Del 5% al 7% del PBI en 12 Años"
+    },
+    {
+      "concepto": "Piso presupuestario de la ANCE",
+      "valor": "0.5% del PBI, asignación automática",
+      "tipo": "parametro",
+      "linea": 949,
+      "cita": "0.5% del PBI, asignación automática, no sujeta a discrecionalidad"
+    },
+    {
+      "concepto": "Piso salarial docente",
+      "valor": "1.5× el salario mediano profesional, indexado trimestralmente",
+      "tipo": "parametro",
+      "linea": 1015,
+      "cita": "Piso salarial = 1.5× salario mediano profesional, indexado trimestralmente"
+    },
+    {
+      "concepto": "Techo salarial del Maestro Referente Nacional",
+      "valor": "4× el piso (~USD 4.800/mes)",
+      "tipo": "parametro",
+      "linea": 1111,
+      "cita": "Techo salarial (Maestro Referente Nacional) | 4× piso (~USD 4.800/mes)"
+    },
+    {
+      "concepto": "Tamaño del Fondo de Convergencia Educativa",
+      "valor": "USD 1.000–2.000M/año a régimen (2031+)",
+      "tipo": "presupuesto",
+      "linea": 1354,
+      "cita": "USD 1.000–2.000M/año (a régimen, 2031+ (tranche-2))"
+    },
+    {
+      "concepto": "Asignación del ahorro neto de PLANREP a educación",
+      "valor": "10-15% del ahorro neto, USD 1.500-3.500M/año desde 2030",
+      "tipo": "fuente",
+      "linea": 1206,
+      "cita": "Asignación consolidada: 10-15% del ahorro neto de PLANREP"
+    },
+    {
+      "concepto": "Cantidad de Escuelas del Futuro",
+      "valor": "500 operativas en 24 provincias al 2036",
+      "tipo": "meta",
+      "linea": 1667,
+      "cita": "Todas operativas, distribuidas en 24 provincias | 2036 (tranche-3 maduración)"
+    },
+    {
+      "concepto": "Estructura del día en el modelo 3+5",
+      "valor": "3 h de dominio adaptativo + 5 h de talleres, sin tarea",
+      "tipo": "parametro",
+      "linea": 365,
+      "cita": "Modelo 3+5: 3h de dominio adaptativo (PAA + Maestro Socrático) + 5h de talleres, proyectos y emprendimientos"
+    },
+    {
+      "concepto": "Meta de recuperación lectora",
+      "valor": "80% de los alumnos por debajo del nivel, en 18 meses",
+      "tipo": "meta",
+      "linea": 435,
+      "cita": "el 80% de los alumnos por debajo del nivel alcanzan el nivel esperado dentro de los 18 meses"
+    },
+    {
+      "concepto": "Meta de bilingüismo (B2 de inglés a los 16) en el Pilar IV",
+      "valor": "70% de los alumnos de 16 años en 2036",
+      "tipo": "meta",
+      "linea": 837,
+      "cita": "Objetivo: 70% de los alumnos de 16 años en nivel B2 de inglés en el 2036"
+    },
+    {
+      "concepto": "Meta de bilingüismo en el Tablero Nacional",
+      "valor": "30% en EdF (2031); 50% en EdF y 20% en el sistema (2036); 70% y 40% (2041)",
+      "tipo": "meta",
+      "linea": 976,
+      "cita": "50% en EdF, 20% sistema"
+    },
+    {
+      "concepto": "Meta de graduación secundaria en el Tablero",
+      "valor": "60% (2031), 75% (2036), 85%+ (2041)",
+      "tipo": "meta",
+      "linea": 980,
+      "cita": "60% (+7 pp) | 75% (+22 pp) | 85%+"
+    },
+    {
+      "concepto": "Posición argentina en PISA 2022",
+      "valor": "puesto 63 de 81",
+      "tipo": "diagnostico",
+      "linea": 124,
+      "cita": "**puesto 63 de 81 países** en las pruebas PISA 2022"
+    },
+    {
+      "concepto": "Costo anual de no educar",
+      "valor": "USD 50.000–75.000M/año (~10-15% del PBI)",
+      "tipo": "diagnostico",
+      "linea": 227,
+      "cita": "**USD 50.000–75.000M/año**"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANREP",
+      "que": "Aporta el ahorro fiscal que financia la educación desde 2030 y los Centros de la Vida, Maestros de Oficio y Nodos que alojan emprendimientos y residencias estudiantiles.",
+      "linea": 1206,
+      "cita": "Ahorro fiscal de PLANREP (asignación consolidada)"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "La PAA se declara apoyada en la infraestructura de PLANDIG (ArgenCloud) con modelos educativos abiertos y gobernanza pública.",
+      "linea": 1862,
+      "cita": "corre sobre ArgenCloud con modelos educativos abiertos y gobernanza pública"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Las Escuelas del Futuro comparten infraestructura urbana y digital de las ciudades nuevas, lo que baja su costo de construcción.",
+      "linea": 833,
+      "cita": "La integración con PLAN24CN reduce el costo por escuela en un 20-30%"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Los comedores escolares se abastecen de huertos propios y productores regenerativos locales, y la huerta es un taller de la Capacidad Construir.",
+      "linea": 923,
+      "cita": "**origen local y regenerativo** (integración PLANISV)"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "PLANEDU construye la Capa de Estudio de la Credencial de Materia: currículum y evaluación de quienes sirven en Mesa.",
+      "linea": 1873,
+      "cita": "PLANEDU construye la Capa de Estudio de la Credencial de Materia"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "La escuela celebra el rito cívico del Bastón Memorial a los 12 años como ingreso a la memoria activa.",
+      "linea": 1875,
+      "cita": "la escuela incorpora el rito cívico del Bastón Memorial a los 12 años"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "La escuela enseña Rondas de Escucha desde primaria y forma niños como Dendritas nativas.",
+      "linea": 1872,
+      "cita": "La escuela enseña Rondas de Escucha desde primaria"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "PLANEDU aporta currículum de cuidado desde primaria y formación inicial diferenciada para cada tipo de Pacto.",
+      "linea": 1874,
+      "cita": "PLANEDU incluye currículum de cuidado desde primaria"
+    },
+    {
+      "con": "PLANFOCO",
+      "que": "PLANFOCO aporta el material y los mediadores del Desmontaje; el currículum, la evaluación de alumnos y la formación docente quedan en PLANEDU y la ANCE.",
+      "linea": 1947,
+      "cita": "**No aporta currículum, no evalúa alumnos y no forma docentes**"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "PLANEDU pide transporte escolar accesible y accesibilidad universal; PLANMOV recibe datos de localización escolar para planificar redes.",
+      "linea": 1883,
+      "cita": "transporte escolar accesible (línea L1)"
+    },
+    {
+      "con": "PLANTER",
+      "que": "PLANEDU deposita en PLANTER la demanda de contenidos de educación intercultural en territorios originarios, con coordinación con el INAI.",
+      "linea": 1889,
+      "cita": "contenidos de educación intercultural en territorios originarios (línea L3)"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "PLANJUS aporta la mediación para disputas por incidentes de responsabilidad en emprendimientos estudiantiles.",
+      "linea": 1520,
+      "cita": "mediación PLANJUS para disputas"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La cabecera prohíbe nuevas agencias autónomas en tranche-1, pero la hoja de ruta crea la ANCE como ente autárquico en 2027, también tranche-1.",
+      "linea": 18,
+      "cita": "sin nuevas agencias autónomas en tranche-1"
+    },
+    {
+      "con": "interno",
+      "que": "El presupuesto canónico de cabecera es 0.6B/año más 0.8B de inversión, mientras el cuerpo calcula un costo incremental de USD 3.000–10.000M/año.",
+      "linea": 12,
+      "cita": "0.6B/año + 0.8B inv 24m (línea PLANEDU del `SOURCE_OF_FUNDS_LEDGER.md`)"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "La integración declara que PLANEDU recibe la PAA de PLANDIG, y la sigla se expande como Plataforma de Aprendizaje Adaptativo; el cuerpo la desarrolla como Plataforma Argentina de Aprendizaje a cargo de la ANCE.",
+      "linea": 1869,
+      "cita": "Plataforma de Aprendizaje Adaptativo (PAA)"
+    },
+    {
+      "con": "PLANREP",
+      "que": "La integración dice que PLANREP aporta el 15% del ahorro neto; la sección de financiamiento habla de 10-15% como asignación consolidada.",
+      "linea": 1863,
+      "cita": "15% del ahorro neto fiscal de la reconversión financia el lanzamiento de PLANEDU"
+    },
+    {
+      "con": "interno",
+      "que": "El Pilar IV fija 70% de alumnos con B2 de inglés en 2036; el Tablero Nacional fija 50% en las EdF y 20% en el sistema para el mismo año.",
+      "linea": 837,
+      "cita": "Objetivo: 70% de los alumnos de 16 años en nivel B2 de inglés en el 2036"
+    },
+    {
+      "con": "interno",
+      "que": "El preámbulo y el cierre hablan de dieciséis mandatos del proyecto ¡BASTA!, cuando el canon vigente es de 27 PLANes más PLANRUTA.",
+      "linea": 91,
+      "cita": "dieciséis mandatos estratégicos interconectados"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El documento admite que el timing y la forma de cada transición entre horizontes serán distintos de lo proyectado.",
+      "linea": 745,
+      "cita": "El timing exacto y la forma de cada transición van a ser diferentes de lo que proyectamos acá"
+    },
+    {
+      "que": "Los resultados PISA por provincia son estimaciones a partir de pruebas nacionales, no datos exactos.",
+      "linea": 1297,
+      "cita": "Son aproximaciones, no datos exactos."
+    },
+    {
+      "que": "No hay evaluación de impacto sobre datos personales; se difiere hasta identificar datos personales en la implementación.",
+      "linea": 1923,
+      "cita": "Si en fase de implementación se identifican datos personales, generar PIA antes de piloto."
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "code": "PLANGEO",
+  "nombre": "Plan Nacional de Posicionamiento Geopolítico y Plataforma de Soberanía Exportable",
+  "version": "1.2 (bloque MECANISMOS, agosto 2026) — Marzo 2026",
+  "tesis": "Argentina se protege del sistema internacional haciéndose indispensable: empaqueta las herramientas de ¡BASTA! como Stacks de Soberanía abiertos que otros países adoptan, y complementa esa oferta con mecanismos contractuales y de datos públicos que no dependen de funcionarios ni de enforcement costoso.",
+  "problema": "Según el documento, cada reforma de ¡BASTA! afecta intereses con capacidad de aislar, sancionar o difamar al país: calificadoras, bancos, Big Tech, farmacéuticas, potencias y organismos multilaterales. Argentina exporta materia prima barata, depende del dólar y de SWIFT, no puede costear patrullaje ni litigios, y los funcionarios ceden en silencio a presiones externas.",
+  "resumen": "PLANGEO agrupa los mandatos de ¡BASTA! en siete Stacks de Soberanía exportables, ofrecidos sin lock-in a una Red Soberana de países y ciudades. Opera en doble capa: diplomática (tratados, UE, Mercosur 2.0, BRICS+ como observador, India) e infraestructura (código abierto, nodos fuera del país). Propone estrategias sobre litio, gas, alimentos, agua, Antártida y Malvinas, protocolos de falla y un bloque de ocho mecanismos defensivos: cláusulas contractuales de deuda e inversión, Mar Transparente, Registro de Presión, Anexo ABACC, Segundo Proveedor. Lo asesora el CNEG.",
+  "horizonte": "Cuatro fases de la Red Soberana: prueba doméstica 2026-2028, primeros adoptantes 2028-2030, masa crítica 2030-2033 y red global 2033-2040. Visión 2040 con 67 países. Los cronogramas confrontativos quedan diferidos o internos: el documento es research-only en tranche 1 a 3.",
+  "financiamiento": "Tabla 14: USD 14.200M en diez años (7.150M los años 1-5, 7.050M los años 6-10), con presupuesto nacional y de defensa, bonos, YPF y socios. Retorno estimado USD 43.000-87.000M, ROI 3:1 a 6:1. Los mecanismos 26-28 no piden presupuesto nuevo.",
+  "temas": [
+    "soberania-exterior",
+    "digital-datos",
+    "moneda-finanzas",
+    "agua-energia",
+    "estado-instituciones"
+  ],
+  "conceptos": [
+    {
+      "nombre": "Consejo Nacional de Estrategia Geopolítica",
+      "alias": ["CNEG", "Consejo Nacional de Estrategia Geopolítica"],
+      "tipo": "institucion",
+      "que_es": "Órgano asesor del Poder Ejecutivo de 20 integrantes (estrategas, delegados de agencias, embajadores, académicos, inteligencia y militar). No es agencia autárquica; evalúa y ajusta la estrategia de PLANGEO.",
+      "seccion": "2.4",
+      "linea": 257,
+      "cita": "El CNEG es un **órgano asesor del Poder Ejecutivo**"
+    },
+    {
+      "nombre": "Caja Negra Abierta",
+      "alias": ["Caja Negra Abierta"],
+      "tipo": "mecanismo",
+      "que_es": "Clasificación de toda recomendación del CNEG en tres niveles de publicación: verde inmediata, amarillo diferida 6 meses, rojo diferida 18 meses. Ninguna queda secreta de forma permanente.",
+      "seccion": "2.4",
+      "linea": 269,
+      "cita": "**Mecanismo de transparencia: La Caja Negra Abierta.**"
+    },
+    {
+      "nombre": "Stack de Soberanía",
+      "alias": ["Stack de Soberanía", "Stacks de Soberanía"],
+      "tipo": "mecanismo",
+      "que_es": "Módulo temático de herramientas de ¡BASTA! empaquetadas como infraestructura soberana exportable, abierta, forkeable y sin lock-in. Hay siete Stacks (Tabla 5).",
+      "seccion": null,
+      "linea": 87,
+      "cita": "un **Stack de Soberanía** modular, open-source"
+    },
+    {
+      "nombre": "Red Soberana",
+      "alias": ["Red Soberana"],
+      "tipo": "institucion",
+      "que_es": "Red de países y ciudades que comparten infraestructura de gobernanza open-source, con cooperación técnica y defensa mutua. Sin condicionamiento político ni lock-in; cuatro niveles de participación.",
+      "seccion": "10.1",
+      "linea": 634,
+      "cita": "**una red de países y ciudades que comparten infraestructura de gobernanza open-source**"
+    },
+    {
+      "nombre": "Estrategia de las Mil Puertas",
+      "alias": ["Estrategia de las Mil Puertas", "Mil Puertas"],
+      "tipo": "mecanismo",
+      "que_es": "Lógica defensiva central: entrelazar a Argentina con la infraestructura de gobernanza de tantos países que sancionarla degrade sistemas ajenos. Se basa en utilidad distribuida, no en dependencia.",
+      "seccion": "10.4",
+      "linea": 671,
+      "cita": "se llama la **Estrategia de las Mil Puertas**"
+    },
+    {
+      "nombre": "Estrategia de Doble Capa",
+      "alias": ["Estrategia de Doble Capa"],
+      "tipo": "mecanismo",
+      "que_es": "Operación simultánea de una capa diplomática (el Traje: tratados, foros) que compra tiempo y una capa de infraestructura (la Remera: código, nodos) que crea hechos, con información asimétrica entre ambas.",
+      "seccion": "12",
+      "linea": 740,
+      "cita": "## SECCIÓN 12: LA ESTRATEGIA DE DOBLE CAPA"
+    },
+    {
+      "nombre": "Embajadores Bastardos",
+      "alias": ["Embajadores Bastardos"],
+      "tipo": "figura",
+      "que_es": "Ingenieros argentinos, no diplomáticos, que viajan a países y ciudades adoptantes a asistir la implementación de los Stacks. Programa presupuestado en la Tabla 14.",
+      "seccion": "3.4",
+      "linea": 336,
+      "cita": "técnicos argentinos que van a países adoptantes a facilitar la implementación"
+    },
+    {
+      "nombre": "Índice de Soberanía Nacional",
+      "alias": ["ISN", "Índice de Soberanía Nacional"],
+      "tipo": "metrica",
+      "que_es": "Calificación alternativa y abierta de países en siete dimensiones de soberanía, puntuadas de 0 a 100 con ponderación uniforme. Lo gobierna un comité técnico de 15 miembros, sin veto argentino.",
+      "seccion": "21.2",
+      "linea": 1184,
+      "cita": "publica el **Índice de Soberanía Nacional** — una metodología alternativa"
+    },
+    {
+      "nombre": "Red de Ciudades Soberanas",
+      "alias": ["Red de Ciudades Soberanas"],
+      "tipo": "institucion",
+      "que_es": "Sub-red dentro de la Red Soberana formada por municipios y regiones que adoptan módulos del Stack sin pasar por sus gobiernos nacionales, mediante Kits de Adopción Municipal y MoU.",
+      "seccion": "21.1",
+      "linea": 1154,
+      "cita": "Se crea una **Red de Ciudades Soberanas**"
+    },
+    {
+      "nombre": "Franquicias de Gobernanza",
+      "alias": ["Franquicias de Gobernanza"],
+      "tipo": "programa",
+      "que_es": "Estrategia de adopción ciudad a ciudad: Argentina publica kits y asigna de 3 a 5 Embajadores Bastardos por 6-12 meses, con costo dividido 50% Argentina y 50% la ciudad.",
+      "seccion": "21.1",
+      "linea": 1145,
+      "cita": "### 21.1 Franquicias de Gobernanza: Adopción Ciudad-a-Ciudad"
+    },
+    {
+      "nombre": "DAO del Guaraní",
+      "alias": ["DAO del Guaraní"],
+      "tipo": "mecanismo",
+      "que_es": "Protocolo de gobernanza transnacional del Acuífero Guaraní entre Argentina, Brasil, Uruguay y Paraguay, con datos en tiempo real, decisiones algorítmicas y override humano por consenso.",
+      "seccion": "5.5",
+      "linea": 461,
+      "cita": "una **DAO del Guaraní** — un protocolo de gobernanza transnacional"
+    },
+    {
+      "nombre": "Agencia del Litio del Cono Sur",
+      "alias": ["ALCS", "Agencia del Litio del Cono Sur"],
+      "tipo": "institucion",
+      "que_es": "Agencia de coordinación técnica propuesta a Bolivia y Chile: estandariza prácticas, negocia en conjunto y fija pisos de valor agregado. No fija precios; ningún miembro exporta litio sin procesamiento mínimo.",
+      "seccion": "5.2",
+      "linea": 427,
+      "cita": "**Agencia del Litio del Cono Sur (ALCS)**"
+    },
+    {
+      "nombre": "Cláusula del Buitre",
+      "alias": ["Cláusula del Buitre"],
+      "tipo": "norma",
+      "que_es": "Cláusula en todo prospecto de deuda soberana futura: quien compra con descuento en el mercado secundario y litiga recupera solo el precio pagado más la tasa de referencia del período.",
+      "seccion": "26.2",
+      "linea": 1540,
+      "cita": "### 26.2 La Cláusula del Buitre"
+    },
+    {
+      "nombre": "Conversión Automática de Jurisdicción",
+      "alias": ["Conversión Automática de Jurisdicción", "conversión automática de foro"],
+      "tipo": "norma",
+      "que_es": "Cláusula que traslada a Argentina la ley aplicable y el agente de pago si un tribunal impide pagar a quienes aceptaron la reestructuración. Su ejecutabilidad queda declarada sin acreditar.",
+      "seccion": "26.3",
+      "linea": 1567,
+      "cita": "### 26.3 La Conversión Automática de Jurisdicción"
+    },
+    {
+      "nombre": "Cláusula Espejo",
+      "alias": ["Cláusula Espejo"],
+      "tipo": "norma",
+      "que_es": "Cláusula de todo contrato de inversión extranjera: ante sanciones del Estado de origen del inversor, la disputa pasa a tribunales argentinos y se suspende la repatriación de utilidades mientras dure la medida.",
+      "seccion": "26.4",
+      "linea": 1579,
+      "cita": "### 26.4 La Cláusula Espejo"
+    },
+    {
+      "nombre": "Compromiso de Horizonte",
+      "alias": ["Compromiso de Horizonte"],
+      "tipo": "mecanismo",
+      "que_es": "Contrato a veinte años con contrapartes externas, con aporte, reciprocidad, penalidad y publicación anual. Solo entra si preserva opciones, es recíproco y pasó por decisión popular de PLANMESA.",
+      "seccion": "26.7",
+      "linea": 1629,
+      "cita": "### 26.7 El Compromiso de Horizonte"
+    },
+    {
+      "nombre": "Mar Transparente",
+      "alias": ["Mar Transparente"],
+      "tipo": "mecanismo",
+      "que_es": "Escalar y abrir el servicio satelital SAOCOM de detección de buques, sumar drones no armados y publicar un feed abierto, para que aseguradoras y listas INDNR apliquen la consecuencia a la pesca ilegal.",
+      "seccion": "27.1",
+      "linea": 1675,
+      "cita": "### 27.1 El Mar Transparente"
+    },
+    {
+      "nombre": "Certificado de Trazabilidad del Atlántico Sur",
+      "alias": ["Certificado de Trazabilidad del Atlántico Sur"],
+      "tipo": "mecanismo",
+      "que_es": "Certificado gratuito y automático para todo buque con transpondedor encendido que no ingrese a la ZEE sin licencia. Rechazarlo funciona como autoexclusión ante aseguradoras.",
+      "seccion": "27.2",
+      "linea": 1699,
+      "cita": "Argentina emite el **Certificado de Trazabilidad del Atlántico Sur**"
+    },
+    {
+      "nombre": "Registro Público de Presión",
+      "alias": ["Registro de Presión", "Registro Público de Presión"],
+      "tipo": "mecanismo",
+      "que_es": "Obligación de todo funcionario de asentar en 72 horas y publicar cualquier pedido o advertencia de gobiernos, organismos, empresas o acreedores. Omitirlo es falta grave. Compuerta: no antes del tranche 3.",
+      "seccion": "27.5",
+      "linea": 1776,
+      "cita": "### 27.5 El Registro de Presión"
+    },
+    {
+      "nombre": "Repositorio Antártico",
+      "alias": ["Repositorio Antártico"],
+      "tipo": "mecanismo",
+      "que_es": "Repositorio abierto en el nodo austral de ArgenCloud que recibe los datos de toda campaña científica desde Ushuaia, sin propiedad intelectual argentina, para ocupar la capa de conocimiento antes de 2048.",
+      "seccion": "27.6",
+      "linea": 1801,
+      "cita": "### 27.6 El Repositorio Antártico"
+    },
+    {
+      "nombre": "Ley del Segundo Proveedor",
+      "alias": ["Ley del Segundo Proveedor", "Segundo Proveedor"],
+      "tipo": "norma",
+      "que_es": "Ningún sistema crítico del Estado puede superar un umbral de dependencia de un proveedor, sistema operativo o jurisdicción. Cumplimiento publicado por organismo; el umbral queda por determinar en la Pre-Fase.",
+      "seccion": "28.4",
+      "linea": 1865,
+      "cita": "### 28.4 La Ley del Segundo Proveedor"
+    },
+    {
+      "nombre": "Doctrina del Erizo",
+      "alias": ["Doctrina del Erizo", "doctrina del erizo"],
+      "tipo": "mecanismo",
+      "que_es": "Disuasión por resiliencia en vez de capacidad ofensiva: modo degradado ensayado, desconcentración geográfica, diversidad tecnológica obligatoria y simulacro nacional anual publicado. Reemplaza a la Sección 18.2.4.",
+      "seccion": "28.6",
+      "linea": 1891,
+      "cita": "### 28.6 La Doctrina del Erizo"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "ArgenCloud",
+      "alias": ["ArgenCloud"],
+      "origen": "PLANDIG",
+      "para_que": "Nube soberana con nodos fuera del país, producto exportable del Stack Digital y sede del repositorio antártico.",
+      "linea": 354,
+      "cita": "Infraestructura de nube soberana distribuida"
+    },
+    {
+      "nombre": "Protocolo Bastardo",
+      "alias": ["Protocolo Bastardo"],
+      "origen": "PLANEB",
+      "para_que": "Pieza central del Stack de Gobernanza Económica y candidato a estándar IEEE.",
+      "linea": 202,
+      "cita": "Protocolo Bastardo: código abierto, tesorería on-chain, sorteo democrático"
+    },
+    {
+      "nombre": "Empresas Bastardas",
+      "alias": ["Empresas Bastardas"],
+      "origen": "PLANEB",
+      "para_que": "Entidades sin dueño que se presentan en foros como innovación cooperativista y sobre las que se negocian cláusulas de protección.",
+      "linea": 329,
+      "cita": "Presentar las Empresas Bastardas en foros internacionales"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Nodo físico del Stack de Transición Humana donde el ciudadano accede al sistema post-laboral.",
+      "linea": 498,
+      "cita": "Red de 120+ espacios físicos de formación continua"
+    },
+    {
+      "nombre": "Índice de Contribución",
+      "alias": ["Índice de Contribución"],
+      "origen": "PLANREP",
+      "para_que": "Métrica alternativa al salario incluida en el Stack de Transición Humana.",
+      "linea": 495,
+      "cita": "Métrica alternativa al salario que reconoce valor social"
+    },
+    {
+      "nombre": "Regla de Tres Rechazos",
+      "alias": ["Regla de Tres Rechazos"],
+      "origen": "PLANREP",
+      "para_que": "Mecanismo anti-captura exportable dentro del Stack Jurídico, implementado transversalmente por PLANJUS.",
+      "linea": 622,
+      "cita": "Regla de Tres Rechazos** (originaria de PLANREP"
+    },
+    {
+      "nombre": "Tribunales Ciudadanos por Sorteo",
+      "alias": ["Tribunales Ciudadanos por Sorteo"],
+      "origen": "PLANJUS",
+      "para_que": "Componente central del Stack Jurídico exportable para resolver disputas de baja complejidad.",
+      "linea": 617,
+      "cita": "| Tribunales Ciudadanos por Sorteo |"
+    },
+    {
+      "nombre": "ANVIP",
+      "alias": ["ANVIP"],
+      "origen": "PLANSAL",
+      "para_que": "Agencia de salud integrada; su delegado integra el CNEG y su despliegue figura en la hoja de ruta.",
+      "linea": 247,
+      "cita": "Agencia Nacional de Vitalidad Popular"
+    },
+    {
+      "nombre": "El Puente",
+      "alias": ["El Puente"],
+      "origen": "PLANSUS",
+      "para_que": "Modelo de amnistía narco exportable dentro del Stack Sanitario.",
+      "linea": 540,
+      "cita": "Modelo de amnistía narco (\"El Puente\")"
+    },
+    {
+      "nombre": "Peso-canasta",
+      "alias": ["Peso-canasta"],
+      "origen": "PLANMON",
+      "para_que": "Estándar monetario regional exportable para el comercio Mercosur.",
+      "linea": 1956,
+      "cita": "Peso-canasta y Pulso son exportables como estándar monetario regional"
+    },
+    {
+      "nombre": "Mar Argentino Soberano",
+      "alias": ["Mar Argentino Soberano"],
+      "origen": "PLANTER",
+      "para_que": "Dispositivo de Guardacostas dentro de la ZEE, complementario al Mar Transparente fuera de las 200 millas.",
+      "linea": 1767,
+      "cita": "El dispositivo Mar Argentino Soberano de PLANTER"
+    },
+    {
+      "nombre": "Kit de Despliegue de Crisis",
+      "alias": ["Kit de Despliegue de Crisis"],
+      "origen": "PLANRUTA",
+      "para_que": "Protocolo de las primeras 72 horas que la Doctrina del Erizo ensaya contra un origen externo.",
+      "linea": 1908,
+      "cita": "Kit de Despliegue de Crisis de PLANRUTA"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Inversión total PLANGEO a 10 años (años 1-5, años 6-10 y total)",
+      "valor": "USD 7.150M + USD 7.050M = USD 14.200M",
+      "tipo": "presupuesto",
+      "linea": 1371,
+      "cita": "**USD 7.150M** | **USD 7.050M** | **USD 14.200M**"
+    },
+    {
+      "concepto": "Retorno estimado a 10 años y ROI",
+      "valor": "USD 43.000-87.000M; ROI 3:1 a 6:1",
+      "tipo": "meta",
+      "linea": 1383,
+      "cita": "**USD 43.000-87.000M** | **ROI: 3:1 a 6:1**"
+    },
+    {
+      "concepto": "Infraestructura de licuefacción GNL",
+      "valor": "2 a 4 plantas; USD 10.000-20.000M",
+      "tipo": "presupuesto",
+      "linea": 439,
+      "cita": "Inversión estimada: USD 10.000-20.000M"
+    },
+    {
+      "concepto": "Línea naval reasignada a constelación satelital y drones (no suma al total)",
+      "valor": "USD 500-800 millones a diez años",
+      "tipo": "presupuesto",
+      "linea": 1761,
+      "cita": "La línea de capacidad naval de USD 500-800 millones se reasigna"
+    },
+    {
+      "concepto": "Comando de Ciberdefensa",
+      "valor": "USD 200-400M (5 años)",
+      "tipo": "presupuesto",
+      "linea": 1025,
+      "cita": "USD 200-400M (5 años)"
+    },
+    {
+      "concepto": "Gasto en defensa como porcentaje del PBI",
+      "valor": "de 0,7% a ~1,0% del PBI en 10 años",
+      "tipo": "meta",
+      "linea": 1057,
+      "cita": "de 0,7% a ~1,0% del PBI en 10 años"
+    },
+    {
+      "concepto": "Integrantes del CNEG",
+      "valor": "20",
+      "tipo": "parametro",
+      "linea": 267,
+      "cita": "| **Total** | **20** |"
+    },
+    {
+      "concepto": "Red Soberana en 2040",
+      "valor": "67 países miembros y 340 ciudades adoptantes",
+      "tipo": "meta",
+      "linea": 1479,
+      "cita": "tiene 67 países miembros y 340 ciudades adoptantes"
+    },
+    {
+      "concepto": "Adoptantes activos en la fase de masa crítica (2030-2033)",
+      "valor": "15-20 países",
+      "tipo": "meta",
+      "linea": 665,
+      "cita": "15-20 países son adoptantes activos"
+    },
+    {
+      "concepto": "Swap de monedas con China, ampliación 2028-2030",
+      "valor": "de USD 18.000M a USD 35.000M",
+      "tipo": "meta",
+      "linea": 998,
+      "cita": "de USD 18.000M a USD 35.000M"
+    },
+    {
+      "concepto": "Reserva alimentaria estratégica",
+      "valor": "equivalente a 6 meses de exportación",
+      "tipo": "meta",
+      "linea": 453,
+      "cita": "Constituir un stock de granos equivalente a 6 meses de exportación"
+    },
+    {
+      "concepto": "Plazo para que las extractoras de litio instalen procesamiento en el país",
+      "valor": "5 años; si no, no se renueva la concesión",
+      "tipo": "plazo",
+      "linea": 429,
+      "cita": "dentro de 5 años. No cumplir = no renovar concesión"
+    },
+    {
+      "concepto": "Plazo para asentar un pedido de presión en el Registro Público de Presión",
+      "valor": "72 horas",
+      "tipo": "plazo",
+      "linea": 1786,
+      "cita": "debe asentarlo dentro de las 72 horas"
+    },
+    {
+      "concepto": "Compuerta del Registro de Presión",
+      "valor": "no se implementa antes del tranche 3",
+      "tipo": "plazo",
+      "linea": 1778,
+      "cita": "esta sub-sección no se implementa antes del tranche 3"
+    },
+    {
+      "concepto": "Comité Técnico del ISN",
+      "valor": "15 miembros (5 Red Soberana, 5 universidades, 5 sociedad civil)",
+      "tipo": "parametro",
+      "linea": 1245,
+      "cita": "El Comité Técnico del ISN tiene 15 miembros"
+    },
+    {
+      "concepto": "Pérdida anual por recurso pesquero no controlado",
+      "valor": "entre USD 1.000 y USD 2.800 millones por año",
+      "tipo": "diagnostico",
+      "linea": 1679,
+      "cita": "Argentina pierde por año entre USD 1.000 y USD 2.800 millones"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANEB",
+      "que": "El Protocolo Bastardo y las Empresas Bastardas son la pieza central del Stack de Gobernanza Económica; PLANGEO los publica, los lleva a estándar internacional y los protege de represalias.",
+      "linea": 1957,
+      "cita": "Protocolo Bastardo open-source es la pieza central del estándar internacional"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "PLANDIG aporta ArgenCloud y la identidad y pagos soberanos que PLANGEO exporta; PLANGEO le devuelve equivalencia GDPR, nodos internacionales y alianza con la UE.",
+      "linea": 1954,
+      "cita": "IDS produce ArgenCloud como producto exportable"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "PLANSUS provee el cuerpo legal de salida de las convenciones de drogas; PLANGEO ejecuta la cascada diplomática, la coalición reformista y el secuenciamiento.",
+      "linea": 1955,
+      "cita": "Cuerpo legal de salida de convenciones internacionales de drogas provisto por PLANSUS"
+    },
+    {
+      "con": "PLANMON",
+      "que": "PLANMON aporta peso-canasta y Pulso como estándar regional; PLANGEO aporta jurisdicción de la deuda: Cláusula del Buitre, conversión de foro y Tribunal Arbitral de Deuda Soberana.",
+      "linea": 1407,
+      "cita": "Jurisdicción de la deuda soberana y defensa contra litigio de holdouts"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Dos dispositivos complementarios sobre la pesca: Guardacostas de PLANTER dentro de la ZEE, Mar Transparente de PLANGEO fuera de las 200 millas.",
+      "linea": 1408,
+      "cita": "Consecuencia efectiva sobre la pesca que opera fuera de las 200 millas"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "PLANMESA define el mecanismo popular y el umbral de decisión que el Compromiso de Horizonte requiere; sin él, PLANGEO no firma Horizonte.",
+      "linea": 1409,
+      "cita": "un mecanismo popular de decisión con umbral propio para compromisos de veinte años"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "PLANGEO articula la cooperación internacional (acuerdos de tránsito, Interpol) que PLANSEG necesita; las armas civiles quedan fuera de su alcance.",
+      "linea": 1463,
+      "cita": "PLANGEO articula la cooperación internacional que PLANSEG necesita"
+    },
+    {
+      "con": "PLANRUTA",
+      "que": "El protocolo de las primeras 72 horas de PLANRUTA se reutiliza como ensayo contra una crisis de origen externo en la Doctrina del Erizo.",
+      "linea": 1908,
+      "cita": "Kit de Despliegue de Crisis de PLANRUTA"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "PLANAGUA aporta la tecnología hídrica exportable; PLANGEO la proyecta como DAO del Guaraní y como protección de la criosfera andina con Chile.",
+      "linea": 1404,
+      "cita": "Gobernanza transnacional del Guaraní + criosfera andina"
+    },
+    {
+      "con": "PLANISV",
+      "que": "PLANISV aporta agricultura regenerativa y trazabilidad blockchain, usadas en la diplomacia alimentaria y en la pesca soberana.",
+      "linea": 1109,
+      "cita": "trazabilidad blockchain de PLANISV para toda la pesca"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "PLANGEO abre acceso a genéricos vía India y el Protocolo de Innovación Abierta; PLANSAL aporta atención primaria, transparencia farmacéutica y telemedicina al Stack Sanitario.",
+      "linea": 1400,
+      "cita": "Protocolo de Innovación Abierta + alianza con India"
+    },
+    {
+      "con": "PLANREP",
+      "que": "PLANREP aporta el Stack de Transición Humana y la Regla de Tres Rechazos; PLANGEO le da legitimación internacional y showcase en la Red Soberana.",
+      "linea": 1401,
+      "cita": "Legitimación internacional del modelo post-laboral"
+    },
+    {
+      "con": "PLANEN",
+      "que": "PLANEN industrializa litio y gas; PLANGEO usa esa industrialización como leverage geopolítico con GNL, baterías e hidrógeno verde.",
+      "linea": 1459,
+      "cita": "PLANEN industrializa estos recursos en vez de exportarlos como commodity"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "PLANVIV aporta el modelo de urbanización integral de asentamientos que PLANGEO posiciona como stack exportable alternativo a los programas del BID y del Banco Mundial.",
+      "linea": 1467,
+      "cita": "PLANGEO posiciona ese stack como la alternativa a los programas de vivienda"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El preámbulo cuenta dieciséis mandatos (y diez planes en el cierre), mientras el canon es de 27 PLANes y la Tabla 5 lista quince; el recuento no coincide con el marco vigente.",
+      "linea": 79,
+      "cita": "atraviesa los dieciséis mandatos del proyecto"
+    },
+    {
+      "con": "interno",
+      "que": "La revisión difiere toda la estrategia de exportación a 2040+, pero la hoja de ruta fija publicación del Protocolo Bastardo y primeras adopciones desde 2026-2027.",
+      "linea": 348,
+      "cita": "Toda la estrategia de exportación de PLANGEO descrita abajo se difiere a horizonte 2040+"
+    },
+    {
+      "con": "interno",
+      "que": "La Tabla de 18.1 presupuesta un Comando de Ciberdefensa con capacidad ofensiva, pero la Sección 28.6 declara falsa la capacidad ofensiva disuasoria y reemplaza la 18.2.4.",
+      "linea": 1025,
+      "cita": "Crear Comando de Ciberdefensa con capacidad defensiva y ofensiva"
+    },
+    {
+      "con": "interno",
+      "que": "La Sección 27.6 enmienda como error vigente que la Sección 5 diga que el Tratado vence en 2048, pero la Sección 5 ya fue corregida en ese sentido.",
+      "linea": 1813,
+      "cita": "La Sección 5 afirma que \"el Tratado Antártico vence en 2048\""
+    },
+    {
+      "con": "interno",
+      "que": "La Sección 26 habla de ocho mecanismos del bloque y el cierre los lista, pero la 26.7 dice que son seis los mecanismos anteriores sin punto de cesión humano.",
+      "linea": 1631,
+      "cita": "Los seis mecanismos anteriores no tienen punto de cesión humano"
+    },
+    {
+      "con": "interno",
+      "que": "La portada indica Versión 1.2 (agosto 2026), pero el cierre del documento mantiene Versión 1.0, marzo 2026.",
+      "linea": 1939,
+      "cita": "**Versión:** 1.0"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Si un tribunal de Nueva York declararía inoponible la cláusula de traslado automático de jurisdicción; requiere opinión legal formal.",
+      "linea": 1577,
+      "cita": "si un tribunal de Nueva York declararía inoponible una cláusula de traslado automático"
+    },
+    {
+      "que": "La sobretasa que implica la Cláusula del Buitre no está estimada; queda como tarea externa y publicada de la Pre-Fase.",
+      "linea": 1625,
+      "cita": "**Este documento no estima la sobretasa.**"
+    },
+    {
+      "que": "No se afirma cobertura total del monitoreo satelital: ni el tamaño mínimo de embarcación detectable ni la revisita sobre la ZEE están acreditados.",
+      "linea": 1695,
+      "cita": "no afirma cobertura total"
+    },
+    {
+      "que": "El rango exacto de la reasignación de la línea naval a satélites y drones queda pendiente de estimación.",
+      "linea": 1765,
+      "cita": "**El rango exacto de la reasignación queda pendiente de estimación**"
+    },
+    {
+      "que": "No se cuantifica la dependencia argentina en principios activos farmacéuticos; se obtendrá de ANMAT, las cámaras y el INDEC en la Pre-Fase.",
+      "linea": 1883,
+      "cita": "no cuantifica el grado de dependencia argentina en principios activos farmacéuticos"
+    }
+  ]
+}

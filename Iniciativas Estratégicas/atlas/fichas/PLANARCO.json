@@ -1,0 +1,620 @@
+{
+  "code": "PLANARCO",
+  "nombre": "Plan Nacional del Arco de la Vida, Calendario de Umbrales y Renta de Arco",
+  "version": "1.0 — Julio 2026",
+  "tesis": "Una vida pasa de ser una sucesión de trámites a ser un arco declarado: estaciones enumeradas en un Calendario de Umbrales, con financiamiento nombrado y un organismo obligado a presentarse sin que nadie lo llame, más una Renta de Arco para el último tramo.",
+  "problema": "El Estado argentino está cortado por materia y cada organismo actúa sobre un expediente, no sobre una persona. Nadie mira la trayectoria entera: la mediana edad no existe como categoría, la muerte no tiene dueño, la sucesión traba la vivienda y el haber se licúa sin acto que impugnar.",
+  "resumen": "Propone un Calendario público de dieciséis estaciones de la vida, con la columna de qué PLAN ya ocupa cada una; donde hay ocupante, remite y no reescribe. Estrena la Dote de Origen, el Pasaje, el Alto de los Cuarenta y Cinco, la Rampa de Salida, las Casas, la Última Palabra, el Año del Duelo y el Umbral del Legado. Crea la Renta de Arco en tres tramos y la ANAV, que liquida, convoca y publica un tablero, sin fijar montos ni administrar fondos.",
+  "horizonte": "Quince años en cinco fases: contar el arco sin ley (año 0 a 1), piso y final (1 a 4), rampa y casas (4 a 8), umbrales (6 a 10) y régimen pleno desde el año once.",
+  "financiamiento": "Banda canónica de USD 53.000–96.000M a quince años, erogación bruta; en régimen, USD 6.000–10.900M anuales. Casi no hay plata nueva: reasigna haberes de ANSES y usa partida común. El Tramo Común queda declarado y sin fuente.",
+  "temas": [
+    "cuidado-ciclo-de-vida",
+    "fiscal-presupuesto",
+    "estado-instituciones"
+  ],
+  "conceptos": [
+    {
+      "nombre": "Calendario de Umbrales",
+      "alias": [
+        "Calendario de Umbrales"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Lista pública de las dieciséis estaciones del arco, con la edad o hito que abre cada una, el dispositivo que la atiende y el PLAN que ya la ocupa.",
+      "seccion": "3.2",
+      "linea": 98,
+      "cita": "**Calendario de Umbrales** no es un dispositivo"
+    },
+    {
+      "nombre": "Renta de Arco",
+      "alias": [
+        "Renta de Arco"
+      ],
+      "tipo": "norma",
+      "que_es": "Ingreso del último tramo de la vida, liquidado en un solo comprobante mensual con tres tramos: Piso Vital Universal, Tramo Ganado y Tramo Común. Requiere ley del Congreso.",
+      "seccion": "4",
+      "linea": 98,
+      "cita": "La **Renta de Arco** es el ingreso del último tramo, en tres partes"
+    },
+    {
+      "nombre": "Agencia Nacional del Arco de la Vida",
+      "alias": [
+        "ANAV",
+        "Agencia Nacional del Arco de la Vida"
+      ],
+      "tipo": "institucion",
+      "que_es": "Ente que liquida la Renta de Arco, lleva el Calendario, publica el Tablero y convoca a los organismos de cada estación. Nace como célula de ejecución; no fija montos ni administra fondos.",
+      "seccion": "8.1",
+      "linea": 727,
+      "cita": "La ANAV es un ente autárquico"
+    },
+    {
+      "nombre": "Piso Vital Universal",
+      "alias": [
+        "Piso Vital Universal",
+        "Piso Vital"
+      ],
+      "tipo": "programa",
+      "que_es": "Haber mensual desde los 65 años sin requisito de aportes, con movilidad automática contra la canasta del adulto mayor. Funciona como piso de resultado: absorbe el monto de otros pagos universales.",
+      "seccion": "4.2",
+      "linea": 395,
+      "cita": "Un haber mensual para toda persona de sesenta y cinco años o más"
+    },
+    {
+      "nombre": "Tramo Ganado",
+      "alias": [
+        "Tramo Ganado"
+      ],
+      "tipo": "programa",
+      "que_es": "Renglón del comprobante mensual donde se liquida el reconocimiento previsional del cuidado; la fórmula y el validador son de PLANCUIDADO, aquí solo cambia la ventanilla.",
+      "seccion": "4.4",
+      "linea": 389,
+      "cita": "anota trabajo que el sistema previsional nunca supo dónde anotar"
+    },
+    {
+      "nombre": "Tramo Común",
+      "alias": [
+        "Tramo Común"
+      ],
+      "tipo": "programa",
+      "que_es": "Tercer tramo de la Renta de Arco, pensado para repartir el rendimiento del patrimonio común. Queda declarado y no financiado: liquida en cero hasta que su fuente exista.",
+      "seccion": "4.5",
+      "linea": 389,
+      "cita": "El **Tramo Común** reparte lo que rinde el patrimonio común."
+    },
+    {
+      "nombre": "Dote de Origen",
+      "alias": [
+        "Dote de Origen"
+      ],
+      "tipo": "programa",
+      "que_es": "Capital a nombre de cada persona desde su inscripción, indisponible hasta los dieciocho años, escrito en canastas básicas con un piso que no depende de ningún rendimiento.",
+      "seccion": "5.1",
+      "linea": 514,
+      "cita": "La Dote de Origen es un capital constituido a nombre de cada persona"
+    },
+    {
+      "nombre": "Umbral de la Llegada",
+      "alias": [
+        "Umbral de la Llegada"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Deber de citación: el sistema que registra el nacimiento abre la estación y convoca al organismo de salud a presentarse con la agenda de PLANSAL. No agrega contenido.",
+      "seccion": "5.5",
+      "linea": 566,
+      "cita": "El Umbral de la Llegada es ese deber y nada más"
+    },
+    {
+      "nombre": "Acta de Bienvenida",
+      "alias": [
+        "Acta de Bienvenida"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Constancia personal y fechada del nacimiento con quién responde, el Compadrazgo registrado si lo hay y la lista de estaciones que la república le debe a esa persona.",
+      "seccion": "5.6",
+      "linea": 574,
+      "cita": "El Acta es el acto, y deja una constancia con tres cosas escritas."
+    },
+    {
+      "nombre": "El Pasaje",
+      "alias": [
+        "El Pasaje"
+      ],
+      "tipo": "programa",
+      "que_es": "Cuatro viajes pagos a los 12, 18, 45 y 60 años. Se descuentan del Mandato Kilométrico donde esté vigente; el Pasaje no crea kilómetros.",
+      "seccion": "6.1",
+      "linea": 588,
+      "cita": "El Pasaje son cuatro viajes pagos en cuatro años de la vida"
+    },
+    {
+      "nombre": "El Alto de los Cuarenta y Cinco",
+      "alias": [
+        "Alto de los Cuarenta y Cinco"
+      ],
+      "tipo": "programa",
+      "que_es": "Pausa paga, una vez en la vida, desde los 45 años y sin vencimiento, con puesto, salario y aportes conservados, reintegrada al empleador por crédito fiscal. Convoca chequeo, formación y decisión.",
+      "seccion": "6.2",
+      "linea": 611,
+      "cita": "El Alto es una pausa paga, una vez en la vida"
+    },
+    {
+      "nombre": "Rampa de Salida 60–72",
+      "alias": [
+        "Rampa de Salida"
+      ],
+      "tipo": "programa",
+      "que_es": "Reducción gradual de jornada entre los 60 y los 72 años, con aportes computados sobre la jornada entera. La abre solo quien la usa y no mueve ninguna edad jubilatoria.",
+      "seccion": "7.1",
+      "linea": 643,
+      "cita": "La Rampa de Salida convierte esa frontera en doce años."
+    },
+    {
+      "nombre": "Casa de Dos Edades",
+      "alias": [
+        "Casa de Dos Edades"
+      ],
+      "tipo": "programa",
+      "que_es": "Registro y control del arreglo entre una persona mayor sola y una joven sin vivienda: presencia a cambio de techo. No es un Pacto de Cuidado y el conviviente tiene prohibiciones patrimoniales absolutas.",
+      "seccion": "7.2",
+      "linea": 655,
+      "cita": "La Casa de Dos Edades registra ese arreglo, le pone reglas y lo controla."
+    },
+    {
+      "nombre": "Casa de Arco",
+      "alias": [
+        "Casa de Arco"
+      ],
+      "tipo": "programa",
+      "que_es": "Casa de barrio con catorce personas mayores, personal permanente de noche y puertas abiertas de día, entre el centro de día y el geriátrico.",
+      "seccion": "7.3",
+      "linea": 667,
+      "cita": "La Casa de Arco es lo del medio: catorce personas mayores viviendo juntas"
+    },
+    {
+      "nombre": "La Última Palabra",
+      "alias": [
+        "Última Palabra"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Acto declarado y siempre revocable donde la persona dice qué se hace con su cuerpo y quién decide por ella. Se registra donde se registra la muerte y no nombra prestadores.",
+      "seccion": "7.4",
+      "linea": 679,
+      "cita": "Un acto declarado, a cualquier edad, revocable siempre"
+    },
+    {
+      "nombre": "El Año del Duelo",
+      "alias": [
+        "Año del Duelo"
+      ],
+      "tipo": "programa",
+      "que_es": "Doce meses desde la muerte registrada en los que un Acompañante de Umbral debe presentarse tres veces en la casa. No liquida plata ni es terapia.",
+      "seccion": "7.5",
+      "linea": 693,
+      "cita": "Doce meses desde la muerte, abiertos por el hecho registrado"
+    },
+    {
+      "nombre": "Acompañante de Umbral",
+      "alias": [
+        "Acompañante de Umbral"
+      ],
+      "tipo": "figura",
+      "que_es": "Persona con nombre y deber de presentarse en la casa de quien murió. No puede ser apoderado, beneficiario, heredero designado ni intermediario de prestadores.",
+      "seccion": "7.5",
+      "linea": 693,
+      "cita": "debe presentarse en la casa donde alguien murió"
+    },
+    {
+      "nombre": "Umbral del Legado",
+      "alias": [
+        "Umbral del Legado"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Disparador único, la muerte registrada, para el tramo del cuerpo (PLANEB) y el del patrimonio (PLANJUS). Abre la sucesión sin que la familia pague la entrada.",
+      "seccion": "7.6",
+      "linea": 707,
+      "cita": "El Umbral del Legado junta las dos puntas de lo que una persona deja"
+    },
+    {
+      "nombre": "Capa de Renta y Capa de Forma",
+      "alias": [
+        "Capa de Forma",
+        "Capa de Renta"
+      ],
+      "tipo": "termino",
+      "que_es": "Partición del PLAN: la Capa de Renta es el haber del último tramo, defendido por su padrón; la Capa de Forma es el Calendario y lo que lo habita, sin padrón el día del recorte.",
+      "seccion": "3.6",
+      "linea": 359,
+      "cita": "no tiene padrón el día del recorte."
+    },
+    {
+      "nombre": "Razón de ejecución",
+      "alias": [
+        "razón de ejecución"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Regla en la ley de la renta: el gasto ejecutado de la Capa de Forma no puede caer bajo una proporción del de la Capa de Renta. Se fija en uno a veinte en la Sección 9.",
+      "seccion": "3.6",
+      "linea": 371,
+      "cita": "**Uno. La razón de ejecución, en la misma ley que crea la renta.**"
+    },
+    {
+      "nombre": "Tablero Nacional del Arco",
+      "alias": [
+        "Tablero Nacional del Arco"
+      ],
+      "tipo": "metrica",
+      "que_es": "Tablero que publica por estación cuánta gente llegó y a cuánta se atendió; la brecha entre ambas series es el indicador de vaciamiento. Lo publica la ANAV.",
+      "seccion": "13",
+      "linea": 373,
+      "cita": "El Tablero Nacional del Arco publica, mes a mes y estación por estación"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Regla de Arco",
+      "alias": [
+        "Regla de Arco"
+      ],
+      "origen": "PLANPACTO",
+      "para_que": "Árbitro de nivel que reparte el gasto entre edades: la materia decide el escalón y el arco decide adentro del escalón. PLANARCO no escribe regla propia.",
+      "linea": 329,
+      "cita": "es la Regla de Arco de `PLANPACTO §4.7`"
+    },
+    {
+      "nombre": "Ley de Escalera de Garantías",
+      "alias": [
+        "Escalera de Garantías"
+      ],
+      "origen": "PLANPACTO",
+      "para_que": "Ley donde cada escalón declara cómo reparte lo que conserva entre inicio, medio y final del arco, contra la lista del Calendario.",
+      "linea": 335,
+      "cita": "declarar en la Ley de Escalera de Garantías"
+    },
+    {
+      "nombre": "Fondo Soberano Ciudadano",
+      "alias": [
+        "Fondo Soberano Ciudadano",
+        "ANTSPO"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Fondo del que colgaría el Tramo Común; PLANARCO lo declara el mismo que el Fondo Soberano Bastardo de PLANMON y no puede financiarse con él.",
+      "linea": 447,
+      "cita": "crea el **Fondo Soberano Ciudadano**"
+    },
+    {
+      "nombre": "Fondo Intergeneracional",
+      "alias": [
+        "Fondo Intergeneracional"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Línea del fondo que parecía fuente de la Dote; PLANARCO renuncia a reclamarla por ser reserva de preservación y contingencia.",
+      "linea": 524,
+      "cita": "financiaba la Dote con el Fondo Intergeneracional"
+    },
+    {
+      "nombre": "Dividendo Ciudadano Mensual",
+      "alias": [
+        "Dividendo Ciudadano Mensual"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Pago universal desde los 18 años que aterriza sobre la misma persona de 65; su monto se computa contra el Piso Vital.",
+      "linea": 413,
+      "cita": "El **Dividendo Ciudadano Mensual** de `PLANTER:375-376`"
+    },
+    {
+      "nombre": "Dividendo Nacional de Productividad",
+      "alias": [
+        "Dividendo Nacional de Productividad"
+      ],
+      "origen": "PLANREP",
+      "para_que": "Pago universal que complementa el haber mínimo; la regla de absorción del Piso Vital computa su monto el día que exista.",
+      "linea": 413,
+      "cita": "El **Dividendo Nacional de Productividad** de `PLANREP §15.3`"
+    },
+    {
+      "nombre": "Mandato Kilométrico Ciudadano",
+      "alias": [
+        "Mandato Kilométrico"
+      ],
+      "origen": "PLANMOV",
+      "para_que": "Cupo de kilómetros contra el que se descuentan los viajes del Pasaje donde esté vigente; está diferido.",
+      "linea": 590,
+      "cita": "crea el **Mandato Kilométrico Ciudadano**"
+    },
+    {
+      "nombre": "Bastón Memorial",
+      "alias": [
+        "Bastón Memorial"
+      ],
+      "origen": "PLANMEMORIA",
+      "para_que": "Rito de los 12 años que el primer viaje del Pasaje acompaña sin rediseñarlo.",
+      "linea": 596,
+      "cita": "Acompaña el Bastón Memorial de `PLANMEMORIA §3.6`"
+    },
+    {
+      "nombre": "Testimonio de los 60",
+      "alias": [
+        "Testimonio de los 60"
+      ],
+      "origen": "PLANMEMORIA",
+      "para_que": "Acto voluntario que el cuarto viaje del Pasaje acompaña; ya trae compensación propia de un mes de jubilación mínima.",
+      "linea": 599,
+      "cita": "Acompaña el Testimonio de los 60 de `PLANMEMORIA:310`"
+    },
+    {
+      "nombre": "Centros de Vitalidad",
+      "alias": [
+        "Centros de Vitalidad",
+        "Centro de Vitalidad"
+      ],
+      "origen": "PLANSAL",
+      "para_que": "Unidades barriales que la ANAV cita para el chequeo del Alto, la Rampa y la Casa de Arco; no se les puede firmar un contrato desde arriba.",
+      "linea": 613,
+      "cita": "El chequeo lo hace el Centro de Vitalidad de `PLANSAL`"
+    },
+    {
+      "nombre": "Ancianos de Sabiduría",
+      "alias": [
+        "Ancianos de Sabiduría"
+      ],
+      "origen": "PLANSAL",
+      "para_que": "Rol de transmisión de mayores de 65; PLANARCO no estrena un tercer rol y deja su caja donde está.",
+      "linea": 162,
+      "cita": "`PLANSAL §9.3` creó a los **Ancianos de Sabiduría**"
+    },
+    {
+      "nombre": "Granaderos",
+      "alias": [
+        "Granaderos"
+      ],
+      "origen": "PLANCUL",
+      "para_que": "Rol de transmisión cuya caja dependía de PLANJUB, que no existió; la Rampa y el Piso Vital le dan domicilio.",
+      "linea": 162,
+      "cita": "PLANCUL creó a los **Granaderos**"
+    },
+    {
+      "nombre": "Identidad Digital Soberana",
+      "alias": [
+        "Identidad Digital Soberana"
+      ],
+      "origen": "PLANDIG",
+      "para_que": "Credencial emitida al nacer sobre la que opera el Acta de Bienvenida; el Acta no emite credenciales.",
+      "linea": 572,
+      "cita": "una **Identidad Digital Soberana**"
+    },
+    {
+      "nombre": "Pacto de Cuidado",
+      "alias": [
+        "Pacto de Cuidado"
+      ],
+      "origen": "PLANCUIDADO",
+      "para_que": "Registro de vínculos de cuidado, incluido el Compadrazgo que el Acta reutiliza; la Casa de Dos Edades queda expresamente afuera de él.",
+      "linea": 315,
+      "cita": "el Pacto de Cuidado de `PLANCUIDADO §3.1`"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Presupuesto canónico del PLAN a quince años (erogación bruta)",
+      "valor": "USD 53.000–96.000M a quince años",
+      "tipo": "presupuesto",
+      "linea": 11,
+      "cita": "USD 53.000–96.000M a quince años"
+    },
+    {
+      "concepto": "Gasto anual en régimen derivado de la banda",
+      "valor": "USD 6.000–10.900M por año",
+      "tipo": "presupuesto",
+      "linea": 806,
+      "cita": "**USD 6.000–10.900M** por año en régimen"
+    },
+    {
+      "concepto": "Años-régimen acumulados en quince años (suma de la rampa de ejecución)",
+      "valor": "8,80 años-régimen; el régimen se alcanza en el año once",
+      "tipo": "parametro",
+      "linea": 802,
+      "cita": "su suma da **8,80**"
+    },
+    {
+      "concepto": "Erogación bruta anual como porcentaje del PBI de referencia",
+      "valor": "1,20–2,18% del PBI",
+      "tipo": "parametro",
+      "linea": 822,
+      "cita": "da **1,20–2,18%** del PBI"
+    },
+    {
+      "concepto": "Afectaciones específicas (F) de la prueba por el absurdo de PLANPACTO tras devolver el eje intergeneracional en cero",
+      "valor": "F pasa de 4,65 a 4,05 puntos del producto",
+      "tipo": "parametro",
+      "linea": 818,
+      "cita": "F pasa de 4,65 a **4,05**"
+    },
+    {
+      "concepto": "Reconocimiento previsional del cuidado que el Tramo Ganado no duplica",
+      "valor": "USD 1.800–2.400M por año",
+      "tipo": "presupuesto",
+      "linea": 435,
+      "cita": "con banda de USD 1.800–2.400M"
+    },
+    {
+      "concepto": "Edad de apertura del Piso Vital Universal",
+      "valor": "65 años",
+      "tipo": "parametro",
+      "linea": 304,
+      "cita": "El piso | 65 años | Renta de Arco"
+    },
+    {
+      "concepto": "Ventana de la Rampa de Salida",
+      "valor": "entre los 60 y los 72 años (doce años)",
+      "tipo": "parametro",
+      "linea": 303,
+      "cita": "La rampa | 60 a 72 años | Rampa de Salida 60–72"
+    },
+    {
+      "concepto": "Edades de los cuatro viajes del Pasaje",
+      "valor": "12, 18, 45 y 60 años",
+      "tipo": "plazo",
+      "linea": 39,
+      "cita": "El Pasaje: cuatro viajes a los 12, 18, 45 y 60"
+    },
+    {
+      "concepto": "Monto bajo administración de la ANAV (derivado de PLANMON y del presupuesto consolidado)",
+      "valor": "~USD 67.500M por año",
+      "tipo": "diagnostico",
+      "linea": 737,
+      "cita": "**~USD 67.500M por año**"
+    },
+    {
+      "concepto": "Cocientes del gate de spin-off que el PLAN no superó",
+      "valor": "1,77–2,13x contra PLANCUIDADO; 8,83–16,00x contra PLANSAL; 1,47–1,88x contra ambos sumados, con umbral de 1,5",
+      "tipo": "diagnostico",
+      "linea": 5,
+      "cita": "1,77–2,13x contra PLANCUIDADO y 8,83–16,00x contra PLANSAL"
+    },
+    {
+      "concepto": "Frecuencia de control de la Casa de Dos Edades",
+      "valor": "cada 60 días durante el primer año",
+      "tipo": "parametro",
+      "linea": 663,
+      "cita": "se controla cada 60 días durante el primer año"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANCUIDADO",
+      "que": "Aporta la fórmula del Tramo Ganado (un año de cuidado por un año aportado) y su validador; la ANAV liquida lo que la ANCV valida.",
+      "linea": 433,
+      "cita": "`PLANCUIDADO:340` ya lo escribió"
+    },
+    {
+      "con": "PLANMON",
+      "que": "Aporta la capa previsional; manda el índice de la moneda en que se paga el haber, peso-canasta cuando sea Pulso.",
+      "linea": 765,
+      "cita": "aporta la capa previsional y el índice que reemplaza al de este PLAN"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Dueño del fondo del que colgaría el Tramo Común y de la línea del Fondo Intergeneracional que PLANARCO declina; además libera la Dote a los 18 con su dividendo.",
+      "linea": 767,
+      "cita": "aporta el fondo del que cuelga el Tramo Común"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Debe hacer llegar el hecho registrado (nacimiento, muerte, edad) para que cada estación se abra sin que nadie lo tipee; es el punto único de falla.",
+      "linea": 769,
+      "cita": "una estación que se abre sola necesita que el hecho registrado llegue sin que nadie lo tipee"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Aporta los primeros mil días, la licencia parental con números y los Centros de Vitalidad que la ANAV cita; sin él el Umbral de la Llegada queda vacío.",
+      "linea": 771,
+      "cita": "aporta los primeros mil días, la licencia parental con números"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Su Dividendo Nacional de Productividad se computa contra el Piso Vital; su Banco de Tiempo se redime en horas y no en aportes.",
+      "linea": 773,
+      "cita": "aporta el Dividendo Nacional de Productividad, contra el cual corre la regla de absorción"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "Entrega la Regla de Arco y el árbitro de nivel, la ubicación en Techo A y las clases del libro mayor; recibe el Calendario como lista contra la cual cada escalón declara su reparto.",
+      "linea": 757,
+      "cita": "PLANPACTO es el par recíproco"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "El Pasaje convoca sus ritos de los 12 y de los 60 años sin rediseñarlos y pone el viaje que su ceremonia escolar no puede poner.",
+      "linea": 321,
+      "cita": "El Pasaje no duplica a PLANMEMORIA: lo convoca."
+    },
+    {
+      "con": "PLANMOV",
+      "que": "El Fondo de Reconversión Móvil es el precedente del instrumento que sostiene aportes en la Rampa; el Mandato Kilométrico se descuenta de los viajes del Pasaje.",
+      "linea": 649,
+      "cita": "el Fondo de Reconversión Móvil de `PLANMOV §3.11` sostiene los aportes previsionales"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Aporta el procedimiento de sucesiones complejas en panel; el Umbral del Legado solo agrega el disparador, la muerte inscripta.",
+      "linea": 713,
+      "cita": "`PLANJUS:637` ya tiene el procedimiento y es serio"
+    },
+    {
+      "con": "PLANEB",
+      "que": "La Bastarda del Adiós resuelve el tramo del cuerpo del Umbral del Legado; la Última Palabra le llega escrita.",
+      "linea": 711,
+      "cita": "El tramo del cuerpo toma lo que `PLANEB §9.10` ya resolvió"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "El Granadero ocupa la rampa y su caja dependía de PLANJUB; el Piso Vital y la Rampa le dan domicilio de ingreso.",
+      "linea": 323,
+      "cita": "En la rampa queda `PLANCUL §5.2`"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "PLANCUL",
+      "que": "PLANCUL cita seis veces a PLANJUB, un PLAN sin documento, ordinal ni presupuesto, y define al Granadero con él; PLANARCO se declara sucesor y deja la corrección en PLANCUL.",
+      "linea": 777,
+      "cita": "El primero es **PLANJUB**, que nunca existió"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "PLANSAL escribe dos veces, con números distintos, la licencia del co-progenitor (3 meses contra 30 días); PLANARCO remite a la sección específica y deja la discrepancia a ese PLAN.",
+      "linea": 562,
+      "cita": "`PLANSAL` escribe el número del co-progenitor dos veces y distinto"
+    },
+    {
+      "con": "PLANMON",
+      "que": "PLANMON propone pagar jubilaciones en Pulso indexadas al peso-canasta, mientras PLANARCO exige movilidad automática propia; dos indexaciones para el mismo haber que nadie jerarquizó.",
+      "linea": 140,
+      "cita": "Dos documentos, un mismo haber, dos indexaciones que nadie jerarquizó."
+    },
+    {
+      "con": "PLANTER",
+      "que": "Declara que el Fondo Soberano Bastardo de PLANMON y el Fondo Soberano Ciudadano de PLANTER son un solo fondo, y retira el nombre «Bastardo» usado por PLANMON, PLANEN y PLANEB.",
+      "linea": 449,
+      "cita": "se trata de un solo fondo con dos nombres"
+    },
+    {
+      "con": "interno",
+      "que": "El PLAN admite que su número más frágil es el 8,80 de la rampa de ejecución, calibrado para que la cuenta cerrara contra la banda heredada del gate.",
+      "linea": 868,
+      "cita": "El número más frágil del documento no es ninguno de los ajenos: es el 8,80."
+    },
+    {
+      "con": "interno",
+      "que": "El PLAN declara que no superó el gate que habilita a los PLANes nuevos y que existe por derogación expresa de reglas del acta de habilitación.",
+      "linea": 88,
+      "cita": "este PLAN no superó el gate que habilita a los PLANes nuevos"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "El incremental neto del PLAN no puede escribirse mientras nadie cuente cuántos de los mayores de 65 llegaron por la vía de excepción.",
+      "linea": 839,
+      "cita": "el incremental neto de este PLAN no se puede escribir"
+    },
+    {
+      "que": "El Tramo Común queda sin fuente: se abre cuando el fondo publique rendimiento realizado y su administrador acepte la afectación previsional.",
+      "linea": 473,
+      "cita": "**declarado y no financiado**"
+    },
+    {
+      "que": "No se fija cuántas canastas básicas es la Dote de Origen: no hay costeo contra una serie de nacimientos.",
+      "linea": 520,
+      "cita": "Cuántas canastas son no se escribe en este documento"
+    },
+    {
+      "que": "No está calculado si una empresa puede sostener a la vez la jornada 6+2 de PLANCUIDADO y el Alto; ninguno de los dos PLANes lo modeló.",
+      "linea": 631,
+      "cita": "Lo que este documento no resuelve, y no va a fingir que sí."
+    },
+    {
+      "que": "La refundación del PAMI queda fuera del PLAN, como hueco de gobierno con dueño en la materia salud y sin fecha.",
+      "linea": 751,
+      "cita": "la refundación del PAMI queda fuera de este PLAN"
+    }
+  ]
+}

@@ -1,0 +1,557 @@
+{
+  "code": "PLANMON",
+  "nombre": "Plan Nacional de Soberanía Monetaria y Arquitectura Financiera",
+  "version": "1.0 — Marzo 2026",
+  "tesis": "Reemplazar la emisión discrecional del Banco Central por un protocolo codificado: El Pulso, un peso-canasta digital referenciado a commodities argentinas, anti-confiscatorio por diseño, custodiado por la ANMON, que desdolariza por obsolescencia voluntaria y no por decreto.",
+  "problema": "Según el documento, el Estado monopoliza la emisión y la usa para financiar déficits, el BCRA carece de independencia real, la economía es bimonetaria y hubo cinco monedas y cinco confiscaciones en medio siglo. La inflación es multisistémica: fiscal, oligopólica, inercial, externa y psicológica.",
+  "resumen": "Propone el peso-canasta, una unidad referenciada a una canasta ponderada de commodities, y su formato digital El Pulso, emitido por el Protocolo Monetario Bastardo sobre wallets soberanas con privacidad por pruebas de conocimiento cero. La ANMON custodia el protocolo sin poder emitir; un Panel Ciudadano Monetario por sorteo decide canasta y reglas. Suma el Fondo Soberano Bastardo con regla de gasto del 3%, deuda justa, desdolarización en fases, integración cripto, formalización de la economía informal, repatriación de capital, protocolos de falla y un camino legal en tres fases.",
+  "horizonte": "Hoja de ruta de 15 años: testnet en el año 0, piloto en el año 1, desdolarización en cuatro fases hasta el año 20, ley marco entre los años 3 y 7, reforma constitucional como visión 2040.",
+  "financiamiento": "No pide presupuesto operativo en las primeras tranches. El Fondo Soberano Bastardo se capitaliza con regalías, PLANSUS, margen de la Bastarda Financiera, Contribución de Soberanía, recupero de evasión y capital repatriado: USD 7.500-28.000 millones por año en el año 5.",
+  "temas": ["moneda-finanzas", "fiscal-presupuesto", "digital-datos", "soberania-exterior", "estado-instituciones"],
+
+  "conceptos": [
+    {
+      "nombre": "El Pulso",
+      "alias": ["El Pulso"],
+      "tipo": "mecanismo",
+      "que_es": "Peso-canasta en formato digital nativo: moneda de red ciudadana emitida por protocolo, respaldada por commodities y diseñada como anti-confiscatoria. No es CBDC ni criptomoneda especulativa.",
+      "seccion": "5.2",
+      "linea": 654,
+      "cita": "El Pulso es el peso-canasta en su formato digital nativo"
+    },
+    {
+      "nombre": "Peso-canasta",
+      "alias": ["peso-canasta", "Peso-canasta"],
+      "tipo": "termino",
+      "que_es": "Unidad de cuenta referenciada a una canasta ponderada de commodities que Argentina produce. No es convertible: es verificable. Reemplaza la UC de PLANEB y la Unidad Ciudad de PLAN24CN.",
+      "seccion": "4.2",
+      "linea": 449,
+      "cita": "El peso-canasta está referenciado a una canasta ponderada"
+    },
+    {
+      "nombre": "Protocolo Monetario Bastardo",
+      "alias": ["Protocolo Monetario Bastardo", "PMB"],
+      "tipo": "mecanismo",
+      "que_es": "Capa de consenso y emisión del Pulso: reglas en smart contracts que crean y destruyen Pulsos, fijan la canasta y estabilizan. Opera en blockchain permisionada con validadores.",
+      "seccion": "5.3",
+      "linea": 728,
+      "cita": "Capa 1 — Protocolo Monetario Bastardo (PMB):"
+    },
+    {
+      "nombre": "ANMON",
+      "alias": ["ANMON"],
+      "tipo": "institucion",
+      "que_es": "Agencia Nacional de Estabilidad Monetaria. Custodia el protocolo, propone ajustes a la canasta, publica el Tablero y coordina validadores. No puede emitir, fijar tasas ni financiar al gobierno.",
+      "seccion": "14",
+      "linea": 1851,
+      "cita": "ANMON — AGENCIA NACIONAL DE ESTABILIDAD MONETARIA"
+    },
+    {
+      "nombre": "Fondo Soberano Bastardo",
+      "alias": ["Fondo Soberano Bastardo"],
+      "tipo": "fondo",
+      "que_es": "Ahorro intergeneracional capitalizado con regalías, PLANSUS, Bastarda Financiera y capital repatriado. Gasta hasta el 3% del valor, con tope escalonado en crisis y directorio de nueve miembros.",
+      "seccion": "6",
+      "linea": 886,
+      "cita": "El Fondo Soberano Bastardo es la respuesta: un mecanismo de ahorro intergeneracional"
+    },
+    {
+      "nombre": "Índice Canasta Argentina",
+      "alias": ["Índice Canasta Argentina"],
+      "tipo": "metrica",
+      "que_es": "Valor en tiempo real de la canasta de commodities que respalda al peso-canasta, publicado en el Tablero Nacional con precios internacionales, producción nacional y exportaciones.",
+      "seccion": "4.3",
+      "linea": 494,
+      "cita": "**El Índice Canasta Argentina (ICA)** — publicado en tiempo real"
+    },
+    {
+      "nombre": "Tablero Nacional de Estabilidad Monetaria",
+      "alias": ["Tablero Nacional de Estabilidad Monetaria"],
+      "tipo": "metrica",
+      "que_es": "Tablero público en tiempo real con poder adquisitivo del Pulso, canasta, colateral, flujos de capital, adopción, desdolarización y rendimiento del Fondo Soberano. Lo publica la ANMON.",
+      "seccion": "14.3",
+      "linea": 1870,
+      "cita": "Publica el Tablero Nacional de Estabilidad Monetaria"
+    },
+    {
+      "nombre": "Panel Ciudadano Monetario",
+      "alias": ["Panel Ciudadano Monetario"],
+      "tipo": "institucion",
+      "que_es": "Cuerpo elegido por sorteo que decide la composición de la canasta, las reglas de gasto del Fondo, los parámetros del protocolo y la remoción de directores. No decide operación diaria ni emergencias.",
+      "seccion": "14.4.1",
+      "linea": 1895,
+      "cita": "El Panel Ciudadano Monetario — Qué Decide y Qué No"
+    },
+    {
+      "nombre": "Fondo de Estabilización",
+      "alias": ["Fondo de Estabilización"],
+      "tipo": "fondo",
+      "que_es": "Sub-fondo que interviene en el mercado secundario del Pulso para suavizar la volatilidad dentro de una banda flexible de +/-15%. Es amortiguador, no promesa de paridad fija.",
+      "seccion": "4.3",
+      "linea": 492,
+      "cita": "el **Fondo de Estabilización** interviene activamente en el mercado secundario"
+    },
+    {
+      "nombre": "Fondo de Garantía de Red",
+      "alias": ["Fondo de Garantía de Red"],
+      "tipo": "fondo",
+      "que_es": "Red de seguridad contra fallas operativas: bugs, hackeos, insolvencia de un nodo, falla de custodia o pausa de emergencia. Se capitaliza con parte del Fondo de Estabilización y un aporte por transacción.",
+      "seccion": "5.2",
+      "linea": 664,
+      "cita": "el Fondo de Garantía de Red compensa automáticamente cualquier pérdida demostrable"
+    },
+    {
+      "nombre": "Dividendo del Pulso",
+      "alias": ["Dividendo del Pulso"],
+      "tipo": "programa",
+      "que_es": "Pago anual a cada usuario activo de la Red del Pulso, equivalente al 30% del gasto permitido del Fondo Soberano. Crea alianza ciudadana con el Fondo, al modo del dividendo de Alaska.",
+      "seccion": "6.6",
+      "linea": 986,
+      "cita": "como **Dividendo del Pulso** — un pago directo a cada usuario activo"
+    },
+    {
+      "nombre": "Demurrage",
+      "alias": ["demurrage", "Demurrage"],
+      "tipo": "mecanismo",
+      "que_es": "Oxidación suave sobre saldos atesorados excesivos e inmóviles; no alcanza al ahorro normal. Lo recaudado financia microcréditos y actúa como contracción en períodos de baja productiva.",
+      "seccion": "5.4",
+      "linea": 812,
+      "cita": "**Demurrage suave para saldos atesorados excesivos.**"
+    },
+    {
+      "nombre": "Wallet soberana",
+      "alias": ["wallet soberana", "wallets soberanas"],
+      "tipo": "mecanismo",
+      "que_es": "Billetera controlada solo por su titular mediante claves privadas. Sin punto central de bloqueo; solo se embarga por resolución judicial individualizada ejecutada on-chain.",
+      "seccion": "5.2",
+      "linea": 662,
+      "cita": "El Pulso opera en **wallets soberanas** — no en cuentas bancarias."
+    },
+    {
+      "nombre": "Wallet comercial",
+      "alias": ["wallet comercial", "Wallet Comercial", "wallets comerciales"],
+      "tipo": "mecanismo",
+      "que_es": "Wallet opt-in para comercios: sus transacciones entrantes tributan 2-5% de forma automática y dan acceso a crédito, seguro y red de proveedores de la Red Bastarda, con aporte previsional.",
+      "seccion": "5.2B",
+      "linea": 700,
+      "cita": "**Wallet Comercial:** Opt-in."
+    },
+    {
+      "nombre": "Red del Pulso",
+      "alias": ["Red del Pulso"],
+      "tipo": "mecanismo",
+      "que_es": "Capa 2 de transacciones del Pulso: alta velocidad y bajo costo, sobre los rieles del SAPI y puentes cross-chain. Incluye wallets, puntos de acceso físicos y nodos validadores.",
+      "seccion": "5.3",
+      "linea": 753,
+      "cita": "**Capa 2 — Red del Pulso:**"
+    },
+    {
+      "nombre": "Fondo Previsional Bastardo",
+      "alias": ["Fondo Previsional Bastardo"],
+      "tipo": "fondo",
+      "que_es": "Sub-fondo previsional alimentado con una porción del rendimiento del Fondo Soberano, como tercer pilar que complementa el sistema de reparto sin reemplazarlo.",
+      "seccion": "11.6",
+      "linea": 1561,
+      "cita": "el **Fondo Previsional Bastardo.** Una porción del rendimiento anual"
+    },
+    {
+      "nombre": "Fondo de Crédito Productivo",
+      "alias": ["Fondo de Crédito Productivo"],
+      "tipo": "fondo",
+      "que_es": "Pool separado de los depósitos que financia el crédito de la Bastarda Financiera, con aportes del Fondo Soberano, margen operativo y líneas de los PLANes. Absorbe las pérdidas por incobrables.",
+      "seccion": "9.3",
+      "linea": 1223,
+      "cita": "se financia con el **Fondo de Crédito Productivo** — un pool dedicado"
+    },
+    {
+      "nombre": "Fondo de Circulación Productiva",
+      "alias": ["Fondo de Circulación Productiva"],
+      "tipo": "fondo",
+      "que_es": "Receptor del demurrage recaudado; financia microcréditos al costo a través de la Bastarda Financiera.",
+      "seccion": "5.4",
+      "linea": 825,
+      "cita": "fluye al Fondo de Circulación Productiva, que financia microcréditos"
+    },
+    {
+      "nombre": "Deuda Justa",
+      "alias": ["Deuda Justa", "deuda justa"],
+      "tipo": "norma",
+      "que_es": "Marco de cinco principios: honrar la deuda legítima, auditar con panel ciudadano, repudiar la odiosa, cláusulas de PIB y emisión nueva en peso-canasta. Incluye swaps por naturaleza e infraestructura.",
+      "seccion": "7.2",
+      "linea": 1006,
+      "cita": "Propone un marco de **Deuda Justa** basado en cinco principios"
+    },
+    {
+      "nombre": "Bancor Sudamericano",
+      "alias": ["Bancor Sudamericano"],
+      "tipo": "mecanismo",
+      "que_es": "Unidad de cuenta y liquidación regional para el comercio intra-bloque: canasta de monedas del Mercosur y cámara de compensación multilateral que netea flujos.",
+      "seccion": "8.4",
+      "linea": 1159,
+      "cita": "El Bancor Sudamericano no es una moneda de circulación"
+    },
+    {
+      "nombre": "Ley de Monedas de Red Ciudadana",
+      "alias": ["Ley de Monedas de Red Ciudadana"],
+      "tipo": "norma",
+      "que_es": "Ley marco de la fase 2: reconoce el Pulso como medio de pago, crea la ANMON como ente autárquico, exime las conversiones peso/Pulso y regula wallets y PSPs.",
+      "seccion": "14B.3",
+      "linea": 1983,
+      "cita": "Ley Marco — \"Ley de Monedas de Red Ciudadana\""
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Bastarda Financiera",
+      "alias": ["Bastarda Financiera"],
+      "origen": "PLANEB",
+      "para_que": "Nodo ancla de la Red del Pulso, wallet por defecto, custodio de las reservas del Fondo y canal de crédito productivo en peso-canasta.",
+      "linea": 1191,
+      "cita": "La Bastarda Financiera (diseñada en PLANEB) elimina esa extracción"
+    },
+    {
+      "nombre": "ANEB",
+      "alias": ["ANEB"],
+      "origen": "PLANEB",
+      "para_que": "Agencia que supervisa las Bastardas; PLANMON delimita su jurisdicción frente a la ANMON y crea un comité de coordinación.",
+      "linea": 1254,
+      "cita": "la ANEB (Agencia Nacional de la Red Bastarda) son entidades separadas"
+    },
+    {
+      "nombre": "Red Bastarda",
+      "alias": ["Red Bastarda"],
+      "origen": "PLANEB",
+      "para_que": "Infraestructura antiinflacionaria de oferta que disciplina a los formadores de precios y aporta masa crítica de uso al Pulso.",
+      "linea": 277,
+      "cita": "La Red Bastarda no es solo una red de servicios al costo"
+    },
+    {
+      "nombre": "Contribución de Soberanía",
+      "alias": ["Contribución de Soberanía"],
+      "origen": "PLANEB",
+      "para_que": "Aporte del 1-2% de los ingresos brutos de las Bastardas, fuente de capitalización del Fondo Soberano Bastardo.",
+      "linea": 899,
+      "cita": "Contribución de Soberanía de la Red Bastarda (1-2% de ingresos brutos)"
+    },
+    {
+      "nombre": "Fondo de Solidaridad Bastarda",
+      "alias": ["Fondo de Solidaridad Bastarda"],
+      "origen": "PLANEB",
+      "para_que": "Destino del 3-5% de ingresos de la Bastarda Financiera; también respuesta ante su falla operativa.",
+      "linea": 1191,
+      "cita": "un 3-5% al Fondo de Solidaridad Bastarda"
+    },
+    {
+      "nombre": "Unidad de Cuenta",
+      "alias": ["Unidad de Cuenta"],
+      "origen": "PLANEB",
+      "para_que": "Unidad interna con que las Empresas Bastardas denominan costos y precios; PLANMON la unifica con el peso-canasta.",
+      "linea": 540,
+      "cita": "las Empresas Bastardas ya operan con una \"Unidad de Cuenta\" interna"
+    },
+    {
+      "nombre": "Unidad Ciudad",
+      "alias": ["Unidad Ciudad"],
+      "origen": "PLAN24CN",
+      "para_que": "Unidad de contratos de desarrollo urbano de las ciudades nuevas; se convierte en peso-canasta.",
+      "linea": 540,
+      "cita": "las ciudades nuevas usan la \"Unidad Ciudad\" para contratos de desarrollo urbano"
+    },
+    {
+      "nombre": "SAPI",
+      "alias": ["SAPI"],
+      "origen": "PLANDIG",
+      "para_que": "Riel de pagos doméstico sobre el que corre la Red del Pulso; sus nodos comunitarios validan transacciones.",
+      "linea": 692,
+      "cita": "El SAPI (Sistema Argentino de Pagos Instantáneos — PLANDIG)"
+    },
+    {
+      "nombre": "Casas JUS",
+      "alias": ["Casas JUS"],
+      "origen": "PLANJUS",
+      "para_que": "Puntos de acceso físico al Pulso para usuarios sin smartphone.",
+      "linea": 674,
+      "cita": "Casas JUS (PLANJUS), los Centros de la Vida (PLANREP)"
+    },
+    {
+      "nombre": "Sala Financiera de JUS",
+      "alias": ["Sala Financiera de JUS"],
+      "origen": "PLANJUS",
+      "para_que": "Arbitra disputas on-chain del Pulso y del Fondo Soberano con enforcement automatizado.",
+      "linea": 2223,
+      "cita": "Sala Financiera de JUS arbitra disputas on-chain del Pulso"
+    },
+    {
+      "nombre": "Fondo Soberano Ciudadano",
+      "alias": ["Fondo Soberano Ciudadano", "FSC"],
+      "origen": "PLANTER",
+      "para_que": "El apartado de integración lo cita como palanca territorial y macro de la soberanía monetaria y destino de regalías.",
+      "linea": 2225,
+      "cita": "El Dividendo del Suelo y el FSC son la palanca territorial"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Banda de intervención del Fondo de Estabilización",
+      "valor": "+/-15%, ampliable temporalmente a +/-20% o +/-25%",
+      "tipo": "parametro",
+      "linea": 492,
+      "cita": "dentro de una banda de +/-15%"
+    },
+    {
+      "concepto": "Ponderación base del peso-canasta",
+      "valor": "Soja y derivados 18%, gas natural 12%, maíz 10%, petróleo 10%, economía del conocimiento 10%, carne 8%, litio 8%, trigo 7%, carbono 5%, renovables 5%, vino 4%, minerales 3% (total 100%)",
+      "tipo": "parametro",
+      "linea": 455,
+      "cita": "Soja y derivados | 18%"
+    },
+    {
+      "concepto": "Cambio de reglas de emisión",
+      "valor": "Mínimo 6 meses: comentarios de 60 días, 75% de validadores, enfriamiento de 90 días",
+      "tipo": "parametro",
+      "linea": 658,
+      "cita": "supermayoría de 75% de validadores de la red + período de enfriamiento de 90 días"
+    },
+    {
+      "concepto": "Regla de gasto normal del Fondo Soberano",
+      "valor": "Hasta 3% del valor total, promedio de 3 años",
+      "tipo": "parametro",
+      "linea": 914,
+      "cita": "Se puede gastar hasta el **3% del valor total del Fondo**"
+    },
+    {
+      "concepto": "Destino del gasto permitido del Fondo",
+      "valor": "40% estabilización, 30% inversión productiva, 30% Dividendo del Pulso",
+      "tipo": "parametro",
+      "linea": 918,
+      "cita": "40% para estabilización monetaria"
+    },
+    {
+      "concepto": "Topes de gasto en crisis",
+      "valor": "Crisis moderada 5%; crisis severa 8% con cláusula de caducidad",
+      "tipo": "parametro",
+      "linea": 941,
+      "cita": "Crisis moderada: 5%. Crisis severa: 8% (con sunset)"
+    },
+    {
+      "concepto": "Capitalización anual del Fondo Soberano en el año 5",
+      "valor": "USD 7.500-28.000 millones",
+      "tipo": "fuente",
+      "linea": 903,
+      "cita": "**Total estimado (año 5)** | **7.500-28.000**"
+    },
+    {
+      "concepto": "Tamaño objetivo del Fondo a 10 años",
+      "valor": "Más de USD 100 mil millones",
+      "tipo": "meta",
+      "linea": 908,
+      "cita": "en 10 años el Fondo acumularía más de USD 100 mil millones"
+    },
+    {
+      "concepto": "Demurrage sobre saldo mayor a 10 veces el salario mediano",
+      "valor": "2,5% anual tras 12 meses inmóvil; 3,5% tras 24 meses; 0% hasta 5x; 1% entre 5x y 10x",
+      "tipo": "parametro",
+      "linea": 822,
+      "cita": "| >10x | >12 meses | 2,5% |"
+    },
+    {
+      "concepto": "Tributación automática de wallet comercial",
+      "valor": "2-5% según categoría sobre transacciones entrantes",
+      "tipo": "parametro",
+      "linea": 700,
+      "cita": "(2-5% según categoría)"
+    },
+    {
+      "concepto": "Límites de transacciones offline",
+      "valor": "500 Pulsos por transacción, 2.000 acumulados, sincronización en 48 horas",
+      "tipo": "parametro",
+      "linea": 678,
+      "cita": "máximo de 500 Pulsos por transacción y 2.000 Pulsos acumulados sin sincronizar"
+    },
+    {
+      "concepto": "Aporte al Fondo de Garantía de Red",
+      "valor": "5% del Fondo de Estabilización más 0,1% de cada transacción comercial",
+      "tipo": "fuente",
+      "linea": 1248,
+      "cita": "más un aporte del 0,1% de cada transacción comercial"
+    },
+    {
+      "concepto": "Meta de usuarios en la fase 0 de desdolarización",
+      "valor": "500.000-2.000.000 usuarios activos en los años 0-3",
+      "tipo": "meta",
+      "linea": 1119,
+      "cita": "500.000-2.000.000 usuarios activos"
+    },
+    {
+      "concepto": "Dolarización de depósitos a partir del año 15",
+      "valor": "Menos de 20%, desde ~70% actual",
+      "tipo": "meta",
+      "linea": 1123,
+      "cita": "Dolarización de depósitos | <20% (desde ~70% actual)"
+    },
+    {
+      "concepto": "Impuesto a transacciones domésticas en dólares",
+      "valor": "2-5% sobre el uso, no sobre la tenencia",
+      "tipo": "parametro",
+      "linea": 1131,
+      "cita": "la transacción paga un impuesto del 2-5%"
+    },
+    {
+      "concepto": "Capital repatriado acumulado al año 10",
+      "valor": "USD 25.000M-80.000M",
+      "tipo": "meta",
+      "linea": 1625,
+      "cita": "USD 25.000M-80.000M para el año 10"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANEB",
+      "que": "La Bastarda Financiera es nodo ancla, custodio de reservas y canal de crédito; la Red Bastarda aporta masa crítica y la Contribución de Soberanía capitaliza el Fondo.",
+      "linea": 2170,
+      "cita": "Bastarda Financiera = nodo ancla del Pulso"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "El SAPI es el riel de pagos y los nodos comunitarios son validadores del protocolo; recibe incentivos en Pulso.",
+      "linea": 2174,
+      "cita": "SAPI = riel de pagos del Pulso"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Resuelve disputas financieras, ejecuta embargos judiciales on-chain y sus Casas JUS son puntos de acceso físico.",
+      "linea": 2177,
+      "cita": "Embargo judicial on-chain vía protocolo JUS"
+    },
+    {
+      "con": "PLANEN",
+      "que": "Aporta commodities energéticas a la canasta, datos de producción y regalías que capitalizan el Fondo Soberano.",
+      "linea": 896,
+      "cita": "Regalías de commodities (litio, gas, petróleo) | 2.000-5.000"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "Los ingresos del mercado regulado de sustancias capitalizan el Fondo Soberano.",
+      "linea": 897,
+      "cita": "Ingresos del mercado regulado de sustancias | 2.000-8.000 (año 5)"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Entrega datos de producción agrícola a la canasta y recibe crédito agrícola en Pulso.",
+      "linea": 2172,
+      "cita": "Datos de producción agrícola → canasta del peso-canasta"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Reconversión laboral de empleados bancarios, crédito de reconversión en Pulso y exportación de servicios como divisas.",
+      "linea": 1331,
+      "cita": "PLANREP (reconversión productiva) gestiona la transición"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Las ciudades nuevas operan en Pulso como laboratorio de economía desdolarizada y reciben inversión del Fondo.",
+      "linea": 2175,
+      "cita": "Ciudades operan 100% en Pulso"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "El peso-canasta denomina el Crédito Hipotecario Bastardo; PLANVIV construye las viviendas.",
+      "linea": 2183,
+      "cita": "Crédito Hipotecario Bastardo en peso-canasta"
+    },
+    {
+      "con": "PLANGEO",
+      "que": "Peso-canasta como estándar regional para el comercio del Mercosur, base del Bancor Sudamericano.",
+      "linea": 2181,
+      "cita": "Peso-canasta regional para comercio Mercosur"
+    },
+    {
+      "con": "PLANTER",
+      "que": "El Fondo Soberano Ciudadano de PLANTER se declara palanca macro y ancla de activos reales del Fondo.",
+      "linea": 2225,
+      "cita": "El Dividendo del Suelo y el FSC son la palanca territorial"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "La Bastarda Sanitaria da cobertura al costo a usuarios de la red y opera en Pulso.",
+      "linea": 1533,
+      "cita": "La Bastarda Sanitaria (PLANSAL) provee cobertura al costo"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "Protege nodos, centros de datos y puntos de acceso, y ciberdefiende la red de pagos.",
+      "linea": 2182,
+      "cita": "Ciberdefensa de la red de pagos soberana contra ataques externos"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El tratamiento de la deuda cita cinco candados sobre el gasto de emergencia del Fondo, pero la gobernanza del Fondo describe una triple cerradura.",
+      "linea": 1051,
+      "cita": "cuyo gasto de emergencia está regulado por protocolo (5 candados)"
+    },
+    {
+      "con": "PLANEN",
+      "que": "El apartado de integración fija las regalías energéticas en USD 800M-3500M+ por año; la tabla de capitalización las estima en USD 2.000-5.000 millones.",
+      "linea": 2224,
+      "cita": "Regalías energéticas (USD 800M-3500M+/año)"
+    },
+    {
+      "con": "PLANTER",
+      "que": "El cuerpo llama Fondo Soberano Bastardo a su fondo; el apartado de integración lo llama Fondo Soberano Ciudadano, nombre del FSC de PLANTER.",
+      "linea": 2224,
+      "cita": "capitalizan el Fondo Soberano Ciudadano"
+    },
+    {
+      "con": "interno",
+      "que": "El encabezado limita el plan a laboratorio académico sin curso legal, mientras el cuerpo describe piloto, ley marco y reforma constitucional con plazos propios.",
+      "linea": 10,
+      "cita": "laboratorio académico (convenio universidades + BCRA), sin curso legal"
+    },
+    {
+      "con": "interno",
+      "que": "El demurrage recaudado va a un Fondo de Circulación Productiva, mientras el crédito de la Bastarda se financia con un Fondo de Crédito Productivo; el texto no los relaciona.",
+      "linea": 825,
+      "cita": "fluye al Fondo de Circulación Productiva, que financia microcréditos"
+    },
+    {
+      "con": "interno",
+      "que": "La nota de secuenciación llama a PLANMON undécimo mandato, un conteo que no coincide con el canon de 27 PLANes.",
+      "linea": 2160,
+      "cita": "PLANMON es el undécimo mandato en secuencia de lanzamiento"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El documento admite que no sabe si la verificabilidad on-chain basta para construir credibilidad monetaria; no hay precedente empírico.",
+      "linea": 582,
+      "cita": "¿Es suficiente? No lo sabemos."
+    },
+    {
+      "que": "La plataforma de blockchain de Capa 1 no está elegida; se decide tras prototipar Cosmos SDK, Substrate y Hyperledger Besu.",
+      "linea": 751,
+      "cita": "La decisión final entre candidatos se toma en la fase de diseño técnico detallado"
+    },
+    {
+      "que": "Admite que la menor expansión crediticia de la reserva del 100% es una apuesta sujeta a evaluación periódica del Panel Ciudadano.",
+      "linea": 1250,
+      "cita": "La apuesta de PLANMON es que la estabilidad que se gana"
+    },
+    {
+      "que": "No hay precedente exacto de un panel ciudadano por sorteo decidiendo política monetaria.",
+      "linea": 1926,
+      "cita": "No hay precedente exacto en política monetaria"
+    },
+    {
+      "que": "La reforma de la Carta Orgánica del BCRA y la reforma constitucional quedan diferidas sin fecha, condicionadas a laboratorio, coalición política y coordinación con BCRA y FMI.",
+      "linea": 2016,
+      "cita": "diferida indefinidamente"
+    }
+  ]
+}

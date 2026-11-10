@@ -1,0 +1,28 @@
+{
+  "grupo": 7,
+  "revisados": ["Economía de la Inteligencia","Gemelo Digital","Economía de la Vida","Portfolio Execution Office (PEO)","Promesa pública medible","Top-3 attack paths"],
+  "cruces": [
+    {
+      "concepto": "Economía de la Vida",
+      "tipo": "nombre",
+      "dueno": "PLANREP",
+      "lineaDueno": 316,
+      "citaDueno": "PLANREP propone algo más audaz y más duradero: la **Economía de la Vida**.",
+      "otro": "PLAN24CN",
+      "lineaOtro": 2147,
+      "citaOtro": "los que se capacitan en oficios de la Economía de la Belleza (carpintería, gastronomía, textiles, paisajismo)",
+      "que": "PLANREP llama al destino de las ocho ramas de oficios «Economía de la Vida» y no tiene ninguna «Economía de la Belleza»; PLAN24CN lo nombra «Economía de la Belleza»."
+    },
+    {
+      "concepto": "Economía de la Vida",
+      "tipo": "nombre",
+      "dueno": "PLANREP",
+      "lineaDueno": 272,
+      "citaDueno": "la **Economía de la Vida** (ocho ramas de trabajo que requieren presencia humana y resisten la automatización)",
+      "otro": "PLANISV",
+      "lineaOtro": 1291,
+      "citaOtro": "La Economía de la Belleza de PLANREP también aporta: restauradores ambientales",
+      "que": "PLANREP nombra a ese destino «Economía de la Vida»; PLANISV le atribuye a PLANREP una «Economía de la Belleza» que PLANREP no contiene."
+    }
+  ]
+}

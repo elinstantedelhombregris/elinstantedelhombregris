@@ -1,0 +1,438 @@
+{
+  "code": "PLANMESA",
+  "nombre": "Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende",
+  "version": "1.0 — Abril 2026",
+  "tesis": "La silla de la decisión pública se gana con práctica demostrada: Mesas Civiles de 9 a 25 miembros, sorteadas entre postulantes con Credencial de Materia auditable, deciden cada materia con un ciclo LDEA de cuatro fases y una Resolución vinculante.",
+  "problema": "Según el documento, la república decide sin aprender: sólo el 11% de 120 decisiones de alto impacto consultó evaluaciones previas, el 92% de 340 programas federales no tiene evaluación de impacto publicada y el 42% de las políticas estructurales se revierte con el cambio de gobierno.",
+  "resumen": "PLANMESA crea las Mesas Civiles, cuerpos de 9 a 25 miembros según la escala barrial, municipal, provincial o federal, que resuelven una materia en su territorio. La composición se sortea entre postulantes con filtros por rol (practicantes, afectados, estudiosos, ejecutores) y cupos territoriales y etarios. Cada Mesa recorre cuatro fases con entregables firmados: APRENDER, con la Consulta Ancestral al archivo de PLANMEMORIA; DISEÑAR, con dos o tres propuestas rivales; EXPERIMENTAR, con pilotos en Talleres donde los autores participan; y ANALIZAR, con una Resolución vinculante que se inyecta al Arquitecto. La AMCC administra el protocolo y no decide dentro de las Mesas.",
+  "horizonte": "Tranche-2: fundamentos 2028-2030 con seis Mesas piloto; escalamiento 2030-2032 con 40 Mesas en ocho provincias; maduración 2032-2036 con 200 a 1.200 Mesas; visión 2040 con 2.000 a 2.500 Mesas.",
+  "financiamiento": "Fase 1 con reasignación de presupuestos existentes: 30% de consultorías externas, 25% de participación redundante, 20% de ahorro por menos reversiones y 25% de agencias absorbidas. Régimen pleno estimado en USD 420-630M anuales.",
+  "temas": ["democracia-participacion", "estado-instituciones", "transicion-implementacion"],
+
+  "conceptos": [
+    {
+      "nombre": "Mesa Civil",
+      "alias": ["Mesa Civil"],
+      "tipo": "institucion",
+      "que_es": "Cuerpo deliberativo de 9 a 25 miembros, convocado por el Mandato Vivo o por petición ciudadana, que ejecuta un ciclo LDEA sobre una materia y una escala y emite una Resolución vinculante.",
+      "seccion": "3.1",
+      "linea": 344,
+      "cita": "Una Mesa Civil es un cuerpo deliberativo de entre nueve y veinticinco miembros"
+    },
+    {
+      "nombre": "Ciclo LDEA (Aprender, Diseñar, Experimentar, Analizar)",
+      "alias": ["Ciclo LDEA", "LDEA"],
+      "tipo": "mecanismo",
+      "que_es": "Cuatro fases secuenciales y obligatorias, con plazo y entregable firmado por fase: Diagnóstico Firmado, propuestas publicadas, Informes de Piloto y Resolución Vinculante.",
+      "seccion": "3.3",
+      "linea": 376,
+      "cita": "El corazón de PLANMESA es el ciclo LDEA"
+    },
+    {
+      "nombre": "Credencial de Materia",
+      "alias": ["Credencial de Materia"],
+      "tipo": "mecanismo",
+      "que_es": "Registro vivo y auditable por materia que acumula cinco capas (estudio, declaración, decisión, producción y vínculo) y decae tras doce meses sin acción documentada.",
+      "seccion": "5.1",
+      "linea": 546,
+      "cita": "Es el documento vivo del ciudadano sobre una materia específica"
+    },
+    {
+      "nombre": "Cédula Civil",
+      "alias": ["Cédula Civil"],
+      "tipo": "mecanismo",
+      "que_es": "Perfil público del ciudadano que integra sus Credenciales, servicios en Mesa, contribuciones a Talleres, Pactos de Cuidado y depósitos en memoria, sin puntaje agregado.",
+      "seccion": "5.5",
+      "linea": 648,
+      "cita": "La Cédula Civil es el perfil público del usuario en la plataforma"
+    },
+    {
+      "nombre": "Agencia de Mesa y Cédula Civil",
+      "alias": ["AMCC", "Agencia de Mesa y Cédula Civil"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico que custodia el Protocolo de Mesa, valida Credenciales, ejecuta sorteos, administra dietas y audita composición. No decide dentro de las Mesas.",
+      "seccion": "4.2",
+      "linea": 476,
+      "cita": "La AMCC es el ente autárquico que administra la infraestructura de las Mesas"
+    },
+    {
+      "nombre": "Mesa Territorial Base",
+      "alias": ["Mesa Territorial Base"],
+      "tipo": "institucion",
+      "que_es": "Unidad operativa de 9 a 15 miembros a escala barrial o municipal, que ejecuta ciclos LDEA sobre materias delimitadas por territorio.",
+      "seccion": "4.1",
+      "linea": 466,
+      "cita": "Entre 9 y 15 miembros según escala barrial o municipal"
+    },
+    {
+      "nombre": "Mesa Federal",
+      "alias": ["Mesa Federal"],
+      "tipo": "institucion",
+      "que_es": "Mesa de 21 a 25 miembros que ejecuta ciclos sobre materias nacionales, como la política monetaria coordinada con BCRA.",
+      "seccion": "4.1",
+      "linea": 470,
+      "cita": "Entre 21 y 25 miembros. Ejecuta ciclos sobre materias nacionales"
+    },
+    {
+      "nombre": "Mesa de Síntesis Intermateria",
+      "alias": ["Mesa de Síntesis Intermateria"],
+      "tipo": "institucion",
+      "que_es": "Cuerpo de 9 miembros rotativos de otras Mesas que resuelve conflictos entre Resoluciones contradictorias mediante una Resolución de Síntesis firmada por las dos Mesas.",
+      "seccion": "4.1",
+      "linea": 472,
+      "cita": "Cuerpo acotado (9 miembros) compuesto por representantes rotativos de las Mesas de otras materias"
+    },
+    {
+      "nombre": "Procedimiento de Emergencia",
+      "alias": ["Procedimiento de Emergencia", "Protocolo de Emergencia"],
+      "tipo": "mecanismo",
+      "que_es": "Ciclo LDEA comprimido para catástrofes documentadas: las cuatro fases se ejecutan en 24 días, con auditoría posterior obligatoria.",
+      "seccion": "6.5",
+      "linea": 712,
+      "cita": "Habilita un ciclo LDEA comprimido cuando concurren tres condiciones"
+    },
+    {
+      "nombre": "Consulta Ancestral",
+      "alias": ["Consulta Ancestral"],
+      "tipo": "mecanismo",
+      "que_es": "Consulta obligatoria del Archivo PLANMEMORIA al inicio de la Fase APRENDER: precedentes, capturas documentadas y depósitos relevantes, firmados en un documento de Precedentes Considerados.",
+      "seccion": "3.3",
+      "linea": 384,
+      "cita": "El sistema trae automáticamente del Archivo PLANMEMORIA"
+    },
+    {
+      "nombre": "Resolución Vinculante",
+      "alias": ["Resolución Vinculante"],
+      "tipo": "termino",
+      "que_es": "Acto firmado que cierra la Mesa: define qué propuesta escala, qué queda experimental, qué se descarta, quién responde y cuándo se revisa; se inyecta al Arquitecto.",
+      "seccion": "3.3",
+      "linea": 428,
+      "cita": "la Mesa delibera y emite **Resolución Vinculante**"
+    },
+    {
+      "nombre": "Diagnóstico Firmado",
+      "alias": ["Diagnóstico Firmado"],
+      "tipo": "termino",
+      "que_es": "Entregable público de la Fase APRENDER, con evidencia, disensos internos y preguntas abiertas que el diseño debe responder.",
+      "seccion": "3.3",
+      "linea": 392,
+      "cita": "un **Diagnóstico Firmado** público, con evidencia fundamentada"
+    },
+    {
+      "nombre": "Informe de Piloto",
+      "alias": ["Informe de Piloto"],
+      "tipo": "termino",
+      "que_es": "Entregable de la Fase EXPERIMENTAR por propuesta, con datos, hallazgos, hipótesis confirmadas y refutadas, y recomendación del equipo.",
+      "seccion": "3.3",
+      "linea": 424,
+      "cita": "un **Informe de Piloto** por propuesta con datos completos"
+    },
+    {
+      "nombre": "Caso de Mesa",
+      "alias": ["Caso de Mesa"],
+      "tipo": "termino",
+      "que_es": "Apertura formal de una Mesa, activada por el Mandato Vivo ante señales acumuladas o por petición ciudadana; tiene 21 días para completar el sorteo de composición.",
+      "seccion": "6.1",
+      "linea": 667,
+      "cita": "Un Caso de Mesa se activa por dos vías"
+    },
+    {
+      "nombre": "Sala de Deliberación",
+      "alias": ["Sala de Deliberación"],
+      "tipo": "mecanismo",
+      "que_es": "Escenario híbrido de cada Mesa: vista interna para miembros y vista pública con agenda, documentos firmados y reloj de transparencia.",
+      "seccion": "4.3",
+      "linea": 501,
+      "cita": "Cada Mesa opera en un espacio digital-físico híbrido"
+    },
+    {
+      "nombre": "Sala de Comentario Público",
+      "alias": ["Sala de Comentario Público", "Salas de Comentario"],
+      "tipo": "mecanismo",
+      "que_es": "Espacio de comentario ciudadano vinculado a cada Mesa: aporta señal y observación, sin carácter decisional.",
+      "seccion": "4.4",
+      "linea": 522,
+      "cita": "vinculada pero no vinculante — voz ciudadana constante"
+    },
+    {
+      "nombre": "Procedimiento de Corrección Urgente",
+      "alias": ["Mesa de Corrección"],
+      "tipo": "mecanismo",
+      "que_es": "Ciclo LDEA comprimido de 35 días que se convoca cuando una Resolución ejecutada muestra daños graves no previstos en el piloto.",
+      "seccion": "6.5",
+      "linea": 714,
+      "cita": "puede convocar Mesa de Corrección con ciclo LDEA comprimido"
+    },
+    {
+      "nombre": "Mesa de Emergencia Institucional",
+      "alias": ["Mesa de Emergencia Institucional"],
+      "tipo": "institucion",
+      "que_es": "Cuerpo de 11 miembros que la AMCC convoca en 72 horas ante crisis sistémica, con facultad para suspender Mesas y congelar Resoluciones.",
+      "seccion": "10.2",
+      "linea": 891,
+      "cita": "la AMCC convoca a **Mesa de Emergencia Institucional** en 72 hs"
+    },
+    {
+      "nombre": "Secretaria/o Técnica/o",
+      "alias": ["Secretaria/o Técnica/o"],
+      "tipo": "figura",
+      "que_es": "Apoyo técnico designado por la AMCC por concurso para cada Mesa: documenta, facilita información y maneja logística, sin voto.",
+      "seccion": "6.3",
+      "linea": 695,
+      "cita": "cada Mesa cuenta con un/a **Secretaria/o Técnica/o** designado por la AMCC por concurso"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "IDS (nodos federados soberanos)",
+      "alias": ["IDS"],
+      "origen": "PLANDIG",
+      "para_que": "Aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil.",
+      "linea": 739,
+      "cita": "IDS aloja la plataforma de auto-postulación"
+    },
+    {
+      "nombre": "Archivo PLANMEMORIA",
+      "alias": ["Archivo PLANMEMORIA"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Entrega los precedentes de la Consulta Ancestral y recibe el registro de cada Resolución.",
+      "linea": 384,
+      "cita": "El sistema trae automáticamente del Archivo PLANMEMORIA"
+    },
+    {
+      "nombre": "Síndico de Archivo",
+      "alias": ["Síndico de Archivo", "Síndicos de Archivo"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Integra la AMCC y ofrece memoria a ex-miembros con Credencial Consolidada sin decidir.",
+      "linea": 138,
+      "cita": "rol de **Síndico de Archivo** (ver PLANMEMORIA)"
+    },
+    {
+      "nombre": "Pactos de Cuidado",
+      "alias": ["Pactos de Cuidado"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Proveen la Capa de Vínculo de la Credencial y el sostén de quienes sirven en Mesa.",
+      "linea": 618,
+      "cita": "Se gana por Pactos de Cuidado activos relevantes a la materia (PLANCUIDADO)"
+    },
+    {
+      "nombre": "Red de Cuidado",
+      "alias": ["Red de Cuidado"],
+      "origen": "PLANCUIDADO",
+      "para_que": "Provee la Capa de Vínculo y el apoyo a miembros con sobrecarga de cuidado.",
+      "linea": 743,
+      "cita": "Red de Cuidado provee la Capa de Vínculo de la Credencial"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Costo anual del régimen pleno (horizonte 2040, visión)",
+      "valor": "USD 420-630M",
+      "tipo": "presupuesto",
+      "linea": 786,
+      "cita": "**USD 420-630M**"
+    },
+    {
+      "concepto": "Inversión anual estimada para régimen pleno (año 7+), en la introducción",
+      "valor": "USD 420-680M",
+      "tipo": "presupuesto",
+      "linea": 88,
+      "cita": "La inversión anual estimada para régimen pleno (año 7+) es de USD 420-680M"
+    },
+    {
+      "concepto": "Presupuesto constitucional protegido de la AMCC",
+      "valor": "0.05% del PBI (aproximadamente USD 300-400M anuales)",
+      "tipo": "presupuesto",
+      "linea": 497,
+      "cita": "0.05% del PBI (aproximadamente USD 300-400M anuales en régimen)"
+    },
+    {
+      "concepto": "Presupuesto constitucional protegido de la AMCC, en la ley de creación",
+      "valor": "0.07% del PBI",
+      "tipo": "presupuesto",
+      "linea": 1087,
+      "cita": "Define su presupuesto constitucional protegido (0.07% del PBI)"
+    },
+    {
+      "concepto": "Financiamiento Fase 1: reducción de consultorías externas",
+      "valor": "30%",
+      "tipo": "fuente",
+      "linea": 794,
+      "cita": "30% desde reducción de consultorías externas"
+    },
+    {
+      "concepto": "Financiamiento Fase 1: estructuras de participación redundantes",
+      "valor": "25%",
+      "tipo": "fuente",
+      "linea": 795,
+      "cita": "25% desde reducción de estructuras de participación ciudadana redundantes"
+    },
+    {
+      "concepto": "Financiamiento Fase 1: agencias simplificadas o absorbidas",
+      "valor": "25%",
+      "tipo": "fuente",
+      "linea": 797,
+      "cita": "25% desde reasignación de presupuestos de agencias que PLANMESA simplifica o absorbe"
+    },
+    {
+      "concepto": "Plazo por defecto de la Fase APRENDER",
+      "valor": "30 a 60 días",
+      "tipo": "plazo",
+      "linea": 378,
+      "cita": "APRENDER (plazo por defecto: 30 a 60 días)"
+    },
+    {
+      "concepto": "Duración total del Procedimiento de Emergencia",
+      "valor": "24 días",
+      "tipo": "plazo",
+      "linea": 712,
+      "cita": "Total: 24 días."
+    },
+    {
+      "concepto": "Plazo para completar el sorteo de composición de un Caso de Mesa",
+      "valor": "21 días",
+      "tipo": "plazo",
+      "linea": 673,
+      "cita": "tiene 21 días para completar sorteo de composición"
+    },
+    {
+      "concepto": "Ventana de auto-postulación",
+      "valor": "15 días desde la apertura",
+      "tipo": "plazo",
+      "linea": 677,
+      "cita": "Ventana de auto-postulación de 15 días desde apertura"
+    },
+    {
+      "concepto": "Firmas para peticionar la apertura de un Caso de Mesa",
+      "valor": "100 firmas municipal; 500 provincial; 2.000 federal",
+      "tipo": "parametro",
+      "linea": 671,
+      "cita": "100 firmas a escala municipal, 500 a provincial, 2.000 a federal"
+    },
+    {
+      "concepto": "Umbral inicial de la Capa de Declaración",
+      "valor": "8 señales en al menos 6 meses",
+      "tipo": "parametro",
+      "linea": 597,
+      "cita": "mínimo 8 señales acumuladas con geolocalización y fechas distribuidas en al menos 6 meses"
+    },
+    {
+      "concepto": "Mesas activas en la fase de escalamiento",
+      "valor": "40 Mesas en 8 provincias piloto",
+      "tipo": "meta",
+      "linea": 936,
+      "cita": "40 Mesas activas en 8 provincias piloto"
+    },
+    {
+      "concepto": "Credenciales Básicas del primer año",
+      "valor": "25.000",
+      "tipo": "meta",
+      "linea": 1117,
+      "cita": "25.000 argentinos con Credencial Básica"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANDIG",
+      "que": "Aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil sobre nodos federados soberanos.",
+      "linea": 739,
+      "cita": "IDS aloja la plataforma de auto-postulación"
+    },
+    {
+      "con": "PLANTALLER",
+      "que": "Ejecuta la Fase EXPERIMENTAR: prototipa, mide los pilotos y devuelve hallazgos a la Mesa; sostiene la Capa de Producción de la Credencial.",
+      "linea": 742,
+      "cita": "Tallers son los ejecutores operativos de Fase EXPERIMENTAR"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "Provee la Consulta Ancestral obligatoria de cada ciclo y recibe el registro de cada Resolución con su linaje.",
+      "linea": 741,
+      "cita": "PLANMEMORIA opera la Consulta Ancestral obligatoria en Fase APRENDER"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Aporta la Capa de Vínculo de la Credencial y el sostén relacional de quienes sirven en Mesa.",
+      "linea": 743,
+      "cita": "Red de Cuidado provee la Capa de Vínculo de la Credencial"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Aporta control legal de las Resoluciones y arbitra disputas sobre auto-postulación o Credenciales revocadas.",
+      "linea": 744,
+      "cita": "JUS aporta control legal de las Resoluciones de Mesa"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Construye la Capa de Estudio de la Credencial: currículum obligatorio y evaluación continua de quienes sirven en Mesa.",
+      "linea": 740,
+      "cita": "PLANEDU construye la Capa de Estudio de la Credencial de Materia"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "Las Mesas Civiles de Corredor deciden la priorización de la reactivación ferroviaria.",
+      "linea": 738,
+      "cita": "Mesas Civiles de Corredor deciden priorización de reactivación ferroviaria"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La revisión de 2026-04-28 dice que la Mesa es consulta y no decisión vinculante en tranche-2; el cuerpo del documento le asigna Resoluciones vinculantes.",
+      "linea": 927,
+      "cita": "es consulta, no decisión vinculante"
+    },
+    {
+      "con": "interno",
+      "que": "El presupuesto de la AMCC figura como 0.05% del PBI en la sección 4.2 y como 0.07% en las líneas 801 y 1087.",
+      "linea": 497,
+      "cita": "0.05% del PBI (aproximadamente USD 300-400M anuales en régimen)"
+    },
+    {
+      "con": "interno",
+      "que": "La introducción fija el régimen pleno en USD 420-680M; la tabla 8.2 suma USD 420-630M.",
+      "linea": 88,
+      "cita": "es de USD 420-680M"
+    },
+    {
+      "con": "interno",
+      "que": "Dice que el Protocolo de Emergencia dura 21 días; la sección 6.5 fija 24 días. Además remite a la «Sección 12», que es el tablero de métricas.",
+      "linea": 445,
+      "cita": "en 21 días en lugar de 150"
+    },
+    {
+      "con": "interno",
+      "que": "Cita PLANCÍRCULOS como catálogo de ejecución, código que no figura entre los 28 PLANes del registro.",
+      "linea": 403,
+      "cita": "del catálogo de PLANTALLER + PLANCÍRCULOS"
+    },
+    {
+      "con": "interno",
+      "que": "La lista de dependencias declara sólo PLANDIG y PLANRUTA, pero la sección de integración también recibe de PLANEDU, PLANTALLER, PLANCUIDADO, PLANMEMORIA y PLANJUS.",
+      "linea": 1219,
+      "cita": "Depende de: PLANDIG, PLANRUTA"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Umbral exacto de densidad de señal que activa un Caso de Mesa, ajustable por piloto.",
+      "linea": 961,
+      "cita": "El umbral exacto de densidad de señal que debe activar un Caso de Mesa"
+    },
+    {
+      "que": "Tolerancia real de ciudadanos a servir ciclos de 12 meses promedio, ajustable por diseño de dietas.",
+      "linea": 962,
+      "cita": "La tolerancia real de ciudadanos a servir ciclos de 12 meses promedio"
+    },
+    {
+      "que": "Respuesta efectiva del sistema político tradicional a la integración con las Mesas.",
+      "linea": 963,
+      "cita": "La respuesta efectiva del sistema político tradicional"
+    },
+    {
+      "que": "Capacidad de los Talleres para absorber la demanda de pilotos experimentales simultáneos.",
+      "linea": 964,
+      "cita": "La capacidad de los Tallers de absorber la demanda de pilotos experimentales simultáneos"
+    }
+  ]
+}

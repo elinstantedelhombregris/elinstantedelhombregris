@@ -1,0 +1,582 @@
+{
+  "code": "PLANPACTO",
+  "nombre": "Plan Nacional de Pacto Fiscal, Reparto Federal y Escalera de Garantías",
+  "version": "1.0 — Julio 2026",
+  "tesis": "Antes de cualquier reforma tributaria hace falta acordar quién decide, con qué regla y con qué información pública: la Escalera y el Techo ordenan qué garantías se conservan, y once dispositivos publican, cobran, reparten y limitan la deuda.",
+  "problema": "El reparto federal sigue regido por la Ley 23.548, transitoria desde 1988, y el artículo 75 inciso 2 de la Constitución lleva treinta años sin cumplirse. Hay unos 155 tributos, Ingresos Brutos en cascada, detracciones previas al reparto, aportes discrecionales y ninguna persona puede saber cuánto pagó ni adónde fue. Los pisos que reclaman los PLANes nunca se sumaron.",
+  "resumen": "Propone un eje, la Escalera y el Techo, y once dispositivos. La Escalera conserva un piso único de 2,40% del PBI (7,5% del gasto primario) ordenado en ocho escalones, y el Techo se parte en A y B. Dos dispositivos muestran (Libro Mayor Abierto, Recibo del Estado), cuatro cobran (Poda, IVA que Vuelve, LA MASA, sustitución de Ingresos Brutos), cuatro reparten (Fórmula Abierta, Giro Diario, Auxilio Ciego, Tercer Piso) y uno limita la deuda. El Consejo Federal Fiscal los opera.",
+  "horizonte": "Fase 0 (2027–2028) por decreto y convenios; Fase 1 (2029–2031) con la Fórmula en sombra y el IVA que Vuelve; Fase 2 (2032–2035) con ley-convenio, Giro Diario y sustitución de Ingresos Brutos; Fase 3 (2036–2042) de convergencia.",
+  "financiamiento": "USD 500–700 millones por año en régimen, 1.400–1.500 millones por año en transición y 12.400–22.000 millones a quince años, según la cabecera. El IVA que Vuelve cuesta aparte USD 2.800–4.700 millones por año, con fuente en la base ancha, monto pendiente.",
+  "temas": [
+    "fiscal-presupuesto",
+    "estado-instituciones",
+    "digital-datos",
+    "democracia-participacion"
+  ],
+  "conceptos": [
+    {
+      "nombre": "Escalera de Garantías",
+      "alias": [
+        "Escalera de Garantías"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Orden de ocho escalones de garantías por materia que define qué se conserva, en qué orden y hasta dónde; su suma es el piso único. Lo que queda debajo de la línea no tiene blindaje.",
+      "seccion": "4.5",
+      "linea": 387,
+      "cita": "La Escalera está escrita al revés"
+    },
+    {
+      "nombre": "Techo A",
+      "alias": [
+        "Techo A"
+      ],
+      "tipo": "metrica",
+      "que_es": "Rigidez total del gasto consolidado con intereses: 80% bajando un punto por año hasta 70%. Es objetivo de convergencia, no disparador; el LIFO nunca se aplica sobre él.",
+      "seccion": "4.2",
+      "linea": 343,
+      "cita": "**Techo A — la rigidez total.**"
+    },
+    {
+      "nombre": "Techo B",
+      "alias": [
+        "Techo B"
+      ],
+      "tipo": "metrica",
+      "que_es": "Afectación nueva, 7–8% del gasto primario consolidado. Es lo único que el PLAN controla y donde rige el orden inverso de sanción.",
+      "seccion": "4.2",
+      "linea": 345,
+      "cita": "**Techo B — la afectación nueva.**"
+    },
+    {
+      "nombre": "Piso Único Sustitutivo",
+      "alias": [
+        "Piso Único Sustitutivo"
+      ],
+      "tipo": "norma",
+      "que_es": "Piso constitucional único de 7,5% del gasto primario (2,40% del PBI, banda 7–8%), bruto y sustitutivo de los diecisiete pisos declarados; las afectaciones específicas van adentro.",
+      "seccion": "4.4",
+      "linea": 379,
+      "cita": "el piso único de 2,40 sustituye a los diecisiete pisos declarados"
+    },
+    {
+      "nombre": "LIFO (orden inverso de sanción)",
+      "alias": [
+        "LIFO"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Cuando la afectación total supera el Techo B se suspende primero la última afectación sancionada, hacia atrás; el criterio es una fecha y no se negocia.",
+      "seccion": "4.2",
+      "linea": 345,
+      "cita": "el orden inverso de sanción, el LIFO"
+    },
+    {
+      "nombre": "Regla de Arco",
+      "alias": [
+        "Regla de Arco"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Eje intergeneracional que ordena adentro de cada escalón cómo se reparte lo conservado entre inicio, medio y final de la vida; la Escalera ordena entre escalones.",
+      "seccion": "4.7",
+      "linea": 428,
+      "cita": "la Regla de Arco ordena adentro de cada escalón"
+    },
+    {
+      "nombre": "Libro Mayor Abierto",
+      "alias": [
+        "Libro Mayor Abierto"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Registro público y en vivo de la ejecución del gasto: una fuente, un dueño, una fecha de disponibilidad, una calificación de confianza; prohíbe el doble conteo y los retornos futuros como fuente.",
+      "seccion": "5.1",
+      "linea": 442,
+      "cita": "El libro contable de la Nación, abierto en vivo."
+    },
+    {
+      "nombre": "Recibo del Estado",
+      "alias": [
+        "Recibo del Estado"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Estado de cuenta anual de cada persona con los tres niveles de gobierno, calculado del lado del ciudadano; su mitad nacional se arma con datos que ARCA ya tiene.",
+      "seccion": "5.2",
+      "linea": 464,
+      "cita": "La factura anual y en vivo del Estado a cada persona"
+    },
+    {
+      "nombre": "La Poda",
+      "alias": [
+        "La Poda"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Test anual de tres preguntas con umbral numérico que invierte la carga de la prueba: el tributo que falla dos de tres cae, salvo ratificación expresa de la legislatura que lo creó.",
+      "seccion": "5.3",
+      "linea": 474,
+      "cita": "Un test anual de tres preguntas, con umbral numérico publicado"
+    },
+    {
+      "nombre": "IVA que Vuelve",
+      "alias": [
+        "IVA que Vuelve"
+      ],
+      "tipo": "programa",
+      "que_es": "Tasa única sobre base ancha sin exenciones, con devolución automática y semanal a la wallet de los hogares hasta el quinto decil, con salida gradual hasta el sexto.",
+      "seccion": "5.4",
+      "linea": 490,
+      "cita": "Tasa única sobre base ancha, sin exenciones por producto."
+    },
+    {
+      "nombre": "LA MASA",
+      "alias": [
+        "LA MASA"
+      ],
+      "tipo": "norma",
+      "que_es": "Regla antifuga: toda especie tributaria nueva nace coparticipable; la afectación específica exige ley especial con mayoría absoluta y plazo. Limita las detracciones previas al reparto.",
+      "seccion": "5.5",
+      "linea": 506,
+      "cita": "**Toda especie tributaria nueva nace coparticipable.**"
+    },
+    {
+      "nombre": "Sustitución de Ingresos Brutos",
+      "alias": [
+        "sustitución de Ingresos Brutos"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Reemplazo del impuesto en cascada por una sobretasa provincial visible sobre la base ancha de consumo, con base federal única, atribución por destino y Comisión Arbitral como sala técnica.",
+      "seccion": "5.6",
+      "linea": 525,
+      "cita": "con **sobretasa provincial fijada por cada provincia y visible en el ticket**"
+    },
+    {
+      "nombre": "Fórmula Abierta",
+      "alias": [
+        "Fórmula Abierta"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Programa publicado como código ejecutable que reemplaza la tabla de la Ley 23.548; reparte por habitante residente con tres coeficientes y se aplica al incremento, no al stock.",
+      "seccion": "6.1",
+      "linea": 555,
+      "cita": "Reemplaza la tabla de la Ley 23.548 por un programa."
+    },
+    {
+      "nombre": "Costo de Llegada, Brecha y Esfuerzo Propio",
+      "alias": [
+        "Costo de Llegada",
+        "Esfuerzo Propio"
+      ],
+      "tipo": "metrica",
+      "que_es": "Los tres coeficientes de la Fórmula: costo real de prestar el servicio, distancia a la meta nacional y recaudación propia contra la propia base. Se publican mes a mes.",
+      "seccion": "6.1",
+      "linea": 559,
+      "cita": "El **Costo de Llegada** mide cuánto cuesta de verdad prestar un servicio"
+    },
+    {
+      "nombre": "Giro Diario",
+      "alias": [
+        "Giro Diario"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Cada peso recaudado se parte en el acto y llega a su jurisdicción en menos de veinticuatro horas, sin acto administrativo; ARCA recauda dentro de la cuenta del CFF y la Nación cobra última.",
+      "seccion": "6.2",
+      "linea": 577,
+      "cita": "Cada peso recaudado se parte en el acto"
+    },
+    {
+      "nombre": "Auxilio Ciego",
+      "alias": [
+        "Auxilio Ciego"
+      ],
+      "tipo": "fondo",
+      "que_es": "Reemplaza a los Aportes del Tesoro Nacional conservando el 1% de la masa; se abre por tres gatillos definidos de antemano, con un panel sorteado que solo decide si el gatillo se cumplió.",
+      "seccion": "6.3",
+      "linea": 589,
+      "cita": "Reemplaza a los Aportes del Tesoro Nacional que la falla 7 describió"
+    },
+    {
+      "nombre": "Tercer Piso",
+      "alias": [
+        "Tercer Piso"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "La Fórmula y el Giro Diario bajan al municipio como piso; el municipio reduce sus tasas a dos (tasa única por servicios y contribución por mejoras) y el CFF le da equipamiento ocho años.",
+      "seccion": "6.4",
+      "linea": 601,
+      "cita": "**Baja hasta el municipio con los mismos tres coeficientes y con el mismo Giro Diario**"
+    },
+    {
+      "nombre": "Deuda con Nombre",
+      "alias": [
+        "Deuda con Nombre"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Condiciones de validez de cada emisión: activo identificado, plazo no mayor a la vida útil y firma de un panel sorteado de quienes la van a pagar; prohíbe deuda para gasto corriente salvo emergencia.",
+      "seccion": "6.5",
+      "linea": 613,
+      "cita": "Ningún bono sin **activo identificado**"
+    },
+    {
+      "nombre": "Ficha de Deuda",
+      "alias": [
+        "Ficha de Deuda"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Ficha en castellano de vecino, publicada antes de toda emisión que cruce el período electoral: cuánto, para qué activo, quién paga, en qué años y qué pasa si no se paga.",
+      "seccion": "6.5",
+      "linea": 617,
+      "cita": "**La Ficha de Deuda.**"
+    },
+    {
+      "nombre": "Consejo Federal Fiscal",
+      "alias": [
+        "Consejo Federal Fiscal",
+        "CFF"
+      ],
+      "tipo": "institucion",
+      "que_es": "Organismo fiscal federal ordenado por el artículo 75 inciso 2: veinticinco integrantes, doble mayoría, presidencia rotativa; administra la cuenta única, el padrón, la Fórmula, el Libro Mayor y la Escalera.",
+      "seccion": "7",
+      "linea": 631,
+      "cita": "El Consejo Federal Fiscal **es el organismo fiscal federal que el artículo 75 inciso 2"
+    },
+    {
+      "nombre": "Fondo de Compensación",
+      "alias": [
+        "Fondo de Compensación"
+      ],
+      "tipo": "fondo",
+      "que_es": "Cubre durante ocho años decrecientes la diferencia entre lo que una provincia adherida recauda y la garantía de no recibir menos que el promedio real de sus tres últimos ejercicios.",
+      "seccion": "5.6",
+      "linea": 541,
+      "cita": "La diferencia la cubre un **Fondo de Compensación**"
+    },
+    {
+      "nombre": "KPI de trazabilidad",
+      "alias": [
+        "KPI de trazabilidad"
+      ],
+      "tipo": "metrica",
+      "que_es": "Porcentaje del gasto que se puede seguir de punta a punta en el Libro Mayor; se publica el primer año sin meta y luego con metas de diseño.",
+      "seccion": "5.1",
+      "linea": 450,
+      "cita": "**El KPI de trazabilidad.**"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Peso-canasta y cláusula de PIB (principios 4 y 5)",
+      "alias": [
+        "peso-canasta"
+      ],
+      "origen": "PLANMON",
+      "para_que": "La Deuda con Nombre exige que toda emisión nueva sea en peso-canasta y con ajuste por PIB, tal como PLANMON lo escribe.",
+      "linea": 623,
+      "cita": "toda emisión nueva se hace en peso-canasta"
+    },
+    {
+      "nombre": "Mesa Civil",
+      "alias": [
+        "Mesa Civil"
+      ],
+      "origen": "PLANMESA",
+      "para_que": "Delibera sobre el orden de los escalones y publica dictamen no vinculante que el CFF eleva al Congreso.",
+      "linea": 416,
+      "cita": "El orden de la Escalera no lo fija la Mesa Civil."
+    },
+    {
+      "nombre": "Sorteo canónico de paneles",
+      "alias": [
+        "PLANJUS §400"
+      ],
+      "origen": "PLANJUS",
+      "para_que": "Forma del panel sorteado del Auxilio Ciego y de la firma de la Deuda con Nombre.",
+      "linea": 593,
+      "cita": "es la forma canónica de `PLANJUS §400`"
+    },
+    {
+      "nombre": "Puente Sanitario",
+      "alias": [
+        "Puente Sanitario"
+      ],
+      "origen": "PLANSUS",
+      "para_que": "Destino de la afectación del 5% de la recaudación de PLANSUS, que este PLAN recorta al costo declarado.",
+      "linea": 454,
+      "cita": "PLANSUS afecta el 5% de toda su recaudación tributaria al Puente Sanitario"
+    },
+    {
+      "nombre": "Bastarda Inmobiliaria",
+      "alias": [
+        "Bastarda Inmobiliaria"
+      ],
+      "origen": "PLANVIV",
+      "para_que": "Sus repagos hipotecarios hacen decrecer el costo fiscal de PLANVIV, argumento para recortar su piso en la Escalera.",
+      "linea": 408,
+      "cita": "los repagos hipotecarios de la Bastarda Inmobiliaria"
+    },
+    {
+      "nombre": "Housing OS",
+      "alias": [
+        "Housing OS"
+      ],
+      "origen": "PLANVIV",
+      "para_que": "Los fees de este ecosistema reducen el costo fiscal neto de PLANVIV desde el año cinco.",
+      "linea": 408,
+      "cita": "los fees del ecosistema Housing OS"
+    },
+    {
+      "nombre": "ANEN y LANEF",
+      "alias": [
+        "ANEN",
+        "LANEF"
+      ],
+      "origen": "PLANEN",
+      "para_que": "Componen el piso de 0,70% del PBI de PLANEN que entra a la pila de pisos sumada por este PLAN.",
+      "linea": 324,
+      "cita": "ANEN 0,50 + LANEF 0,20"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Presupuesto del PLAN en régimen",
+      "valor": "USD 500–700 millones por año (0,10–0,14% del PBI)",
+      "tipo": "presupuesto",
+      "linea": 11,
+      "cita": "USD 500-700M/año en régimen"
+    },
+    {
+      "concepto": "Presupuesto del PLAN en transición",
+      "valor": "USD 1.400–1.500 millones por año",
+      "tipo": "presupuesto",
+      "linea": 11,
+      "cita": "1.400-1.500M/año en transición"
+    },
+    {
+      "concepto": "Presupuesto del PLAN a quince años",
+      "valor": "USD 12.400–22.000 millones",
+      "tipo": "presupuesto",
+      "linea": 11,
+      "cita": "12.400-22.000M a quince años"
+    },
+    {
+      "concepto": "Piso único sustitutivo de la Escalera",
+      "valor": "7,5% del gasto primario consolidado (banda 7–8%) = 2,40% del PBI",
+      "tipo": "parametro",
+      "linea": 373,
+      "cita": "piso constitucional único de **7,5% del gasto primario consolidado**"
+    },
+    {
+      "concepto": "Techo A, rigidez total",
+      "valor": "80% del gasto consolidado con intereses, bajando un punto por año hasta 70% en el año diez",
+      "tipo": "meta",
+      "linea": 343,
+      "cita": "bajando un punto por año hasta 70% en el año diez"
+    },
+    {
+      "concepto": "Techo B, afectación nueva",
+      "valor": "7–8% del gasto primario consolidado",
+      "tipo": "parametro",
+      "linea": 345,
+      "cita": "7–8% del gasto primario consolidado"
+    },
+    {
+      "concepto": "Suma de los pisos que reclaman los PLANes",
+      "valor": "7,82–9,41% del PBI (diecisiete pisos; punto medio 8,62)",
+      "tipo": "diagnostico",
+      "linea": 142,
+      "cita": "Sumados dan entre 7,82 y 9,41% del PBI"
+    },
+    {
+      "concepto": "Rigidez central con cero pisos ¡BASTA!",
+      "valor": "66,3% (escenario central, sobre gasto con intereses)",
+      "tipo": "diagnostico",
+      "linea": 367,
+      "cita": "66,3% de rigidez con cero pisos"
+    },
+    {
+      "concepto": "Meta de tributos tras la Poda",
+      "valor": "no más de 25 tributos en régimen entre los tres niveles",
+      "tipo": "meta",
+      "linea": 484,
+      "cita": "no más de **25 tributos en régimen**"
+    },
+    {
+      "concepto": "Costo anual del IVA que Vuelve",
+      "valor": "USD 2.800–4.700 millones por año (0,56–0,94% del PBI), piso del costeo",
+      "tipo": "presupuesto",
+      "linea": 494,
+      "cita": "**USD 2.800 a 4.700 millones por año**"
+    },
+    {
+      "concepto": "Devolución mensual por hogar",
+      "valor": "USD 31 a 52 por mes según composición, a unos 7,5 millones de hogares",
+      "tipo": "parametro",
+      "linea": 494,
+      "cita": "una devolución de **USD 31 a 52 por mes**"
+    },
+    {
+      "concepto": "Tope agregado de detracciones pre-coparticipación",
+      "valor": "10% de la recaudación de los impuestos coparticipables, hasta cinco años por detracción",
+      "tipo": "parametro",
+      "linea": 517,
+      "cita": "el total detraído no puede superar el 10% de la recaudación de los impuestos coparticipables"
+    },
+    {
+      "concepto": "Reserva del Auxilio Ciego",
+      "valor": "1% de la masa coparticipable (el de la Ley 23.548, art. 3 inc. d)",
+      "tipo": "parametro",
+      "linea": 589,
+      "cita": "**El fondo conserva el 1% de la masa coparticipable"
+    },
+    {
+      "concepto": "Rendimiento supuesto del IVA vigente",
+      "valor": "7,5% del PBI a 21 puntos de alícuota (0,36 puntos del producto por punto)",
+      "tipo": "parametro",
+      "linea": 527,
+      "cita": "**7,5% del PBI a veintiún puntos de alícuota**"
+    },
+    {
+      "concepto": "Fase 0, el espejo",
+      "valor": "2027–2028",
+      "tipo": "plazo",
+      "linea": 703,
+      "cita": "**Fase 0 — El espejo (2027–2028).**"
+    },
+    {
+      "concepto": "Fase 2, el giro (ley-convenio, Giro Diario, sustitución de Ingresos Brutos)",
+      "valor": "2032–2035",
+      "tipo": "plazo",
+      "linea": 707,
+      "cita": "**Fase 2 — El giro (2032–2035).**"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANMON",
+      "que": "El Giro Diario liquida sobre el Pulso de PLANMON; la Deuda con Nombre adopta sus principios 4 y 5. Sin PLANMON, el giro corre sobre el sistema de pagos del Banco Central.",
+      "linea": 583,
+      "cita": "Sobre el Pulso de PLANMON, que liquida en el acto"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Aporta la interoperabilidad de ARCA con las veinticuatro administraciones (estadio A); sin ella, los otros dos niveles se consolidan por convenio y archivo.",
+      "linea": 717,
+      "cita": "**PLANDIG** aporta la interoperabilidad de ARCA"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "La Mesa Civil delibera el orden de la Escalera y los pesos de la Fórmula y publica dictamen no vinculante; el Congreso decide y vota con nombre.",
+      "linea": 721,
+      "cita": "**PLANMESA** delibera sobre la Escalera y publica dictamen no vinculante"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Entrega la forma canónica de su sorteo, usada en el panel del Auxilio Ciego y en el panel de firma de la Deuda con Nombre.",
+      "linea": 721,
+      "cita": "**PLANJUS** aporta la forma canónica de su sorteo a los dos paneles"
+    },
+    {
+      "con": "PLANARCO",
+      "que": "La Regla de Arco de la Sección 4.7 es el eje intergeneracional de la Escalera; PLANARCO remite a ella y no escribe regla de reparto propia.",
+      "linea": 721,
+      "cita": "**PLANARCO** es el par recíproco más importante"
+    },
+    {
+      "con": "PLANISV",
+      "que": "La afectación de retenciones de PLANISV se carga en el Libro Mayor con cifra corregida a 0,005–0,016% del PBI; PLANISV cobra del reparto y no de la base.",
+      "linea": 452,
+      "cita": "PLANISV cobra del reparto de la base, nunca de la base"
+    },
+    {
+      "con": "PLANSUS",
+      "que": "El 5% afectado al Puente Sanitario va adentro del piso y se recorta al costo declarado; el excedente vuelve a la masa.",
+      "linea": 454,
+      "cita": "PLANSUS afecta el 5% de toda su recaudación tributaria al Puente Sanitario"
+    },
+    {
+      "con": "PLANEN",
+      "que": "Dueño de la reasignación de subsidios que figuraba como respaldo de cuatro PLANes; los otros tres cobran de su reparto. Su piso queda debajo de la línea de la Escalera.",
+      "linea": 456,
+      "cita": "El dueño es el PLAN que produce la reasignación, PLANEN"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Declara la plusvalía fuente primaria de las ciudades nuevas; este PLAN la ordena con la regla de origen: cobra el nivel que financió la obra.",
+      "linea": 607,
+      "cita": "`PLAN24CN` la declara fuente primaria de financiamiento de las ciudades nuevas"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "Su piso de 2,00% del PBI se reduce a 0,50 en el escalón 4; su agencia reclama también la plusvalía de rezonificaciones.",
+      "linea": 408,
+      "cita": "Un piso de 2,00 blindaría contra un riesgo"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Su piso de 0,45% del PBI pasa a ser el escalón 5, cuidado y arco, donde se ve primero la Regla de Arco.",
+      "linea": 719,
+      "cita": "entregan la exclusividad de sus pisos"
+    },
+    {
+      "con": "PLANRUTA",
+      "que": "El Giro Diario desarma el vector que su modelo adversarial pone primero, retener coparticipación; se declara en prosa y no como arista del grafo.",
+      "linea": 585,
+      "cita": "el modelo adversarial de `PLANRUTA` pone primero"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El cuerpo cuenta veintidós PLANes (diecisiete con piso y cinco sin él) mientras el canon declarado en la cabecera es de 27 temáticos más PLANRUTA.",
+      "linea": 88,
+      "cita": "Los pisos que los 22 PLANes reclaman por escrito"
+    },
+    {
+      "con": "interno",
+      "que": "Dice que hay 46.234 líneas en veintitrés documentos previos, cuando el corpus actual tiene 27 PLANes más PLANRUTA.",
+      "linea": 154,
+      "cita": "46.234 líneas de los veintitrés documentos anteriores a este"
+    },
+    {
+      "con": "PLANARCO",
+      "que": "La sección de integración dice que PLANARCO no existe, aunque la nota final de 2026-08-02 informa que ya está escrito y que el cuerpo no se corrige.",
+      "linea": 721,
+      "cita": "PLANARCO —que aún no existe— remite a ella"
+    },
+    {
+      "con": "interno",
+      "que": "El gasto consolidado de 42,8% del PBI se presenta como nivel argentino real de 2015–2023, pero el escenario central del mismo PLAN fija G en 34,9%.",
+      "linea": 369,
+      "cita": "es el nivel argentino de 2015–2023"
+    },
+    {
+      "con": "interno",
+      "que": "Afirma que veinticinco votos con doce provincias afines son mayoría, pero doce de veinticinco no alcanzan la mayoría simple de trece.",
+      "linea": 633,
+      "cita": "veinticinco votos con doce provincias afines son mayoría"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "La duración de la convergencia de la Fórmula depende del crecimiento nominal de la masa, que el documento no proyecta.",
+      "linea": 571,
+      "cita": "Cuánto tarda esa convergencia depende del crecimiento nominal de la masa"
+    },
+    {
+      "que": "Los pesos de los tres coeficientes de la Fórmula no se fijan en el documento; los sanciona el Congreso.",
+      "linea": 565,
+      "cita": "Este documento no fija los pesos"
+    },
+    {
+      "que": "El monto que produce la base ancha del IVA no está calculado y se carga como monto pendiente.",
+      "linea": 498,
+      "cita": "Cuánto produce esa base falta acá porque no está calculada"
+    },
+    {
+      "que": "El tope de acumulación del Auxilio Ciego no se fija, porque ningún organismo consolidó el costo de las catástrofes.",
+      "linea": 597,
+      "cita": "**El tope no se fija en este documento**"
+    },
+    {
+      "que": "El porcentaje de la cuenta única que financia al CFF queda para la ley que lo crea, con el inventario de detracciones ya publicado.",
+      "linea": 639,
+      "cita": "**El porcentaje no se fija en este documento**"
+    }
+  ]
+}

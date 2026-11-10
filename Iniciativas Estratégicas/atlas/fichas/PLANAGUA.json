@@ -1,0 +1,562 @@
+{
+  "code": "PLANAGUA",
+  "nombre": "Plan Nacional de Soberanía Hídrica y Resiliencia Climática",
+  "version": "1.0 — Marzo 2026",
+  "tesis": "El agua se trata como derecho humano y sistema vivo: dos pistas convergentes, infraestructura (censo, sensores, gemelo digital, retrofitting, oxidación avanzada) y derechos (personería de ríos, Ley de Criosfera), confluyen en ANAGUA y en Bastardas Hídricas gobernadas por sorteo.",
+  "problema": "Argentina tiene abundante agua dulce, pero unos siete millones de personas no acceden a agua segura por red. Se pierde cerca del 40% del agua tratada en cañerías envejecidas, hay arsénico, agroquímicos y contaminantes emergentes sin monitoreo sistemático, los glaciares retroceden y ningún organismo integra los datos hídricos de instituciones fragmentadas.",
+  "resumen": "Propone un Censo Nacional del Agua como línea base, una red de unos 55.000 sensores con un Tablero público y un gemelo digital, reemplazo de 25.000 km de cañería, oxidación avanzada en plantas, desalinización, reúso y ciencia ciudadana. En paralelo, personería jurídica con guardianes para el Paraná, el Río de la Plata y el Guaraní, una Ley de Criosfera, co-gestión indígena, créditos hídricos no especulativos y diplomacia hídrica. Crea ANAGUA y Bastardas Hídricas por cuenca, más una Bastarda Ambiental de remediación.",
+  "horizonte": "Cascada de cuatro fases en diez años: Diagnóstico y Emergencia (2026–2028), Construcción (2028–2031), Expansión (2031–2034) y Consolidación (2034–2036). Entrada operativa en tranche-1; la Visión 2040 queda como horizonte sin compromiso operativo.",
+  "financiamiento": "Inversión de USD 15.000–25.000M en 10 años según la tesis; fuentes: piso de 0.15% del PBI, tasas por créditos hídricos, financiamiento climático internacional, Bastardas Hídricas, cofinanciamiento provincial y ahorro por menos pérdidas. El encabezado fija 1.2B/año + 3.5B en 24 meses (BID, bonos largos).",
+  "temas": ["agua-energia", "territorio-ambiente", "estado-instituciones", "democracia-participacion", "digital-datos"],
+
+  "conceptos": [
+    {
+      "nombre": "ANAGUA — Agencia Nacional del Agua y Resiliencia Climática",
+      "alias": ["ANAGUA", "Agencia Nacional del Agua y Resiliencia Climática"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico creado por ley, con directorio de 13 miembros en cinco estamentos (sorteo, expertos, indígenas, agencias, trabajadores), seis direcciones operativas, piso presupuestario de 0.15% del PBI y mecanismos anticaptura.",
+      "seccion": "10.2",
+      "linea": 1960,
+      "cita": "Ente autárquico creado por ley del Congreso de la Nación"
+    },
+    {
+      "nombre": "Censo Nacional del Agua",
+      "alias": ["Censo Nacional del Agua"],
+      "tipo": "programa",
+      "que_es": "Primer inventario integral de fuentes, infraestructura, calidad, usos, contaminación y gobernanza hídrica, en seis capas; línea base de todo el plan y origen de una base de datos abierta y un Atlas Hídrico Nacional.",
+      "seccion": "5.1",
+      "linea": 601,
+      "cita": "El Censo Nacional del Agua es la **primera pieza** de PLANAGUA"
+    },
+    {
+      "nombre": "Red Nacional de Monitoreo IoT",
+      "alias": ["Red Nacional de Monitoreo IoT", "Red IoT Nacional"],
+      "tipo": "mecanismo",
+      "que_es": "Red de unos 55.000 sensores y estaciones en ríos, redes de distribución, acuíferos, criosfera y plantas, que transmite datos en tiempo real al Tablero y al Gemelo Digital.",
+      "seccion": "5.2",
+      "linea": 680,
+      "cita": "La Red Nacional de Monitoreo IoT reemplaza este modelo reactivo"
+    },
+    {
+      "nombre": "Gemelo Digital Nacional del Agua",
+      "alias": ["Gemelo Digital Nacional del Agua"],
+      "tipo": "mecanismo",
+      "que_es": "Modelo computacional de todo el sistema hídrico alimentado por la Red IoT: simula escenarios, predice caudales, optimiza redes y emite alertas tempranas.",
+      "seccion": "5.3",
+      "linea": 732,
+      "cita": "Gemelo Digital Nacional del Agua"
+    },
+    {
+      "nombre": "Tablero Nacional del Agua",
+      "alias": ["Tablero Nacional del Agua"],
+      "tipo": "metrica",
+      "que_es": "Interfaz pública del Gemelo Digital con tres niveles de lectura (semáforo, cinco paneles, auditoría completa) y 47 indicadores sobre calidad, infraestructura, cuencas, criosfera y acceso.",
+      "seccion": "5.3",
+      "linea": 756,
+      "cita": "**El Tablero Nacional del Agua** es la interfaz pública del Gemelo Digital"
+    },
+    {
+      "nombre": "Consejo de Guardianes (3×3)",
+      "alias": ["Consejo de Guardianes"],
+      "tipo": "mecanismo",
+      "que_es": "Órgano de nueve personas por cuerpo de agua con personería jurídica (bancadas indígena, científica y ciudadana) con legitimación activa, veto ambiental vinculante, Plan de Salud quinquenal y presupuesto propio.",
+      "seccion": "5.9",
+      "linea": 1012,
+      "cita": "tendrá un **Consejo de Guardianes** compuesto por nueve personas"
+    },
+    {
+      "nombre": "Ley de Criosfera",
+      "alias": ["Ley de Criosfera"],
+      "tipo": "norma",
+      "que_es": "Ley que reemplaza y amplía la 26.639: protege glaciares, permafrost, glaciares de escombros, humedales altoandinos y mantos de nieve, con zonificación, penas de prisión por daño irreversible y ANAGUA como autoridad.",
+      "seccion": "5.10",
+      "linea": 1058,
+      "cita": "PLANAGUA propone una **Ley de Criosfera** que reemplace y amplíe la 26.639"
+    },
+    {
+      "nombre": "Créditos Hídricos No Especulativos",
+      "alias": ["Créditos Hídricos No Especulativos", "Créditos Hídricos"],
+      "tipo": "mecanismo",
+      "que_es": "Permisos de uso por cuenca; quien consume menos genera créditos y quien excede debe comprarlos. Vencen a los 12 meses, tienen banda de precio y no admiten derivados.",
+      "seccion": "5.12",
+      "linea": 1136,
+      "cita": "Los **Créditos Hídricos No Especulativos** de PLANAGUA son el mecanismo"
+    },
+    {
+      "nombre": "Bastardas Hídricas",
+      "alias": ["Bastardas Hídricas", "Bastarda Hídrica"],
+      "tipo": "institucion",
+      "que_es": "Fideicomisos de propósito perpetuo por cuenca, sin dueño ni accionistas, que operan agua y saneamiento al costo real, con transparencia radical y gobierno por sorteo y paneles ciudadanos.",
+      "seccion": "5.13",
+      "linea": 1179,
+      "cita": "Las **Bastardas Hídricas** son la aplicación del modelo PLANEB"
+    },
+    {
+      "nombre": "Bastarda Ambiental",
+      "alias": ["Bastarda Ambiental"],
+      "tipo": "institucion",
+      "que_es": "Entidad nacional de misión que remedia el Matanza-Riachuelo, Reconquista, Salí-Dulce y Bermejo; se financia con Fondo ANAGUA, créditos, multas y presupuesto, y se disuelve al cumplir la misión.",
+      "seccion": "5.13",
+      "linea": 1200,
+      "cita": "La **Bastarda Ambiental** es una entidad nacional dedicada exclusivamente"
+    },
+    {
+      "nombre": "Cuerpo de Diplomacia Hídrica",
+      "alias": ["Cuerpo de Diplomacia Hídrica"],
+      "tipo": "institucion",
+      "que_es": "Servicio diplomático especializado dentro de Cancillería, con dependencia funcional de ANAGUA, organizado en unidades Guaraní, Cuenca del Plata, Criosfera Andina y Ríos Compartidos.",
+      "seccion": "5.14",
+      "linea": 1222,
+      "cita": "PLANAGUA propone crear el **Cuerpo de Diplomacia Hídrica**"
+    },
+    {
+      "nombre": "Acuerdo de la Criosfera Andina",
+      "alias": ["Acuerdo de la Criosfera Andina"],
+      "tipo": "norma",
+      "que_es": "Tratado propuesto entre seis naciones andinas con inventario común, red de monitoreo compartida, estándar mínimo de protección, comisión científica, fondo multilateral y resolución de disputas.",
+      "seccion": "5.14",
+      "linea": 1233,
+      "cita": "**El Acuerdo de la Criosfera Andina** es la propuesta diplomática más ambiciosa"
+    },
+    {
+      "nombre": "Derecho de Primer Trago",
+      "alias": ["Derecho de Primer Trago"],
+      "tipo": "norma",
+      "que_es": "Principio que da prioridad absoluta al consumo humano directo sobre cualquier otro uso del agua; se propone elevarlo a rango constitucional junto con el presupuesto mínimo hídrico.",
+      "seccion": "5.11",
+      "linea": 1124,
+      "cita": "**5. Derecho de Primer Trago.** Un principio jurídico nuevo"
+    },
+    {
+      "nombre": "Programa Ríos Nadables",
+      "alias": ["Programa Ríos Nadables", "Mapa de Ríos Nadables"],
+      "tipo": "programa",
+      "que_es": "Objetivo central de remediación: tramos nadables del Riachuelo en 15 años, en cuatro fases, con un mapa anual de progreso publicado por ANAGUA.",
+      "seccion": "7.7",
+      "linea": 1534,
+      "cita": "El **Programa Ríos Nadables** es el moonshot de PLANAGUA"
+    },
+    {
+      "nombre": "Kit Centinela y App Centinela",
+      "alias": ["Kit Centinela", "App Centinela"],
+      "tipo": "programa",
+      "que_es": "Programa de ciencia ciudadana: 100.000 kits de medición y una app que sube datos validados al Tablero, con red de 50 laboratorios de validación y talleres de capacitación.",
+      "seccion": "5.8",
+      "linea": 972,
+      "cita": "**Kit Centinela** | Kit portátil de monitoreo"
+    },
+    {
+      "nombre": "Atlas Hídrico Indígena",
+      "alias": ["Atlas Hídrico Indígena"],
+      "tipo": "programa",
+      "que_es": "Relevamiento dirigido por las propias comunidades de fuentes, usos ancestrales, ciclos hidrológicos y topónimos, integrado al Censo como capa adicional.",
+      "seccion": "5.11",
+      "linea": 1120,
+      "cita": "**3. Atlas Hídrico Indígena.** Un relevamiento"
+    },
+    {
+      "nombre": "Sistema Nacional de Alerta Hídrica Temprana",
+      "alias": ["Sistema Nacional de Alerta Hídrica Temprana"],
+      "tipo": "mecanismo",
+      "que_es": "Capa de análisis sobre la Red IoT y el Gemelo Digital que proyecta caudales a 30, 60 y 90 días y activa cuatro niveles de alerta (verde, amarilla, naranja, roja).",
+      "seccion": "9.7",
+      "linea": 1861,
+      "cita": "**El Sistema Nacional de Alerta Hídrica Temprana** merece una descripción"
+    },
+    {
+      "nombre": "Guardián Ambiental Independiente",
+      "alias": ["Guardián Ambiental Independiente"],
+      "tipo": "mecanismo",
+      "que_es": "Equipo de 5 a 7 científicos con acceso total a los datos de ANAGUA que publica un informe anual sin pasar por el Directorio, como contrapeso científico.",
+      "seccion": "10.7",
+      "linea": 2174,
+      "cita": "**6. Mecanismo específico del agua: Guardián Ambiental Independiente.**"
+    },
+    {
+      "nombre": "Pacto Federal Hídrico",
+      "alias": ["Pacto Federal Hídrico", "Pactos Federales Hídricos"],
+      "tipo": "mecanismo",
+      "que_es": "Adhesión provincial voluntaria a estándares de ANAGUA a cambio del Fondo Federal de Inversión Hídrica (70% de las obras), asistencia técnica y acceso al Gemelo Digital.",
+      "seccion": "23.2",
+      "linea": 3798,
+      "cita": "**Estructura del Pacto Federal Hídrico:**"
+    },
+    {
+      "nombre": "Fondo de Transición Glaciar",
+      "alias": ["Fondo de Transición Glaciar"],
+      "tipo": "fondo",
+      "que_es": "Fondo para adaptar a comunidades dependientes del deshielo: subsidio a riego eficiente, almacenamiento, recarga de acuíferos y reconversión productiva, con fuentes en presupuesto, créditos, regalías mineras y cooperación.",
+      "seccion": "8.7",
+      "linea": 1702,
+      "cita": "El **Fondo de Transición Glaciar** es el mecanismo financiero para la adaptación"
+    },
+    {
+      "nombre": "Presupuesto Mínimo Hídrico",
+      "alias": ["Presupuesto Mínimo Hídrico"],
+      "tipo": "norma",
+      "que_es": "Reforma constitucional propuesta que fija un piso anual de 0.15% del PBI para soberanía hídrica, criosfera y acceso universal, administrado por ANAGUA.",
+      "seccion": "16.8",
+      "linea": 3186,
+      "cita": "### 16.8 Presupuesto Mínimo Hídrico — Piso Constitucional"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Red Bastarda",
+      "alias": ["Red Bastarda"],
+      "origen": "PLANEB",
+      "para_que": "Las Bastardas Hídricas se integran a la red de empresas bastardas y aprovechan su modelo de gobernanza.",
+      "linea": 1181,
+      "cita": "integran con la Red Bastarda de PLANEB"
+    },
+    {
+      "nombre": "Fideicomiso de Propósito Perpetuo",
+      "alias": ["Fideicomiso de Propósito Perpetuo"],
+      "origen": "PLANEB",
+      "para_que": "Forma jurídica adoptada por las Bastardas Hídricas urbanas y de cuenca.",
+      "linea": 2843,
+      "cita": "Fideicomiso de Propósito Perpetuo (modelo PLANEB)"
+    },
+    {
+      "nombre": "Fondo Bastardo",
+      "alias": ["Fondo Bastardo"],
+      "origen": "PLANEB",
+      "para_que": "Modelo del que se deriva el Fondo de Solidaridad Hídrica alimentado con el 2% de ingresos de las Bastardas.",
+      "linea": 2851,
+      "cita": "(análogo al Fondo Bastardo)"
+    },
+    {
+      "nombre": "ANEB",
+      "alias": ["ANEB"],
+      "origen": "PLANEB",
+      "para_que": "Designa un miembro del Directorio de ANAGUA y coordina con las Bastardas Hídricas; ANAGUA copia su patrón institucional.",
+      "linea": 1989,
+      "cita": "Designado por el directorio de ANEB (coordinación con Bastardas Hídricas)"
+    },
+    {
+      "nombre": "ANJUS",
+      "alias": ["ANJUS"],
+      "origen": "PLANJUS",
+      "para_que": "Designa un miembro del Directorio de ANAGUA y resuelve las disputas hídricas.",
+      "linea": 1988,
+      "cita": "Designado por el directorio de ANJUS (resolución de disputas hídricas)"
+    },
+    {
+      "nombre": "ANCE",
+      "alias": ["ANCE"],
+      "origen": "PLANEDU",
+      "para_que": "Modelo de adhesión provincial con incentivos que PLANAGUA replica en los Pactos Federales Hídricos.",
+      "linea": 3796,
+      "cita": "El modelo es el ANCE (Acuerdos Nacionales de Compromiso Educativo) de PLANEDU"
+    },
+    {
+      "nombre": "ArgenCloud",
+      "alias": ["ArgenCloud"],
+      "origen": "PLANDIG",
+      "para_que": "Aloja el Gemelo Digital del Agua y la telemetría de cuencas sobre nodos soberanos.",
+      "linea": 3431,
+      "cita": "ArgenCloud y la Red IoT soberana alojan el Gemelo Digital del Agua"
+    },
+    {
+      "nombre": "Corredores de biodiversidad",
+      "alias": ["corredores de biodiversidad"],
+      "origen": "PLANISV",
+      "para_que": "Se superponen con los corredores hídricos y funcionan como zonas buffer ribereñas.",
+      "linea": 2662,
+      "cita": "PLANISV propone corredores de biodiversidad"
+    },
+    {
+      "nombre": "Nanoburbujas",
+      "alias": ["nanoburbujas"],
+      "origen": "PLANISV",
+      "para_que": "Tecnología de oxigenación para el piloto de remediación del tramo inferior del Riachuelo.",
+      "linea": 2708,
+      "cita": "PLANISV documenta una tecnología emergente"
+    },
+    {
+      "nombre": "Ciudades nuevas de PLAN24CN",
+      "alias": ["24 ciudades nuevas"],
+      "origen": "PLAN24CN",
+      "para_que": "Las ciudades nuevas son el lugar donde se aplican las especificaciones hídricas urbanas de PLANAGUA.",
+      "linea": 2749,
+      "cita": "PLAN24CN propone construir 24 ciudades nuevas en la Argentina"
+    },
+    {
+      "nombre": "1800 urbanizaciones",
+      "alias": ["1800 urbanizaciones"],
+      "origen": "PLANVIV",
+      "para_que": "Requieren co-ejecución hídrica con ANAGUA: conexión, tratamiento y reúso.",
+      "linea": 3430,
+      "cita": "1800 urbanizaciones necesitan co-ejecución hídrica con ANAGUA"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Forman técnicos para cubrir la brecha de capacidad técnica del plan.",
+      "linea": 3587,
+      "cita": "Con los Centros de la Vida de PLANREP que forman técnicos"
+    },
+    {
+      "nombre": "Escuelas del Futuro",
+      "alias": ["Escuelas del Futuro"],
+      "origen": "PLANEDU",
+      "para_que": "Espacio de educación hídrica y de ciencia ciudadana.",
+      "linea": 203,
+      "cita": "educación hídrica y ciencia ciudadana en las Escuelas del Futuro"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Inversión total propuesta en 10 años",
+      "valor": "USD 15.000-25.000M en 10 años (2027-2036)",
+      "tipo": "presupuesto",
+      "linea": 2212,
+      "cita": "La Inversión Total: USD 15.000-25.000M en 10 Años"
+    },
+    {
+      "concepto": "Total del desglose por programa (Tabla 11.2)",
+      "valor": "USD 15.300-26.800M",
+      "tipo": "presupuesto",
+      "linea": 2256,
+      "cita": "| **TOTAL** | **15.300-26.800** | **100%**"
+    },
+    {
+      "concepto": "Inversión directa de la cascada de cuatro fases",
+      "valor": "USD 10.498-17.150M",
+      "tipo": "presupuesto",
+      "linea": 3774,
+      "cita": "| **TOTAL** | **10 años** | **USD 10.498-17.150M**"
+    },
+    {
+      "concepto": "Presupuesto canónico de tranche-1",
+      "valor": "1.2B/año + 3.5B inversión en 24 meses",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "**Presupuesto canónico:** 1.2B/año + 3.5B inv 24m"
+    },
+    {
+      "concepto": "Piso presupuestario constitucional de ANAGUA",
+      "valor": "0.15% del PBI (USD 750-900M/año en estimación media)",
+      "tipo": "parametro",
+      "linea": 1962,
+      "cita": "**Presupuesto constitucional protegido:** 0.15% del PBI como piso constitucional"
+    },
+    {
+      "concepto": "Meta de pérdidas en red",
+      "valor": "de ~40% a menos de 15% en 10 años; 25% en 5 años",
+      "tipo": "meta",
+      "linea": 782,
+      "cita": "Reducir las pérdidas en red del ~40% actual a **menos del 15%** en 10 años"
+    },
+    {
+      "concepto": "Cañería a reemplazar",
+      "valor": "25.000 km en 10 años (2.500 km/año)",
+      "tipo": "meta",
+      "linea": 794,
+      "cita": "**Objetivo:** Reemplazar 25.000 km de cañería en 10 años"
+    },
+    {
+      "concepto": "Sensores de la Red IoT",
+      "valor": "45.000–60.000 sensores y estaciones",
+      "tipo": "meta",
+      "linea": 694,
+      "cita": "**Total estimado: 45.000–60.000 sensores y estaciones**"
+    },
+    {
+      "concepto": "Inversión de la Red IoT en 5 años",
+      "valor": "USD 550–780M",
+      "tipo": "presupuesto",
+      "linea": 724,
+      "cita": "| **TOTAL** | **5 años** | **~55.000** | **Cobertura integral** | **550–780** |"
+    },
+    {
+      "concepto": "Meta de reúso de aguas residuales tratadas",
+      "valor": "30% en 10 años; 50% aspiracional en 20 años",
+      "tipo": "meta",
+      "linea": 941,
+      "cita": "Pasar del <5% actual al **30% de reúso en 10 años**"
+    },
+    {
+      "concepto": "Inversión en agua segura para comunidades indígenas",
+      "valor": "USD 300–500M en los primeros 2 años",
+      "tipo": "presupuesto",
+      "linea": 1126,
+      "cita": "USD 300–500M en los primeros 2 años"
+    },
+    {
+      "concepto": "Fondo de Transición Glaciar",
+      "valor": "USD 150–300M/año durante 20 años",
+      "tipo": "presupuesto",
+      "linea": 1717,
+      "cita": "**Monto estimado:** USD 150–300M/año durante 20 años"
+    },
+    {
+      "concepto": "Ingresos por tasas de uso hídrico a régimen",
+      "valor": "USD 150–300M/año desde 2031",
+      "tipo": "fuente",
+      "linea": 1167,
+      "cita": "USD 150–300M/año a régimen, a partir del 2031 (tranche-2)"
+    },
+    {
+      "concepto": "Costo estimado de no actuar en 10 años",
+      "valor": "USD 33.500M a USD 67.000M",
+      "tipo": "diagnostico",
+      "linea": 338,
+      "cita": "| **TOTAL** | **USD 33.500M** | **USD 67.000M** |"
+    },
+    {
+      "concepto": "Adhesión provincial a los Pactos Federales Hídricos",
+      "valor": "18 de 24 provincias en Fase 2 (2031); las 24 en Fase 3 (2034)",
+      "tipo": "meta",
+      "linea": 3816,
+      "cita": "**Meta:** 18 de 24 provincias adheridas en Fase 2 (2031 (tranche-2))"
+    },
+    {
+      "concepto": "Promesa pública medible a 24 meses",
+      "valor": "un millón de personas más con agua segura medida y publicada",
+      "tipo": "meta",
+      "linea": 4461,
+      "cita": "En 24 meses, un millón de personas más en Argentina van a tener agua segura medida y publicada"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANISV",
+      "que": "Monitoreo cruzado suelo-agua, créditos hídricos y de carbono de suelo en un mercado unificado, y corredores riparios compartidos; PLANISV reduce lo que entra, PLANAGUA elimina lo que ya entró.",
+      "linea": 2684,
+      "cita": "### 13.5 Programa Conjunto PLANAGUA-PLANISV"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Provee el modelo de Bastarda, el fideicomiso perpetuo, el sorteo y la agencia ANEB; las Bastardas Hídricas aportan 2% de ingresos a un fondo solidario.",
+      "linea": 1179,
+      "cita": "son la aplicación del modelo PLANEB (Sección 8 del mandato PLANEB)"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Aloja la Red IoT y el Gemelo Digital del Agua sobre nodos soberanos; dependencia declarada como crítica y de datos.",
+      "linea": 3431,
+      "cita": "ArgenCloud y la Red IoT soberana alojan el Gemelo Digital del Agua y la telemetría de cuencas"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "ANAGUA provee infraestructura hídrica troncal a las ciudades nuevas, que nacen con doble cañería, SUDS, reúso y Bastarda Hídrica como prestador.",
+      "linea": 3429,
+      "cita": "Infraestructura hídrica para ciudades en construcción"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "Co-ejecución hídrica entre ANAGUA y las urbanizaciones nuevas: conexión, tratamiento y reúso.",
+      "linea": 3430,
+      "cita": "1800 urbanizaciones necesitan co-ejecución hídrica con ANAGUA"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "ANJUS designa un miembro del Directorio; los conflictos hídricos y los casos de personería jurídica se resuelven en el sistema de justicia del marco.",
+      "linea": 1988,
+      "cita": "Designado por el directorio de ANJUS (resolución de disputas hídricas)"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Aporta el modelo de adhesión provincial voluntaria con incentivos y la formación de técnicos y kits escolares de ciencia ciudadana.",
+      "linea": 3796,
+      "cita": "El modelo es el ANCE (Acuerdos Nacionales de Compromiso Educativo) de PLANEDU"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "Co-ejecuta la emergencia de arsénico: plantas de ósmosis inversa en las localidades más afectadas, con meta de arsénico bajo 10 μg/L.",
+      "linea": 3695,
+      "cita": "Emergencia arsénico: plantas de ósmosis inversa en 500 localidades más afectadas"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Demanda de declarar cuencas en territorio originario; PLANTER restringe la explotación de esas cuencas a la consulta previa documentada y aporta enforcement ambiental.",
+      "linea": 4436,
+      "cita": "explotación de cuencas en territorio originario solo con consulta previa documentada"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "PLANAGUA demanda logística para químicos y acceso a plantas; entrega datos de cuencas para trazas ferroviarias, que requieren convenio explícito.",
+      "linea": 4431,
+      "cita": "trazas ferroviarias que cruzan cuencas críticas requieren convenio explícito"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Forma técnicos y oficios del agua mediante los Centros de la Vida, para cubrir la brecha de capacidad técnica.",
+      "linea": 3587,
+      "cita": "Con los Centros de la Vida de PLANREP que forman técnicos"
+    },
+    {
+      "con": "PLANEN",
+      "que": "Figura como responsable junto a ANAGUA de la desalinización operativa en tres ubicaciones; la energía renovable es obligatoria en las plantas.",
+      "linea": 3738,
+      "cita": "Desalinización operativa en 3 ubicaciones"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El encabezado difiere todas las reformas constitucionales a 2040+, pero la Tabla 16.10 las programa para 2027-2028 y el piso de 0.15% se presenta como constitucional en el cuerpo y en las fuentes de financiamiento.",
+      "linea": 48,
+      "cita": "TODAS estas reformas constitucionales están diferidas a horizonte 2040+"
+    },
+    {
+      "con": "interno",
+      "que": "El encabezado reduce la agencia a una execution cell en MinAmbiente en tranche-1, mientras el cuerpo la define como ente autárquico independiente del Poder Ejecutivo con directorio propio.",
+      "linea": 16,
+      "cita": "Agencia Nacional de Aguas → execution cell en MinAmbiente"
+    },
+    {
+      "con": "interno",
+      "que": "La Sección 26 abre con un rango de USD 10.500–17.150M, distinto de los USD 15.000–25.000M de la tesis y de los 15.300–26.800M de la Tabla 11.2; el texto de 22.5 explica la diferencia por alcance.",
+      "linea": 4076,
+      "cita": "PLANAGUA requiere entre USD 10.500 y 17.150M en 10 años (Tabla 22A)"
+    },
+    {
+      "con": "interno",
+      "que": "Los créditos hídricos se transfieren entre empresas de la misma cuenca (20.5) o se negocian bilateralmente (16.4), pero la Sección 26.1 dice que solo se compran y venden a ANAGUA, sin mercado secundario.",
+      "linea": 4114,
+      "cita": "Los créditos se compran y venden exclusivamente a ANAGUA"
+    },
+    {
+      "con": "PLANEB",
+      "que": "El documento remite al mismo modelo de Bastarda con tres numeraciones distintas del mandato PLANEB: Sección 8, Sección 3 y Sección 23.3.",
+      "linea": 4135,
+      "cita": "Fideicomiso de Propósito Perpetuo (PLANEB, Sección 3)"
+    },
+    {
+      "con": "interno",
+      "que": "El resumen de la Sección 5 asigna 4.000–6.000M al retrofitting, mientras la Tabla 11.2 le asigna 8.000–12.000M, casi la mitad del total del plan.",
+      "linea": 1272,
+      "cita": "| 5.4 Retrofitting de infraestructura | 4.000–6.000 |"
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "No se sabe con precisión cuántos pozos llegan al Guaraní ni cuánta agua extraen; el registro es incompleto y la extracción no se mide de forma sistemática.",
+      "linea": 1314,
+      "cita": "No sabemos con precisión cuántos pozos hay, cuánta agua se extrae"
+    },
+    {
+      "que": "Se desconoce cuántas personas enfermaron por la degradación del agua durante la sequía 2022–23, porque no se midió ni hay vigilancia epidemiológica cruzada.",
+      "linea": 1816,
+      "cita": "durante la sequía? No se sabe. No se midió."
+    },
+    {
+      "que": "El Acuerdo sobre el Acuífero Guaraní de 2010 todavía no está en vigor porque no todos los países completaron la ratificación.",
+      "linea": 1352,
+      "cita": "El Acuerdo todavía no entró en vigor"
+    },
+    {
+      "que": "El volumen del Guaraní se estima entre 30.000 y 45.000 km³, con alta incertidumbre en la tasa de recarga.",
+      "linea": 1305,
+      "cita": "Estimaciones varían: 30.000–45.000 km³"
+    }
+  ]
+}

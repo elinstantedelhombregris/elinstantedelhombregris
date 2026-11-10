@@ -1,0 +1,5 @@
+{"code":"PLANFOCO","leido":"todo","hallazgos":[
+{"lineas":[171,786],"que":"La línea 171 manda a la Sección 13.2 para ver que la Fase 0 mide los horarios, pero 13.2 trata la extinción y la pérdida del ecosistema; el relevamiento de horarios está en 4.5 y en la Sección 16."},
+{"lineas":[626,750],"que":"La misma deuda de par recíproco con PLANFOCO se cita como PLANPREGUNTA:734 en la línea 626 y como PLANPREGUNTA:732 en la 750, y en PLANPREGUNTA:732 el texto es otro que la fórmula entrecomillada."},
+{"lineas":[197,499,656],"que":"El censo de cero ocurrencias se declara sobre «los veinticuatro documentos del taller», cuando el registro tiene hoy 28 documentos; el conteo puede estar desactualizado."}
+]}

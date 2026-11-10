@@ -1,0 +1,333 @@
+{
+  "code": "PLANCUL",
+  "nombre": "Plan Nacional de Cultura Viva y Red de Dendritas",
+  "version": "4.0 — Marzo 2026",
+  "tesis": "La cultura es el sistema nervioso de la nación: las Mesas Largas, las Dendritas y la Red crecen en la vida cotidiana, sin presupuesto dedicado ni agencia, y restituyen un sentido que la pantalla no da.",
+  "problema": "Según el documento, Argentina sufre una crisis de sentido: 17% de confianza interpersonal, 31% sin nadie con quien hablar de temas importantes, 12% de participación cultural comunitaria y más de cinco horas diarias de pantalla no laboral. Los planes culturales estatales fracasaron por dependencia presupuestaria.",
+  "resumen": "Propone una red cultural descentralizada que nace de mesas comunitarias de comida (Mesa Larga) y se organiza en siete raíces (tierra, memoria, creación, cuerpo, vínculo, juego e identidad) y tres corrientes (ambiente, interior y temporal). Las personas activas se llaman Dendritas; los espacios donde se reúnen son Nodos Culturales Autónomos, que se conectan entre sí con Nodos Compañeros y una plataforma federada y abierta. El Estado hace dos acciones vigentes (romper la concentración mediática y remover obstáculos) y no crea agencia ni presupuesto. Opera sobre infraestructura existente y se mide por el sentido de vida de la población, no por cifras de gestión.",
+  "horizonte": "Arranque con 50 Mesas Largas en 15 provincias antes del Año 0; entrada tranche-2 en 2028; 2.000+ Nodos entre los años 4 y 7; visión de generaciones hasta el Año 65 (2093).",
+  "financiamiento": "Sin presupuesto dedicado. Funciona por parasitismo estratégico sobre infraestructura de otros PLANes, con contribuciones comunitarias directas, crowdfunding para proyectos y economía del trueque.",
+  "temas": ["cultura-memoria", "educacion-conocimiento", "palabra-publica"],
+
+  "conceptos": [
+    {
+      "nombre": "Mesa Larga",
+      "alias": ["Mesa Larga"],
+      "tipo": "mecanismo",
+      "que_es": "Comida comunitaria periódica en una calle, plaza o espacio barrial, con lo que trae cada familia. Es el primer peldaño de la Escalera y el motor de propagación del plan.",
+      "seccion": "Capa 0",
+      "linea": 78,
+      "cita": "Eso es una Mesa Larga."
+    },
+    {
+      "nombre": "Escalera de Confianza",
+      "alias": ["Escalera de Confianza"],
+      "tipo": "mecanismo",
+      "que_es": "Secuencia de nueve peldaños de actividades ordenadas por nivel de vulnerabilidad, desde comer juntos hasta exigir juntos. No se deben saltear peldaños.",
+      "seccion": "1.1",
+      "linea": 116,
+      "cita": "La Escalera de Confianza"
+    },
+    {
+      "nombre": "Siete Raíces",
+      "alias": ["Siete Raíces"],
+      "tipo": "termino",
+      "que_es": "Siete dimensiones de experiencia que crecen de la Mesa Larga: Tierra, Memoria, Creación, Cuerpo, Vínculo, Juego e Identidad.",
+      "seccion": "1.2",
+      "linea": 138,
+      "cita": "Las Siete Raíces"
+    },
+    {
+      "nombre": "Tres Corrientes",
+      "alias": ["Tres Corrientes"],
+      "tipo": "termino",
+      "que_es": "Formas de conciencia que transforman las actividades en transformación profunda: Corriente Ambiente, Corriente Interior y Corriente Temporal.",
+      "seccion": "1.3",
+      "linea": 194,
+      "cita": "Las Tres Corrientes"
+    },
+    {
+      "nombre": "Dendrita",
+      "alias": ["Dendrita", "Dendritas"],
+      "tipo": "figura",
+      "que_es": "Persona cuya vida activada transmite sentido. Es un estado de activación y no un cargo; incluye a niños y a inmigrantes.",
+      "seccion": "2.1",
+      "linea": 245,
+      "cita": "Una Dendrita no es un cargo."
+    },
+    {
+      "nombre": "Nodos Culturales Autónomos",
+      "alias": ["Nodos Culturales Autónomos", "Nodo Cultural Autónomo"],
+      "tipo": "mecanismo",
+      "que_es": "Espacios físicos donde las Dendritas y las comunidades se encuentran. Requisitos: espacio accesible, una actividad semanal y puertas abiertas.",
+      "seccion": "2.2",
+      "linea": 259,
+      "cita": "Espacios donde las Dendritas y las comunidades se encuentran."
+    },
+    {
+      "nombre": "Nodo Compañero",
+      "alias": ["Nodo Compañero"],
+      "tipo": "mecanismo",
+      "que_es": "Nodo de otro barrio o localidad que se visita cada trimestre para espejo, rescate y polinización de ideas.",
+      "seccion": "2.2",
+      "linea": 265,
+      "cita": "cada Nodo tiene un espejo en otro barrio/localidad"
+    },
+    {
+      "nombre": "Plataforma Dendrita",
+      "alias": ["Plataforma Dendrita"],
+      "tipo": "mecanismo",
+      "que_es": "Plataforma digital open source, federada y migrable, para mapear Nodos, archivar prácticas y coordinar. Sin algoritmo de engagement ni publicidad.",
+      "seccion": "2.3",
+      "linea": 267,
+      "cita": "La Plataforma Dendrita"
+    },
+    {
+      "nombre": "Mecanismo de Aprendizaje",
+      "alias": ["Mecanismo de Aprendizaje", "¿Qué Funcionó?"],
+      "tipo": "mecanismo",
+      "que_es": "Función de la Plataforma por la que cada Nodo publica un relato de práctica de un párrafo, sin métricas, que se propaga por la red.",
+      "seccion": "2.3",
+      "linea": 277,
+      "cita": "Mecanismo de Aprendizaje — \"¿Qué Funcionó?\""
+    },
+    {
+      "nombre": "Alquimia del Dolor",
+      "alias": ["Alquimia del Dolor"],
+      "tipo": "termino",
+      "que_es": "Capacidad de transformar el sufrimiento compartido en espacio cultural mediante duelo, memoria y humor colectivos.",
+      "seccion": "1.2",
+      "linea": 154,
+      "cita": "La Alquimia del Dolor:"
+    },
+    {
+      "nombre": "Círculos de Memoria",
+      "alias": ["Círculos de Memoria"],
+      "tipo": "programa",
+      "que_es": "Encuentro semanal de Granaderos con niños y jóvenes, en el que una persona habla y todos escuchan. Protocolo en el Apéndice B.",
+      "seccion": "1.2",
+      "linea": 152,
+      "cita": "Círculos de Memoria (Granaderos + niños/jóvenes, semanal"
+    },
+    {
+      "nombre": "Archivos Vivos",
+      "alias": ["Archivos Vivos"],
+      "tipo": "programa",
+      "que_es": "Colección permanente de grabaciones y testimonios comunitarios, con prioridad a mayores de 85 años y a lenguas en peligro.",
+      "seccion": "1.2",
+      "linea": 152,
+      "cita": "Archivos Vivos (grabaciones permanentes"
+    },
+    {
+      "nombre": "Rondas de Duelo",
+      "alias": ["Rondas de Duelo"],
+      "tipo": "programa",
+      "que_es": "Círculo de duelo comunitario por pérdidas compartidas. Solo para comunidades que llegaron al peldaño 7 o más.",
+      "seccion": "1.2",
+      "linea": 156,
+      "cita": "distintas de las Rondas de Escucha. Para comunidades procesando pérdidas"
+    },
+    {
+      "nombre": "Carta al Futuro",
+      "alias": ["Carta al Futuro"],
+      "tipo": "programa",
+      "que_es": "Ritual anual en el que la comunidad planta un árbol y escribe cartas para quien se siente bajo su sombra dentro de cien años.",
+      "seccion": "1.3",
+      "linea": 232,
+      "cita": "ritual anual — cada comunidad planta un árbol"
+    },
+    {
+      "nombre": "Redefinición del Éxito",
+      "alias": ["Redefinición del Éxito", "Redefinir el Éxito"],
+      "tipo": "termino",
+      "que_es": "Contra-definición de éxito: calidad de los vínculos, profundidad de las raíces, belleza creada y personas activadas, en lugar de plata, fama o emigración.",
+      "seccion": "3.5",
+      "linea": 351,
+      "cita": "Redefinir el Éxito"
+    },
+    {
+      "nombre": "Parasitismo Estratégico",
+      "alias": ["Parasitismo Estratégico"],
+      "tipo": "termino",
+      "que_es": "Operar dentro de la infraestructura que otros PLANes construyen por sus propios fines, sin presupuesto ni agencia propios.",
+      "seccion": "4.1",
+      "linea": 373,
+      "cita": "Parasitismo Estratégico (Honestidad Sobre los Costos)"
+    },
+    {
+      "nombre": "Bucles de Balance",
+      "alias": ["Bucles de Balance"],
+      "tipo": "termino",
+      "que_es": "Fuerzas sistémicas que frenan el crecimiento: saturación de atención, rutinización, paradoja del éxito, gentrificación y dilución de calidad.",
+      "seccion": "6.2",
+      "linea": 441,
+      "cita": "Bucles de Balance — Las Fuerzas Que Limitan el Crecimiento"
+    },
+    {
+      "nombre": "Núcleo Mínimo Superviviente",
+      "alias": ["Núcleo Mínimo Superviviente"],
+      "tipo": "termino",
+      "que_es": "Lo que sobrevive si ¡BASTA! colapsa: todo lo que vive en las personas y no depende de instituciones.",
+      "seccion": "6.5",
+      "linea": 480,
+      "cita": "Núcleo Mínimo Superviviente"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Piso Vital Universal",
+      "alias": ["Piso Vital Universal"],
+      "origen": "PLANARCO",
+      "para_que": "Sostiene la dignidad económica de los Granaderos desde los sesenta y cinco años; PLANCUL no lo crea.",
+      "linea": 690,
+      "cita": "el **Piso Vital Universal**, que se abre a los sesenta y cinco por edad registrada"
+    },
+    {
+      "nombre": "Rampa de Salida 60–72",
+      "alias": ["Rampa de Salida 60–72"],
+      "origen": "PLANARCO",
+      "para_que": "Segundo dispositivo económico de la caja de los Granaderos, en la sucesión de PLANJUB.",
+      "linea": 690,
+      "cita": "la **Rampa de Salida 60–72**"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Puntos físicos de reunión donde se alojan las salas, Talleres y Círculos de la Red.",
+      "linea": 375,
+      "cita": "Centros de la Vida (PLANREP)"
+    },
+    {
+      "nombre": "ArgenCloud",
+      "alias": ["ArgenCloud"],
+      "origen": "PLANDIG",
+      "para_que": "Alojamiento federado opcional para la Plataforma Dendrita; el plan declara que no depende de él.",
+      "linea": 279,
+      "cita": "**ArgenCloud federado** es capacidad del estadio B de PLANDIG"
+    },
+    {
+      "nombre": "Commons Atencional",
+      "alias": ["Commons Atencional"],
+      "origen": "PLANDIG",
+      "para_que": "Recibe el conteo de bibliotecas populares que cierra la aritmética de cobertura del Commons.",
+      "linea": 796,
+      "cita": "del Commons Atencional de `PLANDIG`"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Confianza interpersonal",
+      "valor": "17%",
+      "tipo": "diagnostico",
+      "linea": 120,
+      "cita": "La Argentina tiene 17% de confianza interpersonal"
+    },
+    {
+      "concepto": "Horas de pantalla no laboral por día",
+      "valor": "5.2 horas (global 3.8)",
+      "tipo": "diagnostico",
+      "linea": 304,
+      "cita": "Horas de pantalla no-laboral/día | 5.2 | Global: 3.8"
+    },
+    {
+      "concepto": "Confianza interpersonal (meta 2041)",
+      "valor": "35%+",
+      "tipo": "meta",
+      "linea": 557,
+      "cita": "Confianza interpersonal | 17% | 35%+"
+    },
+    {
+      "concepto": "Participación cultural comunitaria (meta 2041)",
+      "valor": "40%+",
+      "tipo": "meta",
+      "linea": 558,
+      "cita": "Participación cultural comunitaria | 12% | 40%+"
+    },
+    {
+      "concepto": "Mesas Largas mensuales (meta 2041)",
+      "valor": "3.000+",
+      "tipo": "meta",
+      "linea": 564,
+      "cita": "Mesas Largas mensuales | ~0 | 3.000+"
+    },
+    {
+      "concepto": "Municipios con publicación comunitaria (meta 2041)",
+      "valor": "2.200",
+      "tipo": "meta",
+      "linea": 562,
+      "cita": "Municipios con publicación comunitaria | ~50 | 2.200"
+    },
+    {
+      "concepto": "Pantalla no laboral por día (meta 2041)",
+      "valor": "<3.5 hs",
+      "tipo": "meta",
+      "linea": 561,
+      "cita": "Pantalla no-laboral/día | 5.2 hs | <3.5 hs"
+    },
+    {
+      "concepto": "Mesas Largas de arranque",
+      "valor": "50 en 15 provincias",
+      "tipo": "meta",
+      "linea": 532,
+      "cita": "50 Mesas Largas en 15 provincias"
+    },
+    {
+      "concepto": "Argentina Escribe (meta a 10 años)",
+      "valor": "2.200 voces; una publicación por municipio",
+      "tipo": "meta",
+      "linea": 164,
+      "cita": "meta a 10 años: una publicación por municipio, 2.200 voces"
+    },
+    {
+      "concepto": "Ventana de entrada de PLANCUL",
+      "valor": "entrada 24-30m; ventana absoluta 2028-2030",
+      "tipo": "plazo",
+      "linea": 518,
+      "cita": "entrada 24-30m, ventana absoluta 2028-2030"
+    },
+    {
+      "concepto": "Año 0 operativo",
+      "valor": "2028",
+      "tipo": "plazo",
+      "linea": 518,
+      "cita": "El Año 0 se ancla en el lanzamiento operativo del PLAN (entrada tranche-2, 2028)"
+    },
+    {
+      "concepto": "Promesa pública medible",
+      "valor": "24 meses",
+      "tipo": "meta",
+      "linea": 778,
+      "cita": "En 24 meses, las bibliotecas y los talleres culturales van a estar abiertos"
+    },
+    {
+      "concepto": "Radio comunitaria (licencia automática)",
+      "valor": "<50W, 30 días",
+      "tipo": "parametro",
+      "linea": 385,
+      "cita": "licencia automática <50W, 30 días"
+    }
+  ],
+  "acoples": [
+    { "con": "PLAN24CN", "que": "Nodos Culturales incorporados en el plano de las ciudades nuevas, para que la cultura nazca con la comunidad.", "linea": 401, "cita": "Ciudades nacen con Nodos Culturales en el plano" },
+    { "con": "PLANREP", "que": "Centros de la Vida como espacios físicos de reunión, con salas culturales y reconversión laboral hacia Talleres y Círculos.", "linea": 402, "cita": "Centros de la Vida incluyen salas culturales" },
+    { "con": "PLANEDU", "que": "Currículo escolar con Raíz Creación y Memoria, y Rondas de Escucha desde primer grado; la escuela aporta espacio y tiempo.", "linea": 404, "cita": "Raíz Creación + Memoria en currículo" },
+    { "con": "PLANDIG", "que": "Estadio A de datos abiertos y migración para la Plataforma Dendrita; el estadio B queda diferido y no es requisito.", "linea": 406, "cita": "En tranche-2: estadio A (datos abiertos + audit logs + interop) sobre proveedor comercial portable." },
+    { "con": "PLANEB", "que": "Editoriales y estudios de grabación al costo, para la producción cultural de las Dendritas.", "linea": 407, "cita": "Bastardas Culturales: editoriales, estudios de grabación al costo" },
+    { "con": "PLANSUS", "que": "Ceremonias ancestrales y responsabilidad sobre el cuerpo como prácticas de Raíz Identidad.", "linea": 408, "cita": "Ceremonias ancestrales son prácticas culturales" },
+    { "con": "PLANSAL", "que": "Reducción de la soledad y del sentido de propósito como determinantes de salud mental, según el documento.", "linea": 409, "cita": "PLANCUL ataca la soledad (que mata más que el tabaco)" },
+    { "con": "PLANMON", "que": "Vínculos fuertes que el plan declara como base de la confianza en moneda e instituciones.", "linea": 410, "cita": "Confianza es cultural; vínculos fuertes" },
+    { "con": "PLANSEG", "que": "Reconstrucción del tejido social que el plan presenta como respuesta a la causa profunda de la inseguridad.", "linea": 414, "cita": "Causa profunda de inseguridad = ruptura del tejido social" },
+    { "con": "PLANVIV", "que": "Cada proyecto habitacional se conecta a la Red de Dendritas; el tejido territorial que aporta PLANVIV es base del plan.", "linea": 415, "cita": "cada proyecto habitacional se conecta a la Red" },
+    { "con": "PLANARCO", "que": "Sucesor de la caja de los Granaderos (antes PLANJUB, sin documento): aporta el Piso Vital Universal y la Rampa de Salida.", "linea": 688, "cita": "el sucesor es **`PLANARCO_Argentina_ES.md`**, el PLAN del arco de la vida, ordinal 24." }
+  ],
+  "tensiones": [
+    { "con": "interno", "que": "El encabezado de la sección 5.1 dice 18 mandatos; el canon vigente es de 27 PLANes más PLANRUTA.", "linea": 397, "cita": "## 5.1 Integración con los 18 Mandatos" },
+    { "con": "interno", "que": "Seis referencias a Granaderos se apoyan en PLANJUB, un PLAN previsional sin documento; la sucesión a PLANARCO se marca solo como nota.", "linea": 688, "cita": "apoyan a los Granaderos sobre un PLAN previsional que **nunca se escribió**" },
+    { "con": "interno", "que": "La tabla 5.1 incluye PLANTRA como si fuera un PLAN, pero el propio texto lo describe como código sin documento ni ordinal.", "linea": 692, "cita": "que es otro código sin documento, sin ordinal y sin entrada en `PLAN_REGISTRY.yml`" }
+  ],
+  "sin_resolver": [
+    { "que": "El código PLANTRA queda anotado sin resolver: el texto declara que no es materia de este plan ni del arco de la vida.", "linea": 692, "cita": "que **queda anotado acá sin resolver**" },
+    { "que": "El propio plan declara que no puede garantizar que su propuesta salga bien.", "linea": 706, "cita": "Este plan no puede prometer que todo va a salir bien." }
+  ]
+}

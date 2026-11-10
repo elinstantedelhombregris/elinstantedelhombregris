@@ -1,0 +1,383 @@
+{
+  "code": "PLANCUIDADO",
+  "nombre": "Plan Nacional de Vínculo, Parentesco Jurídicamente Plural y Obligación de Sostén",
+  "version": "1.0 — Abril 2026",
+  "tesis": "Reconocer el cuidado como infraestructura cívica: un Pacto de Cuidado registrado bilateralmente, con efectos legales, horas redimibles en un Libro de Cuidado y un Registro Nacional de Vínculos opt-in, organiza el sostén entre personas.",
+  "problema": "El cuidado no remunerado, realizado en un 82% por mujeres, no figura en las cuentas nacionales, no cotiza para jubilación y no tiene estatuto legal. El Código Civil reconoce solo el parentesco de sangre, matrimonio e hijos, y la soledad de adultos mayores no dispara protocolo hasta que hay crisis visible.",
+  "resumen": "Crea un Pacto de Cuidado, figura jurídica bilateral que registra un vínculo de cuidado con tipo, frecuencia y efectos legales. Crea un Libro de Cuidado que registra horas dadas y recibidas, redimibles en créditos previsionales, días de licencia, atención sanitaria y puntaje habitacional. Propone la Jornada 6+2, con dos horas de cuidado comunitario dentro de la jornada laboral. Crea el Registro Nacional de Vínculos, la Alerta de Soledad Total para ofrecer acompañamiento a personas sin Pactos activos, y el Referente Territorial de Cuidado, administrado por la Agencia Nacional de Cuidado y Vínculo.",
+  "horizonte": "Piloto 2028-2030 con 500 Referentes y 10 provincias; consolidación 2030-2032; obligatoriedad de la Jornada 6+2 para empresas de más de 500 empleados en 2032-2034; régimen pleno como visión a 2040.",
+  "financiamiento": "Presupuesto constitucional de 0,45% del PBI en régimen pleno, aportes de empleadores por la Jornada 6+2, contribución de Red Bastarda del 5% del ahorro de Bastarda Sanitaria y co-financiamiento provincial. Costo anual de régimen: USD 4.800-7.200 M.",
+  "temas": ["cuidado-ciclo-de-vida", "trabajo-produccion", "estado-instituciones"],
+
+  "conceptos": [
+    {
+      "nombre": "Pacto de Cuidado",
+      "alias": ["Pacto de Cuidado"],
+      "tipo": "mecanismo",
+      "que_es": "Figura jurídica bilateral que registra una relación de cuidado entre dos personas, con consentimiento mutuo, tipo de vínculo, frecuencia, protocolo y efectos legales.",
+      "seccion": "3.1",
+      "linea": 297,
+      "cita": "figura jurídica bilateral que registra una relación de cuidado explícita"
+    },
+    {
+      "nombre": "Libro de Cuidado",
+      "alias": ["Libro de Cuidado"],
+      "tipo": "mecanismo",
+      "que_es": "Registro de horas de cuidado dadas y recibidas por cada ciudadano, con privacidad opt-in, redimibles en derechos previsionales, licencias, atención sanitaria y vivienda.",
+      "seccion": "3.2",
+      "linea": 330,
+      "cita": "Registro público (con privacidad opt-in) de horas dadas y recibidas por cada ciudadano."
+    },
+    {
+      "nombre": "Jornada 6+2",
+      "alias": ["Jornada 6+2"],
+      "tipo": "mecanismo",
+      "que_es": "Jornada laboral de 6 horas de trabajo remunerado más 2 horas de cuidado comunitario acreditable, con aplicación progresiva que inicia como piloto voluntario.",
+      "seccion": "3.3",
+      "linea": 347,
+      "cita": "jornada laboral estándar redefinida como 6 horas de trabajo remunerado"
+    },
+    {
+      "nombre": "Registro Nacional de Vínculos",
+      "alias": ["Registro Nacional de Vínculos"],
+      "tipo": "mecanismo",
+      "que_es": "Base de datos federal administrada por la ANCV que registra los Pactos activos, con datos agregados públicos e identidades privadas por defecto.",
+      "seccion": "3.4",
+      "linea": 368,
+      "cita": "Base de datos federal, administrada por la ANCV, pública (con privacidad opt-in) que registra todos los Pactos activos."
+    },
+    {
+      "nombre": "Alerta de Soledad Total",
+      "alias": ["Alerta de Soledad Total"],
+      "tipo": "mecanismo",
+      "que_es": "Detección algorítmica de usuarios sin Pactos activos ni actividad social con señales de necesidad latente, que dispara un contacto territorial no coercitivo.",
+      "seccion": "3.5",
+      "linea": 391,
+      "cita": "Algoritmo que detecta usuarios en la plataforma ¡BASTA! sin Pactos activos"
+    },
+    {
+      "nombre": "Referente Territorial de Cuidado",
+      "alias": ["Referente Territorial de Cuidado", "Referente Territorial"],
+      "tipo": "figura",
+      "que_es": "Ciudadano con Credencial Completa en Cuidado que acompaña Pactos en su territorio, detecta sobrecargas, media conflictos y articula con los demás órganos.",
+      "seccion": "4.1",
+      "linea": 410,
+      "cita": "Ciudadano con Credencial Completa (preferentemente Consolidada) en la materia Cuidado"
+    },
+    {
+      "nombre": "Agencia Nacional de Cuidado y Vínculo",
+      "alias": ["Agencia Nacional de Cuidado y Vínculo", "ANCV"],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico que administra el Protocolo de Pacto, el Registro Nacional de Vínculos y la Red de Referentes, y gestiona el Fondo Federal de Cuidado.",
+      "seccion": "6.1",
+      "linea": 513,
+      "cita": "**Forma jurídica:** Ente autárquico."
+    },
+    {
+      "nombre": "Síndicos de Archivo",
+      "alias": ["Síndicos de Archivo"],
+      "tipo": "figura",
+      "que_es": "Dos de los once miembros del Directorio de la ANCV, con el rol de síndicos del archivo.",
+      "seccion": "6.2",
+      "linea": 524,
+      "cita": "2 Síndicos de Archivo"
+    },
+    {
+      "nombre": "Fondo Federal de Cuidado",
+      "alias": ["Fondo Federal de Cuidado"],
+      "tipo": "fondo",
+      "que_es": "Fondo federal que la ANCV gestiona para financiar la operación del sistema de cuidado.",
+      "seccion": "6.3",
+      "linea": 539,
+      "cita": "Gestión del Fondo Federal de Cuidado."
+    },
+    {
+      "nombre": "Tablero Nacional de Cuidado",
+      "alias": ["Tablero Nacional de Cuidado"],
+      "tipo": "metrica",
+      "que_es": "Tablero de métricas agregadas del sistema: Pactos activos, horas registradas, redenciones, alertas respondidas, Referentes activos y Jornada 6+2 implementada.",
+      "seccion": "14",
+      "linea": 766,
+      "cita": "SECCIÓN 14: TABLERO NACIONAL"
+    },
+    {
+      "nombre": "Cláusula de Continuidad",
+      "alias": ["Cláusula de Continuidad"],
+      "tipo": "termino",
+      "que_es": "Cláusula según la cual, si el sistema colapsa, los Pactos activos persisten como contrato civil con efectos legales limitados.",
+      "seccion": "18.2",
+      "linea": 840,
+      "cita": "Cláusula de Continuidad"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Credencial de Materia",
+      "alias": ["Credencial de Materia"],
+      "origen": "PLANMESA",
+      "para_que": "La Capa de Vínculo de la Credencial depende de Pactos activos con evidencia de bienestar bilateral para materias de cuidado.",
+      "linea": 94,
+      "cita": "Capa de Vínculo de la Credencial de Materia (ver PLANMESA)"
+    },
+    {
+      "nombre": "Agencia de Mesa y Cédula Civil (AMCC)",
+      "alias": ["AMCC"],
+      "origen": "PLANMESA",
+      "para_que": "Paga la función de Referente Territorial de Cuidado.",
+      "linea": 94,
+      "cita": "pago por la AMCC (PLANMESA)"
+    },
+    {
+      "nombre": "Archivo de Memoria",
+      "alias": ["Archivo de Memoria"],
+      "origen": "PLANMEMORIA",
+      "para_que": "Recibe el testimonio de cuidados sostenidos durante décadas y sirve de consulta de experiencias previas.",
+      "linea": 170,
+      "cita": "El Archivo de Memoria guarda testimonio de cuidados sostenidos décadas"
+    },
+    {
+      "nombre": "IDS",
+      "alias": ["IDS"],
+      "origen": "PLANDIG",
+      "para_que": "Aloja el Registro Nacional de Vínculos, el Libro de Cuidado y la Alerta de Soledad Total.",
+      "linea": 611,
+      "cita": "IDS aloja el Registro Nacional de Vínculos"
+    },
+    {
+      "nombre": "APS territorial",
+      "alias": ["APS territorial"],
+      "origen": "PLANSAL",
+      "para_que": "Lee los Pactos como dato clínico y articula con los Referentes en la ventana de atención primaria.",
+      "linea": 607,
+      "cita": "APS territorial provee la ventana clínica que lee Pactos como dato de salud"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Costo anual del sistema en régimen pleno",
+      "valor": "USD 4.800-7.200 M por año",
+      "tipo": "presupuesto",
+      "linea": 569,
+      "cita": "**TOTAL ANUAL RÉGIMEN** | **4.800-7.200**"
+    },
+    {
+      "concepto": "Presupuesto constitucional de la ANCV",
+      "valor": "0,45% del PBI en régimen pleno",
+      "tipo": "fuente",
+      "linea": 515,
+      "cita": "**Presupuesto constitucional:** 0.45% del PBI en régimen pleno."
+    },
+    {
+      "concepto": "Contribución de Red Bastarda",
+      "valor": "5% del ahorro de Bastarda Sanitaria",
+      "tipo": "fuente",
+      "linea": 593,
+      "cita": "Contribución de Red Bastarda (5% del ahorro de Bastarda Sanitaria)"
+    },
+    {
+      "concepto": "Ahorros fiscales directos",
+      "valor": "USD 5.200M/año",
+      "tipo": "meta",
+      "linea": 578,
+      "cita": "**Total ahorros directos: USD 5.200M/año.**"
+    },
+    {
+      "concepto": "Remuneración de la hora de cuidado",
+      "valor": "75% de la hora de trabajo",
+      "tipo": "parametro",
+      "linea": 347,
+      "cita": "La hora de cuidado es remunerada por el empleador al 75% de la hora de trabajo"
+    },
+    {
+      "concepto": "Ratio de Referentes en zona urbana",
+      "valor": "1 Referente cada 800-1.200 habitantes",
+      "tipo": "parametro",
+      "linea": 434,
+      "cita": "1 Referente cada 800-1.200 habitantes en zona urbana"
+    },
+    {
+      "concepto": "Referentes Territoriales a régimen pleno",
+      "valor": "35.000-45.000 Referentes Territoriales",
+      "tipo": "meta",
+      "linea": 438,
+      "cita": "aproximadamente **35.000-45.000 Referentes Territoriales** distribuidos federalmente"
+    },
+    {
+      "concepto": "Pactos registrados en consolidación",
+      "valor": "100.000 Pactos registrados",
+      "tipo": "meta",
+      "linea": 734,
+      "cita": "100.000 Pactos registrados (no universal)"
+    },
+    {
+      "concepto": "Piloto inicial",
+      "valor": "10 provincias piloto",
+      "tipo": "meta",
+      "linea": 730,
+      "cita": "10 provincias piloto (limitadas)"
+    },
+    {
+      "concepto": "Ventana de entrada como tranche-2",
+      "valor": "2028-2030",
+      "tipo": "plazo",
+      "linea": 723,
+      "cita": "entrada 24-30m, ventana 2028-2030"
+    },
+    {
+      "concepto": "Punto de equilibrio del sistema",
+      "valor": "4-6 años",
+      "tipo": "plazo",
+      "linea": 586,
+      "cita": "ROI: Break-even a 4-6 años"
+    },
+    {
+      "concepto": "Costo anual de las intervenciones no realizadas",
+      "valor": "USD 14.600M/año",
+      "tipo": "diagnostico",
+      "linea": 224,
+      "cita": "**TOTAL ESTIMADO** | **USD 14.600M/año**"
+    },
+    {
+      "concepto": "Personas en soledad estructural",
+      "valor": "2,8 millones de personas",
+      "tipo": "diagnostico",
+      "linea": 210,
+      "cita": "**2,8 millones de personas en soledad estructural**"
+    },
+    {
+      "concepto": "Personas en tareas de cuidado no remunerado",
+      "valor": "16,2 millones (mínimo diario)",
+      "tipo": "diagnostico",
+      "linea": 186,
+      "cita": "Personas en tareas de cuidado no remunerado (mínimo diario) | 16,2 millones"
+    },
+    {
+      "concepto": "Aumento del costo laboral para el empleador por la Jornada 6+2",
+      "valor": "aproximadamente 15%",
+      "tipo": "parametro",
+      "linea": 364,
+      "cita": "aumento aproximado del 15% en costo laboral"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANMESA",
+      "que": "Pactos con evidencia de bienestar alimentan la Capa de Vínculo de la Credencial; la red de Pactos sostiene a quienes sirven en Mesa.",
+      "linea": 605,
+      "cita": "Capa de Vínculo de Credencial; sostén relacional del servidor de Mesa"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "La APS territorial lee los Pactos como dato de salud y los Referentes articulan con médicos de cabecera.",
+      "linea": 607,
+      "cita": "APS territorial provee la ventana clínica que lee Pactos como dato de salud"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Reconversión de cuidadoras domiciliarias informales en Referentes Territoriales con salario, formación y protección.",
+      "linea": 608,
+      "cita": "Cuidadoras domiciliarias informales son reconvertidas por PLANREP en Referentes Territoriales"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Alojamiento del Registro, del Libro de Cuidado y de la Alerta de Soledad Total con criptografía y consentimiento granular.",
+      "linea": 611,
+      "cita": "IDS aloja el Registro Nacional de Vínculos"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Currículum de cuidado desde primaria y formación inicial diferenciada para cada tipo de Pacto.",
+      "linea": 609,
+      "cita": "PLANEDU incluye currículum de cuidado desde primaria"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Mediación de disputas de Pactos en primera instancia no jurisdiccional antes de escalar al sistema formal.",
+      "linea": 610,
+      "cita": "JUS provee mediación de disputas de Pactos en primera instancia no-jurisdiccional"
+    },
+    {
+      "con": "PLANTER",
+      "que": "Los Pactos Interculturales reconocen parentescos de comunidades originarias.",
+      "linea": 606,
+      "cita": "Pactos Interculturales reconocen parentescos originarios"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "Las partes consultan hallazgos previos sobre Pactos similares antes de constituir uno nuevo.",
+      "linea": 465,
+      "cita": "Ambas partes consultan hallazgos de PLANMEMORIA sobre Pactos similares"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "Accesibilidad universal en el transporte público y traslados de cuidadores y dependientes.",
+      "linea": 881,
+      "cita": "accesibilidad universal en transporte público (línea L1) + traslados de cuidadores y dependientes"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "La red de Pactos funciona como primera línea de detección de violencia de género y abuso.",
+      "linea": 94,
+      "cita": "la red de Pactos es la primera línea de detección de violencia de género y abuso"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La tabla de acoples pone la Ley ANCV en la Fase 0; la sección 13 difiere la ANCV autárquica a horizonte 2040.",
+      "linea": 617,
+      "cita": "Fase 0 de PLANCUIDADO es Ley ANCV + piloto registral"
+    },
+    {
+      "con": "interno",
+      "que": "La sección 9 describe la Jornada 6+2 como universal y no opcional; la sección 3.3 la deja como piloto voluntario hasta 2032.",
+      "linea": 633,
+      "cita": "Jornada 6+2 universal (no opcional por género)"
+    },
+    {
+      "con": "interno",
+      "que": "Las partidas de la tabla 7.1, con la reserva incluida, suman unos 5.495 a 7.483 M, por encima del total declarado de 4.800-7.200 en ambos extremos.",
+      "linea": 569,
+      "cita": "**TOTAL ANUAL RÉGIMEN** | **4.800-7.200**"
+    },
+    {
+      "con": "interno",
+      "que": "El bloque de dependencias declara que PLANCUIDADO provee solo a PLANEB y PLANCUL, pero la tabla de integración lista también a PLANMESA, PLANTER y otros.",
+      "linea": 918,
+      "cita": "Provee a: PLANEB, PLANCUL."
+    },
+    {
+      "con": "PLANVIV",
+      "que": "El efecto legal 6 atribuye a PLANVIV una vivienda intergeneracional que PLANVIV no escribe; el documento lo declara no exigible.",
+      "linea": 317,
+      "cita": "Preferencia en adjudicación de vivienda pública intergeneracional (PLANVIV)"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "Tasa de adopción real del Pacto, que el documento declara no conocer.",
+      "linea": 759,
+      "cita": "Tasa de adopción real del Pacto"
+    },
+    {
+      "que": "Efecto en equidad de género a mediano plazo, con sospechas positivas y evidencia pendiente.",
+      "linea": 760,
+      "cita": "Efecto en equidad de género a mediano plazo"
+    },
+    {
+      "que": "Capacidad del sistema sanitario para articular con los Referentes.",
+      "linea": 761,
+      "cita": "Capacidad del sistema sanitario de articular con Referentes"
+    },
+    {
+      "que": "Respuesta empresarial a la Jornada 6+2.",
+      "linea": 762,
+      "cita": "Respuesta empresarial a Jornada 6+2"
+    },
+    {
+      "que": "El dispositivo de vivienda intergeneracional que se atribuye a PLANVIV no está escrito en ningún documento.",
+      "linea": 870,
+      "cita": "falta acá porque no está escrito en ninguna parte"
+    }
+  ]
+}

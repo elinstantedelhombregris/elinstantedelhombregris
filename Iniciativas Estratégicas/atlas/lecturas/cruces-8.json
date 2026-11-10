@@ -1,0 +1,94 @@
+{
+  "grupo": 8,
+  "revisados": ["Red Nacional de Centros de Vitalidad", "ANSUS", "El Puente (Amnistía Graduada)", "Agencia Nacional de Talleres (ANT)", "Fondo Soberano Ciudadano", "Bastarda Inmobiliaria"],
+  "cruces": [
+    {
+      "concepto": "Red Nacional de Centros de Vitalidad",
+      "tipo": "que",
+      "dueno": "PLANSAL",
+      "lineaDueno": 1139,
+      "citaDueno": "un Centro por barrio en zonas urbanas",
+      "otro": "PLANVIV",
+      "lineaOtro": 977,
+      "citaOtro": "Centro de Vitalidad PLANSAL (si el asentamiento tiene más de 500 familias)",
+      "que": "PLANSAL fija un Centro de Vitalidad por barrio urbano; PLANVIV lo pone en el asentamiento solo si tiene más de 500 familias y, si es menor, una sala de primeros auxilios."
+    },
+    {
+      "concepto": "Red Nacional de Centros de Vitalidad",
+      "tipo": "quien",
+      "dueno": "PLANSAL",
+      "lineaDueno": 1141,
+      "citaDueno": "Los Centros no son estatales",
+      "otro": "PLANRUTA",
+      "lineaOtro": 707,
+      "citaOtro": "Centro de Vitalidad municipal",
+      "que": "PLANSAL dice que los Centros no son estatales sino comunitarios; PLANRUTA lista un «Centro de Vitalidad municipal» como la fase inicial de la salud."
+    },
+    {
+      "concepto": "ANSUS",
+      "tipo": "numero",
+      "dueno": "PLANSUS",
+      "lineaDueno": 925,
+      "citaDueno": "mandato de 5 años, no renovable",
+      "otro": "PLANGEO",
+      "lineaOtro": 1322,
+      "citaOtro": "Las agencias (ANEB, ANSUS, etc.) tienen mandatos de 6 años",
+      "que": "PLANSUS da a la dirección de ANSUS un mandato de 5 años (3 los asientos ciudadano y provincial del Directorio); PLANGEO dice que ANSUS tiene mandatos de 6 años."
+    },
+    {
+      "concepto": "Fondo Soberano Ciudadano",
+      "tipo": "que",
+      "dueno": "PLANTER",
+      "lineaDueno": 358,
+      "citaDueno": "Ingresos: 100% de regalías de proyectos extractivos + cánones + multas.",
+      "otro": "PLANMON",
+      "lineaOtro": 2239,
+      "citaOtro": "El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas",
+      "que": "PLANTER define los ingresos del FSC como regalías extractivas, cánones y multas; PLANMON (y PLANSUS:2477 igual) dice que el FSC absorbe la recaudación fiscal de sustancias legalizadas."
+    },
+    {
+      "concepto": "Fondo Soberano Ciudadano",
+      "tipo": "que",
+      "dueno": "PLANTER",
+      "lineaDueno": 358,
+      "citaDueno": "Ingresos: 100% de regalías de proyectos extractivos + cánones + multas.",
+      "otro": "PLANSUS",
+      "lineaOtro": 2477,
+      "citaOtro": "El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas",
+      "que": "PLANTER define los ingresos del FSC como regalías extractivas, cánones y multas; PLANSUS dice que el FSC absorbe la recaudación fiscal de sustancias legalizadas."
+    },
+    {
+      "concepto": "Fondo Soberano Ciudadano",
+      "tipo": "que",
+      "dueno": "PLANTER",
+      "lineaDueno": 360,
+      "citaDueno": "40% DCM universal.",
+      "otro": "PLANMOV",
+      "lineaOtro": 1199,
+      "citaOtro": "Articulación con FSC del PLANTER (parte de regalías extractivas a infraestructura ferroviaria).",
+      "que": "PLANTER reparte el FSC en 40% DCM, 20% territorios, 7% intergeneracional, 8% Pregunta, 15% restauración y 10% ANTSPO, sin línea para infraestructura; PLANMOV cuenta con una parte de las regalías del FSC para infraestructura ferroviaria."
+    },
+    {
+      "concepto": "Bastarda Inmobiliaria",
+      "tipo": "que",
+      "dueno": "PLANVIV",
+      "lineaDueno": 499,
+      "citaDueno": "no tiene inversionistas que buscan retorno",
+      "otro": "PLANRUTA",
+      "lineaOtro": 1284,
+      "citaOtro": "Miembros de la Red que invierten en la Bastarda Inmobiliaria o energética como ahorristas, no como donantes.",
+      "que": "PLANVIV dice que la Bastarda Inmobiliaria no tiene inversionistas que buscan retorno; PLANRUTA financia la Bastarda con miembros de la Red que invierten como ahorristas, no como donantes."
+    },
+    {
+      "concepto": "Bastarda Inmobiliaria",
+      "tipo": "que",
+      "dueno": "PLANVIV",
+      "lineaDueno": 515,
+      "citaDueno": "Es propiedad perpetua del fideicomiso.",
+      "otro": "PLANEB",
+      "lineaOtro": 1300,
+      "citaOtro": "propiedad perpetua del ocupante, no especulable",
+      "que": "PLANVIV dice que el suelo es propiedad perpetua del fideicomiso y los residentes no lo compran; PLANEB describe el mismo fideicomiso como propiedad perpetua del ocupante."
+    }
+  ]
+}

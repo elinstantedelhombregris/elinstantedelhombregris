@@ -1,0 +1,221 @@
+// Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.
+function iniciar(G) {
+const SITIO = true;
+if (SITIO) { document.documentElement.classList.add('sitio'); for (const id of ['volver', 'pie']) document.getElementById(id).hidden = false; }
+const P = G.planes, N = P.length, $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const num = (n) => Number(n).toLocaleString('es-AR');
+const idx = Object.fromEntries(P.map((p, i) => [p.code, i]));
+const nomDoc = (s) => (typeof s === 'number' ? P[s].code : String(s).replace(/\.md$/, ''));
+const archivoDe = (s) => (typeof s === 'number' ? P[s].archivo : s in idx ? P[idx[s]].archivo : s);
+const REPO = 'https://github.com/elinstantedelhombregris/elinstantedelhombregris/blob/main/Iniciativas%20Estrat%C3%A9gicas/';
+const loc = (s, l) => SITIO
+  ? `<a class="loc" href="${REPO}${encodeURIComponent(archivoDe(s))}?plain=1#L${l}" target="_blank" rel="noopener" title="Abrir esa línea del documento">${esc(nomDoc(s))}:${l}</a>`
+  : `<button class="loc" data-loc="${esc(archivoDe(s))}:${l}" title="Copiar la ruta para abrirla en el editor">${esc(nomDoc(s))}:${l}</button>`;
+const pc = (i) => `<button class="pc" data-plan="${i}" title="${esc(P[i].nombre)}">${P[i].code}</button>`;
+const gr = (g) => `<span class="g ${g}">${g}</span>`;
+
+// ── índices ────────────────────────────────────────────────────────────────
+const A = new Map(); // «a>b»: a recibe de b
+for (const x of G.aristas) A.set(x.a + '>' + x.b, x);
+// Diecinueve documentos listan cada vínculo en sus dos tablas, «aporta» y «necesita», sin orientarlo.
+// Si una dirección solo la sostiene esa tabla y la contraria la sostienen el registro, el grafo o la
+// app, la primera es eco de la segunda: no se dibuja como vínculo propio y se cuenta aparte.
+const firme = (x) => !!(x.k.registro || x.k.ymlNecesita || x.k.ymlAporta || x.k.arqNecesita || x.k.arqAporta);
+for (const x of G.aristas) { const inv = A.get(x.b + '>' + x.a); x.eco = !firme(x) && !!inv && firme(inv); }
+const VIVAS = G.aristas.filter((x) => !x.eco);
+const T = Array.from({ length: N }, () => new Array(N).fill(0)); // T[a][b]: veces que el texto de a nombra a b
+for (const [a, b, n] of G.texto) T[a][b] = n;
+const hacia = Array.from({ length: N }, () => []); // remisiones que apuntan a cada PLAN
+const desde = Array.from({ length: N }, () => []);
+for (const r of G.remisiones) { if (r[0] !== r[2]) hacia[r[2]].push(r); if (typeof r[0] === 'number' && r[0] !== r[2]) desde[r[0]].push(r); }
+const hallDe = (code) => G.hallazgos.filter((h) => h.plan === code);
+const CAPAS = { registro: 'PLAN_REGISTRY.yml', ymlNecesita: 'DEPENDENCY_GRAPH.yml · depends_on', ymlAporta: 'DEPENDENCY_GRAPH.yml · provides_to', arqNecesita: 'arquitecto-data.ts · requires', arqAporta: 'arquitecto-data.ts · provides', docNecesita: 'tabla «necesita» del que recibe', docAporta: 'tabla «aporta» del que da' };
+const FASES = { 'tranche-1': 'Tramo 1', 'tranche-2': 'Tramo 2', 'tranche-3': 'Tramo 3', 'research-only': 'Solo investigación', protocol: 'Protocolo' };
+const faseDe = (p) => p.fase ?? 'sin tramo';
+const orden = P.map((_, i) => i).sort((a, b) => faseDe(P[a]).localeCompare(faseDe(P[b])) || (P[a].ordinal ?? 99) - (P[b].ordinal ?? 99) || P[a].code.localeCompare(P[b].code));
+
+// ── estado y rutas ─────────────────────────────────────────────────────────
+const E = { vista: 'mapa', plan: null, par: null, modo: 'red', sinDeclarar: false, bloque: null, q: '', tipo: '', dueno: '', grav: '', htipo: '', hplan: '', lim: 120 };
+const VISTAS = [['mapa', 'El mapa'], ['editar', 'Antes de editar'], ['conceptos', 'Conceptos'], ['desarmonias', 'Desarmonías']];
+function leerHash() {
+  const [v, c] = location.hash.slice(1).split('-');
+  E.vista = VISTAS.some(([k]) => k === v) ? v : 'mapa';
+  const i = c ? idx[c.toUpperCase()] : undefined;
+  if (i !== undefined) { E.plan = i; if (E.vista === 'desarmonias') E.hplan = P[i].code; } else if (E.vista === 'mapa') E.plan = null; else if (E.vista === 'editar' && E.plan === null) E.plan = idx.PLANDIG ?? 0;
+}
+function ir(vista, plan = E.plan) { E.par = null; E.bloque = null; E.lim = 120; const h = '#' + vista + (plan !== null && vista !== 'conceptos' ? '-' + P[plan].code.toLowerCase() : ''); if (location.hash === h) { leerHash(); pintar(); } else location.hash = h; }
+addEventListener('hashchange', () => { leerHash(); pintar(); });
+
+// ── la red ─────────────────────────────────────────────────────────────────
+function posiciones() {
+  const grupos = []; for (const i of orden) { const f = faseDe(P[i]); if (!grupos.length || grupos.at(-1).f !== f) grupos.push({ f, is: [] }); grupos.at(-1).is.push(i); }
+  const hueco = 0.09, paso = (Math.PI * 2 - hueco * grupos.length) / N; let t = -Math.PI / 2 + hueco / 2; const pos = [];
+  for (const g of grupos) { g.t0 = t; for (const i of g.is) { pos[i] = t; t += paso; } g.t1 = t - paso; t += hueco; }
+  return { pos, grupos };
+}
+function red() {
+  const W = 780, C = W / 2, R = 232, { pos, grupos } = posiciones(), s = E.plan;
+  const xy = (i, r = R) => [C + r * Math.cos(pos[i]), C + r * Math.sin(pos[i])];
+  const curva = (a, b) => { const [x1, y1] = xy(b), [x2, y2] = xy(a), mx = (x1 + x2) / 2, my = (y1 + y2) / 2; return `M${x1.toFixed(1)} ${y1.toFixed(1)}Q${(C + (mx - C) * .42).toFixed(1)} ${(C + (my - C) * .42).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`; };
+  let o = `<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="Red de los ${N} PLANes y sus vínculos declarados">`;
+  const rec = new Set(), apo = new Set(); let arriba = '';
+  for (const x of VIVAS) {
+    const w = (0.7 + Math.min(3.4, Math.log2(1 + x.ab + x.ba) * 0.5)).toFixed(2);
+    let c = 'ar';
+    if (s !== null) { if (x.a === s) { c += ' rec'; rec.add(x.b); } else if (x.b === s) { c += ' apo'; apo.add(x.a); } else c += ' off'; }
+    const p = `<path class="${c}" d="${curva(x.a, x.b)}" stroke-width="${w}"/>`;
+    if (c.length > 6 && !c.endsWith('off')) arriba += p; else o += p;
+  }
+  if (E.sinDeclarar) for (let a = 0; a < N; a++) for (let b = a + 1; b < N; b++) if (!A.has(a + '>' + b) && !A.has(b + '>' + a) && T[a][b] + T[b][a] >= 12 && (s === null || s === a || s === b)) arriba += `<path class="ar sd" d="${curva(a, b)}" stroke-width="2"/>`;
+  o += arriba;
+  for (const g of grupos) {
+    const r = R + 118, a0 = g.t0 - 0.05, a1 = g.t1 + 0.05, m = (a0 + a1) / 2;
+    o += `<path class="arco" d="M${C + r * Math.cos(a0)} ${C + r * Math.sin(a0)}A${r} ${r} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${C + r * Math.cos(a1)} ${C + r * Math.sin(a1)}"/>`;
+    o += `<text class="grupo" x="${C + (r + 14) * Math.cos(m)}" y="${C + (r + 14) * Math.sin(m) + 3}" text-anchor="${Math.cos(m) > .3 ? 'start' : Math.cos(m) < -.3 ? 'end' : 'middle'}">${esc((FASES[g.f] ?? g.f).toUpperCase())}</text>`;
+  }
+  for (const i of orden) {
+    const [x, y] = xy(i), izq = Math.cos(pos[i]) < 0, g = (pos[i] * 180) / Math.PI, r = 4 + Math.sqrt(P[i].nombradoPor) / 3.2;
+    const c = 'nodo' + (i === s ? ' sel' : '') + (rec.has(i) ? ' rec' : '') + (apo.has(i) ? ' apo' : '') + (s !== null && i !== s && !rec.has(i) && !apo.has(i) ? ' off' : '');
+    o += `<g class="${c}" data-plan="${i}" data-tip="${esc(P[i].code + ' — ' + P[i].nombre + ' · lo nombran ' + num(P[i].nombradoPor) + ' veces')}" tabindex="0" role="button" aria-label="${P[i].code}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"/><text transform="translate(${(C + (R + r + 7) * Math.cos(pos[i])).toFixed(1)} ${(C + (R + r + 7) * Math.sin(pos[i])).toFixed(1)}) rotate(${izq ? g + 180 : g})" text-anchor="${izq ? 'end' : 'start'}" dy="3.5">${P[i].code}</text></g>`;
+  }
+  return o + '</svg>' + `<div class="ley"><span><i></i>vínculo declarado (grosor: cuánto se nombran)</span>${s !== null ? `<span><i class="r"></i>${P[s].code} recibe de</span><span><i class="a"></i>${P[s].code} aporta a</span>` : ''}${E.sinDeclarar ? '<span><i class="s"></i>se nombran 12+ veces y nadie lo declaró</span>' : ''}<span>tamaño del círculo: veces que lo nombran los demás</span></div>`;
+}
+function matriz() {
+  const c = 21, m0 = 104, W = m0 + c * N + 6, max = Math.log(1 + Math.max(...G.texto.map((t) => t[2])));
+  let o = `<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="Matriz: cada fila es un PLAN que recibe, cada columna uno que aporta">`;
+  orden.forEach((i, k) => {
+    o += `<text class="mlab" data-plan="${i}" x="${m0 - 6}" y="${m0 + k * c + 14}" text-anchor="end"${i === E.plan ? ' font-weight="700"' : ''}>${P[i].code}</text><text class="mlab" data-plan="${i}" transform="translate(${m0 + k * c + 14} ${m0 - 6}) rotate(-90)"${i === E.plan ? ' font-weight="700"' : ''}>${P[i].code}</text>`;
+  });
+  orden.forEach((a, r) => orden.forEach((b, k) => {
+    if (a === b) return; const n = T[a][b], x = m0 + k * c, y = m0 + r * c, ar = A.get(a + '>' + b);
+    o += `<rect class="${n ? 'cel' : 'cel0'}" x="${x + 1}" y="${y + 1}" width="${c - 2}" height="${c - 2}"${n ? ` opacity="${(0.12 + 0.88 * Math.log(1 + n) / max).toFixed(2)}"` : ''} data-par="${a},${b}" data-tip="${esc(`${P[a].code} nombra a ${P[b].code} ${n} veces · ${ar && !ar.eco ? 'declarado: ' + P[a].code + ' recibe de ' + P[b].code : 'sin vínculo declarado en esta dirección'}`)}"/>`;
+    if (ar && !ar.eco) o += n ? `<rect class="mdec" x="${x + 7.5}" y="${y + 7.5}" width="6" height="6"/>` : `<rect class="mvac" x="${x + 4}" y="${y + 4}" width="${c - 8}" height="${c - 8}"/>`;
+    if (E.par && E.par[0] === a && E.par[1] === b) o += `<rect class="msel" x="${x}" y="${y}" width="${c}" height="${c}"/>`;
+  }));
+  return o + '</svg><div class="ley"><span>fila: el que recibe · columna: el que aporta</span><span><i class="c"></i>cuánto nombra la fila a la columna</span><span><i class="d"></i>vínculo declarado</span><span><i class="v"></i>declarado y la fila no lo nombra nunca</span></div>';
+}
+
+// ── paneles del mapa ───────────────────────────────────────────────────────
+function panelCorpus() {
+  const g = (x) => G.hallazgos.filter((h) => h.grav === x).length, top = P.map((p, i) => [i, p.nombradoPor]).sort((a, b) => b[1] - a[1]).slice(0, 8), mx = top[0][1];
+  return `<div class="hoja"><p class="k">El corpus entero · generado el ${esc(G.generado)}</p><h2>${G.canon.tematicos} PLANes y un protocolo</h2>
+  <p class="lead">Cada círculo es un documento. Cada línea, un vínculo que alguna declaración sostiene. Elegí un PLAN para ver qué es, de quién recibe y a quién le aporta.</p>
+  <div class="cifras"><div><b>${num(G.canon.palabras)}</b><span>palabras</span></div><div><b>${num(G.remisiones.length)}</b><span>remisiones entre documentos</span></div><div><b>${num(VIVAS.length)}</b><span>vínculos declarados</span></div><div><b>${num(G.conceptos.length)}</b><span>conceptos con dueño</span></div></div>
+  <h3>Lo que hoy desentona</h3><div class="fila">${gr('rota')}<b>${g('rota')}</b> ${gr('revisar')}<b>${g('revisar')}</b> ${gr('nota')}<b>${g('nota')}</b> <button class="btn2" data-go="desarmonias" data-sinplan="1">Verlas todas →</button></div>
+  <h3>Los más nombrados por los demás</h3><ul class="l">${top.map(([i, n]) => `<li class="fila">${pc(i)}<span class="bar" style="width:${(n / mx * 46).toFixed(1)}%"></span><span class="k">${num(n)}</span></li>`).join('')}</ul>
+  <h3>Para qué sirve cada vista</h3><p class="chico"><b>El mapa</b> muestra quién se apoya en quién y dónde las declaraciones no coinciden con el texto. <b>Antes de editar</b> dice, sección por sección, qué otros documentos apuntan a lo que estás por tocar. <b>Conceptos</b> es el índice de lo que cada PLAN nombra como propio y quién más lo usa. <b>Desarmonías</b> es la lista de lo que ya no cierra.</p></div>`;
+}
+function capasDe(x) { return Object.keys(x.k).map((k) => `<span class="k">${esc(CAPAS[k])}</span>`).join(' · '); }
+function panelPlan(i) {
+  const p = P[i], f = p.ficha, rec = VIVAS.filter((x) => x.a === i).sort((x, y) => y.ab + y.ba - x.ab - x.ba), apo = VIVAS.filter((x) => x.b === i).sort((x, y) => y.ab + y.ba - x.ab - x.ba), ecos = G.aristas.filter((x) => x.eco && (x.a === i || x.b === i)).length;
+  const cs = G.conceptos.filter((c) => c.dueno === i).sort((a, b) => b.planesAjenos - a.planesAjenos || b.totalAfuera - a.totalAfuera), hs = hallDe(p.code);
+  const vinc = (xs, otro) => xs.length ? `<ul class="l">${xs.map((x) => `<li><div class="fila">${pc(x[otro])}<button class="k loc" data-par="${x.a},${x.b}">ver el par</button>${x.peso ? `<span class="k">${esc(x.peso)} · ${esc(x.tipo ?? '')}</span>` : ''}</div>${x.que ? `<span class="chico">${esc(x.que)}</span>` : ''}</li>`).join('')}</ul>` : '<p class="tenue chico">Ninguno declarado.</p>';
+  return `<div class="hoja"><p class="k">${p.ordinal ? 'Ordinal ' + p.ordinal + ' · ' : ''}${esc(FASES[p.fase] ?? p.fase ?? '')}${p.tamano ? ' · presupuesto clase ' + esc(p.tamano) : ''}${f?.version ? ' · v' + esc(f.version.replace(/^v/i, '')) : ''}</p>
+  <h2>${p.code}</h2><p class="tenue">${esc(p.nombre)}</p>
+  ${f ? `<p class="lead">${esc(f.tesis)}</p><p>${esc(f.resumen)}</p>` : '<p class="aviso">Este PLAN todavía no tiene ficha leída.</p>'}
+  <div class="cifras"><div><b>${num(p.palabras)}</b><span>palabras</span></div><div><b>${num(p.nombradoPor)}</b><span>veces lo nombran</span></div><div><b>${num(p.nombra)}</b><span>veces nombra a otros</span></div>${p.presupuesto ? `<div><b>${num(p.presupuesto[0])}–${num(p.presupuesto[1])}</b><span>USD millones (app)</span></div>` : ''}</div>
+  <div class="fila"><button class="btn" data-go="editar">Antes de editar ${p.code} →</button>${SITIO ? `<a class="btn2" href="/planes/${p.code.toLowerCase()}">Leer el documento →</a>` : ''}</div>
+  ${f ? `<h3>El problema que ataca</h3><p class="chico">${esc(f.problema)}</p><h3>Plazos y plata</h3><p class="chico">${esc(f.horizonte)}</p><p class="chico">${esc(f.financiamiento)}</p>` : ''}
+  <h3>Recibe de ${rec.length}</h3>${vinc(rec, 'b')}
+  <h3>Aporta a ${apo.length}</h3>${vinc(apo, 'a')}
+  ${ecos ? `<p class="chico tenue">${ecos} vínculo${ecos > 1 ? 's' : ''} más figura${ecos > 1 ? 'n' : ''} también en la dirección contraria, solo en las tablas de los documentos, que no orientan. No se dibujan; están en Desarmonías como «tablas de integración sin orientar».</p>` : ''}
+  ${cs.length ? `<h3>Lo que nombra como propio (${cs.length})</h3><ul class="l">${cs.slice(0, 10).map((c) => `<li class="fila"><button class="loc" data-concepto="${esc(c.id)}">${esc(c.nombre)}</button><span class="k">${c.planesAjenos ? 'lo usan ' + c.planesAjenos + ' PLANes' : 'solo acá'}</span></li>`).join('')}</ul>` : ''}
+  ${f?.cifras?.length ? `<h3>Cifras que otros pueden citar</h3><ul class="l">${f.cifras.map((c) => `<li><div class="fila"><b>${esc(c.valor)}</b>${loc(i, c.linea)}</div><span class="chico tenue">${esc(c.concepto)}</span></li>`).join('')}</ul>` : ''}
+  ${f?.tensiones?.length ? `<h3>Tensiones que el texto evidencia</h3><ul class="l">${f.tensiones.map((t) => `<li><div class="fila">${t.con in idx ? pc(idx[t.con]) : '<span class="k">interna</span>'}${loc(i, t.linea)}</div><span class="chico">${esc(t.que)}</span></li>`).join('')}</ul>` : ''}
+  ${f?.sin_resolver?.length ? `<h3>Lo que declara no saber</h3><ul class="l">${f.sin_resolver.map((t) => `<li class="chico">${esc(t.que)} ${loc(i, t.linea)}</li>`).join('')}</ul>` : ''}
+  <h3>Desarmonías abiertas</h3><div class="fila">${['rota', 'revisar', 'nota'].map((g) => gr(g) + '<b>' + hs.filter((h) => h.grav === g).length + '</b>').join(' ')} <button class="btn2" data-go="desarmonias">Ver las de ${p.code} →</button></div></div>`;
+}
+function panelPar([a, b]) {
+  const lado = (x, y) => { const ar = A.get(x + '>' + y); return `<h3>${P[x].code} recibe de ${P[y].code}</h3>${ar ? `<p class="chico">${ar.que ? esc(ar.que) : ''}</p><p>${capasDe(ar)}</p>${ar.eco ? '<p class="chico tenue">Solo lo dice la tabla del documento, que lista el mismo vínculo en las dos direcciones.</p>' : ''}` : '<p class="tenue chico">Ninguna declaración lo dice.</p>'}`; };
+  const citas = (x, y) => { const rs = desde[x].filter((r) => r[2] === y); return `<h3>${P[x].code} nombra a ${P[y].code} · ${T[x][y]} veces en ${rs.length} líneas</h3>${rs.length ? `<ul class="l">${rs.slice(0, 40).map((r) => `<li><div class="fila">${loc(x, r[1])}${r[5].map((s) => `<span class="k">→ §${esc(s[0])}</span>`).join('')}${r[6].map((l) => `<span class="k">→ ${P[y].code}:${l[0]}</span>`).join('')}</div><blockquote>${esc(r[7])}</blockquote></li>`).join('')}</ul>${rs.length > 40 ? `<p class="k">y ${rs.length - 40} más</p>` : ''}` : '<p class="tenue chico">Nunca.</p>'}`; };
+  return `<div class="hoja"><p class="k">Un par</p><h2>${P[a].code} y ${P[b].code}</h2><div class="fila" style="margin-top:8px">${pc(a)}${pc(b)}</div>${lado(a, b)}${lado(b, a)}${citas(a, b)}${citas(b, a)}</div>`;
+}
+function vistaMapa() {
+  return `<div class="mesa"><section><div class="herr"><div class="seg"><button data-modo="red" aria-pressed="${E.modo === 'red'}">Red</button><button data-modo="matriz" aria-pressed="${E.modo === 'matriz'}">Matriz</button></div>${E.modo === 'red' ? `<label class="chk"><input type="checkbox" id="sd" ${E.sinDeclarar ? 'checked' : ''}> lo que el texto sostiene y nadie declaró</label>` : ''}${E.plan !== null || E.par ? '<button class="btn2" data-limpiar="1">Ver el corpus entero</button>' : ''}</div>${E.modo === 'red' ? red() : matriz()}</section><aside>${E.par ? panelPar(E.par) : E.plan !== null ? panelPlan(E.plan) : panelCorpus()}</aside></div>`;
+}
+
+// ── antes de editar ────────────────────────────────────────────────────────
+function vistaEditar() {
+  const i = E.plan ?? 0, p = P[i], ent = hacia[i], hs = hallDe(p.code).filter((h) => h.grav !== 'nota'), cs = G.conceptos.filter((c) => c.dueno === i && c.totalAfuera > 0);
+  const lins = ent.flatMap((r) => r[6].map((l) => ({ r, de: l[0], a: l[1] }))), secs = ent.flatMap((r) => r[5].filter((s) => s[1]).map((s) => ({ r, id: s[0], l: s[1] })));
+  const en = (b) => (n) => n >= b.l && n <= b.f, mxp = Math.max(...p.bloques.map((b) => b.p));
+  const docs = new Set(ent.map((r) => r[0]));
+  const filas = p.bloques.map((b, k) => { const d = en(b), nl = lins.filter((x) => d(x.de)).length, ns = secs.filter((x) => d(x.l)).length, nc = cs.filter((c) => d(c.linea)).length, nh = hs.filter((h) => d(h.linea)).length; const z = (n) => `<td class="n${n ? '' : ' z'}">${n || '·'}</td>`;
+    return `<tr class="cl${E.bloque === k ? ' on' : ''}" data-bloque="${k}" tabindex="0"><td class="sec0">${b.id ? '§' + esc(b.id) : ''}</td><td>${esc(b.t)}<br><span class="k">líneas ${b.l}–${b.f}</span></td><td class="n"><span class="bar" style="width:${(b.p / mxp * 54).toFixed(0)}px"></span>${num(b.p)}</td>${z(nl)}${z(ns)}${z(nc)}${z(nh)}</tr>`; }).join('');
+  let det = `<div class="hoja"><p class="k">Elegí un tramo de la tabla</p><h2>${p.code}, entero</h2><p class="lead">Lo nombran ${docs.size} documentos, ${num(ent.reduce((s, r) => s + r[3], 0))} veces.</p><p>${lins.length} citas apuntan a una <b>línea</b> exacta de este documento y ${secs.length} a una <b>sección</b>. Las citas por línea son las frágiles: agregar o quitar un renglón corre todas las que quedan más abajo.</p><p class="chico tenue cmd">Lo mismo, en la terminal:</p><p class="cmd"><code>node "Iniciativas Estratégicas/atlas/construir.mjs" --impacto ${p.code}</code></p>${p.leido === 'parcial' ? '<p class="aviso">El lector de este PLAN no abrió todas las secciones: su ficha y sus hallazgos cubren el documento en parte.</p>' : ''}</div>`;
+  if (E.bloque !== null && p.bloques[E.bloque]) {
+    const b = p.bloques[E.bloque], d = en(b), L = lins.filter((x) => d(x.de)).sort((x, y) => x.de - y.de), S = secs.filter((x) => d(x.l)), C = cs.filter((c) => d(c.linea)).sort((x, y) => y.totalAfuera - x.totalAfuera), H = hallDe(p.code).filter((h) => d(h.linea)), abajo = lins.filter((x) => x.de > b.f).length, F = (p.ficha?.cifras ?? []).filter((c) => d(c.linea));
+    det = `<div class="hoja"><p class="k">${p.code} · líneas ${b.l}–${b.f} · ${num(b.p)} palabras</p><h2>${b.id ? '§' + esc(b.id) + ' ' : ''}${esc(b.t)}</h2>
+    ${abajo ? `<p class="aviso"><b>${abajo} citas por línea apuntan más abajo en este documento.</b> Si este tramo cambia de largo, todas se corren y hay que renumerarlas.</p>` : '<p class="tenue chico">Ninguna cita por línea queda más abajo: cambiar el largo de este tramo no corre nada.</p>'}
+    <h3>Citas a una línea de este tramo · ${L.length}</h3>${L.length ? `<ul class="l">${L.map((x) => `<li><div class="fila"><span class="k">${p.code}:${x.de}${x.a ? '–' + x.a : ''} ←</span>${loc(x.r[0], x.r[1])}</div><blockquote>${esc(x.r[7])}</blockquote></li>`).join('')}</ul>` : '<p class="tenue chico">Ninguna.</p>'}
+    <h3>Citas a esta sección · ${S.length}</h3>${S.length ? `<ul class="l">${S.map((x) => `<li><div class="fila"><span class="k">§${esc(x.id)} ←</span>${loc(x.r[0], x.r[1])}</div><blockquote>${esc(x.r[7])}</blockquote></li>`).join('')}</ul>` : '<p class="tenue chico">Ninguna.</p>'}
+    <h3>Definido acá y usado en otros documentos · ${C.length}</h3>${C.length ? `<ul class="l">${C.map((c) => `<li><div class="fila"><button class="loc" data-concepto="${esc(c.id)}">${esc(c.nombre)}</button>${loc(i, c.linea)}</div><div class="fila">${Object.entries(c.usos).filter(([k]) => k !== p.code).sort((x, y) => y[1].length - x[1].length).slice(0, 12).map(([k, v]) => (k in idx ? pc(idx[k]) : `<span class="k">${esc(nomDoc(k))}</span>`) + `<span class="k">${v.length}</span>`).join(' ')}</div></li>`).join('')}</ul>` : '<p class="tenue chico">Nada de lo fichado.</p>'}
+    ${F.length ? `<h3>Cifras ancladas acá</h3><ul class="l">${F.map((c) => `<li><div class="fila"><b>${esc(c.valor)}</b>${loc(i, c.linea)}</div><span class="chico tenue">${esc(c.concepto)}</span></li>`).join('')}</ul>` : ''}
+    <h3>Desarmonías en este tramo · ${H.length}</h3>${H.length ? `<ul class="l">${H.map(hallLi).join('')}</ul>` : '<p class="tenue chico">Ninguna.</p>'}
+    <p class="cmd"><code>node "Iniciativas Estratégicas/atlas/construir.mjs" --impacto ${p.code}${b.id && /^[\d.]+$/.test(b.id) ? ' §' + b.id : ':' + b.l}</code></p></div>`;
+  }
+  return `<div class="filtros"><label class="k" for="selplan">PLAN que vas a tocar</label><select id="selplan">${orden.map((k) => `<option value="${k}"${k === i ? ' selected' : ''}>${P[k].code} — ${esc(P[k].nombre)}</option>`).join('')}</select><button class="btn2" data-go="mapa">Verlo en el mapa</button></div>
+  <div class="mesa"><section><div class="tw"><table><thead><tr><th></th><th>Tramo del documento</th><th class="n">Palabras</th><th class="n">Citas<br>por línea</th><th class="n">Citas<br>por sección</th><th class="n">Conceptos que<br>usan otros</th><th class="n">Desar-<br>monías</th></tr></thead><tbody>${filas}</tbody></table></div></section><aside>${det}</aside></div>`;
+}
+
+// ── conceptos ──────────────────────────────────────────────────────────────
+const TIPOS_C = { institucion: 'institución', fondo: 'fondo', mecanismo: 'mecanismo', programa: 'programa', figura: 'figura', norma: 'norma', metrica: 'métrica', termino: 'término' };
+function vistaConceptos() {
+  const q = E.q.trim().toLowerCase();
+  let cs = G.conceptos.filter((c) => (!E.tipo || c.tipo === E.tipo) && (E.dueno === '' || c.dueno === +E.dueno) && (!q || (c.nombre + ' ' + c.alias.join(' ')).toLowerCase().includes(q)));
+  cs.sort((a, b) => b.planesAjenos - a.planesAjenos || b.totalAfuera - a.totalAfuera);
+  const sinO = G.prestamos.filter((p) => !p.enOrigen);
+  const fila = (c) => { const ab = E.abierto === c.id, cr = G.cruces.filter((x) => c.alias.includes(x.concepto) || x.concepto === c.nombre);
+    return `<tr class="cl${ab ? ' on' : ''}" data-concepto="${esc(c.id)}" tabindex="0"><td><b>${esc(c.nombre)}</b>${c.disputado ? ' ' + gr('revisar') : ''}${cr.length ? ` <span class="g revisar">${cr.length} cruce${cr.length > 1 ? 's' : ''}</span>` : ''}<br><span class="k">${c.alias.map(esc).join(' · ')}</span></td><td class="k">${esc(TIPOS_C[c.tipo] ?? c.tipo)}</td><td>${pc(c.dueno)}</td><td class="n${c.planesAjenos ? '' : ' z'}">${c.planesAjenos || '·'}</td><td class="n${c.totalAfuera ? '' : ' z'}">${c.totalAfuera || '·'}</td></tr>` +
+      (ab ? `<tr class="on"><td colspan="5"><p>${esc(c.que)}</p><p class="fila"><span class="k">Definido en</span>${loc(c.dueno, c.linea)}${c.seccion ? `<span class="k">§${esc(c.seccion)}</span>` : ''}<span class="k">· ${c.propios} menciones en su documento</span></p>${c.disputado ? '<p class="aviso">Otra ficha reclama este mismo nombre como propio. Conviene decidir quién lo define y que el otro remita.</p>' : ''}${cr.map((x) => `<div class="aviso"><div class="fila">${gr('revisar')}<b>${esc(x.que)}</b></div><div class="fila">${loc(x.dueno, x.lineaDueno)}<span class="chico">«${esc(x.citaDueno)}»</span></div><div class="fila">${loc(x.otro, x.lineaOtro)}<span class="chico">«${esc(x.citaOtro)}»</span></div></div>`).join('')}<ul class="l">${Object.entries(c.usos).filter(([k]) => k !== P[c.dueno].code).sort((x, y) => y[1].length - x[1].length).map(([k, v]) => `<li class="fila">${k in idx ? pc(idx[k]) : `<span class="k">${esc(nomDoc(k))}</span>`}<span class="k">${v.length} ×</span>${v.slice(0, 14).map((l) => loc(k, l)).join(' ')}${v.length > 14 ? '<span class="k">…</span>' : ''}</li>`).join('') || '<li class="tenue chico">Ningún otro documento lo nombra con estas palabras.</li>'}</ul></td></tr>` : ''); };
+  return `<p class="lead">Lo que cada PLAN nombra como propio, y quién más lo usa.</p><p class="chico tenue">Las fichas las escribió un lector por documento; cada concepto está anclado a la línea donde se define y verificado contra el texto. Los usos se buscan literal en los 28 PLANes y en los documentos transversales.</p>
+  <div class="filtros"><input type="search" id="q" placeholder="Buscar nombre o sigla" value="${esc(E.q)}" aria-label="Buscar concepto"><select id="ftipo" aria-label="Tipo"><option value="">todos los tipos</option>${Object.entries(TIPOS_C).map(([k, v]) => `<option value="${k}"${E.tipo === k ? ' selected' : ''}>${v}</option>`).join('')}</select><select id="fdueno" aria-label="Dueño"><option value="">todos los dueños</option>${orden.map((k) => `<option value="${k}"${E.dueno === String(k) ? ' selected' : ''}>${P[k].code}</option>`).join('')}</select><span class="k">${cs.length} de ${G.conceptos.length}</span></div>
+  <div class="tw"><table><thead><tr><th>Concepto</th><th>Tipo</th><th>Dueño</th><th class="n">PLANes que<br>lo usan</th><th class="n">Menciones<br>afuera</th></tr></thead><tbody>${cs.slice(0, E.lim).map(fila).join('')}</tbody></table></div>${cs.length > E.lim ? `<p><button class="btn2" data-mas="1">Mostrar ${Math.min(200, cs.length - E.lim)} más</button></p>` : ''}
+  ${sinO.length && !q && !E.tipo && E.dueno === '' ? `<h3>Préstamos sin origen · ${sinO.length}</h3><p class="chico tenue">Un PLAN dice tomar algo de otro, y ese otro no lo nombra con esas palabras. Casi siempre es un nombre que cambió de un lado solo.</p><ul class="l">${sinO.map((p) => `<li class="fila">${pc(p.quien)}<span>toma «<b>${esc(p.nombre)}</b>» de</span>${pc(p.origen)}${loc(p.quien, p.linea)}${p.otroDueno ? `<span class="k">· lo define ${esc(p.otroDueno)}</span>` : ''}</li>`).join('')}</ul>` : ''}`;
+}
+
+// ── desarmonías ────────────────────────────────────────────────────────────
+function hallLi(h) { return `<li><div class="fila">${gr(h.grav)}${h.plan in idx ? (h.linea ? loc(h.plan, h.linea) : pc(idx[h.plan])) : h.linea ? loc(h.plan, h.linea) : `<span class="k">${esc(nomDoc(h.plan))}</span>`}<b>${esc(h.titulo)}</b></div><span class="chico tenue">${esc(h.detalle)}</span>${h.texto ? `<blockquote>${esc(h.texto)}</blockquote>` : ''}</li>`; }
+function vistaDesarmonias() {
+  const base = G.hallazgos.filter((h) => (!E.grav || h.grav === E.grav) && (!E.hplan || h.plan === E.hplan));
+  const porTipo = {}; for (const h of base) (porTipo[h.tipo] ??= []).push(h);
+  const hs = E.htipo ? porTipo[E.htipo] ?? [] : base;
+  return `<p class="lead">Lo que ya no cierra, con la línea para ir a mirar.</p><p class="chico tenue"><b>Rota</b>: se prueba contra el texto. <b>Revisar</b>: el patrón o el lector casi siempre aciertan, pero hay que leer la línea. <b>Nota</b>: no es un error; conviene saberlo antes de editar.</p>
+  <div class="filtros"><div class="seg">${[['', 'todas'], ['rota', 'rotas'], ['revisar', 'revisar'], ['nota', 'notas']].map(([k, v]) => `<button data-grav="${k}" aria-pressed="${E.grav === k}">${v}</button>`).join('')}</div><select id="hplan" aria-label="Documento"><option value="">todos los documentos</option>${orden.map((k) => `<option value="${P[k].code}"${E.hplan === P[k].code ? ' selected' : ''}>${P[k].code}</option>`).join('')}</select><span class="k">${hs.length} hallazgos</span></div>
+  <div class="mesa"><section><div class="tw"><table><thead><tr><th>Qué desentona</th><th class="n">Cuántas</th></tr></thead><tbody><tr class="cl${E.htipo ? '' : ' on'}" data-htipo=""><td><b>Todo</b></td><td class="n">${base.length}</td></tr>${Object.entries(porTipo).map(([t, l]) => `<tr class="cl${E.htipo === t ? ' on' : ''}" data-htipo="${t}" tabindex="0"><td><div class="fila">${gr(l[0].grav)}<b>${esc(G.tipos[t]?.[0] ?? t)}</b></div><span class="chico tenue">${esc(G.tipos[t]?.[1] ?? '')}</span></td><td class="n">${l.length}</td></tr>`).join('')}</tbody></table></div></section>
+  <aside><div class="hoja"><p class="k">${E.hplan || 'Todo el corpus'}</p><h2>${esc(E.htipo ? G.tipos[E.htipo]?.[0] ?? E.htipo : 'Todas')}</h2><ul class="l" style="margin-top:14px">${hs.slice(0, E.lim).map(hallLi).join('') || '<li class="tenue">Nada con este filtro.</li>'}</ul>${hs.length > E.lim ? `<p><button class="btn2" data-mas="1">Mostrar más</button></p>` : ''}</div></aside></div>`;
+}
+
+// ── pintar y escuchar ──────────────────────────────────────────────────────
+function pintar() {
+  const cuenta = { desarmonias: G.hallazgos.filter((h) => h.grav !== 'nota').length, conceptos: G.conceptos.length };
+  $('#nav').innerHTML = VISTAS.map(([k, v]) => `<button data-go="${k}"${E.vista === k ? ' aria-current="page"' : ''}>${v}${cuenta[k] ? `<b>${cuenta[k]}</b>` : ''}</button>`).join('');
+  $('#sub').textContent = `¡BASTA! · ${G.canon.documentos} documentos · ${num(G.canon.palabras)} palabras · al ${G.generado}`;
+  const foco = document.activeElement?.id, sel = document.activeElement?.selectionStart;
+  $('#app').innerHTML = { mapa: vistaMapa, editar: vistaEditar, conceptos: vistaConceptos, desarmonias: vistaDesarmonias }[E.vista]();
+  if (foco && $('#' + foco)) { $('#' + foco).focus(); if (sel != null && $('#' + foco).setSelectionRange) $('#' + foco).setSelectionRange(sel, sel); }
+}
+function avisar(t) { const e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(avisar.t); avisar.t = setTimeout(() => (e.hidden = true), 2600); }
+document.addEventListener('click', (ev) => {
+  const t = ev.target.closest('[data-loc],[data-plan],[data-par],[data-go],[data-modo],[data-limpiar],[data-bloque],[data-concepto],[data-mas],[data-grav],[data-htipo]');
+  if (!t) return; const d = t.dataset;
+  if (d.loc) { const ruta = 'Iniciativas Estratégicas/' + d.loc; (navigator.clipboard?.writeText(ruta) ?? Promise.reject()).then(() => avisar('Copiado: ' + ruta), () => avisar(ruta)); return; }
+  if (d.concepto) { if (E.vista !== 'conceptos') { E.abierto = d.concepto; E.q = d.concepto.split('/')[1]; E.tipo = ''; E.dueno = ''; ir('conceptos'); } else { E.abierto = E.abierto === d.concepto ? null : d.concepto; pintar(); } return; }
+  if (d.par) { E.par = d.par.split(',').map(Number); E.vista = 'mapa'; E.modo = 'matriz'; if (location.hash.slice(1).split('-')[0] !== 'mapa') location.hash = '#mapa'; pintar(); return; }
+  if (d.plan) { E.plan = +d.plan; ir(E.vista === 'editar' ? 'editar' : 'mapa'); return; }
+  if (d.go) { if (d.sinplan) { E.hplan = ''; E.htipo = ''; E.plan = null; } if (d.go === 'desarmonias' && !d.sinplan && E.plan !== null && t.closest('.hoja')) E.hplan = P[E.plan].code; ir(d.go, d.go === 'desarmonias' && !E.hplan ? null : E.plan); return; }
+  if (d.modo) E.modo = d.modo; if (d.limpiar) { E.plan = null; E.par = null; ir('mapa', null); return; }
+  if (d.bloque) E.bloque = E.bloque === +d.bloque ? null : +d.bloque; if (d.mas) E.lim += 200;
+  if (d.grav !== undefined) E.grav = d.grav; if (d.htipo !== undefined) { E.htipo = d.htipo; E.lim = 120; }
+  pintar();
+});
+document.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('tr.cl,.nodo')) { ev.preventDefault(); ev.target.dispatchEvent(new MouseEvent('click', { bubbles: true })); } });
+document.addEventListener('change', (ev) => { const t = ev.target;
+  if (t.id === 'sd') E.sinDeclarar = t.checked; else if (t.id === 'selplan') { E.plan = +t.value; return ir('editar'); } else if (t.id === 'ftipo') E.tipo = t.value; else if (t.id === 'fdueno') E.dueno = t.value; else if (t.id === 'hplan') { E.hplan = t.value; E.htipo = ''; } else return; pintar(); });
+document.addEventListener('input', (ev) => { if (ev.target.id === 'q') { E.q = ev.target.value; E.lim = 120; pintar(); } });
+const tip = $('#tip');
+document.addEventListener('pointermove', (ev) => { const t = ev.target.closest?.('[data-tip]'); if (!t) { tip.hidden = true; return; } tip.textContent = t.dataset.tip; tip.hidden = false; const w = tip.offsetWidth; tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, ev.clientX + 14)) + 'px'; tip.style.top = ev.clientY + 16 + 'px'; });
+leerHash(); pintar();
+}
+fetch('/atlas/grafo.json').then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(iniciar).catch(() => { document.getElementById('app').innerHTML = '<p>No se pudo cargar el atlas. Probá recargar la página.</p>'; });

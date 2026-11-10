@@ -1,0 +1,39 @@
+{
+  "grupo": 6,
+  "revisados": ["Escalera de Garantías", "Centros de la Vida", "Dividendo Nacional de Productividad", "Economía de la Contribución", "Fideicomisos de Propósito Perpetuo", "Paneles Ciudadanos de Futuro Económico"],
+  "cruces": [
+    {
+      "concepto": "Dividendo Nacional de Productividad",
+      "tipo": "numero",
+      "dueno": "PLANREP",
+      "lineaDueno": 2246,
+      "citaDueno": "3-5 provincias con fideicomisos maduros",
+      "otro": "PLANEDU",
+      "lineaOtro": 1799,
+      "citaOtro": "El DNP piloto funciona en ocho provincias",
+      "que": "PLANREP fija el piloto del DNP en 3-5 provincias (2033-2037); PLANEDU lo describe funcionando en ocho provincias."
+    },
+    {
+      "concepto": "Economía de la Contribución",
+      "tipo": "nombre",
+      "dueno": "PLANREP",
+      "lineaDueno": 2289,
+      "citaDueno": "**Construcción y reparación:**",
+      "otro": "PLAN24CN",
+      "lineaOtro": 2169,
+      "citaOtro": "cuidado, creación, enseñanza, infraestructura comunitaria, investigación, mediación ambiental y emprendimiento social",
+      "que": "PLANREP define siete categorías (cuidado comunitario, creación cultural, regeneración ambiental, mentoría y enseñanza, mediación y cohesión social, investigación, construcción y reparación); PLAN24CN las nombra con «emprendimiento social» y «mediación ambiental», que no figuran en la lista del dueño."
+    },
+    {
+      "concepto": "Dividendo Nacional de Productividad",
+      "tipo": "que",
+      "dueno": "PLANREP",
+      "lineaDueno": 2238,
+      "citaDueno": "es un ingreso periódico que recibe cada ciudadano argentino",
+      "otro": "PLANGEO",
+      "lineaOtro": 496,
+      "citaOtro": "Sistema de ingresos de tres pilares que reemplaza gradualmente el salario como única fuente de sustento",
+      "que": "PLANREP define el DNP como un único ingreso periódico por ciudadano, complemento del trabajo en los Horizontes 1 y 2; PLANGEO lo presenta como un sistema de tres pilares que reemplaza gradualmente el salario."
+    }
+  ]
+}

@@ -1,0 +1,599 @@
+{
+  "code": "PLANEN",
+  "nombre": "Plan Nacional de Soberanía Energética y Transición de la Matriz Productiva",
+  "version": "1.0 — Marzo 2026",
+  "tesis": "Argentina tiene gas, litio, viento, sol y tecnología nuclear pero subsidia, pierde energía y exporta materia prima; PLANEN industrializa los recursos, distribuye la generación con una Bastarda Energética y capitaliza el Fondo Soberano con regalías, coordinado por la ANEN.",
+  "problema": "El documento diagnostica subsidios de USD 10.000-15.000 millones anuales que benefician sobre todo a generadoras y distribuidoras, siete millones de personas en pobreza energética, pérdidas de red del 15% al 25%, exportación de litio como carbonato y de gas sin industrializar, y ausencia de un fondo soberano que ahorre la renta.",
+  "resumen": "Organiza la transición en cinco pilares: gas natural como puente con GNL y polo petroquímico, renovables escalables, industrialización del litio, nuclear de nueva generación (CAREM y SMR) y el laboratorio LANEF. Crea la ANEN como agencia autárquica, la Bastarda Energética que distribuye al costo, el programa Cada Techo un Generador y un Panel Ciudadano Energético. Fija regalías progresivas que alimentan el Fondo Soberano, provee los datos energéticos del peso-canasta y regula el nexo con el agua.",
+  "horizonte": "Pre-fase de un año, fase fundacional en 2028, fase 1 (años 1-5) con gas y renovables, fase 2 (años 5-10) con industrialización y nuclear, fase 3 (años 10-15) de soberanía plena. Visión 2040 como horizonte no operativo.",
+  "financiamiento": "Inversión de USD 45.000-76.000 millones en 15 años: inversión privada condicionada, multilaterales y bonos verdes, reasignación de subsidios, reinversión del Fondo Soberano, swap deuda-por-infraestructura y presupuesto nacional. Ninguna fuente supera el 35%.",
+  "temas": [
+    "agua-energia",
+    "trabajo-produccion",
+    "moneda-finanzas",
+    "estado-instituciones"
+  ],
+  "conceptos": [
+    {
+      "nombre": "ANEN",
+      "alias": [
+        "ANEN",
+        "Agencia Nacional de Energía y Frontera Tecnológica"
+      ],
+      "tipo": "institucion",
+      "que_es": "Agencia autárquica que coordina los cinco pilares, administra las regalías al Fondo Soberano, supervisa a la Bastarda Energética, gestiona el Tablero y el LANEF. Directorio de 7: 3 técnicos, 2 sorteados, 2 de comunidades originarias.",
+      "seccion": "9.2",
+      "linea": 1471,
+      "cita": "Ente autárquico con presupuesto constitucional protegido"
+    },
+    {
+      "nombre": "LANEF",
+      "alias": [
+        "LANEF",
+        "Laboratorio Nacional de Energía del Futuro"
+      ],
+      "tipo": "institucion",
+      "que_es": "Red nacional de investigación con sede en Bariloche y siete programas de frontera, cada uno con socio industrial y obligación de transferencia. Autonomía científica, dependiente de la ANEN.",
+      "seccion": "4B.1",
+      "linea": 784,
+      "cita": "El LANEF no es un edificio — es una red nacional de investigación"
+    },
+    {
+      "nombre": "Bastarda Energética",
+      "alias": [
+        "Bastarda Energética"
+      ],
+      "tipo": "institucion",
+      "que_es": "Empresa de Propósito Perpetuo que distribuye energía al costo real, sin accionistas ni dividendos, con generación distribuida, net metering y mandato de cero pobreza energética en su área. PLANEB define el formato; PLANEN lo implementa.",
+      "seccion": "5.1",
+      "linea": 961,
+      "cita": "PLANEN desarrolla la implementación completa."
+    },
+    {
+      "nombre": "Cada Techo un Generador",
+      "alias": [
+        "Cada Techo un Generador"
+      ],
+      "tipo": "programa",
+      "que_es": "Programa que convierte a los hogares en prosumidores de energía con créditos blandos, cooperativas instaladoras, baterías domésticas y medidores bidireccionales, administrado por la ANEN.",
+      "seccion": null,
+      "linea": 164,
+      "cita": "programa **Cada Techo un Generador**"
+    },
+    {
+      "nombre": "Programa de Techos Solares Bastardos",
+      "alias": [
+        "Techos Solares Bastardos"
+      ],
+      "tipo": "programa",
+      "que_es": "La Bastarda financia paneles en techos de hogares, comercios y fábricas con una cuota incluida en la factura equivalente al ahorro. Meta: un millón de techos en diez años.",
+      "seccion": "5.3",
+      "linea": 1010,
+      "cita": "Programa de Techos Solares Bastardos"
+    },
+    {
+      "nombre": "Tablero Nacional de Energía",
+      "alias": [
+        "Tablero Nacional de Energía"
+      ],
+      "tipo": "metrica",
+      "que_es": "Plataforma pública de datos energéticos en tiempo real, sin clave ni registro, con capas de generación, transmisión, consumo, precios, emisiones y regalías al Fondo.",
+      "seccion": "9.3",
+      "linea": 1500,
+      "cita": "El Tablero Nacional de Energía es la plataforma pública de datos en tiempo real"
+    },
+    {
+      "nombre": "Gemelo Digital del Sistema Eléctrico",
+      "alias": [
+        "Gemelo Digital del Sistema Eléctrico"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Modelo digital abierto del sistema eléctrico alimentado por el Tablero, para simular escenarios, detectar vulnerabilidades, optimizar despacho y planificar inversiones.",
+      "seccion": "9.3",
+      "linea": 1518,
+      "cita": "Gemelo Digital del Sistema Eléctrico"
+    },
+    {
+      "nombre": "Panel Ciudadano Energético",
+      "alias": [
+        "Panel Ciudadano Energético"
+      ],
+      "tipo": "institucion",
+      "que_es": "Órgano de 200 ciudadanos sorteados, mandato de 3 años, que aprueba cambios en regalías, inversiones del Fondo mayores a USD 500M y ponderaciones energéticas de la canasta.",
+      "seccion": "11.2",
+      "linea": 1580,
+      "cita": "El Panel Ciudadano Energético es el órgano deliberativo que aprueba los cambios estructurales"
+    },
+    {
+      "nombre": "Comité Interagencial de Gobernanza Agua-Energía",
+      "alias": [
+        "Comité Interagencial de Gobernanza Agua-Energía"
+      ],
+      "tipo": "institucion",
+      "que_es": "Comité conjunto ANEN-ANAGUA con dictamen obligatorio para obras que afectan agua y energía, tablero integrado, protocolo de emergencia cruzada e investigación conjunta.",
+      "seccion": "7.6",
+      "linea": 1306,
+      "cita": "Comité Interagencial de Gobernanza Agua-Energía"
+    },
+    {
+      "nombre": "Tasa hídrica",
+      "alias": [
+        "Tasa hídrica"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Cargo por metro cúbico de agua dulce consumida en fracking, cuyo ingreso se destina a PLANAGUA para infraestructura hídrica en la cuenca del Neuquén.",
+      "seccion": "7.2",
+      "linea": 1250,
+      "cita": "Tasa hídrica por metro cúbico de agua dulce consumida en fracking"
+    },
+    {
+      "nombre": "Plan Eólico Patagónico",
+      "alias": [
+        "Plan Eólico Patagónico"
+      ],
+      "tipo": "programa",
+      "que_es": "Despliegue escalonado de eólica clase 6-7 en la Patagonia con nuevas líneas de alta tensión, financiado con bonos verdes, inversión privada condicionada y multilaterales.",
+      "seccion": "4.2",
+      "linea": 629,
+      "cita": "Plan Eólico Patagónico (objetivo: 20.000 MW en 10 años)"
+    },
+    {
+      "nombre": "Plan Solar del NOA",
+      "alias": [
+        "Plan Solar del NOA"
+      ],
+      "tipo": "programa",
+      "que_es": "Parques solares de gran escala y generación distribuida rural en el noroeste, integrado con la industrialización del litio.",
+      "seccion": "4.2",
+      "linea": 636,
+      "cita": "Plan Solar del NOA (objetivo: 10.000 MW en 10 años)"
+    },
+    {
+      "nombre": "Hub de Manufactura del NOA",
+      "alias": [
+        "Hub de Manufactura del NOA",
+        "Hub del NOA"
+      ],
+      "tipo": "programa",
+      "que_es": "Cadena de manufactura de cátodos, celdas, baterías y reciclaje en Jujuy-Salta-Catamarca, en cuatro etapas y con joint venture condicionado a transferencia tecnológica real.",
+      "seccion": "4.3",
+      "linea": 714,
+      "cita": "**A. Hub de Manufactura del NOA**"
+    },
+    {
+      "nombre": "Regalías Progresivas",
+      "alias": [
+        "Regalías Progresivas"
+      ],
+      "tipo": "norma",
+      "que_es": "Piso del 18% sobre boca de pozo con escala 18/22/25% según el Brent; el diferencial sobre el 12% actual va al Fondo Soberano Bastardo.",
+      "seccion": "4.1",
+      "linea": 606,
+      "cita": "**C. Regalías Progresivas**"
+    },
+    {
+      "nombre": "Polo Petroquímico Integrado",
+      "alias": [
+        "Polo Petroquímico Integrado"
+      ],
+      "tipo": "programa",
+      "que_es": "Complejo en el corredor Neuquén-Bahía Blanca que procesa gas de Vaca Muerta en fertilizantes, metanol y plásticos para sustituir importaciones.",
+      "seccion": "4.1",
+      "linea": 597,
+      "cita": "Polo Petroquímico Integrado (USD 5.000-10.000M)"
+    },
+    {
+      "nombre": "Ley de Soberanía Energética",
+      "alias": [
+        "Ley de Soberanía Energética"
+      ],
+      "tipo": "norma",
+      "que_es": "Marco legal de la fase fundacional: regalías progresivas, condicionamiento de concesiones de litio, net metering como derecho, Bastarda como EPP habilitada y créditos de carbono soberanos.",
+      "seccion": "8.2",
+      "linea": 1366,
+      "cita": "Ley de Soberanía Energética que establece"
+    },
+    {
+      "nombre": "Programa Nacional de Eficiencia Energética",
+      "alias": [
+        "Programa Nacional de Eficiencia Energética"
+      ],
+      "tipo": "programa",
+      "que_es": "Etiquetado de edificios, aislamiento de vivienda social, termotanques solares, LED, auditorías industriales y estándares de electrodomésticos; ahorro estimado de 2.300 MW equivalentes.",
+      "seccion": "5.7",
+      "linea": 1193,
+      "cita": "Programa Nacional de Eficiencia Energética (dentro de PLANEN)"
+    },
+    {
+      "nombre": "Del Fósil al Futuro",
+      "alias": [
+        "Del Fósil al Futuro"
+      ],
+      "tipo": "programa",
+      "que_es": "Reconversión laboral del sector fósil: mapeo individual, formación en Centros de la Vida, salario puente al 100%, prioridad de contratación y jubilación anticipada voluntaria.",
+      "seccion": "14.2",
+      "linea": 1739,
+      "cita": "Del Fósil al Futuro"
+    },
+    {
+      "nombre": "Salario puente",
+      "alias": [
+        "Salario puente"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Durante la reconversión el trabajador cobra el 100% de su último salario, financiado con el ahorro en subsidios energéticos.",
+      "seccion": "14.2",
+      "linea": 1743,
+      "cita": "Durante la reconversión, el trabajador recibe el 100% de su último salario"
+    },
+    {
+      "nombre": "Protocolo de Datos Energéticos",
+      "alias": [
+        "Protocolo de Datos Energéticos"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Cinco series de datos verificables (gas, petróleo, litio, generación renovable, índice renovable) que PLANEN publica on-chain para las ponderaciones energéticas del peso-canasta.",
+      "seccion": "6.3",
+      "linea": 1141,
+      "cita": "El Protocolo de Datos Energéticos para el Peso-Canasta"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Fondo Soberano Bastardo",
+      "alias": [
+        "Fondo Soberano Bastardo"
+      ],
+      "origen": "PLANMON",
+      "para_que": "Recibe las regalías energéticas y el diferencial de regalías de hidrocarburos; sus transferencias se ejecutan por smart contract.",
+      "linea": 148,
+      "cita": "Fondo Soberano Bastardo de PLANMON"
+    },
+    {
+      "nombre": "peso-canasta",
+      "alias": [
+        "peso-canasta"
+      ],
+      "origen": "PLANMON",
+      "para_que": "Su canasta pondera gas, petróleo, litio y renovables al 35%; PLANEN provee los datos que la alimentan.",
+      "linea": 1143,
+      "cita": "asigna al sector energético el 35% de la canasta del peso-canasta"
+    },
+    {
+      "nombre": "Protocolo Bastardo",
+      "alias": [
+        "Protocolo Bastardo"
+      ],
+      "origen": "PLANEB",
+      "para_que": "Marco bajo el cual la Bastarda Energética opera como Empresa de Propósito Perpetuo.",
+      "linea": 982,
+      "cita": "La Bastarda Energética es una EPP bajo el Protocolo Bastardo de PLANEB."
+    },
+    {
+      "nombre": "Red Bastarda",
+      "alias": [
+        "Red Bastarda"
+      ],
+      "origen": "PLANEB",
+      "para_que": "Red de entidades de costo cero en la que se inscribe la Bastarda Energética.",
+      "linea": 164,
+      "cita": "Bastarda Energética como entidad de la Red Bastarda"
+    },
+    {
+      "nombre": "Agencia del Litio del Cono Sur",
+      "alias": [
+        "ALCS"
+      ],
+      "origen": "PLANGEO",
+      "para_que": "Coordina el Triángulo del Litio; PLANEN implementa la pata argentina de estandarización y negociación colectiva.",
+      "linea": 730,
+      "cita": "Implementación de la Agencia del Litio del Cono Sur (ALCS) propuesta por PLANGEO."
+    },
+    {
+      "nombre": "Hub Logístico Austral",
+      "alias": [
+        "Hub Logístico Austral"
+      ],
+      "origen": "PLANGEO",
+      "para_que": "Infraestructura portuaria de Ushuaia que serviría también para desplegar generación mareal.",
+      "linea": 893,
+      "cita": "Hub Logístico Austral de PLANGEO (Ushuaia)"
+    },
+    {
+      "nombre": "Tablero Nacional del Agua",
+      "alias": [
+        "Tablero Nacional del Agua"
+      ],
+      "origen": "PLANAGUA",
+      "para_que": "Publica en tiempo real los datos de monitoreo de acuíferos en salares junto al Tablero de Energía.",
+      "linea": 1299,
+      "cita": "Tablero Nacional del Agua (PLANAGUA)"
+    },
+    {
+      "nombre": "ANAGUA",
+      "alias": [
+        "ANAGUA"
+      ],
+      "origen": "PLANAGUA",
+      "para_que": "Verifica caudales ecológicos de las nuevas PCH y emite dictamen conjunto con la ANEN.",
+      "linea": 1260,
+      "cita": "verificado por ANAGUA"
+    },
+    {
+      "nombre": "Licencia Territorial",
+      "alias": [
+        "Licencia Territorial"
+      ],
+      "origen": "PLANTER",
+      "para_que": "Condiciona proyectos hidrocarburíferos y mineros a consulta previa y retorno comunitario.",
+      "linea": 1547,
+      "cita": "Licencia Territorial (reemplazo del RIGI)"
+    },
+    {
+      "nombre": "Infraestructura Digital Soberana",
+      "alias": [
+        "IDS"
+      ],
+      "origen": "PLANDIG",
+      "para_que": "Provee la smart grid IoT y la telemetría del Tablero Nacional de Energía.",
+      "linea": 1546,
+      "cita": "IDS provee Smart Grid IoT"
+    },
+    {
+      "nombre": "LANIA",
+      "alias": [
+        "LANIA"
+      ],
+      "origen": "PLANDIG",
+      "para_que": "Infraestructura de cómputo soberana que el LANEF usa para simulaciones y modelado.",
+      "linea": 794,
+      "cita": "la infraestructura de cómputo soberana del LANIA"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": [
+        "Centros de la Vida"
+      ],
+      "origen": "PLANREP",
+      "para_que": "Lugar de formación de los trabajadores fósiles reconvertidos y de los nuevos oficios energéticos.",
+      "linea": 1742,
+      "cita": "Formación en los Centros de la Vida de PLANREP"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Inversión total de PLANEN",
+      "valor": "USD 45.000-76.000 millones en 15 años",
+      "tipo": "presupuesto",
+      "linea": 1602,
+      "cita": "La inversión total de PLANEN se estima en USD 45.000-76.000 millones en 15 años"
+    },
+    {
+      "concepto": "Regalías energéticas anuales al Fondo Soberano",
+      "valor": "USD 2.000-4.800 millones por año",
+      "tipo": "fuente",
+      "linea": 1139,
+      "cita": "| **Total regalías energéticas al Fondo Soberano** | | **2.000-4.800**"
+    },
+    {
+      "concepto": "Escala de regalías de hidrocarburos",
+      "valor": "18% (Brent < USD 60); 22% (USD 60-80); 25% (> USD 80), desde 12% actual",
+      "tipo": "parametro",
+      "linea": 608,
+      "cita": "Escala progresiva: 18% cuando Brent < USD 60; 22% cuando Brent USD 60-80; 25% cuando Brent > USD 80."
+    },
+    {
+      "concepto": "Regalía del litio",
+      "valor": "8% sobre exportación + bono de industrialización de 3%",
+      "tipo": "parametro",
+      "linea": 1137,
+      "cita": "Regalía del 8% sobre exportación de carbonato/hidróxido + bono de industrialización (3% adicional"
+    },
+    {
+      "concepto": "Meta eólica patagónica",
+      "valor": "20.000 MW en 10 años",
+      "tipo": "meta",
+      "linea": 629,
+      "cita": "Plan Eólico Patagónico (objetivo: 20.000 MW en 10 años)"
+    },
+    {
+      "concepto": "Meta solar del NOA",
+      "valor": "10.000 MW en 10 años",
+      "tipo": "meta",
+      "linea": 636,
+      "cita": "Plan Solar del NOA (objetivo: 10.000 MW en 10 años)"
+    },
+    {
+      "concepto": "Matriz eléctrica renovable más nuclear",
+      "valor": "~45% (2026), ~60% (2031), ~75% (2036), ~85% (2041)",
+      "tipo": "meta",
+      "linea": 674,
+      "cita": "**Total renovable + nuclear** | **~45%** | **~60%** | **~75%** | **~85%**"
+    },
+    {
+      "concepto": "Subsidio energético actual",
+      "valor": "USD 10.000-15.000 millones por año",
+      "tipo": "diagnostico",
+      "linea": 1094,
+      "cita": "2026 (actual) | 10.000-15.000 | 100%"
+    },
+    {
+      "concepto": "Subsidio residual en 2038",
+      "valor": "USD 1.000-2.000 millones (10-15% del nivel 2026)",
+      "tipo": "meta",
+      "linea": 1098,
+      "cita": "2038 (tranche-3 maduración) | 1.000-2.000 | 10-15%"
+    },
+    {
+      "concepto": "Pérdidas de red de la Bastarda",
+      "valor": "Objetivo 6-8%",
+      "tipo": "meta",
+      "linea": 1003,
+      "cita": "Objetivo: 6-8% (cada pérdida es costo directo al usuario)"
+    },
+    {
+      "concepto": "Piso de financiamiento del LANEF",
+      "valor": "0,2% del PBI (~USD 1.000-1.300M/año)",
+      "tipo": "parametro",
+      "linea": 791,
+      "cita": "**0,2% del PBI** como piso dedicado a I+D energético"
+    },
+    {
+      "concepto": "Presupuesto constitucional protegido de la ANEN",
+      "valor": "mínimo 0,5% del PBI",
+      "tipo": "parametro",
+      "linea": 1471,
+      "cita": "mínimo 0,5% del PBI"
+    },
+    {
+      "concepto": "Total del programa LANEF a 15 años",
+      "valor": "USD 6.780-12.740 millones",
+      "tipo": "presupuesto",
+      "linea": 949,
+      "cita": "**TOTAL LANEF** | **USD 6.780-12.740M**"
+    },
+    {
+      "concepto": "Capitalización del Fondo solo por regalías energéticas",
+      "valor": "~USD 85.000M al 2043",
+      "tipo": "meta",
+      "linea": 1185,
+      "cita": "el Fondo acumularía ~USD 85.000M al 2043"
+    },
+    {
+      "concepto": "Techos solares financiados por la Bastarda",
+      "valor": "1 millón en 10 años (3.000-5.000 MW)",
+      "tipo": "meta",
+      "linea": 1014,
+      "cita": "Objetivo: 1 millón de techos solares en 10 años."
+    },
+    {
+      "concepto": "Inversión en transmisión",
+      "valor": "USD 9.000-15.500 millones",
+      "tipo": "presupuesto",
+      "linea": 1345,
+      "cita": "| **Total transmisión** | | | **9.000-15.500** |"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANMON",
+      "que": "PLANEN transfiere regalías al Fondo Soberano por smart contract y provee dos de las tres fuentes de verificación de cada componente energético del peso-canasta.",
+      "linea": 1166,
+      "cita": "PLANEN provee dos de las tres fuentes mínimas de verificación"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "Gobernanza conjunta de la cuenca neuquina: dictamen compartido para pozos de fracking, tasa hídrica que se destina a PLANAGUA y monitoreo de acuíferos en salares.",
+      "linea": 1251,
+      "cita": "Protocolo de gobernanza conjunta ANEN-ANAGUA"
+    },
+    {
+      "con": "PLANEB",
+      "que": "PLANEB define la Bastarda Energética como EPP; PLANEN aporta la implementación operativa, cobertura y financiamiento de techos solares.",
+      "linea": 961,
+      "cita": "PLANEB (Sección 9.4) define la Bastarda Energética como una Empresa de Propósito Perpetuo"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "La Bastarda Energética y una red renovable se entregan antes de que cada ciudad nueva reciba residentes; las ciudades nacen sin concesiones previas.",
+      "linea": 1543,
+      "cita": "Bastarda Energética antes de que la primera ciudad reciba residentes"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "PLANDIG aporta telemetría, smart grid IoT y cómputo soberano; PLANEN sostiene energéticamente la infraestructura distribuida con cosecha electromagnética.",
+      "linea": 1546,
+      "cita": "IDS provee Smart Grid IoT y Tablero Nacional de Energía con telemetría"
+    },
+    {
+      "con": "PLANTER",
+      "que": "La Licencia Territorial condiciona proyectos hidrocarburíferos y mineros a consulta previa; PLANTER audita las regalías de hidrocarburos y litio.",
+      "linea": 1547,
+      "cita": "Licencia Territorial (reemplazo del RIGI) condiciona cualquier proyecto hidrocarburífero"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "Tendido eléctrico y fibra sobre la misma traza ferroviaria; PLANEN electrifica la red reactivada con renovables.",
+      "linea": 1545,
+      "cita": "Rieles como columna múltiple: tendido eléctrico y fibra sobre misma traza"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Los Centros de la Vida forman a trabajadores fósiles reconvertidos y a los nuevos oficios; PLANEN financia salario puente y jubilación anticipada.",
+      "linea": 1742,
+      "cita": "Formación en los Centros de la Vida de PLANREP."
+    },
+    {
+      "con": "PLANGEO",
+      "que": "El gas de transición compra tecnología de hidrógeno verde europea según PLANGEO; PLANEN usa esa tecnología para producir y exportar hidrógeno propio.",
+      "linea": 1691,
+      "cita": "PLANEN implementa la otra mitad de ese acuerdo"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Residuos agrícolas convertidos en biogás y digestato; biochar y suelo vivo como vectores del programa de sistemas biológicos del LANEF.",
+      "linea": 652,
+      "cita": "Integración con PLANISV: los residuos agrícolas no son basura"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La ANEN recibe dos nombres desarrollados: «Agencia Nacional de Energía y Transición de Matriz» en la fase fundacional y en el glosario, y «Agencia Nacional de Energía y Frontera Tecnológica» en el título de la sección 9.",
+      "linea": 1365,
+      "cita": "(Agencia Nacional de Energía y Transición de Matriz)"
+    },
+    {
+      "con": "PLANMON",
+      "que": "El fondo receptor de las regalías se llama Fondo Soberano Bastardo en casi todo el documento y Fondo Soberano Ciudadano en la tabla de integración.",
+      "linea": 1556,
+      "cita": "capitalizan el Fondo Soberano Ciudadano"
+    },
+    {
+      "con": "interno",
+      "que": "La tesis numera a PLANEN como decimotercer mandato e invoca otros quince mandatos, mientras el canon declarado en la cabecera es de 27 PLANes más PLANRUTA.",
+      "linea": 164,
+      "cita": "PLANEN es el decimotercer mandato de ¡BASTA!"
+    },
+    {
+      "con": "interno",
+      "que": "El subsidio en 2038 aparece como 10-15% del nivel 2026 en la tabla de reducción, pero como 30% en los hitos de la fase 2.",
+      "linea": 1417,
+      "cita": "Subsidios energéticos reducidos al 30% del nivel 2026"
+    },
+    {
+      "con": "interno",
+      "que": "La Visión 2040 compara un fondo de USD 85.000-120.000M con el noruego y lo llama 15 veces menor per cápita; con los valores del documento la brecha es de más de cien veces.",
+      "linea": 1834,
+      "cita": "per cápita, es 15 veces menor que el noruego"
+    },
+    {
+      "con": "interno",
+      "que": "Se afirma que el 75% del subsidio beneficia a generadoras y distribuidoras, pero la tabla que lo descompone suma cerca del 87% en esos tres componentes.",
+      "linea": 232,
+      "cita": "el 75% del subsidio beneficia a empresas generadoras y distribuidoras"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "El documento admite que no se sabe si la extracción de salmuera afecta los acuíferos de agua dulce de la Puna, porque los modelos hidrogeológicos son aproximaciones.",
+      "linea": 1293,
+      "cita": "La pregunta que nadie responde bien: **¿la extracción de salmuera afecta los acuíferos de agua dulce?**"
+    },
+    {
+      "que": "El potencial geotérmico depende de que la exploración confirme los indicios actuales.",
+      "linea": 685,
+      "cita": "si la exploración confirma los indicios"
+    },
+    {
+      "que": "La captura de energía del campo magnético terrestre se declara especulativa, aunque con fundamento físico.",
+      "linea": 841,
+      "cita": "Línea especulativa pero con fundamento físico real."
+    },
+    {
+      "que": "La tercera y cuarta planta de GNL quedan sujetas a la demanda global, con evaluación cada cinco años.",
+      "linea": 1428,
+      "cita": "evaluación cada 5 años"
+    }
+  ]
+}

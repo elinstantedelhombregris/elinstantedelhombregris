@@ -1,0 +1,38 @@
+{
+  "code": "PLANEN",
+  "leido": "todo",
+  "hallazgos": [
+    {
+      "lineas": [1365, 1452, 1897],
+      "que": "La ANEN se desarrolla como «Agencia Nacional de Energía y Transición de Matriz» en la fase 0 y el glosario, y como «Agencia Nacional de Energía y Frontera Tecnológica» en el título de la sección 9."
+    },
+    {
+      "lineas": [148, 1556],
+      "que": "El fondo receptor de las regalías es «Fondo Soberano Bastardo» en el resto del documento y «Fondo Soberano Ciudadano» en la tabla de integración."
+    },
+    {
+      "lineas": [164, 2],
+      "que": "La tesis dice que PLANEN es el decimotercer mandato y se integra con otros quince, mientras la cabecera declara un canon de 27 PLANes más PLANRUTA."
+    },
+    {
+      "lineas": [578, 164, 778],
+      "que": "La sección 4 se titula «los cuatro pilares» y dice que hay cuatro, pero la tesis y la sección 4B declaran cinco pilares con LANEF como pilar 5."
+    },
+    {
+      "lineas": [1098, 1417, 1638, 2015],
+      "que": "El subsidio de 2038 baja al 10-15% del nivel 2026 en la tabla 5.5, al 30% en los hitos de la fase 2, y la reducción es del 50-70% en la tabla 12.3 y del 70% en el escenario base."
+    },
+    {
+      "lineas": [497, 1834],
+      "que": "Un fondo de USD 85.000-120.000M para 47 millones de personas es más de cien veces menor por habitante que los USD 315.000 noruegos, no 15 veces."
+    },
+    {
+      "lineas": [232, 225, 226, 227],
+      "que": "El texto dice que el 75% del subsidio beneficia a empresas, pero generación, gas y distribución de la tabla 1.2 suman ~87%."
+    },
+    {
+      "lineas": [1956, 1948, 1955],
+      "que": "El total de capacidad de litio de la tabla B.2 figura como ~227.000 t, pero las ocho filas suman 207.000 t."
+    }
+  ]
+}

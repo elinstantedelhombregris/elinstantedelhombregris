@@ -1,0 +1,543 @@
+{
+  "code": "PLANEB",
+  "nombre": "Plan Nacional de Empresas Bastardas y Soberanía Económica Popular",
+  "version": "1.0 — Marzo 2026",
+  "tesis": "Crear Empresas Bastardas, fideicomisos sin dueño gobernados por sus usuarios que proveen servicios esenciales al costo real con transparencia total, para que su precio publicado sirva de referencia y obligue al mercado a justificar sus márgenes.",
+  "problema": "Seguros, banca, telecomunicaciones, energía y prepagas operan con asimetría de información: el ciudadano no puede saber cuánto cuesta proveer el servicio. El documento estima una extracción de USD 10.600-21.950M por año y sostiene que la regulación no la corrige porque actúa desde afuera.",
+  "resumen": "Propone que grupos de ciudadanos, con 25.000 firmas, creen Empresas Bastardas: fideicomisos de propósito perpetuo con gobernanza DAO, paneles por sorteo y cuota dinámica sin margen. Comparten el Protocolo Bastardo y un fondo de solidaridad, y la ANEB certifica adaptadores sectoriales. La primera sería la aseguradora. Incluye catálogo de diez sectores, marco legal en dos fases, tablero de métricas, riesgos y protocolo de falla.",
+  "horizonte": "Tranche-1 (2026-2028): 1-2 Bastardas piloto con marco contable LMV-06. Tranche-2 (2028-2030) y tranche-3 (2030-2034) condicionales. Red de 5+ Bastardas y ley de entidades perpetuas quedan como visión a 2040, no como compromiso.",
+  "financiamiento": "Capital semilla ciudadano: USD 8-17M para la Bastarda Aseguradora, con 25.000 fundadores. Sin dinero estatal en la operación. Presupuesto canónico del encabezado: 0.1B por año más 0.5B de inversión en 24 meses, fuente F07.",
+  "temas": ["trabajo-produccion", "moneda-finanzas", "democracia-participacion", "digital-datos", "estado-instituciones"],
+
+  "conceptos": [
+    {
+      "nombre": "Empresa Bastarda",
+      "alias": ["Empresa Bastarda", "Empresas Bastardas"],
+      "tipo": "termino",
+      "que_es": "Entidad que provee un servicio esencial al costo real, con transparencia total, gobernada por sus usuarios y sin propietario. Se constituye como fideicomiso y se gobierna como DAO.",
+      "seccion": "3.1",
+      "linea": 261,
+      "cita": "Una Empresa Bastarda es una entidad que provee un servicio esencial al costo real"
+    },
+    {
+      "nombre": "ANEB — Agencia Nacional de la Red Bastarda",
+      "alias": ["ANEB"],
+      "tipo": "institucion",
+      "que_es": "Agencia que administra el Protocolo Bastardo y el Fondo de Solidaridad, certifica adaptadores, hace de interfaz con reguladores y publica el Tablero Nacional. En tranche-1 se reduce a una celda de ejecución en MinProducción.",
+      "seccion": "5.1",
+      "linea": 480,
+      "cita": "Esas funciones las cumple la **ANEB**"
+    },
+    {
+      "nombre": "Protocolo Bastardo",
+      "alias": ["Protocolo Bastardo"],
+      "tipo": "mecanismo",
+      "que_es": "Infraestructura open-source compartida por todas las Bastardas, en cinco capas: identidad, tesorería, gobernanza, transparencia y adaptadores. Cada Bastarda nueva arranca con 70-80% resuelto.",
+      "seccion": "8.1",
+      "linea": 828,
+      "cita": "El Protocolo Bastardo es la infraestructura open-source que comparten todas las Empresas Bastardas"
+    },
+    {
+      "nombre": "Red Bastarda",
+      "alias": ["Red Bastarda"],
+      "tipo": "termino",
+      "que_es": "Conjunto de todas las Empresas Bastardas, autónomas en su operación pero unidas por el Protocolo, reservas cruzadas y gobernanza interoperable.",
+      "seccion": "5.1",
+      "linea": 471,
+      "cita": "la Red Bastarda — el conjunto de todas las Bastardas —"
+    },
+    {
+      "nombre": "Fondo de Solidaridad Bastarda",
+      "alias": ["Fondo de Solidaridad Bastarda", "Fondo de Solidaridad"],
+      "tipo": "fondo",
+      "que_es": "Reserva cruzada alimentada con 3-5% de los ingresos de cada Bastarda y administrada por la ANEB. Ayuda a una Bastarda en dificultad, con tres niveles de activación.",
+      "seccion": "6.2",
+      "linea": 702,
+      "cita": "**Fondo de Solidaridad Bastarda** | 3-5% de ingresos de todas las Bastardas"
+    },
+    {
+      "nombre": "Contribución de Soberanía",
+      "alias": ["Contribución de Soberanía"],
+      "tipo": "mecanismo",
+      "que_es": "Aporte de 1-2% de los ingresos brutos de cada Bastarda al Fondo Soberano Nacional, presentado como renta por usar infraestructura pública y no como ganancia.",
+      "seccion": "5.4",
+      "linea": 565,
+      "cita": "Administración de la Contribución de Soberanía"
+    },
+    {
+      "nombre": "Prueba Bastarda",
+      "alias": ["Prueba Bastarda"],
+      "tipo": "programa",
+      "que_es": "Contratar el seguro Bastardo por tres meses sin dar de baja el actual, para comparar facturas línea por línea, sin permanencia ni penalidad.",
+      "seccion": "3.5",
+      "linea": 332,
+      "cita": "La Prueba Bastarda.** Nadie te pide que canceles nada"
+    },
+    {
+      "nombre": "Adaptador sectorial",
+      "alias": ["adaptador sectorial", "Adaptadores Sectoriales"],
+      "tipo": "mecanismo",
+      "que_es": "Capa que traduce el Protocolo genérico a las reglas de un sector concreto. Se desarrolla en cinco pasos y la ANEB debe certificarlo antes de desplegarlo.",
+      "seccion": "8.5",
+      "linea": 830,
+      "cita": "Solo necesita desarrollar el **adaptador sectorial**"
+    },
+    {
+      "nombre": "Fideicomiso de Propósito Perpetuo",
+      "alias": ["Fideicomiso de Propósito Perpetuo", "Fideicomisos de Propósito Perpetuo"],
+      "tipo": "norma",
+      "que_es": "Forma legal de la Bastarda bajo el CCyC, con patrimonio separado y sin dueño. La perpetuidad se obtiene con renovación automática y fideicomiso sucesor, por el tope de 30 años.",
+      "seccion": "3.2",
+      "linea": 273,
+      "cita": "Es un Fideicomiso de Propósito Perpetuo."
+    },
+    {
+      "nombre": "Ley de Entidades de Propósito Perpetuo y Gobernanza Descentralizada",
+      "alias": ["Ley de Entidades de Propósito Perpetuo", "EPP"],
+      "tipo": "norma",
+      "que_es": "Proyecto de ley de 45-60 artículos en 8 capítulos que crea la EPP: duración perpetua, validez legal del voto on-chain, régimen fiscal especial y registro a cargo de la ANEB. Hay versión Mínima y Plena.",
+      "seccion": "12.2",
+      "linea": 1163,
+      "cita": "Proyecto de Ley de Entidades de Propósito Perpetuo y Gobernanza Descentralizada"
+    },
+    {
+      "nombre": "Techo Salarial 8:1",
+      "alias": ["Techo Salarial"],
+      "tipo": "norma",
+      "que_es": "Límite de 8 a 1 entre la compensación total más alta y la más baja dentro de cada Bastarda, con todos los salarios publicados en el Tablero de Transparencia.",
+      "seccion": "4.7",
+      "linea": 449,
+      "cita": "no puede exceder 8 veces la compensación total de la persona peor pagada"
+    },
+    {
+      "nombre": "Pool Mutual Dinámico",
+      "alias": ["Pool Mutual Dinámico"],
+      "tipo": "mecanismo",
+      "que_es": "Cuota mensual igual al costo real dividido por usuarios, que sube o baja con los siniestros. Cada usuario fija un techo máximo mensual al contratar.",
+      "seccion": "6.1",
+      "linea": 658,
+      "cita": "El Pool Mutual Dinámico"
+    },
+    {
+      "nombre": "Alarma Ciudadana",
+      "alias": ["Alarma Ciudadana"],
+      "tipo": "mecanismo",
+      "que_es": "Con 5.000 firmas verificadas se activa una revisión pública de cualquier miembro del directorio de la ANEB, a cargo de un panel de 7 ciudadanos sorteados.",
+      "seccion": "5.3c",
+      "linea": 531,
+      "cita": "Alarma Ciudadana.** Cualquier grupo de 5.000 ciudadanos"
+    },
+    {
+      "nombre": "Director/a de Integridad",
+      "alias": ["Director/a de Integridad", "Canal de Transparencia"],
+      "tipo": "figura",
+      "que_es": "Cargo de la ANEB que reporta a la ciudadanía y no al directorio. Gestiona el canal de denuncias, audita conflictos de interés y solo se remueve por Asamblea Extraordinaria.",
+      "seccion": "5.3b",
+      "linea": 519,
+      "cita": "Director/a de Integridad.** Este es el rol más inusual"
+    },
+    {
+      "nombre": "Cláusula de Muerte Digna",
+      "alias": ["Cláusula de Muerte Digna"],
+      "tipo": "mecanismo",
+      "que_es": "Protocolo de cierre ordenado de una Bastarda que fracasa: devolución de reservas a usuarios, traspaso de pólizas, datos preservados y post-mortem público a 60 días.",
+      "seccion": "23.3",
+      "linea": 1810,
+      "cita": "La Cláusula de Muerte Digna"
+    },
+    {
+      "nombre": "Calculadora Bastarda",
+      "alias": ["Calculadora Bastarda"],
+      "tipo": "programa",
+      "que_es": "Herramienta online donde cada persona carga sus facturas de seguro, banco, teléfono y energía y ve cuánto ahorraría en una Bastarda, según las estimaciones del modelo.",
+      "seccion": "17.2",
+      "linea": 1458,
+      "cita": "**Calculadora Bastarda.** Herramienta online donde cualquier argentino"
+    },
+    {
+      "nombre": "Asesor Bastardo",
+      "alias": ["asesor Bastardo", "Asesor Bastardo"],
+      "tipo": "figura",
+      "que_es": "Rol de reconversión para productores de seguros: asesoran a usuarios sobre coberturas y siniestros y cobran por servicio, no por comisión de venta.",
+      "seccion": "15.3",
+      "linea": 1356,
+      "cita": "el rol de **asesor Bastardo**"
+    },
+    {
+      "nombre": "Tablero Nacional de la Red Bastarda",
+      "alias": ["Tablero Nacional de la Red Bastarda"],
+      "tipo": "metrica",
+      "que_es": "Tablero público de la ANEB con métricas agregadas de la Red, comparación de precios contra el mercado y medición del ahorro ciudadano. Incluye circuit breakers e indicadores de impacto humano.",
+      "seccion": "5.4",
+      "linea": 588,
+      "cita": "6. Tablero Nacional de la Red Bastarda"
+    },
+    {
+      "nombre": "La Bastarda Aseguradora",
+      "alias": ["Bastarda Aseguradora"],
+      "tipo": "programa",
+      "que_es": "Primera Bastarda y caso modelo: seguro de responsabilidad civil automotor, con expansión por fases a hogar, vida y micropólizas, regulada por la SSN.",
+      "seccion": "9.1",
+      "linea": 878,
+      "cita": "La Bastarda Aseguradora (Caso modelo"
+    },
+    {
+      "nombre": "Semilla Cruzada",
+      "alias": ["Semilla Cruzada"],
+      "tipo": "mecanismo",
+      "que_es": "Desde la segunda Bastarda, los excedentes de los Fondos de Catástrofe existentes cofinancian el capital semilla de las nuevas, por decisión de un Panel Ciudadano extraordinario de la ANEB.",
+      "seccion": "11.3",
+      "linea": 1117,
+      "cita": "11.3 Semilla Cruzada"
+    },
+    {
+      "nombre": "Bastardas Provinciales",
+      "alias": ["Bastardas Provinciales"],
+      "tipo": "programa",
+      "que_es": "Bastardas que operan dentro de una provincia y se vinculan con sus reguladores locales, activadas por petición con firmas proporcionales a la población.",
+      "seccion": "19.1",
+      "linea": 1549,
+      "cita": "Las provincias pueden activar **Bastardas Provinciales**"
+    }
+  ],
+
+  "usa": [
+    {
+      "nombre": "Índice de Contribución",
+      "alias": ["Índice de Contribución"],
+      "origen": "PLANREP",
+      "para_que": "Amplifica la compensación de los trabajadores de cada Bastarda sobre el salario base de mercado.",
+      "linea": 449,
+      "cita": "amplificación por Índice de Contribución de PLANREP"
+    },
+    {
+      "nombre": "Regla de Tres Rechazos",
+      "alias": ["Regla de Tres Rechazos"],
+      "origen": "PLANREP",
+      "para_que": "Obliga al Consejo Técnico a escuchar al Panel Ciudadano: tres rechazos consecutivos vuelven vinculante la recomendación.",
+      "linea": 407,
+      "cita": "Tomada de PLANREP (Sección 15.5, Paneles Ciudadanos de Futuro Económico)"
+    },
+    {
+      "nombre": "Dividendo Nacional de Productividad",
+      "alias": ["Dividendo Nacional de Productividad"],
+      "origen": "PLANREP",
+      "para_que": "Garantiza el piso de dignidad económica que las Bastardas no cubren, porque no subsidian ni regalan servicios.",
+      "linea": 622,
+      "cita": "Dividendo Nacional de Productividad que PLANREP establece para cada ciudadano"
+    },
+    {
+      "nombre": "Fondo Soberano Nacional",
+      "alias": ["Fondo Soberano Nacional"],
+      "origen": "PLANMON",
+      "para_que": "Recibe la Contribución de Soberanía del 1-2% de los ingresos brutos de cada Bastarda.",
+      "linea": 566,
+      "cita": "Fondo Soberano Nacional (PLANMON, Sección 6)"
+    },
+    {
+      "nombre": "JUS-1 y JUS-2",
+      "alias": ["JUS-1", "JUS-2"],
+      "origen": "PLANJUS",
+      "para_que": "Instancias de escalamiento cuando fallan la resolución interna entre usuarios o el arbitraje entre Bastardas.",
+      "linea": 422,
+      "cita": "escalamiento a PLANJUS JUS-1"
+    },
+    {
+      "nombre": "Infraestructura Digital Soberana",
+      "alias": ["IDS"],
+      "origen": "PLANDIG",
+      "para_que": "Provee el sustrato on-chain y los servicios federados que el Protocolo Bastardo necesita para operar sin dependencias extranjeras.",
+      "linea": 1289,
+      "cita": "IDS provee el substrato on-chain y los servicios federados"
+    },
+    {
+      "nombre": "ANCE",
+      "alias": ["ANCE"],
+      "origen": "PLANEDU",
+      "para_que": "Designa un representante en el directorio de la ANEB y sirve de modelo de agencia autárquica.",
+      "linea": 486,
+      "cita": "**ANCE** (PLANEDU) regula la calidad educativa"
+    },
+    {
+      "nombre": "ANJUS",
+      "alias": ["ANJUS"],
+      "origen": "PLANJUS",
+      "para_que": "Designa un representante en el directorio de la ANEB y sirve de modelo de agencia autárquica.",
+      "linea": 487,
+      "cita": "**ANJUS** (PLANJUS) administra la justicia popular"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": ["Centros de la Vida"],
+      "origen": "PLANREP",
+      "para_que": "Sus graduados enseñan en la Bastarda Educativa y forman a los trabajadores de las Bastardas.",
+      "linea": 969,
+      "cita": "Los graduados de los Centros de la Vida de PLANREP enseñan en la Bastarda Educativa"
+    },
+    {
+      "nombre": "El Refugio",
+      "alias": ["El Refugio"],
+      "origen": "PLANREP",
+      "para_que": "Rama de artesanos que construye las viviendas de la Bastarda Habitacional.",
+      "linea": 977,
+      "cita": "artesanos de PLANREP (rama \"El Refugio\")"
+    }
+  ],
+
+  "cifras": [
+    {
+      "concepto": "Presupuesto protegido de la ANEB",
+      "valor": "0.1% del PBI como piso constitucional (aprox. USD 500-600 millones en 2026)",
+      "tipo": "presupuesto",
+      "linea": 493,
+      "cita": "0.1% del PBI como piso constitucional"
+    },
+    {
+      "concepto": "Presupuesto canónico de tranche-1",
+      "valor": "0.1B/año + 0.5B inv 24m",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "**Presupuesto canónico:** 0.1B/año + 0.5B inv 24m"
+    },
+    {
+      "concepto": "Firmas para activar una nueva Bastarda",
+      "valor": "25.000 firmas",
+      "tipo": "parametro",
+      "linea": 584,
+      "cita": "Cuando una petición ciudadana alcanza 25.000 firmas"
+    },
+    {
+      "concepto": "Capitalización de la Bastarda Aseguradora",
+      "valor": "USD 8.000.000 a 17.000.000, con 25.000 fundadores de USD 320-680 cada uno",
+      "tipo": "presupuesto",
+      "linea": 778,
+      "cita": "25.000 fundadores × USD 320-680 cada uno"
+    },
+    {
+      "concepto": "Aporte al Fondo de Solidaridad Bastarda",
+      "valor": "3-5% de ingresos de cada Bastarda activa",
+      "tipo": "fuente",
+      "linea": 560,
+      "cita": "Recibe el 3-5% de ingresos de cada Bastarda activa"
+    },
+    {
+      "concepto": "Contribución de Soberanía",
+      "valor": "1-2% de ingresos brutos de cada Bastarda activa",
+      "tipo": "fuente",
+      "linea": 566,
+      "cita": "Recibe el 1-2% de ingresos brutos de cada Bastarda activa"
+    },
+    {
+      "concepto": "Techo salarial dentro de cada Bastarda",
+      "valor": "8 a 1 sobre compensación total",
+      "tipo": "parametro",
+      "linea": 449,
+      "cita": "no puede exceder 8 veces la compensación total de la persona peor pagada"
+    },
+    {
+      "concepto": "Umbral de concentración de mercado que dispara revisión",
+      "valor": "40% de participación en el sector",
+      "tipo": "parametro",
+      "linea": 636,
+      "cita": "Umbral de concentración: 40%."
+    },
+    {
+      "concepto": "Reserva Operativa",
+      "valor": "10% de la cuota mensual, objetivo de 3 meses de costos operativos",
+      "tipo": "parametro",
+      "linea": 700,
+      "cita": "10% de la cuota mensual de cada Bastarda"
+    },
+    {
+      "concepto": "Extracción estimada en cinco sectores esenciales",
+      "valor": "USD 10.600-21.950M por año",
+      "tipo": "diagnostico",
+      "linea": 109,
+      "cita": "USD 10.600-21.950M/año"
+    },
+    {
+      "concepto": "Meta de usuarios, Bastarda piloto de tranche-1",
+      "valor": "10.000 usuarios en 2026-2027",
+      "tipo": "meta",
+      "linea": 790,
+      "cita": "Tranche-1 inicial (2026-2027): Auto Simple** | 10.000"
+    },
+    {
+      "concepto": "Ciudadanos en la Red a 2040",
+      "valor": "500.000+ ciudadanos",
+      "tipo": "meta",
+      "linea": 1611,
+      "cita": "500.000+ ciudadanos** en la Red Bastarda"
+    },
+    {
+      "concepto": "Ahorro devuelto a ciudadanos a 2040",
+      "valor": "USD 90-180M por año",
+      "tipo": "meta",
+      "linea": 807,
+      "cita": "**USD 90-180M/año**"
+    },
+    {
+      "concepto": "Retorno social declarado",
+      "valor": "ROI social 6:1 a 20:1",
+      "tipo": "meta",
+      "linea": 814,
+      "cita": "ROI social 6:1 a 20:1"
+    },
+    {
+      "concepto": "Mayorías del directorio de la ANEB",
+      "valor": "7 de 11 ordinario; 9 de 11 para Protocolo o reglamento del Fondo",
+      "tipo": "parametro",
+      "linea": 513,
+      "cita": "mayoría calificada (7 de 11) para asuntos ordinarios y 9 de 11"
+    },
+    {
+      "concepto": "Firmas para una Bastarda Provincial",
+      "valor": "10.000 firmas provinciales, 5.000 bajo 500.000 habitantes, 2.500 bajo 200.000",
+      "tipo": "parametro",
+      "linea": 1553,
+      "cita": "petición ciudadana con 10.000 firmas provinciales"
+    }
+  ],
+
+  "acoples": [
+    {
+      "con": "PLANREP",
+      "que": "Los trabajadores se compensan con el Índice de Contribución, la Regla de Tres Rechazos viene de allí, y el Dividendo Nacional de Productividad cubre el piso que las Bastardas no subsidian.",
+      "linea": 711,
+      "cita": "se compensan mediante el modelo de PLANREP"
+    },
+    {
+      "con": "PLANMON",
+      "que": "Flujo de dinero: la Contribución de Soberanía se transfiere mensualmente por smart contract al Fondo Soberano Nacional; la Bastarda Financiera es nodo ancla del Pulso.",
+      "linea": 566,
+      "cita": "Recibe el 1-2% de ingresos brutos de cada Bastarda activa con destino al Fondo Soberano Nacional"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Autoridad legal: backstop de tres niveles. Las disputas entre usuarios y entre Bastardas escalan a JUS-1 y JUS-2.",
+      "linea": 422,
+      "cita": "escalamiento a PLANJUS JUS-1"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Infraestructura: la IDS provee el sustrato on-chain y los servicios federados que el Protocolo Bastardo requiere.",
+      "linea": 1289,
+      "cita": "IDS provee el substrato on-chain y los servicios federados que el Protocolo Bastardo necesita"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Las 24 ciudades nuevas nacen con todos los servicios urbanos al costo y sirven de laboratorio federal de las Bastardas.",
+      "linea": 1284,
+      "cita": "Ciudades nacen Bastarda-nativas: todos los servicios al costo"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Personas: la ANCE designa un representante en el directorio de la ANEB; la Bastarda Educativa extiende la formación a lo largo de la vida.",
+      "linea": 504,
+      "cita": "Representante ANCE (PLANEDU)"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "El Protocolo Bastardo implementa el fideicomiso perpetuo de la Bastarda Inmobiliaria, con propiedad perpetua del ocupante y no especulable.",
+      "linea": 1300,
+      "cita": "Protocolo Bastardo implementa el fideicomiso perpetuo de la Bastarda Inmobiliaria"
+    },
+    {
+      "con": "PLANTALLER",
+      "que": "La Red Bastarda distribuye al costo la producción de la Red Taller: insumos a las Bastardas y excedentes al mercado popular.",
+      "linea": 1302,
+      "cita": "Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "Las Bastardas Logística Federal y Fluvial y la BAMD operan canales al costo y redistribuyen el Canon de Automatización Logística.",
+      "linea": 1303,
+      "cita": "Bastarda Logística Federal, Bastarda Fluvial y BAMD son las formas bastardas"
+    },
+    {
+      "con": "PLANGEO",
+      "que": "El Protocolo Bastardo open-source es la pieza central del estándar internacional de empresas al costo que PLANGEO promociona.",
+      "linea": 1301,
+      "cita": "Protocolo Bastardo open-source es la pieza central del estándar internacional"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "La Bastarda Sanitaria complementa al sistema público de salud sin reemplazarlo.",
+      "linea": 933,
+      "cita": "La Bastarda Sanitaria NO reemplaza al sistema público de salud"
+    },
+    {
+      "con": "PLANISV",
+      "que": "La Bastarda Alimentaria distribuye productos de agricultura regenerativa con denominación de origen verificada.",
+      "linea": 945,
+      "cita": "Productos de agricultura regenerativa con denominación de origen verificada"
+    }
+  ],
+
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "La Sección 5 describe una ANEB autárquica con presupuesto constitucional protegido; el encabezado de tranche-1 la reduce a una celda de ejecución en MinProducción, y la Sección 12 difiere la conversión.",
+      "linea": 16,
+      "cita": "ANEB → execution cell en MinProducción, no agencia autónoma con presupuesto protegido"
+    },
+    {
+      "con": "interno",
+      "que": "La tesis estima la capitalización de la primera Bastarda en USD 8-15M y la tabla de inversión en USD 8-17M. Tampoco coinciden 0.1% del PBI para la ANEB y el presupuesto canónico de 0.1B por año.",
+      "linea": 86,
+      "cita": "es de USD 8-15M en capitalización ciudadana"
+    },
+    {
+      "con": "interno",
+      "que": "La tesis declara un ROI social de 3:1 a 10:1 en cinco años; la Sección 7.3 declara 6:1 a 20:1. Además, el ahorro de 2040 figura como USD 90-180M y como USD 200M+, y los usuarios como 300.000+ y 500.000+.",
+      "linea": 814,
+      "cita": "ROI social 6:1 a 20:1"
+    },
+    {
+      "con": "interno",
+      "que": "El cierre dice que PLANEB es el octavo mandato y que se integra con otros quince, mientras el encabezado fija 27 PLANes temáticos más PLANRUTA.",
+      "linea": 1834,
+      "cita": "PLANEB es el octavo mandato del proyecto ¡BASTA!"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "El texto remite a un código que no está en el registro de PLANes (PLANED) cuando atribuye la falla estatal en educación.",
+      "linea": 618,
+      "cita": "Si falla en educación, la respuesta es PLANED."
+    },
+    {
+      "con": "interno",
+      "que": "El parche declara que PLANEB provee a PLANCUL, PLANCUIDADO y PLANTALLER, mientras la sección de integración lista como destinatarios a PLANMON, PLAN24CN, PLANVIV, PLANGEO, PLANTALLER, PLANMOV, PLANDIG y PLANJUS.",
+      "linea": 1866,
+      "cita": "Provee a: PLANCUL, PLANCUIDADO, PLANTALLER."
+    }
+  ],
+
+  "sin_resolver": [
+    {
+      "que": "El documento admite que las proyecciones son estimaciones, que los tiempos son optimistas y que costos, reguladores y adopción pueden ser peores.",
+      "linea": 1520,
+      "cita": "Las proyecciones son estimaciones. Los tiempos son optimistas."
+    },
+    {
+      "que": "El desglose del peso de prima del mercado asegurador queda sujeto a verificación contra los balances de la SSN antes de publicarse.",
+      "linea": 755,
+      "cita": "sujetos a verificación antes de publicación"
+    },
+    {
+      "que": "El tratamiento del impuesto a las Ganancias de las Bastardas queda sujeto a consulta vinculante con la AFIP.",
+      "linea": 1673,
+      "cita": "sujeto a consulta vinculante con AFIP"
+    },
+    {
+      "que": "El articulado de la ley debe resolver cómo se verifica la identidad de un voto on-chain, cómo se impugna una decisión por smart contract y cómo se integra con el sistema judicial.",
+      "linea": 1180,
+      "cita": "El articulado deberá resolver cuestiones de identidad"
+    },
+    {
+      "que": "La liquidación en otras monedas para una expansión al MERCOSUR se difiere hasta que exista masa crítica.",
+      "linea": 1694,
+      "cita": "Esto se abordará cuando exista masa crítica."
+    }
+  ]
+}

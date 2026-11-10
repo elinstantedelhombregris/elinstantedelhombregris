@@ -1,0 +1,10 @@
+{"code":"PLANSEG","leido":"todo","hallazgos":[
+{"lineas":[120,1194,1052,1200],"que":"La tesis fija la inversión en USD 3.000–6.000M a 15 años, pero el marco presupuestario la totaliza en USD 21.100-35.750M, y el piso de 1,5% del PBI para ANSEG se financia con solo USD 15.000-25.000M en 15 años."},
+{"lineas":[120,1479,1482,1498],"que":"Cuenta de mandatos obsoleta: se llama decimocuarto mandato dentro de un ecosistema de dieciséis (o catorce en el índice), cuando el canon es de 27 PLANes más PLANRUTA."},
+{"lineas":[1156,1108,791,772],"que":"Se exige tener 250+ EB operativas 12 meses antes de la legalización, pero la pre-fase solo prevé 50 EB piloto y las 250 se alcanzan en el primer trimestre del Año 1."},
+{"lineas":[791,808,1119,1120],"que":"Las EB acumuladas no coinciden: las tablas trimestrales dan 250 en el Año 1 y 750 en el Año 2, mientras la hoja de ruta 9.3 da 500 y 1.000."},
+{"lineas":[1036,1052,1372,16],"que":"ANSEG se describe como ente autárquico con presupuesto constitucional protegido, pero la revisión posterior y el encabezado dicen que en tranche-2 es una execution cell sin autonomía constitucional ni nuevas agencias autónomas."},
+{"lineas":[1186,1405,497,506],"que":"Se proyectan 50.000 oficiales comunitarios, pero 5.000 EB con 4-6 oficiales cada una suman 20.000-30.000."},
+{"lineas":[1007,905,911],"que":"La referencia a la Sección 6.2 para los 5.000-10.000 efectivos de ciberseguridad apunta a un apartado equivocado; esa cifra está en 6.3."},
+{"lineas":[1173,1271,1310,1392],"que":"Numeración de secciones rota: falta la Sección 10, y los subapartados de las Secciones 13, 14 y 16 se numeran 12.x, 13.1 y 15.x."}
+]}

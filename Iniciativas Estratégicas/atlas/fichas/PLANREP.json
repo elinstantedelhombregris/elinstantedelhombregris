@@ -1,0 +1,596 @@
+{
+  "code": "PLANREP",
+  "nombre": "Plan Nacional de Reconversión del Empleo Público hacia la Economía Privada Productiva",
+  "version": "4.0 — Marzo 2026",
+  "tesis": "Entre 1,2 y 1,8 millones de empleados públicos en puestos sin valor verificable no se despiden: se reconvierten, de forma voluntaria y con ingreso garantizado por 36 meses, hacia una Economía de la Vida y una Economía de la Inteligencia.",
+  "problema": "Según el documento, el Estado emplea unos 3,5 millones de personas y entre 1,2 y 1,8 millones ocupan puestos sin resultado medible. Ese sobreempleo cuesta USD 15.000–25.000M anuales, sostiene una presión fiscal de 29–32% del PBI y desalienta el emprendimiento. Los intentos previos fallaron por dar salida sin destino.",
+  "resumen": "Un Ente Autónomo creado por ley ofrece a empleados públicos en puestos prescindibles un ciclo de inmersión, formación y lanzamiento en 120 Centros de la Vida y 50 Centros de Inteligencia, más 50 unidades móviles. Mantiene salario decreciente durante 36 meses, seis redes de contención y un protocolo de fracaso. Crea el destino con compra pública del 5%, marketplace, cooperativas y bonos de impacto social. La sección 15 agrega fideicomisos, licencia de automatización y un dividendo nacional para horizontes posteriores.",
+  "horizonte": "Cinco fases: diagnóstico (meses 0–12), piloto (12–24), escala (24–60), transformación (años 5–10) y consolidación (años 10–20). Tres horizontes: el 1 es 2026–2035; fideicomisos y dividendo se activan en 2033–2043+. Cada participante recorre un calendario de 36 meses.",
+  "financiamiento": "Costo máximo de unos USD 3.500M por año, con déficit neto de USD 2.750M en el año 1. Lo cubren presupuesto, Bonos de Impacto Social, apadrinamiento corporativo, Alumni Funds y comisión del Marketplace. Desde el año 4 el balance es positivo.",
+  "temas": [
+    "trabajo-produccion",
+    "estado-instituciones",
+    "fiscal-presupuesto",
+    "educacion-conocimiento",
+    "transicion-implementacion"
+  ],
+  "conceptos": [
+    {
+      "nombre": "Ente Autónomo PLANREP",
+      "alias": [
+        "Ente Autónomo PLANREP"
+      ],
+      "tipo": "institucion",
+      "que_es": "Ente autárquico creado por ley del Congreso que ejecuta el programa. Tiene un Directorio de 15 miembros, un Director Ejecutivo con mandato de 5 años y cuatro direcciones operativas: Vida, Inteligencia, Transición y Evaluación.",
+      "seccion": "10.1",
+      "linea": 1911,
+      "cita": "PLANREP se ejecuta a través de un **Ente Autónomo**"
+    },
+    {
+      "nombre": "Centros de la Vida",
+      "alias": [
+        "Centros de la Vida",
+        "Centro de la Vida"
+      ],
+      "tipo": "institucion",
+      "que_es": "120 espacios físicos de formación práctica en las ocho ramas, al menos cinco por provincia, instalados preferentemente en edificios públicos reconvertidos.",
+      "seccion": "3.2",
+      "linea": 567,
+      "cita": "PLANREP requiere la creación de **120 Centros de la Vida**"
+    },
+    {
+      "nombre": "Centros de Inteligencia",
+      "alias": [
+        "Centros de Inteligencia",
+        "Centro de Inteligencia"
+      ],
+      "tipo": "institucion",
+      "que_es": "50 centros de inmersión intensiva de 3 a 12 meses donde se forman operadores, especialistas, arquitectos y creadores de IA para exportar servicios.",
+      "seccion": "7.6",
+      "linea": 1424,
+      "cita": "se forma en **50 Centros de Inteligencia** distribuidos"
+    },
+    {
+      "nombre": "PLANREP-Móvil",
+      "alias": [
+        "PLANREP-Móvil"
+      ],
+      "tipo": "programa",
+      "que_es": "50 unidades itinerantes (bus o tráiler taller con Starlink y energía solar) que llevan el Nivel 1 y parte del Nivel 2 a localidades sin Centro fijo.",
+      "seccion": "3.2",
+      "linea": 595,
+      "cita": "PLANREP despliega **50 unidades PLANREP-Móvil**"
+    },
+    {
+      "nombre": "Economía de la Vida",
+      "alias": [
+        "Economía de la Vida"
+      ],
+      "tipo": "termino",
+      "que_es": "Primer destino estratégico: ocho ramas de trabajo que requieren presencia humana (La Belleza, El Amparo, La Reparación, El Refugio, La Mesa, El Encuentro, La Imaginación, La Precisión). Es el escudo frente a la automatización.",
+      "seccion": "2.4",
+      "linea": 316,
+      "cita": "PLANREP propone algo más audaz y más duradero: la **Economía de la Vida**"
+    },
+    {
+      "nombre": "Economía de la Inteligencia",
+      "alias": [
+        "Economía de la Inteligencia"
+      ],
+      "tipo": "termino",
+      "que_es": "Segundo destino estratégico: actividades donde personas entrenadas usan IA como multiplicador para vender servicios en mercados internacionales. Es la espada, con cuatro niveles de habilidad.",
+      "seccion": "7.2",
+      "linea": 1234,
+      "cita": "Definimos la **Economía de la Inteligencia** como el conjunto de actividades económicas"
+    },
+    {
+      "nombre": "Artesano Aumentado",
+      "alias": [
+        "Artesano Aumentado"
+      ],
+      "tipo": "programa",
+      "que_es": "Módulo obligatorio de 40 horas, actualizado cada 3 años, que enseña a cada egresado de la Economía de la Vida a usar herramientas de IA aplicadas a su oficio.",
+      "seccion": "2.4",
+      "linea": 396,
+      "cita": "El Artesano Aumentado es la síntesis del plan en su Horizonte 1"
+    },
+    {
+      "nombre": "Gemelo Digital",
+      "alias": [
+        "Gemelo Digital"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Perfil profesional vivo de cada participante, con portfolio, certificaciones, reputación y conexiones. Es gratuito de por vida y abre el acceso al Marketplace y a las cooperativas.",
+      "seccion": "3.1",
+      "linea": 555,
+      "cita": "su **Gemelo Digital** — un perfil profesional vivo en la plataforma PLANREP"
+    },
+    {
+      "nombre": "Marketplace PLANREP",
+      "alias": [
+        "Marketplace PLANREP"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Plataforma única para egresados de ambas economías: catálogo, reservas, badges de calidad, comisión del 5%, factura internacional automática e integración con Mercado Libre y Upwork.",
+      "seccion": "4.4",
+      "linea": 907,
+      "cita": "Marketplace PLANREP es las tres cosas juntas"
+    },
+    {
+      "nombre": "Compra Pública de Vida",
+      "alias": [
+        "Compra Pública de Vida"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Obligación de destinar el 5% del presupuesto de obra pública, equipamiento y servicios de Nación, provincias y municipios a bienes y servicios de egresados de la Economía de la Vida.",
+      "seccion": "4.1",
+      "linea": 790,
+      "cita": "Programa de Compra Pública de Vida (5% del presupuesto de obra pública y servicios)"
+    },
+    {
+      "nombre": "Bonos de Impacto Social",
+      "alias": [
+        "Bonos de Impacto Social",
+        "PLANREP-BIS"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Instrumento de financiamiento por resultados: inversores privados aportan el capital inicial y el Estado paga solo si se cumplen KPIs verificados por un auditor independiente.",
+      "seccion": "5.3",
+      "linea": 1028,
+      "cita": "Los BIS son un instrumento de financiamiento donde"
+    },
+    {
+      "nombre": "Fondo PLANREP",
+      "alias": [
+        "Fondo PLANREP"
+      ],
+      "tipo": "fondo",
+      "que_es": "Fideicomiso público con aportes de Nación y provincias que financia infraestructura, docentes, microcréditos e ingreso de transición. Otorga créditos de USD 2.000–15.000 a tasa cero.",
+      "seccion": "4.1",
+      "linea": 791,
+      "cita": "Fondo PLANREP: créditos blandos de USD 2.000–15.000 a tasa cero"
+    },
+    {
+      "nombre": "Triple Sello",
+      "alias": [
+        "Triple Sello",
+        "Triple Certificación"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Sistema de acreditación con tres validaciones independientes: certificación INTI de competencia técnica, de empleadores (mínimo tres attestations) y de pares.",
+      "seccion": "10.5",
+      "linea": 2030,
+      "cita": "**El Sistema de Triple Certificación:**"
+    },
+    {
+      "nombre": "PLANREP Raíces",
+      "alias": [
+        "PLANREP Raíces",
+        "Embajador Digital"
+      ],
+      "tipo": "programa",
+      "que_es": "Paquete de cuatro medidas contra la fuga de talento: incentivos fiscales, acceso a inversión en startups vía FGS-ANSES, contratos remote-from-Argentina y estatus de Embajador Digital.",
+      "seccion": null,
+      "linea": 1815,
+      "cita": "**PLANREP Raíces** es un paquete de cuatro medidas"
+    },
+    {
+      "nombre": "Zonas de Desarrollo de Inteligencia",
+      "alias": [
+        "Zonas de Desarrollo de Inteligencia",
+        "ZDI"
+      ],
+      "tipo": "norma",
+      "que_es": "Zonas con exenciones fiscales, conectividad garantizada y régimen especial para la exportación de servicios digitales, creadas por una ley específica. Sirven de ancla territorial contra la emigración.",
+      "seccion": "11.2",
+      "linea": 2102,
+      "cita": "Ley de Zonas de Desarrollo de Inteligencia (ZDI):"
+    },
+    {
+      "nombre": "Tablero Nacional de Reconversión",
+      "alias": [
+        "Tablero Nacional de Reconversión"
+      ],
+      "tipo": "metrica",
+      "que_es": "Tablero público en tiempo real con los KPIs del programa por rama, provincia y cohorte, alimentado por la cadena de bloques de transparencia y auditado por una entidad independiente.",
+      "seccion": "2.3",
+      "linea": 307,
+      "cita": "El Tablero Nacional de Reconversión muestra la ola en tiempo real"
+    },
+    {
+      "nombre": "Fideicomisos de Propósito Perpetuo",
+      "alias": [
+        "Fideicomisos de Propósito Perpetuo",
+        "Fideicomiso de Propósito Perpetuo"
+      ],
+      "tipo": "institucion",
+      "que_es": "Cinco entidades autónomas (energía renovable, suelo vivo, infraestructura digital, vial provincial, vivienda social) que poseen activos productivos permanentes y co-invierten en automatizarlos.",
+      "seccion": "15.1",
+      "linea": 2198,
+      "cita": "Un Fideicomiso de Propósito Perpetuo es una entidad jurídica autónoma"
+    },
+    {
+      "nombre": "Licencia Social de Automatización",
+      "alias": [
+        "Licencia Social de Automatización"
+      ],
+      "tipo": "norma",
+      "que_es": "Régimen por el cual la empresa que supera 30% de automatización destina entre 3% y 7% del valor generado por esos sistemas a los fideicomisos. Se calcula sobre valor generado.",
+      "seccion": "15.2",
+      "linea": 2228,
+      "cita": "Toda empresa que supere un umbral del 30% de automatización en su cadena de valor adquiere una Licencia Social de Automatización"
+    },
+    {
+      "nombre": "Dividendo Nacional de Productividad",
+      "alias": [
+        "Dividendo Nacional de Productividad",
+        "DNP"
+      ],
+      "tipo": "fondo",
+      "que_es": "Ingreso periódico universal para cada ciudadano, financiado por retornos de los fideicomisos y de la Licencia Social. Se presenta como copropiedad y no como renta financiada con impuestos.",
+      "seccion": "15.3",
+      "linea": 2238,
+      "cita": "El Dividendo Nacional de Productividad es un ingreso periódico que recibe cada ciudadano argentino"
+    },
+    {
+      "nombre": "Economía de la Contribución",
+      "alias": [
+        "Economía de la Contribución",
+        "Índice de Contribución",
+        "Portfolio Ciudadano Único"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Sistema paralelo al mercado que reconoce y remunera actividades sin precio (cuidado, cultura, regeneración, mentoría). Usa validadores comunitarios y un Índice de Contribución que amplifica el DNP.",
+      "seccion": "15.4",
+      "linea": 2269,
+      "cita": "Un sistema paralelo al mercado donde la sociedad reconoce, mide y remunera actividades"
+    },
+    {
+      "nombre": "Paneles Ciudadanos de Futuro Económico",
+      "alias": [
+        "Paneles Ciudadanos de Futuro Económico",
+        "Paneles Ciudadanos de Contribución"
+      ],
+      "tipo": "institucion",
+      "que_es": "Paneles de 100–500 ciudadanos por sorteo cívico que emiten recomendaciones vinculantes sobre fideicomisos, DNP y Licencia Social. Rige la regla de tres rechazos.",
+      "seccion": "15.5",
+      "linea": 2295,
+      "cita": "Mecanismo de deliberación colectiva, inspirado directamente en los Paneles Ciudadanos de PLANJUS"
+    },
+    {
+      "nombre": "Panel de Adversarios",
+      "alias": [
+        "Panel de Adversarios"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Panel trienal de 15–25 opositores al modelo que publica un informe de ataque. Toda crítica sin respuesta convincente obliga a revisar el diseño.",
+      "seccion": "15.5",
+      "linea": 2324,
+      "cita": "se convoca a un Panel de Adversarios: 15-25 personas que se OPONEN al modelo"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Autoridad Nacional de Cuentas y Evaluación (ANCE)",
+      "alias": [
+        "ANCE"
+      ],
+      "origen": "PLANEDU",
+      "para_que": "Modelo de blindaje institucional de los fideicomisos, representantes en sus directorios, evaluación de legitimidad y formación de panelistas.",
+      "linea": 2198,
+      "cita": "con el mismo diseño institucional de la ANCE en PLANEDU"
+    },
+    {
+      "nombre": "Programa Acelerado de Aprendizaje",
+      "alias": [
+        "PAA",
+        "Programa Acelerado de Aprendizaje"
+      ],
+      "origen": "PLANEDU",
+      "para_que": "Referencia de exportación: el marco institucional de transición post-laboral se propone exportar como ya se exporta el PAA.",
+      "linea": 2336,
+      "cita": "PLANEDU ya exporta el PAA (Programa Acelerado de Aprendizaje) a 12 países"
+    },
+    {
+      "nombre": "Escuela del Futuro",
+      "alias": [
+        "Escuela del Futuro"
+      ],
+      "origen": "PLANEDU",
+      "para_que": "Punto de origen del Portfolio Ciudadano Único, que nace a los 6 años y acompaña al ciudadano toda la vida.",
+      "linea": 2273,
+      "cita": "Nace a los 6 años en la Escuela del Futuro de PLANEDU"
+    },
+    {
+      "nombre": "Fondo de Convergencia Educativa",
+      "alias": [
+        "Fondo de Convergencia Educativa"
+      ],
+      "origen": "PLANEDU",
+      "para_que": "Destino de parte del ahorro fiscal neto de PLANREP, incluido en la asignación consolidada a PLANEDU.",
+      "linea": 1004,
+      "cita": "10% asignado al ecosistema ¡BASTA! (PLANEDU, Fondo de Convergencia Educativa)"
+    },
+    {
+      "nombre": "Paneles Ciudadanos de PLANJUS",
+      "alias": [
+        "Paneles Ciudadanos de PLANJUS"
+      ],
+      "origen": "PLANJUS",
+      "para_que": "Precedente directo del diseño de los Paneles Ciudadanos de Futuro Económico, tomados como prueba de que ciudadanos sorteados deliberan con legitimidad.",
+      "linea": 2295,
+      "cita": "inspirado directamente en los Paneles Ciudadanos de PLANJUS"
+    },
+    {
+      "nombre": "Referentes Territoriales",
+      "alias": [
+        "Referentes Territoriales"
+      ],
+      "origen": "PLANCUIDADO",
+      "para_que": "Figura formal a la que se reconvierten las cuidadoras domiciliarias informales, con salario, formación y protección.",
+      "linea": 2424,
+      "cita": "Reconversión de cuidadoras domiciliarias a Referentes Territoriales formales"
+    },
+    {
+      "nombre": "Tallers",
+      "alias": [
+        "Tallers"
+      ],
+      "origen": "PLANTALLER",
+      "para_que": "Destino del empleo público reconvertido en coordinación, mentoría técnica y gestión operativa de los Tallers federales.",
+      "linea": 2423,
+      "cita": "Reconversión del empleo público hacia coordinación y mentoría de Tallers"
+    },
+    {
+      "nombre": "Reconversión Móvil",
+      "alias": [
+        "Reconversión Móvil"
+      ],
+      "origen": "PLANMOV",
+      "para_que": "Ruta que absorbe 500.000 transportistas desplazados por automatización, financiada por el fondo de PLANMOV.",
+      "linea": 2425,
+      "cita": "Ruta \"Reconversión Móvil\" que absorbe 500.000 transportistas desplazados por automatización"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Costo directo anual del sobreempleo público",
+      "valor": "USD 15.000–25.000M/año (3–5% del PBI)",
+      "tipo": "diagnostico",
+      "linea": 131,
+      "cita": "**COSTO TOTAL DIRECTO** | **USD 15.000–25.000M/año** | **3–5% del PBI**"
+    },
+    {
+      "concepto": "Puestos públicos sin valor verificable",
+      "valor": "1,2 a 1,8 millones",
+      "tipo": "diagnostico",
+      "linea": 109,
+      "cita": "**1.2 y 1.8 millones de puestos públicos** no generan valor verificable"
+    },
+    {
+      "concepto": "Costo total del programa por período",
+      "valor": "~USD 3.500M/año; ~USD 4.950M/año; ~USD 3.500M/año; ~USD 1.450M/año",
+      "tipo": "presupuesto",
+      "linea": 981,
+      "cita": "**Costo total** | **~USD 3.500M/año** | **~USD 4.950M/año**"
+    },
+    {
+      "concepto": "Balance neto del programa por período",
+      "valor": "-USD 2.750M; -USD 150M; +USD 12.200M/año; +USD 26.150M/año",
+      "tipo": "presupuesto",
+      "linea": 989,
+      "cita": "**BALANCE NETO** | **-USD 2.750M** | **-USD 150M** | **+USD 12.200M/año**"
+    },
+    {
+      "concepto": "Inversión total en 120 Centros de la Vida",
+      "valor": "USD 600–1.100M",
+      "tipo": "presupuesto",
+      "linea": 587,
+      "cita": "**Inversión total (120 Centros)** | **USD 600–1.100M**"
+    },
+    {
+      "concepto": "Inversión total en 50 unidades PLANREP-Móvil",
+      "valor": "USD 100–150M",
+      "tipo": "presupuesto",
+      "linea": 610,
+      "cita": "**Inversión total (50 unidades)** | **USD 100–150M**"
+    },
+    {
+      "concepto": "Demanda garantizada por Compra Pública de Vida",
+      "valor": "5% del presupuesto = USD 1.000–1.250M/año",
+      "tipo": "parametro",
+      "linea": 804,
+      "cita": "5% = USD 1.000–1.250M/año en demanda garantizada para egresados de la Economía de la Vida"
+    },
+    {
+      "concepto": "Asignación del ahorro neto de PLANREP a PLANEDU",
+      "valor": "10-15% del ahorro neto; USD 1.500-3.500M/año a régimen; desde el Año 4",
+      "tipo": "fuente",
+      "linea": 1008,
+      "cita": "La asignación consolidada es del 10-15% del ahorro neto de PLANREP"
+    },
+    {
+      "concepto": "Comisión del Marketplace PLANREP",
+      "valor": "5% por transacción; baja a 3% si es autosustentable",
+      "tipo": "parametro",
+      "linea": 930,
+      "cita": "**Comisión del 5%** sobre cada transacción"
+    },
+    {
+      "concepto": "Emisión de Bonos de Impacto Social",
+      "valor": "USD 200-500M por emisión, 3-5 tranches en los primeros 4 años",
+      "tipo": "fuente",
+      "linea": 1034,
+      "cita": "USD 200-500M por emisión, 3-5 tranches en los primeros 4 años"
+    },
+    {
+      "concepto": "Aporte de Alumni Funds",
+      "valor": "2% de los ingresos durante 5 años; USD 100-300M/año desde el año 5",
+      "tipo": "fuente",
+      "linea": 1051,
+      "cita": "Egresados exitosos contribuyen con el **2% de sus ingresos durante 5 años**"
+    },
+    {
+      "concepto": "Duración de la transición con ingreso garantizado",
+      "valor": "36 meses",
+      "tipo": "plazo",
+      "linea": 1613,
+      "cita": "La transición dura 36 meses. Tres años."
+    },
+    {
+      "concepto": "Salario público durante la formación",
+      "valor": "100% durante los primeros 18 meses",
+      "tipo": "parametro",
+      "linea": 1633,
+      "cita": "el salario público se mantiene al 100% durante los primeros 18 meses"
+    },
+    {
+      "concepto": "Alícuota del Monotributo Digital",
+      "valor": "10% fijo sobre facturación en USD; tope USD 100.000/año",
+      "tipo": "parametro",
+      "linea": 1383,
+      "cita": "Alícuota fija del 10% sobre facturación en USD (incluye jubilación y obra social)"
+    },
+    {
+      "concepto": "Exportación de servicios AI-aumentados (meta)",
+      "valor": "USD 2.000M (2032); USD 14.000M (2036); USD 25.000M (2040+)",
+      "tipo": "meta",
+      "linea": 2149,
+      "cita": "Exportación de servicios AI-aumentados (total) | Anual | USD 2.000M | USD 14.000M | USD 25.000M"
+    },
+    {
+      "concepto": "Dotación del Estado tras el programa",
+      "valor": "de ~3.500.000 a ~1.960.000 (-44%)",
+      "tipo": "meta",
+      "linea": 2020,
+      "cita": "**TOTAL** | **~3.500.000** | **~1.960.000** | **-44%**"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLANEDU",
+      "que": "Recibe parte del ahorro fiscal neto de PLANREP a partir del año 4; sus graduados se vuelven Maestros de Oficio. PLANREP toma de PLANEDU la ANCE y la Escuela del Futuro.",
+      "linea": 2418,
+      "cita": "15% del ahorro neto de PLANREP financia educación"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Los egresados de El Refugio son mano de obra para las 24 ciudades nuevas; el Fideicomiso de Vivienda Social opera en ellas.",
+      "linea": 337,
+      "cita": "Pipeline laboral directo para PLAN24CN"
+    },
+    {
+      "con": "PLANISV",
+      "que": "Los egresados de La Reparación remedian suelos que PLANISV define; las tierras remediadas integran el Fideicomiso Suelo Vivo.",
+      "linea": 336,
+      "cita": "Pipeline laboral directo para PLANISV"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "Mano de obra: artesanos del Refugio construyen y retrofitean viviendas.",
+      "linea": 2419,
+      "cita": "Artesanos del Refugio construyen y retrofitean viviendas"
+    },
+    {
+      "con": "PLANSEG",
+      "que": "Personal: oficiales reconvertidos de fuerzas desmanteladas pasan a seguridad comunitaria.",
+      "linea": 2420,
+      "cita": "Oficiales de enforcement reconvertidos a seguridad comunitaria"
+    },
+    {
+      "con": "PLANCUL",
+      "que": "Infraestructura: los Centros de la Vida, ex oficinas públicas, funcionan como puntos de reunión de la comunidad cultural.",
+      "linea": 2422,
+      "cita": "Centros de la Vida son puntos de reunión donde la comunidad se forma"
+    },
+    {
+      "con": "PLANTALLER",
+      "que": "Personal: empleo público reconvertido se redirige a coordinar y mentorear los Tallers federales.",
+      "linea": 2423,
+      "cita": "Reconversión del empleo público hacia coordinación y mentoría de Tallers"
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Personal y estatus legal: cuidadoras domiciliarias informales pasan a Referentes Territoriales con salario y formación.",
+      "linea": 2424,
+      "cita": "Reconversión de cuidadoras domiciliarias a Referentes Territoriales formales"
+    },
+    {
+      "con": "PLANMOV",
+      "que": "Personal: cuadros técnicos ferroviarios y portuarios, y 500.000 transportistas desplazados, se absorben en una ruta de reconversión financiada por PLANMOV.",
+      "linea": 2425,
+      "cita": "Reconversión de cuadros técnicos ferroviarios y portuarios"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Diseño institucional: los Paneles Ciudadanos de Futuro Económico replican el modelo deliberativo de los paneles de PLANJUS.",
+      "linea": 2295,
+      "cita": "inspirado directamente en los Paneles Ciudadanos de PLANJUS"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Ahorro fiscal: el que PLANDIG genera por automatización digital es separado y no se financia con fondos de PLANREP.",
+      "linea": 1009,
+      "cita": "genera su propio ahorro fiscal por automatización digital"
+    },
+    {
+      "con": "PLANRUTA",
+      "que": "Dependencia declarada: el parche de auditoría lista a PLANRUTA y PLANEDU como planes de los que depende PLANREP.",
+      "linea": 2466,
+      "cita": "Depende de: PLANRUTA, PLANEDU."
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "interno",
+      "que": "El ingreso de transición difiere: el calendario paga 100% durante 18 meses y luego baja a 80%, 50% y 0%; la ley propuesta paga 100% en formación, 80% por 12 meses y 50% por 12 meses más.",
+      "linea": 2084,
+      "cita": "El participante cobra el 100% de su salario público durante la formación y el 80% durante los primeros 12 meses de actividad independiente"
+    },
+    {
+      "con": "interno",
+      "que": "El título de la sección dice cinco redes de contención, pero el texto enumera seis (la Red Comunitaria es la sexta) y otras secciones hablan de seis.",
+      "linea": 1639,
+      "cita": "### 8.2 Las Cinco Redes de Contención"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "La sección de integración fija 15% del ahorro neto y financia el lanzamiento de PLANEDU; la sección fiscal fija 10-15% y dice que PLANEDU no cuenta con fondos de PLANREP antes del año 4.",
+      "linea": 2431,
+      "cita": "15% del ahorro neto fiscal de la reconversión financia el lanzamiento de PLANEDU"
+    },
+    {
+      "con": "interno",
+      "que": "El título de la fase piloto anuncia 20.000 personas y el texto de la misma fase habla de 25.000.",
+      "linea": 1853,
+      "cita": "Las primeras 25.000 personas ingresan al programa en la segunda fase"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "La forma exacta de los horizontes 2 y 3 no la fija el documento: la define la sociedad por deliberación colectiva.",
+      "linea": 73,
+      "cita": "la forma exacta de esos horizontes será diseñada por la sociedad a través de la deliberación colectiva"
+    },
+    {
+      "que": "La tabla de vulnerabilidad de las ocho ramas es una hipótesis que se revisa cada tres años.",
+      "linea": 448,
+      "cita": "Esta tabla es una hipótesis informada, no una profecía."
+    },
+    {
+      "que": "Tasa, umbral y método de cálculo de la Licencia Social de Automatización quedan sujetos a revisión trienal por los Paneles Ciudadanos.",
+      "linea": 2228,
+      "cita": "La tasa específica, el umbral de activación, y el mecanismo de cálculo son primera mejor alternativa"
+    },
+    {
+      "que": "El monto exacto del Dividendo Nacional de Productividad se declara desconocido.",
+      "linea": 2250,
+      "cita": "no sabemos cuánto va a dar exactamente"
+    },
+    {
+      "que": "La proporción entre el piso universal del DNP y el amplificador por contribución la definen los Paneles Ciudadanos.",
+      "linea": 2277,
+      "cita": "La proporción entre piso y amplificador la definen los Paneles Ciudadanos."
+    }
+  ]
+}

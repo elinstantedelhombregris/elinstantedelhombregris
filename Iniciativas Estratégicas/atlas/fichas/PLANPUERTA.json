@@ -1,0 +1,568 @@
+{
+  "code": "PLANPUERTA",
+  "nombre": "Plan Nacional de Arraigo, Búsqueda de Talento y Poblamiento",
+  "version": "1.0 — Agosto 2026",
+  "tesis": "Un país se puebla por lo que ofrece adentro y no por lo que decide en la frontera: once dispositivos ordenados por el tiempo de quien llega, medidos por la permanencia a diez años, bajo un Marco que no crea poder de expulsión.",
+  "problema": "Argentina tiene mostrador migratorio y ninguna política de atracción. Los títulos extranjeros se revalidan por pasaporte de origen, nadie sigue a la cohorte que llega, la diáspora no tiene puerta de regreso y la proporción de nacidos afuera cayó del 29,9% en 1914 al 4,2% en 2022.",
+  "resumen": "Propone una Lista de Faltantes escrita por los demás PLANes, un Cuerpo de Scouts que busca contra ella, una Ventana de Pases con dos frenos, tres puertas de entrada, un Contrato de Puerta, un Paquete (tierra con obligación de uso, exención temporal, anticipación de silla), revalidación por desempeño supervisado, un Tablero de permanencia y ciudadanía por aporte verificado. Un Marco de dieciséis renglones se sanciona antes que cualquier incentivo. La Agencia Nacional de Arraigo opera cuatro poderes taxativos.",
+  "horizonte": "Fase 0 sin permiso (meses 0 a 12); Fase 1, Lista y Marco (años 1 a 2); Fase 2, Paquete (años 2 a 4); Fase 3, régimen (años 4 a 12); Fase 4, juicio (año 12 en adelante).",
+  "financiamiento": "USD 450-900M a quince años, clase S. La única partida operativa es ANAR y el Cuerpo de Scouts, USD 30-60M por año, supuesto del documento. La tierra sale de PLAN24CN; la exención es renuncia fiscal sin cifra.",
+  "temas": [
+    "poblacion-migracion",
+    "trabajo-produccion",
+    "justicia-seguridad",
+    "estado-instituciones",
+    "transicion-implementacion"
+  ],
+  "conceptos": [
+    {
+      "nombre": "La Lista de Faltantes",
+      "alias": [
+        "Lista de Faltantes"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Registro público de posiciones que el país necesita llenar, escrito por los otros PLANes con problema, lugar y presupuesto asignado; ANAR la administra sin poder agregarle un renglón.",
+      "seccion": "4",
+      "linea": 364,
+      "cita": "Un registro público de posiciones que el país necesita llenar"
+    },
+    {
+      "nombre": "La Regla de Subsidiariedad",
+      "alias": [
+        "Regla de Subsidiariedad"
+      ],
+      "tipo": "norma",
+      "que_es": "Veto de PLANREP y PLANEDU: no se ficha afuera lo que se puede formar adentro dentro de la ventana del proyecto; la certificación la audita un Caso de Mesa.",
+      "seccion": "4",
+      "linea": 380,
+      "cita": "**La Regla de Subsidiariedad.**"
+    },
+    {
+      "nombre": "El Cuerpo de Scouts",
+      "alias": [
+        "Cuerpo de Scouts"
+      ],
+      "tipo": "programa",
+      "que_es": "Red que sale a buscar candidatos contra la Lista, primero la diáspora y las Empresas Bastardas; no contrata ni negocia residencia y se evalúa por la permanencia a diez años.",
+      "seccion": "4",
+      "linea": 400,
+      "cita": "**el scout no contrata, no promete y no negocia residencia.**"
+    },
+    {
+      "nombre": "La Ventana de Pases",
+      "alias": [
+        "Ventana de Pases"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Calendario público del fichaje que cubre filas concretas de la Lista y puede no abrir: la cierran el Techo de Origen, el freno de infraestructura o un Tablero no publicado.",
+      "seccion": "4",
+      "linea": 412,
+      "cita": "**El fichaje tiene calendario.** Se abre en fechas publicadas"
+    },
+    {
+      "nombre": "El Techo de Origen",
+      "alias": [
+        "Techo de Origen"
+      ],
+      "tipo": "norma",
+      "que_es": "Prohíbe la búsqueda activa financiada con plata argentina donde la falta duele más que acá; limita dónde se busca, nunca quién entra, y se audita en el Tablero.",
+      "seccion": "4",
+      "linea": 416,
+      "cita": "**El Techo de Origen.** La SECCIÓN 2 ya lo desarrolló"
+    },
+    {
+      "nombre": "El freno de infraestructura",
+      "alias": [
+        "freno de infraestructura"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Fórmula publicada que fija el cupo de cada jurisdicción como el menor de tres márgenes: vivienda, agua y vacantes escolares, informados por otros PLANes.",
+      "seccion": "4",
+      "linea": 418,
+      "cita": "Se corta por fórmula publicada y nunca por discrecionalidad de un funcionario."
+    },
+    {
+      "nombre": "Las Tres Puertas",
+      "alias": [
+        "Tres Puertas",
+        "Puerta del Regreso",
+        "Puerta de Derecho"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Puerta de Derecho (MERCOSUR, intacta), de Invitación y del Regreso; no crean categoría migratoria nueva y desembocan en el mismo lugar.",
+      "seccion": "5",
+      "linea": 438,
+      "cita": "Un régimen de visas tiene categorías; este PLAN tiene tres puertas"
+    },
+    {
+      "nombre": "El Contrato de Puerta",
+      "alias": [
+        "Contrato de Puerta"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Documento bilateral: el país da el Paquete y la persona se compromete a tres actos del Marco; el incumplimiento revoca el Paquete y deja intacta la residencia.",
+      "seccion": "5",
+      "linea": 452,
+      "cita": "Es un documento bilateral y corto."
+    },
+    {
+      "nombre": "El Compadrazgo de Llegada",
+      "alias": [
+        "Compadrazgo de Llegada"
+      ],
+      "tipo": "programa",
+      "que_es": "Registro de un vínculo entre una familia o Círculo de Cuidado y alguien recién llegado a la cuadra; no condiciona la entrada ni da acceso al Paquete y corre sin Estado.",
+      "seccion": "5",
+      "linea": 100,
+      "cita": "el sexto de los once dispositivos de este PLAN"
+    },
+    {
+      "nombre": "El Paquete",
+      "alias": [
+        "El Paquete"
+      ],
+      "tipo": "programa",
+      "que_es": "Tres piezas con condición de conservación: tierra con obligación de uso, exención impositiva temporal y anticipación de la silla en la Mesa; se ata a la fila de la Lista, no al pasaporte.",
+      "seccion": "6",
+      "linea": 486,
+      "cita": "Tres piezas, cada una con su condición de conservación escrita al lado."
+    },
+    {
+      "nombre": "La Regla del Problema Pago",
+      "alias": [
+        "Regla del Problema Pago",
+        "Problema Pago"
+      ],
+      "tipo": "norma",
+      "que_es": "Ningún fichaje entra a una beca: entra a un problema con partida, dueño y plazo, declarado por el PLAN que lo paga y nunca por el empleador.",
+      "seccion": "6",
+      "linea": 508,
+      "cita": "Ningún fichaje entra a una beca. Entra a un problema que ya tiene partida, dueño y plazo."
+    },
+    {
+      "nombre": "La Revalidación por Desempeño",
+      "alias": [
+        "Revalidación por Desempeño"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Vía de matrícula por un período supervisado de hasta doce meses sobre un problema pago, con resultados medidos; agrega una vía y no cierra la reválida por examen.",
+      "seccion": "6",
+      "linea": 522,
+      "cita": "un período de desempeño supervisado por un par argentino"
+    },
+    {
+      "nombre": "El Tablero de Arraigo",
+      "alias": [
+        "Tablero de Arraigo"
+      ],
+      "tipo": "metrica",
+      "que_es": "Serie de permanencia por cohorte de entrada a 1, 3, 5 y 10 años, abierta por origen y jurisdicción, publicada aunque dé mal; de ella depende que la Ventana abra.",
+      "seccion": "7",
+      "linea": 548,
+      "cita": "Una serie por cohorte de entrada"
+    },
+    {
+      "nombre": "La Ciudadanía por Aporte Verificado",
+      "alias": [
+        "Ciudadanía por Aporte Verificado"
+      ],
+      "tipo": "mecanismo",
+      "que_es": "Vía en que el aporte cívico registrado prueba el arraigo que el papel no prueba; sustituye la prueba y no el plazo de dos años de la Ley 346.",
+      "seccion": "8",
+      "linea": 578,
+      "cita": "D10 es la vía por la que el aporte cívico verificado prueba el arraigo"
+    },
+    {
+      "nombre": "Agencia Nacional de Arraigo (ANAR)",
+      "alias": [
+        "Agencia Nacional de Arraigo"
+      ],
+      "tipo": "institucion",
+      "que_es": "Agencia con cuatro poderes taxativos: administrar la Lista, sostener el Cuerpo de Scouts, firmar y revocar Contratos de Puerta y publicar el Tablero; sin facultad de expulsión ni piso presupuestario.",
+      "seccion": "11",
+      "linea": 348,
+      "cita": "**Agencia Nacional de Arraigo (ANAR)** tampoco es un dispositivo"
+    },
+    {
+      "nombre": "El Marco de la Puerta",
+      "alias": [
+        "Marco de la Puerta"
+      ],
+      "tipo": "norma",
+      "que_es": "Tres listas taxativas de límites (lo que se exige, lo que se prohíbe el Estado y lo que se prohíbe el PLAN) que se sanciona antes que cualquier incentivo.",
+      "seccion": "9",
+      "linea": 346,
+      "cita": "no es el doceavo: es lo que sostiene a los cinco tramos"
+    },
+    {
+      "nombre": "La cláusula anti-casta",
+      "alias": [
+        "cláusula anti-casta"
+      ],
+      "tipo": "norma",
+      "que_es": "Ningún invitado puede tener más derechos que un argentino en la misma fila de la Lista: menos trámite sí, más derecho nunca.",
+      "seccion": "9",
+      "linea": 664,
+      "cita": "**La cláusula anti-casta.** Ningún invitado puede tener más derechos que un argentino"
+    },
+    {
+      "nombre": "Regla de celda mínima",
+      "alias": [
+        "celda mínima"
+      ],
+      "tipo": "norma",
+      "que_es": "Ninguna celda de menos de diez personas se publica; se agrega al nivel superior y se tapan las vecinas. Rige para los cuatro registros del cruce y para los diez indicadores.",
+      "seccion": "9",
+      "linea": 654,
+      "cita": "ninguna celda de menos de diez personas se publica"
+    },
+    {
+      "nombre": "Índice de Segunda Puerta",
+      "alias": [
+        "Índice de Segunda Puerta"
+      ],
+      "tipo": "metrica",
+      "que_es": "Indicador del Tablero: cuántos de los que llegaron trajeron a alguien; alarma si cae dos cohortes seguidas.",
+      "seccion": "16",
+      "linea": 965,
+      "cita": "**Índice de Segunda Puerta** — cuántos de los que llegaron trajeron a alguien"
+    },
+    {
+      "nombre": "Brecha de casta",
+      "alias": [
+        "Brecha de casta"
+      ],
+      "tipo": "metrica",
+      "que_es": "Indicador del Tablero que compara el acceso del invitado, del residente MERCOSUR y del argentino en la misma fila; alarma si se abre.",
+      "seccion": "16",
+      "linea": 969,
+      "cita": "**Brecha de casta** — acceso del invitado, del residente MERCOSUR y del argentino en la misma fila"
+    }
+  ],
+  "usa": [
+    {
+      "nombre": "Credencial de Materia",
+      "alias": [
+        "Credencial de Materia"
+      ],
+      "origen": "PLANMESA",
+      "para_que": "El Paquete solo anticipa la silla; la Credencial se gana y decae como la de cualquier argentino y ANAR no puede tocarla.",
+      "linea": 502,
+      "cita": "**Credencial de Materia** se gana y decae"
+    },
+    {
+      "nombre": "Caso de Mesa",
+      "alias": [
+        "Caso de Mesa"
+      ],
+      "origen": "PLANMESA",
+      "para_que": "Mecanismo de auditoría de certificaciones, revocaciones, negativas y duraciones de revalidación por la Mesa Civil de la materia.",
+      "linea": 392,
+      "cita": "se abre solo un Caso de Mesa en la Mesa Civil de la materia (PLANMESA)"
+    },
+    {
+      "nombre": "Escalera de Garantías",
+      "alias": [
+        "Escalera de Garantías"
+      ],
+      "origen": "PLANPACTO",
+      "para_que": "ANAR vive de una partida anual de la Escalera; el PLAN no agrega escalón ni pide piso constitucional.",
+      "linea": 500,
+      "cita": "No entra a la Escalera de Garantías de PLANPACTO"
+    },
+    {
+      "nombre": "Pacto de Cuidado",
+      "alias": [
+        "Pacto de Cuidado"
+      ],
+      "origen": "PLANCUIDADO",
+      "para_que": "Aporta la figura registrada del Compadrazgo, que el PLAN reusa en vez de inventar una nueva.",
+      "linea": 468,
+      "cita": "uno de los tipos del Pacto de Cuidado"
+    },
+    {
+      "nombre": "Libro de Cuidado",
+      "alias": [
+        "Libro de Cuidado"
+      ],
+      "origen": "PLANCUIDADO",
+      "para_que": "Sus horas redimidas acreditan la residencia en la Ciudadanía por Aporte Verificado.",
+      "linea": 578,
+      "cita": "las horas del Libro de Cuidado (`PLANCUIDADO §3.2`)"
+    },
+    {
+      "nombre": "Agencia del Litio del Cono Sur",
+      "alias": [
+        "Agencia del Litio del Cono Sur"
+      ],
+      "origen": "PLANGEO",
+      "para_que": "Depende de no denunciar el Acuerdo del MERCOSUR: no se cogobierna el litio con Bolivia el año que se le cierra la puerta.",
+      "linea": 442,
+      "cita": "cogobernar el litio en la **Agencia del Litio del Cono Sur**"
+    },
+    {
+      "nombre": "Red Soberana",
+      "alias": [
+        "Red Soberana"
+      ],
+      "origen": "PLANGEO",
+      "para_que": "Su expansión regional sobre adopción municipal es el segundo capítulo ajeno que exige coherencia regional.",
+      "linea": 442,
+      "cita": "monta la expansión de la **Red Soberana** sobre la adopción municipal"
+    },
+    {
+      "nombre": "Embajador Digital",
+      "alias": [
+        "Embajador Digital"
+      ],
+      "origen": "PLANREP",
+      "para_que": "Red de diáspora sobre la que se monta el primer Cuerpo de Scouts en la Fase 0.",
+      "linea": 938,
+      "cita": "red «Embajador Digital» de `PLANREP:1823`"
+    },
+    {
+      "nombre": "Empresas Bastardas",
+      "alias": [
+        "Empresas Bastardas"
+      ],
+      "origen": "PLANEB",
+      "para_que": "Canal de fichaje sin Estado: ficha directo porque la empresa es el empleador.",
+      "linea": 402,
+      "cita": "El segundo son las Empresas Bastardas de PLANEB"
+    },
+    {
+      "nombre": "Tablero de Reconversión",
+      "alias": [
+        "Tablero de Reconversión"
+      ],
+      "origen": "PLANREP",
+      "para_que": "Muestra el egreso de la cohorte que sirve para certificar el veto de subsidiariedad.",
+      "linea": 390,
+      "cita": "PLANREP muestra en su Tablero de Reconversión"
+    }
+  ],
+  "cifras": [
+    {
+      "concepto": "Presupuesto canónico",
+      "valor": "USD 450-900M a quince años, clase S",
+      "tipo": "presupuesto",
+      "linea": 12,
+      "cita": "USD 450-900M a quince años. Clase S."
+    },
+    {
+      "concepto": "Costo anual de ANAR y el Cuerpo de Scouts",
+      "valor": "USD 30-60M por año",
+      "tipo": "presupuesto",
+      "linea": 833,
+      "cita": "USD 30-60M por año"
+    },
+    {
+      "concepto": "Indicador rector",
+      "valor": "permanencia a 1, 3, 5 y 10 años",
+      "tipo": "meta",
+      "linea": 964,
+      "cita": "Permanencia a 1, 3, 5 y 10 años"
+    },
+    {
+      "concepto": "Exención impositiva temporal",
+      "valor": "50%, 60% con un hijo menor",
+      "tipo": "parametro",
+      "linea": 498,
+      "cita": "50%, 60% para quien se muda con un hijo menor."
+    },
+    {
+      "concepto": "Cohorte piloto de la Fase 0",
+      "valor": "100 a 300 personas",
+      "tipo": "meta",
+      "linea": 938,
+      "cita": "una cohorte piloto de 100 a 300 personas"
+    },
+    {
+      "concepto": "Duración de la Fase 0",
+      "valor": "meses 0 a 12",
+      "tipo": "plazo",
+      "linea": 938,
+      "cita": "**Fase 0 — sin permiso (meses 0 a 12).**"
+    },
+    {
+      "concepto": "Total PLANVIV tras derogar la fila de reclutamiento",
+      "valor": "50.000-68.000 trabajadores y USD 150-230M",
+      "tipo": "parametro",
+      "linea": 877,
+      "cita": "50.000-68.000 trabajadores y USD 150-230M"
+    },
+    {
+      "concepto": "Población nacida en el extranjero, Censo 2022",
+      "valor": "4,2%",
+      "tipo": "diagnostico",
+      "linea": 222,
+      "cita": "el 4,2% (censo.gob.ar)"
+    },
+    {
+      "concepto": "Ocupados en condiciones informales, 4.º trimestre 2025",
+      "valor": "43,0%",
+      "tipo": "diagnostico",
+      "linea": 552,
+      "cita": "el 43,0% de los ocupados en la Argentina trabajaba en condiciones informales"
+    },
+    {
+      "concepto": "Fase 2 — entrega del Paquete",
+      "valor": "años 2 a 4",
+      "tipo": "plazo",
+      "linea": 944,
+      "cita": "**Fase 2 — el Paquete (años 2 a 4).**"
+    },
+    {
+      "concepto": "Fase 4 — juicio de la primera cohorte",
+      "valor": "año 12 en adelante",
+      "tipo": "plazo",
+      "linea": 948,
+      "cita": "**Fase 4 — el juicio (año 12 en adelante).**"
+    }
+  ],
+  "acoples": [
+    {
+      "con": "PLAN24CN",
+      "que": "Los lotes del Paquete salen de sus veinticuatro ciudades; el suelo ya comprometido hace del lote una asignación y no una partida nueva.",
+      "linea": 490,
+      "cita": "Los lotes salen de PLAN24CN"
+    },
+    {
+      "con": "PLANREP",
+      "que": "Veto de subsidiariedad por los empleados públicos en reconversión, y la red Embajador Digital como base del primer Cuerpo de Scouts.",
+      "linea": 388,
+      "cita": "PLANREP está reconvirtiendo alrededor de"
+    },
+    {
+      "con": "PLANEDU",
+      "que": "Certifica con PLANREP el veto de subsidiariedad contra la cohorte que ya está cursando, y aporta el margen de vacantes escolares al freno.",
+      "linea": 384,
+      "cita": "Es un veto de PLANREP y de PLANEDU"
+    },
+    {
+      "con": "PLANMESA",
+      "que": "Audita D1, D9, D11 y las dos puntas del Contrato mediante Casos de Mesa, y otorga la Credencial de Materia.",
+      "linea": 392,
+      "cita": "se abre solo un Caso de Mesa en la Mesa Civil de la materia (PLANMESA)"
+    },
+    {
+      "con": "PLANDIG",
+      "que": "Custodia el archivo nominal que ANAR consulta sin copiar ni exportar, y sostiene el soporte del Tablero y de la revalidación.",
+      "linea": 656,
+      "cita": "Vive en el registro de PLANDIG, que no ficha, no busca y no firma nada"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "Financia ANAR con una partida anual de la Escalera; a su vez la exención pide un techo de gasto tributario que PLANPACTO no tiene.",
+      "linea": 770,
+      "cita": "Vive de una partida anual de la Escalera de PLANPACTO"
+    },
+    {
+      "con": "PLANVIV",
+      "que": "El PLAN deroga su fila de trabajadores de la construcción con visas atadas a proyectos; PLANVIV informa los márgenes de vivienda del freno.",
+      "linea": 176,
+      "cita": "presupuestaba 5.000-10.000 trabajadores de la construcción de Bolivia, Paraguay y Perú"
+    },
+    {
+      "con": "PLANAGUA",
+      "que": "Informa el margen de agua potable habilitada menos consumo comprometido, uno de los tres insumos del freno de infraestructura.",
+      "linea": 677,
+      "cita": "el agua potable habilitada menos el consumo ya comprometido que informa PLANAGUA"
+    },
+    {
+      "con": "PLANGEO",
+      "que": "La no denuncia del Acuerdo de Residencia del MERCOSUR deja en pie la Agencia del Litio del Cono Sur y la Red Soberana; el Techo de Origen se ofrece como módulo.",
+      "linea": 442,
+      "cita": "cogobernar el litio en la **Agencia del Litio del Cono Sur**"
+    },
+    {
+      "con": "PLANJUS",
+      "que": "Su compromiso de no verificar ni compartir estatus migratorio se extiende al registro del PLAN y pasa a renglón del Marco.",
+      "linea": 636,
+      "cita": "Hereda y extiende el compromiso de `PLANJUS:2366`."
+    },
+    {
+      "con": "PLANCUIDADO",
+      "que": "Aporta la figura del Compadrazgo y las horas del Libro de Cuidado que acreditan residencia en D10.",
+      "linea": 578,
+      "cita": "las horas del Libro de Cuidado (`PLANCUIDADO §3.2`)"
+    },
+    {
+      "con": "PLANMEMORIA",
+      "que": "Registro donde se inscriben la certificación desmentida, la duración estirada, el Tablero no publicado y el titular removido.",
+      "linea": 392,
+      "cita": "La certificación desmentida se inscribe en PLANMEMORIA con su fila y su fecha"
+    },
+    {
+      "con": "PLANEB",
+      "que": "Las Empresas Bastardas fichan directo como empleador, lo que permite que la Fase 0 corra sin ley ni partida.",
+      "linea": 402,
+      "cita": "El segundo son las Empresas Bastardas de PLANEB"
+    },
+    {
+      "con": "PLANSAL",
+      "que": "La atención en APS es uno de los cuatro registros del cruce que alimenta el Tablero de Arraigo.",
+      "linea": 552,
+      "cita": "la atención en la APS de PLANSAL"
+    }
+  ],
+  "tensiones": [
+    {
+      "con": "PLANVIV",
+      "que": "Derogar la fila de reclutamiento de PLANVIV le baja el costo y le quita brazos en su ventana crítica; el PLAN declara la deuda como propia hasta atar los cronogramas de escuelas de oficios.",
+      "linea": 817,
+      "cita": "Con PLANVIV hay además una deuda: derogar su fila de reclutamiento"
+    },
+    {
+      "con": "PLANPACTO",
+      "que": "La exención es gasto tributario sin techo y PLANPACTO todavía no tiene dónde contabilizarla; el PLAN la deja sin cifra.",
+      "linea": 847,
+      "cita": "PLANPACTO todavía no tiene techo de gasto tributario"
+    },
+    {
+      "con": "PLAN24CN",
+      "que": "Las ciudades tardan quince o veinte años y el Paquete necesita lotes antes; el desfase se resuelve con ventanas que no abren donde la ciudad no está.",
+      "linea": 811,
+      "cita": "las ciudades tardan quince o veinte años y el Paquete necesita lotes antes"
+    },
+    {
+      "con": "PLANREP",
+      "que": "El propio texto admite que con 3,5 millones de empleados públicos en transición la acusación de fichar afuera tendría razón si no hubiera veto.",
+      "linea": 388,
+      "cita": "se escribe sola, y esa vez tiene razón"
+    },
+    {
+      "con": "interno",
+      "que": "La tabla con y sin Estado dice que solo el Compadrazgo corre sin Estado en los tramos 1 y 2, mientras la SECCIÓN 3 y la propia sección dicen que corren dos, con el Cuerpo de Scouts.",
+      "linea": 871,
+      "cita": "uno solo corre sin Estado"
+    }
+  ],
+  "sin_resolver": [
+    {
+      "que": "La dirección causal entre la caída de la inmigración y la del crecimiento económico queda abierta; el documento no la cierra.",
+      "linea": 232,
+      "cita": "La flecha causal se discute y este documento no la cierra."
+    },
+    {
+      "que": "Las cifras de los precedentes internacionales son externas al corpus y su verificación queda pendiente de gate.",
+      "linea": 256,
+      "cita": "ninguna está verificada adentro del proyecto"
+    },
+    {
+      "que": "El costo de la revalidación y de la infraestructura del Tablero va sin monto, a la espera de los convenios con colegios y PLANEDU.",
+      "linea": 839,
+      "cita": "El de la revalidación va sin monto a propósito: hueco declarado"
+    },
+    {
+      "que": "El monto de la exención queda pendiente hasta que la Ventana publique su primer cupo.",
+      "linea": 847,
+      "cita": "Monto pendiente**, como `PLANPACTO:498`, hasta que la Ventana publique su primer cupo."
+    },
+    {
+      "que": "Que la sociedad reciba bien al que llega queda fuera del documento: el PLAN sabe medir ese hueco, no llenarlo.",
+      "linea": 819,
+      "cita": "Este PLAN sabe contar el hueco y no sabe llenarlo."
+    }
+  ]
+}

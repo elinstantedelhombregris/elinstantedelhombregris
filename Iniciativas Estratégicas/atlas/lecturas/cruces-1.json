@@ -1,0 +1,28 @@
+{
+  "grupo": 1,
+  "revisados": ["ANAGUA", "Agencia Nacional de Cuidado y Vínculo", "Pacto de Cuidado", "Dendrita", "Identidad Digital Soberana", "ArgenCloud"],
+  "cruces": [
+    {
+      "concepto": "ArgenCloud",
+      "tipo": "estado",
+      "dueno": "PLANDIG",
+      "lineaDueno": 2113,
+      "citaDueno": "El estadio B (capacidades soberanas: ArgenCloud, SAPI completa, LANIA, gemelo digital, gobernanza algorítmica, rieles monetarios) está **diferido a tranche-3+**",
+      "otro": "PLANGEO",
+      "lineaOtro": 661,
+      "citaOtro": "PLANDIG despliega ArgenCloud.",
+      "que": "PLANDIG difiere ArgenCloud al estadio B, tranche-3+ y condicional; PLANGEO dice que PLANDIG lo despliega en la Fase 1 (2026-2028)."
+    },
+    {
+      "concepto": "ArgenCloud",
+      "tipo": "estado",
+      "dueno": "PLANDIG",
+      "lineaDueno": 2113,
+      "citaDueno": "El estadio B (capacidades soberanas: ArgenCloud, SAPI completa, LANIA, gemelo digital, gobernanza algorítmica, rieles monetarios) está **diferido a tranche-3+**",
+      "otro": "PLANMOV",
+      "lineaOtro": 298,
+      "citaOtro": "LNMA + ArgenCloud + data-logging obligatorio | 2028-2032",
+      "que": "PLANDIG difiere ArgenCloud a tranche-3+; PLANMOV lo usa como base operativa del data-logging obligatorio ya en 2028-2032."
+    }
+  ]
+}
