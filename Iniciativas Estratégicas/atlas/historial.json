@@ -1,0 +1,3133 @@
+{
+ "catalogo": {
+  "55311591": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "Las EB acumuladas no coinciden: las tablas trimestrales dan 250 en el Año 1 y 750 en el Año 2, mientras la hoja de ruta 9.3 da 500 y 1.000",
+   "grav": "revisar"
+  },
+  "56096757": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «22 PLANes»",
+   "grav": "revisar"
+  },
+  "75624502": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "Toma el 15% del ahorro de PLANREP en la integración y «10–15%» en el modelo económico. No hay Sección 18; las Tablas 10 a 13 aparecen dos veces",
+   "grav": "revisar"
+  },
+  "78744900": {
+   "tipo": "lectura",
+   "plan": "PLANRUTA",
+   "titulo": "«Diecisiete/dieciséis mandatos» como conteo vigente",
+   "grav": "revisar"
+  },
+  "89875082": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "«USD 250.000–400.000 mil millones» está mal escalado; las otras dos menciones dicen 250–400 mil millones",
+   "grav": "revisar"
+  },
+  "97331303": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANEDU",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "c53a1471": {
+   "tipo": "espejo-roto",
+   "plan": "PLANSUS",
+   "titulo": "Dice que necesita a PLANPUERTA, y PLANPUERTA no dice que le aporta",
+   "grav": "rota"
+  },
+  "78ae863e": {
+   "tipo": "fuera-de-capa",
+   "plan": "PLANPUERTA",
+   "titulo": "No está en DEPENDENCY_GRAPH.yml",
+   "grav": "rota"
+  },
+  "e50d6a68": {
+   "tipo": "seccion-inexistente",
+   "plan": "PLANPACTO",
+   "titulo": "Cita PLANJUS §400 y esa sección no existe",
+   "grav": "rota"
+  },
+  "42ad1b5b": {
+   "tipo": "seccion-inexistente",
+   "plan": "PLANPACTO",
+   "titulo": "Cita PLANJUS §400 y esa sección no existe",
+   "grav": "rota"
+  },
+  "660b4eec": {
+   "tipo": "seccion-inexistente",
+   "plan": "PLANPUERTA",
+   "titulo": "Cita PLANMEMORIA §7 y esa sección no existe",
+   "grav": "rota"
+  },
+  "ed3f1b64": {
+   "tipo": "seccion-inexistente",
+   "plan": "PROTOCOLOS_OPERATIVOS_BASTA.md",
+   "titulo": "Cita PLANDIG §18 y esa sección no existe",
+   "grav": "rota"
+  },
+  "c40d51ab": {
+   "tipo": "seccion-inexistente",
+   "plan": "PROTOCOLOS_OPERATIVOS_BASTA.md",
+   "titulo": "Cita PLANAGUA §18 y esa sección no existe",
+   "grav": "rota"
+  },
+  "5792ab56": {
+   "tipo": "seccion-inexistente",
+   "plan": "PROTOCOLOS_OPERATIVOS_BASTA.md",
+   "titulo": "Cita PLANSEG §10 y esa sección no existe",
+   "grav": "rota"
+  },
+  "5e9cf579": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANTRA, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "d63b7413": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANEB",
+   "titulo": "Nombra a PLANED, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "6a54d7e3": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANMESA",
+   "titulo": "Nombra a PLANCÍRCULOS, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "830ed196": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Nombra a PLANCYT, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "a61f2f0e": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANSUS",
+   "titulo": "Nombra a PLANSALUD, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "3be18d45": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANSUS",
+   "titulo": "Nombra a PLANSALUD, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "9a3dcd52": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANSUS",
+   "titulo": "Nombra a PLANSALUD, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "917e45fd": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANSUS",
+   "titulo": "Nombra a PLANSALUD, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "84a7d5ea": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANSUS",
+   "titulo": "Nombra a PLANSALUD, que no es un PLAN del registro",
+   "grav": "revisar"
+  },
+  "1bbf84f1": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANCUIDADO",
+   "titulo": "«Síndicos de Archivo» figura como propio en PLANCUIDADO y PLANMEMORIA",
+   "grav": "revisar"
+  },
+  "e4398f5d": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANDIG",
+   "titulo": "«Protocolo Bastardo» figura como propio en PLANDIG y PLANEB",
+   "grav": "revisar"
+  },
+  "6a88ea2c": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANEB",
+   "titulo": "«Fideicomiso de Propósito Perpetuo» figura como propio en PLANEB y PLANREP",
+   "grav": "revisar"
+  },
+  "6f27d78e": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANEDU",
+   "titulo": "«Portfolio Ciudadano Único» figura como propio en PLANEDU y PLANREP",
+   "grav": "revisar"
+  },
+  "6099663a": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANFOCO",
+   "titulo": "«Panel de Legalidad de Publicación» figura como propio en PLANFOCO y PLANJUS",
+   "grav": "revisar"
+  },
+  "82ee1ad0": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANMEMORIA",
+   "titulo": "«Consulta Ancestral» figura como propio en PLANMEMORIA y PLANMESA",
+   "grav": "revisar"
+  },
+  "981f1bd3": {
+   "tipo": "concepto-con-dos-duenos",
+   "plan": "PLANREP",
+   "titulo": "«Panel de Adversarios» figura como propio en PLANREP y PLANSUS",
+   "grav": "revisar"
+  },
+  "6d2f073c": {
+   "tipo": "conteo-viejo",
+   "plan": "PLAN24CN",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "a9e07783": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANAGUA",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "718870eb": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANARCO",
+   "titulo": "Dice «22 PLANes»",
+   "grav": "revisar"
+  },
+  "ed5c8398": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANEB",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "fc367c0e": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANEDU",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "6c1c7fae": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANEDU",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "ebe5d5bb": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANEDU",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "713eea58": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANGEO",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "b42e275b": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANISV",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "0a852b9e": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANISV",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "30d732ec": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPACTO",
+   "titulo": "Dice «22 PLANes»",
+   "grav": "revisar"
+  },
+  "955d1c46": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPACTO",
+   "titulo": "Dice «22 PLANes»",
+   "grav": "revisar"
+  },
+  "0032f726": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Dice «26 PLANes»",
+   "grav": "revisar"
+  },
+  "1f093905": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Dice «26 PLANes»",
+   "grav": "revisar"
+  },
+  "678b5f1e": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice «26 PLANes»",
+   "grav": "revisar"
+  },
+  "0e5b4cb1": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice «26 PLANes»",
+   "grav": "revisar"
+  },
+  "a7beef43": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice «26 PLANes»",
+   "grav": "revisar"
+  },
+  "1416913d": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «22 PLANes»",
+   "grav": "revisar"
+  },
+  "a63d07ab": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «22 PLANes»",
+   "grav": "revisar"
+  },
+  "217ba0d0": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «17 mandatos»",
+   "grav": "revisar"
+  },
+  "5df27abd": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "cd0052f5": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 PLANes»",
+   "grav": "revisar"
+  },
+  "b26baf20": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 PLANes»",
+   "grav": "revisar"
+  },
+  "8b7f6e1a": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 PLANes»",
+   "grav": "revisar"
+  },
+  "9a2f7c9b": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 PLANs»",
+   "grav": "revisar"
+  },
+  "5065981b": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 PLANs»",
+   "grav": "revisar"
+  },
+  "7bddfe42": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "769d45aa": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "7c537056": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «16 Mandatos»",
+   "grav": "revisar"
+  },
+  "b1de87a1": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANRUTA",
+   "titulo": "Dice «17 mandatos»",
+   "grav": "revisar"
+  },
+  "02f2d167": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANSEG",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "9f922e39": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANSEG",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "acebe7fb": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANVIV",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "bd756833": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANVIV",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "191976d1": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANVIV",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "e846021d": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANVIV",
+   "titulo": "Dice «16 planes»",
+   "grav": "revisar"
+  },
+  "c532cb91": {
+   "tipo": "conteo-viejo",
+   "plan": "PLANVIV",
+   "titulo": "Dice «16 mandatos»",
+   "grav": "revisar"
+  },
+  "077a6ae0": {
+   "tipo": "cruce",
+   "plan": "PLAN24CN",
+   "titulo": "«Economía de la Vida»: PLANREP llama al destino de las ocho ramas de oficios «Economía de la Vida» y no tiene ninguna «Economía de la Belleza»; PLAN24CN lo nombra «Economía de la Belleza»",
+   "grav": "revisar"
+  },
+  "cc61699f": {
+   "tipo": "cruce",
+   "plan": "PLAN24CN",
+   "titulo": "«Economía de la Contribución»: PLANREP define siete categorías (cuidado comunitario, creación cultural, regeneración ambiental, mentoría y enseñanza, mediación y cohesión social, investigación, construcción y reparación); PLAN24CN las nombra con «emprendimiento social» y «mediación ambiental», que no figuran en la lista del dueño",
+   "grav": "revisar"
+  },
+  "2eedb70a": {
+   "tipo": "cruce",
+   "plan": "PLANAGUA",
+   "titulo": "«ANEB»: PLANEB fija 1-2% de ingresos con destino al Fondo Soberano (y 3-5% para el Fondo de Solidaridad); PLANAGUA dice 2% «igual que ANEB» y «alineado con Fondo de Solidaridad»",
+   "grav": "revisar"
+  },
+  "e27f40a5": {
+   "tipo": "cruce",
+   "plan": "PLANAGUA",
+   "titulo": "«ANCE»: PLANEDU expande ANCE como Agencia Nacional de Calidad Educativa; PLANAGUA la expande como Acuerdos Nacionales de Compromiso Educativo",
+   "grav": "revisar"
+  },
+  "ff1c1607": {
+   "tipo": "cruce",
+   "plan": "PLANAGUA",
+   "titulo": "«ANCE»: PLANEDU expande ANCE como Agencia Nacional de Calidad Educativa; PLANAGUA vuelve a expandirla como Acuerdos Nacionales de Compromiso Educativo, aunque en PLANAGUA:1956 la cuenta entre las agencias",
+   "grav": "revisar"
+  },
+  "556a4b21": {
+   "tipo": "cruce",
+   "plan": "PLANDIG",
+   "titulo": "«Cédula Civil»: «PLANMESA define la Cédula Civil como perfil público de servicio cívico (Credenciales, Mesas, Talleres, Pactos, Memoria, Semillas); PLANDIG le hace llevar datos de tiempo por plataforma, publicidad recibida y perfilado para recomendación»",
+   "grav": "revisar"
+  },
+  "595868a2": {
+   "tipo": "cruce",
+   "plan": "PLANEB",
+   "titulo": "«Protocolo Bastardo»: PLANDIG lista como componentes sorteo, votación, transparencia y registro inmutable de decisiones; PLANEB le suma identidad descentralizada y tesorería on-chain, que PLANDIG no incluye",
+   "grav": "revisar"
+  },
+  "eca81c22": {
+   "tipo": "cruce",
+   "plan": "PLANEB",
+   "titulo": "«Protocolo Bastardo»: PLANDIG asigna a ANDIG desarrollar y mantener el Protocolo Bastardo (y dice que PLANDIG «lo define y lo construye»); PLANEB asigna a la ANEB mantener y evolucionar su código abierto",
+   "grav": "revisar"
+  },
+  "6f1f2a97": {
+   "tipo": "cruce",
+   "plan": "PLANEB",
+   "titulo": "«Bastarda Inmobiliaria»: PLANVIV dice que el suelo es propiedad perpetua del fideicomiso y los residentes no lo compran; PLANEB describe el mismo fideicomiso como propiedad perpetua del ocupante",
+   "grav": "revisar"
+  },
+  "d208653a": {
+   "tipo": "cruce",
+   "plan": "PLANEDU",
+   "titulo": "«Dividendo Nacional de Productividad»: PLANREP fija el piloto del DNP en 3-5 provincias (2033-2037); PLANEDU lo describe funcionando en ocho provincias",
+   "grav": "revisar"
+  },
+  "c681920c": {
+   "tipo": "cruce",
+   "plan": "PLANEN",
+   "titulo": "«LANIA»: PLANDIG difiere LANIA a tranche-3+ como estadio B condicional; PLANEN hace que el LANEF use su cómputo como si ya existiera",
+   "grav": "revisar"
+  },
+  "d71959bc": {
+   "tipo": "cruce",
+   "plan": "PLANGEO",
+   "titulo": "«Dividendo Nacional de Productividad»: PLANREP define el DNP como un único ingreso periódico por ciudadano, complemento del trabajo en los Horizontes 1 y 2; PLANGEO lo presenta como un sistema de tres pilares que reemplaza gradualmente el salario",
+   "grav": "revisar"
+  },
+  "fee623c5": {
+   "tipo": "cruce",
+   "plan": "PLANGEO",
+   "titulo": "«ArgenCloud»: PLANDIG difiere ArgenCloud al estadio B, tranche-3+ y condicional; PLANGEO dice que PLANDIG lo despliega en la Fase 1 (2026-2028)",
+   "grav": "revisar"
+  },
+  "bc1d71d4": {
+   "tipo": "cruce",
+   "plan": "PLANGEO",
+   "titulo": "«ANEB»: La cabecera de PLANEB dice que en tranche-1 la ANEB es una celda de ejecución en MinProducción y no una agencia autónoma con presupuesto protegido; PLANGEO le atribuye mandatos de 6 años y presupuesto constitucional",
+   "grav": "revisar"
+  },
+  "0d2849f7": {
+   "tipo": "cruce",
+   "plan": "PLANGEO",
+   "titulo": "«ANSUS»: PLANSUS da a la dirección de ANSUS un mandato de 5 años (3 los asientos ciudadano y provincial del Directorio); PLANGEO dice que ANSUS tiene mandatos de 6 años",
+   "grav": "revisar"
+  },
+  "9b3c0e3b": {
+   "tipo": "cruce",
+   "plan": "PLANISV",
+   "titulo": "«Economía de la Vida»: PLANREP nombra a ese destino «Economía de la Vida»; PLANISV le atribuye a PLANREP una «Economía de la Belleza» que PLANREP no contiene",
+   "grav": "revisar"
+  },
+  "dbae2e48": {
+   "tipo": "cruce",
+   "plan": "PLANMEMORIA",
+   "titulo": "«Credencial de Materia»: PLANMESA define la Credencial con cinco capas (estudio, declaración, decisión, producción, vínculo), sin capa memorial; PLANMEMORIA exige una «Capa Memorial» activa para alcanzar la Credencial Consolidada en cualquier materia",
+   "grav": "revisar"
+  },
+  "79ccc34d": {
+   "tipo": "cruce",
+   "plan": "PLANMESA",
+   "titulo": "«El Mapa»: PLANDIG define El Mapa como sensores orbitales, IoT y reportes ciudadanos ambientales y de infraestructura; PLANMESA lo consulta como registro de sueños, necesidades, recursos ofrecidos y cuidados declarados, que PLANDIG no incluye",
+   "grav": "revisar"
+  },
+  "2de77f2e": {
+   "tipo": "cruce",
+   "plan": "PLANMESA",
+   "titulo": "«Síndico de Archivo»: PLANMEMORIA exige Credencial Consolidada en Memoria para ser Síndico de Archivo; PLANMESA dice que cualquier Credencial Nivel 3 Consolidada, de cualquier materia, habilita ese rol",
+   "grav": "revisar"
+  },
+  "edea8951": {
+   "tipo": "cruce",
+   "plan": "PLANMON",
+   "titulo": "«Fondo Soberano Ciudadano»: PLANTER define los ingresos del FSC como regalías extractivas, cánones y multas; PLANMON (y PLANSUS:2477 igual) dice que el FSC absorbe la recaudación fiscal de sustancias legalizadas",
+   "grav": "revisar"
+  },
+  "65879eb9": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«ArgenCloud»: PLANDIG difiere ArgenCloud a tranche-3+; PLANMOV lo usa como base operativa del data-logging obligatorio ya en 2028-2032",
+   "grav": "revisar"
+  },
+  "a18b3d21": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«Síndico de Archivo»: PLANMEMORIA define al Síndico de Archivo como contratado por la ANM (Agencia Nacional de Memoria); PLANMOV lo presenta como «Síndicos de Archivo del PLANDIG»",
+   "grav": "revisar"
+  },
+  "d1ef549a": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«ANDIG»: PLANDIG expande ANDIG como Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica; PLANMOV la expande como Agencia Nacional de Datos, Información y Gobernanza",
+   "grav": "revisar"
+  },
+  "062f5152": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«LANIA»: PLANDIG difiere LANIA a tranche-3+ como estadio B condicional; PLANMOV da por disponibles sus modelos fundacionales para el LNMA",
+   "grav": "revisar"
+  },
+  "fe356420": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«Fondo Soberano Ciudadano»: PLANTER reparte el FSC en 40% DCM, 20% territorios, 7% intergeneracional, 8% Pregunta, 15% restauración y 10% ANTSPO, sin línea para infraestructura; PLANMOV cuenta con una parte de las regalías del FSC para infraestructura ferroviaria",
+   "grav": "revisar"
+  },
+  "e65c2726": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«ANDIG»: PLANDIG la llama Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica; PLANMOV, en otra sección, Agencia Nacional Digital",
+   "grav": "revisar"
+  },
+  "822e08ed": {
+   "tipo": "cruce",
+   "plan": "PLANMOV",
+   "titulo": "«Protocolo Bastardo»: PLANDIG lo define como infraestructura técnica de gobernanza; PLANMOV lo describe como marco jurídico-financiero de PLANEB que articula cross-solidaridad entre Bastardas",
+   "grav": "revisar"
+  },
+  "ef4f481e": {
+   "tipo": "cruce",
+   "plan": "PLANRUTA",
+   "titulo": "«Red Nacional de Centros de Vitalidad»: PLANSAL dice que los Centros no son estatales sino comunitarios; PLANRUTA lista un «Centro de Vitalidad municipal» como la fase inicial de la salud",
+   "grav": "revisar"
+  },
+  "f7d527ed": {
+   "tipo": "cruce",
+   "plan": "PLANRUTA",
+   "titulo": "«Bastarda Inmobiliaria»: PLANVIV dice que la Bastarda Inmobiliaria no tiene inversionistas que buscan retorno; PLANRUTA financia la Bastarda con miembros de la Red que invierten como ahorristas, no como donantes",
+   "grav": "revisar"
+  },
+  "fa5b459c": {
+   "tipo": "cruce",
+   "plan": "PLANRUTA",
+   "titulo": "«ANEB»: PLANEB define una sola ANEB nacional creada por ley del Congreso; PLANRUTA prevé una «ANEB provincial»",
+   "grav": "revisar"
+  },
+  "66865c3f": {
+   "tipo": "cruce",
+   "plan": "PLANRUTA",
+   "titulo": "«Bastarda Energética»: PLANEN define la Bastarda Energética como una EPP sin propietarios; PLANRUTA la describe como «Cooperativa energética provincial»",
+   "grav": "revisar"
+  },
+  "00fee363": {
+   "tipo": "cruce",
+   "plan": "PLANSAL",
+   "titulo": "«Casas JUS»: PLANJUS define las Casas JUS en su sección 5.5 (la Sección 6 trata de los panelistas); PLANSAL remite a la «Sección 6 de PLANJUS» para las Casas JUS",
+   "grav": "revisar"
+  },
+  "1a8d7763": {
+   "tipo": "cruce",
+   "plan": "PLANSAL",
+   "titulo": "«Peso-canasta»: «PLANMON compone la canasta con commodities y productos que Argentina produce (soja, gas, litio, etc.); PLANSAL dice que los costos médicos de la Bastarda Sanitaria y la ANVIP alimentan la canasta»",
+   "grav": "revisar"
+  },
+  "99cae1e7": {
+   "tipo": "cruce",
+   "plan": "PLANSUS",
+   "titulo": "«ANCE»: PLANEDU es el dueño de la ANCE; PLANSUS la atribuye a PLANREP",
+   "grav": "revisar"
+  },
+  "62ba4547": {
+   "tipo": "cruce",
+   "plan": "PLANSUS",
+   "titulo": "«Casas JUS»: PLANJUS define las Casas JUS como puntos de presencia física donde se hacen audiencias y mediaciones, y los casos se resuelven por paneles con plazos de 15, 45 o 90 días; PLANSUS les atribuye mediación obligatoria en 30 días y resolución vinculante en 60",
+   "grav": "revisar"
+  },
+  "1838056a": {
+   "tipo": "cruce",
+   "plan": "PLANSUS",
+   "titulo": "«Fondo Soberano Ciudadano»: PLANTER define los ingresos del FSC como regalías extractivas, cánones y multas; PLANSUS dice que el FSC absorbe la recaudación fiscal de sustancias legalizadas",
+   "grav": "revisar"
+  },
+  "d5d90442": {
+   "tipo": "cruce",
+   "plan": "PLANVIV",
+   "titulo": "«ANEB»: PLANEB elige a los auditores de cada Bastarda por sorteo y certificación profesional; PLANVIV dice que los designa la ANEB",
+   "grav": "revisar"
+  },
+  "c8a36be4": {
+   "tipo": "cruce",
+   "plan": "PLANVIV",
+   "titulo": "«ANMON»: «PLANMON dice que la ANMON no puede fijar tasas y que la tasa de referencia la publica la Bastarda Financiera; PLANVIV fija la tasa del crédito hipotecario como tasa de referencia ANMON más 1-2%»",
+   "grav": "revisar"
+  },
+  "87e26882": {
+   "tipo": "cruce",
+   "plan": "PLANVIV",
+   "titulo": "«Red Nacional de Centros de Vitalidad»: PLANSAL fija un Centro de Vitalidad por barrio urbano; PLANVIV lo pone en el asentamiento solo si tiene más de 500 familias y, si es menor, una sala de primeros auxilios",
+   "grav": "revisar"
+  },
+  "387f5925": {
+   "tipo": "cruce",
+   "plan": "PLANVIV",
+   "titulo": "«Tres Niveles JUS»: PLANJUS ubica los conflictos inquilino/propietario en JUS-2 (45 días); PLANVIV manda el desalojo a un panel JUS-1 con resolución en 15 días",
+   "grav": "revisar"
+  },
+  "9606140c": {
+   "tipo": "cruce",
+   "plan": "PLANVIV",
+   "titulo": "«Empresa Bastarda»: PLANEB define a la Empresa Bastarda como un fideicomiso bajo el CCyC, vigente sin ley nueva; PLANVIV dice que la Bastarda Inmobiliaria opera como fideicomiso y recién se convierte en Empresa Bastarda cuando PLANEB se sancione",
+   "grav": "revisar"
+  },
+  "8b4b2638": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLAN24CN, y PLAN24CN no dice que le aporta",
+   "grav": "revisar"
+  },
+  "743439d6": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANREP, y PLANREP no dice que le aporta",
+   "grav": "revisar"
+  },
+  "89b19c0a": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANEDU, y PLANEDU no dice que le aporta",
+   "grav": "revisar"
+  },
+  "e27aeaba": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANSAL, y PLANSAL no dice que le aporta",
+   "grav": "revisar"
+  },
+  "e4363c50": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANEB, y PLANEB no dice que le aporta",
+   "grav": "revisar"
+  },
+  "fb718ae3": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANVIV, y PLANVIV no dice que le aporta",
+   "grav": "revisar"
+  },
+  "2417969e": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANAGUA, y PLANAGUA no dice que le aporta",
+   "grav": "revisar"
+  },
+  "442f2218": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANMESA, y PLANMESA no dice que le aporta",
+   "grav": "revisar"
+  },
+  "f3f9d40e": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANCUIDADO, y PLANCUIDADO no dice que le aporta",
+   "grav": "revisar"
+  },
+  "9a7eeb7d": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANMEMORIA, y PLANMEMORIA no dice que le aporta",
+   "grav": "revisar"
+  },
+  "07e5de11": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que necesita a PLANDIG, y PLANDIG no dice que le aporta",
+   "grav": "revisar"
+  },
+  "b7ae53fa": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que le aporta a PLAN24CN, y PLAN24CN no dice que lo recibe",
+   "grav": "revisar"
+  },
+  "a767692f": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que le aporta a PLANREP, y PLANREP no dice que lo recibe",
+   "grav": "revisar"
+  },
+  "00e84e5c": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que le aporta a PLANGEO, y PLANGEO no dice que lo recibe",
+   "grav": "revisar"
+  },
+  "91f6c5d2": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que le aporta a PLANJUS, y PLANJUS no dice que lo recibe",
+   "grav": "revisar"
+  },
+  "55bb2522": {
+   "tipo": "espejo-roto",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice que le aporta a PLANMEMORIA, y PLANMEMORIA no dice que lo recibe",
+   "grav": "revisar"
+  },
+  "88ad1259": {
+   "tipo": "lectura",
+   "plan": "PLAN24CN",
+   "titulo": "«Dieciséis mandatos» como conteo vigente; el canon son 27 más PLANRUTA",
+   "grav": "revisar"
+  },
+  "e6274c12": {
+   "tipo": "lectura",
+   "plan": "PLAN24CN",
+   "titulo": "Ciudad Viento está en Chubut en la matriz y en Río Negro como piloto",
+   "grav": "revisar"
+  },
+  "c25cc293": {
+   "tipo": "lectura",
+   "plan": "PLAN24CN",
+   "titulo": "Ciudad Raíz está en Trenque Lauquen/Pehuajó en su ficha y en Junín/Pergamino en §12.1",
+   "grav": "revisar"
+  },
+  "a3687b96": {
+   "tipo": "lectura",
+   "plan": "PLAN24CN",
+   "titulo": "La valorización es USD 20.000–210.000M en una tabla y USD 20.000–100.000M en la otra",
+   "grav": "revisar"
+  },
+  "2fb384a9": {
+   "tipo": "lectura",
+   "plan": "PLAN24CN",
+   "titulo": "Remite los criterios de localización a «Sección 6»; están en §4.1. Además la numeración salta de §15 a §17",
+   "grav": "revisar"
+  },
+  "ef2419a2": {
+   "tipo": "lectura",
+   "plan": "PLANAGUA",
+   "titulo": "«Noveno mandato», «otros quince mandatos» y «dieciséis mandatos» como conteos vigentes",
+   "grav": "revisar"
+  },
+  "6a452b75": {
+   "tipo": "lectura",
+   "plan": "PLANAGUA",
+   "titulo": "El «buffer» es de 2–5 km en un lugar y de 5 km mínimo en otros dos",
+   "grav": "revisar"
+  },
+  "ae3de8f9": {
+   "tipo": "lectura",
+   "plan": "PLANAGUA",
+   "titulo": "Prisión por daño a glaciares: 2–8 años en un lugar y 3–10 en otro",
+   "grav": "revisar"
+  },
+  "c795d47e": {
+   "tipo": "lectura",
+   "plan": "PLANAGUA",
+   "titulo": "Superficie glaciar: 8.484 km² en el cuerpo y ~5.700 km² en el indicador 15 de la Tabla 17A",
+   "grav": "revisar"
+  },
+  "395c2f44": {
+   "tipo": "lectura",
+   "plan": "PLANAGUA",
+   "titulo": "La Alarma Ciudadana pide 3.000 firmas en un lugar y 5.000 en otro",
+   "grav": "revisar"
+  },
+  "a212f14a": {
+   "tipo": "lectura",
+   "plan": "PLANAGUA",
+   "titulo": "La Fase 3 cuenta 3 plantas desalinizadoras incluida Mendoza, que no figura en la Tabla 5.6, y 80.000 nodos IoT contra ~55.000 en 5.2",
+   "grav": "revisar"
+  },
+  "8a9ebff5": {
+   "tipo": "lectura",
+   "plan": "PLANARCO",
+   "titulo": "El cociente del gate es 1,47–1,88x y la falla se describe como «tres centésimas»: eso vale para 1,47 contra 1,5, no para 1,88",
+   "grav": "revisar"
+  },
+  "4cfa0d60": {
+   "tipo": "lectura",
+   "plan": "PLANARCO",
+   "titulo": "«Los veintidós PLANes» para el ecosistema entero; el canon son 27 más PLANRUTA",
+   "grav": "revisar"
+  },
+  "7dda5264": {
+   "tipo": "lectura",
+   "plan": "PLANARCO",
+   "titulo": "La numeración salta de la Sección 13 a la 15",
+   "grav": "revisar"
+  },
+  "57fdf443": {
+   "tipo": "lectura",
+   "plan": "PLANCUIDADO",
+   "titulo": "«Los otros diecinueve»: conteo viejo",
+   "grav": "revisar"
+  },
+  "7292ae38": {
+   "tipo": "lectura",
+   "plan": "PLANCUIDADO",
+   "titulo": "La tabla 7.1 no cierra: las partidas suman unos 5.495–7.483M con la reserva y el total declarado es 4.800–7.200",
+   "grav": "revisar"
+  },
+  "722b29c3": {
+   "tipo": "lectura",
+   "plan": "PLANCUIDADO",
+   "titulo": "La numeración salta la Sección 8 y la 15",
+   "grav": "revisar"
+  },
+  "126185cc": {
+   "tipo": "lectura",
+   "plan": "PLANCUIDADO",
+   "titulo": "La tabla pone la Ley ANCV en la Fase 0; la hoja de ruta difiere la ANCV autárquica a 2040",
+   "grav": "revisar"
+  },
+  "2f54b912": {
+   "tipo": "lectura",
+   "plan": "PLANCUIDADO",
+   "titulo": "Dice que la articulación con PLANTER está «pendiente de redacción»; PLANTER existe",
+   "grav": "revisar"
+  },
+  "684a00a2": {
+   "tipo": "lectura",
+   "plan": "PLANCUL",
+   "titulo": "La cabecera cita la revisión del 2026-04-28 y la portada dice «Marzo 2026 | Versión 4.0»; las fechas no se reconcilian",
+   "grav": "revisar"
+  },
+  "53bd5ae8": {
+   "tipo": "lectura",
+   "plan": "PLANCUL",
+   "titulo": "El título «Integración con los 18 Mandatos» fija un conteo viejo; el canon son 27 más PLANRUTA",
+   "grav": "revisar"
+  },
+  "ae03b620": {
+   "tipo": "lectura",
+   "plan": "PLANCUL",
+   "titulo": "PLANJUB se cita como PLAN vigente; no tiene documento ni ordinal. La sucesión a PLANARCO solo aparece en la nota del final",
+   "grav": "revisar"
+  },
+  "0ae45ce2": {
+   "tipo": "lectura",
+   "plan": "PLANCUL",
+   "titulo": "PLANTRA figura en la tabla 5.1 y no es un PLAN del registro; el propio texto lo deja sin resolver",
+   "grav": "revisar"
+  },
+  "59bfd51b": {
+   "tipo": "lectura",
+   "plan": "PLANCUL",
+   "titulo": "«Pre-Año 0 (ahora)» choca con el Año 0 anclado a 2028 (entrada a tranche-2)",
+   "grav": "revisar"
+  },
+  "b78cbb60": {
+   "tipo": "lectura",
+   "plan": "PLANDIG",
+   "titulo": "Costo operativo del estadio A: USD 0,4B/año en dos lugares y 1,2B/año en otro",
+   "grav": "revisar"
+  },
+  "9905f9f5": {
+   "tipo": "lectura",
+   "plan": "PLANDIG",
+   "titulo": "IDS se define como «Identidad Digital Soberana» y la tabla de integración lo usa como la infraestructura que provee nodos",
+   "grav": "revisar"
+  },
+  "419b6cf2": {
+   "tipo": "lectura",
+   "plan": "PLANDIG",
+   "titulo": "SAPI es «Sistema Argentino de Pagos Instantáneos» en un lugar y «Sistema Abierto de Pagos e Identidad» en otro",
+   "grav": "revisar"
+  },
+  "5bdea93f": {
+   "tipo": "lectura",
+   "plan": "PLANDIG",
+   "titulo": "Se repiten los números de TABLA 20, 21 y 22. No hay Sección 18",
+   "grav": "revisar"
+  },
+  "2511cefe": {
+   "tipo": "lectura",
+   "plan": "PLANDIG",
+   "titulo": "El TOTAL de financiamiento dice 3.700–10.000 y las filas suman 3.200–8.500",
+   "grav": "revisar"
+  },
+  "8a8f3769": {
+   "tipo": "lectura",
+   "plan": "PLANDIG",
+   "titulo": "«Décimo de los dieciséis mandatos»: conteo viejo",
+   "grav": "revisar"
+  },
+  "16d5a046": {
+   "tipo": "lectura",
+   "plan": "PLANEB",
+   "titulo": "ANEB recibe 0,1% del PBI en el cuerpo y 0,1B/año en el presupuesto canónico de la cabecera",
+   "grav": "revisar"
+  },
+  "f074d7ba": {
+   "tipo": "lectura",
+   "plan": "PLANEB",
+   "titulo": "El capital inicial es USD 8–15M en un lugar y 8–17M en otro; el retorno, 3:1 a 10:1 contra 6:1 a 20:1; los usuarios a 2040, 300.000+ contra 500.000+",
+   "grav": "revisar"
+  },
+  "5efb9d41": {
+   "tipo": "lectura",
+   "plan": "PLANEB",
+   "titulo": "«PLANED» no es un PLAN; debería decir PLANEDU",
+   "grav": "revisar"
+  },
+  "315c1427": {
+   "tipo": "lectura",
+   "plan": "PLANEB",
+   "titulo": "El parche del final dice «Provee a: PLANCUL, PLANCUIDADO, PLANTALLER», que no coincide con la tabla de integración",
+   "grav": "revisar"
+  },
+  "ce13b387": {
+   "tipo": "lectura",
+   "plan": "PLANEB",
+   "titulo": "Remite la cascada a la «Sección 7» y a la «Sección 14»; la cascada es la Sección 11 y el bloque de integración no tiene número",
+   "grav": "revisar"
+  },
+  "5e067aa8": {
+   "tipo": "lectura",
+   "plan": "PLANEB",
+   "titulo": "«Octavo mandato», «otros quince mandatos» y «dieciséis mandatos» como conteos vigentes",
+   "grav": "revisar"
+  },
+  "11873ea9": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "La cabecera fija 0,6B/año; el cuerpo, USD 3.000–10.000M/año",
+   "grav": "revisar"
+  },
+  "b344fde8": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "La cabecera prohíbe agencias autónomas nuevas en tranche-1 y la ANCE se crea en 2027",
+   "grav": "revisar"
+  },
+  "061215f7": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "«Dieciséis mandatos» como conteo vigente; una lista de «los PLANes» enumera solo 5",
+   "grav": "revisar"
+  },
+  "b58883e1": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "Inglés B2 en 2036: 70% en un lugar y 50% en otro",
+   "grav": "revisar"
+  },
+  "45299aa1": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "Graduación 2040: 92% en un lugar y 85% en otros dos",
+   "grav": "revisar"
+  },
+  "8cda7ebd": {
+   "tipo": "lectura",
+   "plan": "PLANEDU",
+   "titulo": "Remite a «Sección 7.2 (en documento base)» y «Sección 2.2 (en documento base)»; las dos están en este mismo archivo",
+   "grav": "revisar"
+  },
+  "8434b1aa": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "El fondo receptor de las regalías es «Fondo Soberano Bastardo» en el resto del documento y «Fondo Soberano Ciudadano» en la tabla de integración",
+   "grav": "revisar"
+  },
+  "13d74ff2": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "La tesis dice que PLANEN es el decimotercer mandato y se integra con otros quince, mientras la cabecera declara un canon de 27 PLANes más PLANRUTA",
+   "grav": "revisar"
+  },
+  "5de16100": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "El texto dice que el 75% del subsidio beneficia a empresas, pero generación, gas y distribución de la tabla 1.2 suman ~87%",
+   "grav": "revisar"
+  },
+  "f557fd83": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "Un fondo de USD 85.000-120.000M para 47 millones de personas es más de cien veces menor por habitante que los USD 315.000 noruegos, no 15 veces",
+   "grav": "revisar"
+  },
+  "f2734450": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "La sección 4 se titula «los cuatro pilares» y dice que hay cuatro, pero la tesis y la sección 4B declaran cinco pilares con LANEF como pilar 5",
+   "grav": "revisar"
+  },
+  "7246cd7a": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "El subsidio de 2038 baja al 10-15% del nivel 2026 en la tabla 5.5, al 30% en los hitos de la fase 2, y la reducción es del 50-70% en la tabla 12.3 y del 70% en el escenario base",
+   "grav": "revisar"
+  },
+  "fbf5f15f": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "La ANEN se desarrolla como «Agencia Nacional de Energía y Transición de Matriz» en la fase 0 y el glosario, y como «Agencia Nacional de Energía y Frontera Tecnológica» en el título de la sección 9",
+   "grav": "revisar"
+  },
+  "35556b93": {
+   "tipo": "lectura",
+   "plan": "PLANEN",
+   "titulo": "El total de capacidad de litio de la tabla B.2 figura como ~227.000 t, pero las ocho filas suman 207.000 t",
+   "grav": "revisar"
+  },
+  "ed30c9ed": {
+   "tipo": "lectura",
+   "plan": "PLANFOCO",
+   "titulo": "La línea 171 manda a la Sección 13.2 para ver que la Fase 0 mide los horarios, pero 13.2 trata la extinción y la pérdida del ecosistema; el relevamiento de horarios está en 4.5 y en la Sección 16",
+   "grav": "revisar"
+  },
+  "c2a2e829": {
+   "tipo": "lectura",
+   "plan": "PLANFOCO",
+   "titulo": "El censo de cero ocurrencias se declara sobre «los veinticuatro documentos del taller», cuando el registro tiene hoy 28 documentos; el conteo puede estar desactualizado",
+   "grav": "revisar"
+  },
+  "8726c7b5": {
+   "tipo": "lectura",
+   "plan": "PLANFOCO",
+   "titulo": "La misma deuda de par recíproco con PLANFOCO se cita como PLANPREGUNTA:734 en la línea 626 y como PLANPREGUNTA:732 en la 750, y en PLANPREGUNTA:732 el texto es otro que la fórmula entrecomillada",
+   "grav": "revisar"
+  },
+  "018b8454": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "La portada dice Versión 1.2 (bloque MECANISMOS, agosto 2026) y el cierre del documento dice Versión 1.0, marzo 2026",
+   "grav": "revisar"
+  },
+  "d63d2e29": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "Recuentos viejos: «Son diez» planes y «dieciséis mandatos» (la Tabla 5 enumera quince), «Décimo Mandato Popular» y «los otros nueve» en 1391, frente al canon de 27 PLANes",
+   "grav": "revisar"
+  },
+  "167e7b32": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "La costa atlántica es de 5.117 km en la Tabla 1 y de 4.725 km de costa oceánica en 27.1",
+   "grav": "revisar"
+  },
+  "5b15c9cd": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "La nota de revisión difiere toda la estrategia de exportación a 2040+ y la declara research-only, pero la Tabla 15 programa para 2026-2027 publicación del Protocolo Bastardo, nodo en Montevideo y MoU con Senegal",
+   "grav": "revisar"
+  },
+  "6169c989": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "La Sección 27.6 enmienda como error vigente que la Sección 5 diga que el Tratado Antártico «vence en 2048», pero la 5.6 ya contiene esa corrección y dice lo contrario",
+   "grav": "revisar"
+  },
+  "6000b4c0": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "La Tabla de 18.1 presupuesta un Comando de Ciberdefensa con capacidad ofensiva y la 18.2.4 la defiende, mientras 28.6 la declara falsa; la tabla 18.1 no se actualizó",
+   "grav": "revisar"
+  },
+  "d8814f37": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "Se habla de «ocho mecanismos» en 26 y en el cierre, pero 26.7 dice «los seis mecanismos anteriores» sin punto de cesión humano",
+   "grav": "revisar"
+  },
+  "47cd82e5": {
+   "tipo": "lectura",
+   "plan": "PLANGEO",
+   "titulo": "El parche declara «Depende de: PLANRUTA», pero la sección de integración dice que PLANGEO necesita de PLANDIG, PLANSUS, PLANMON y PLANEB",
+   "grav": "revisar"
+  },
+  "239560f1": {
+   "tipo": "lectura",
+   "plan": "PLANISV",
+   "titulo": "Retenciones afectadas con tres valores: 1% de soja = USD 300–500M/año; 0,5–1% = USD 25–80M/año; 2–3%. El presupuesto canónico de cabecera es 50M/año o 1,0% del PBI",
+   "grav": "revisar"
+  },
+  "2b133053": {
+   "tipo": "lectura",
+   "plan": "PLANISV",
+   "titulo": "«Dieciséis mandatos», con 16 listados, contra el canon de 27 de su propia cabecera",
+   "grav": "revisar"
+  },
+  "2f0e31e1": {
+   "tipo": "lectura",
+   "plan": "PLANISV",
+   "titulo": "Las 6 agro-regiones se definen distinto en el texto y en la Tabla 7",
+   "grav": "revisar"
+  },
+  "b41db7a7": {
+   "tipo": "lectura",
+   "plan": "PLANISV",
+   "titulo": "Remisiones internas erróneas: manda el Fondo a la Sección 12 (es la 9), el Tablero a la 10 (es la 14) y el carbono a 12.4",
+   "grav": "revisar"
+  },
+  "bf88beb7": {
+   "tipo": "lectura",
+   "plan": "PLANISV",
+   "titulo": "Celda de tabla corrupta: «2 en 2028 (tranche-1),5»",
+   "grav": "revisar"
+  },
+  "4accd79a": {
+   "tipo": "lectura",
+   "plan": "PLANJUS",
+   "titulo": "«Quinto pilar» y «los otros cuatro mandatos»: conteo de un corpus de cinco",
+   "grav": "revisar"
+  },
+  "c17ea1eb": {
+   "tipo": "lectura",
+   "plan": "PLANJUS",
+   "titulo": "El costo anual es USD 800–2.500M en la tesis y USD 300–600M en el modelo económico y la Tabla 10",
+   "grav": "revisar"
+  },
+  "ea257a23": {
+   "tipo": "lectura",
+   "plan": "PLANJUS",
+   "titulo": "El piso de ANJUS es «no menos de USD 800M/año», pero la Tabla 18 gasta USD 283M en 2031",
+   "grav": "revisar"
+  },
+  "2af762ac": {
+   "tipo": "lectura",
+   "plan": "PLANJUS",
+   "titulo": "La Tabla 10 totaliza USD 3.310–5.650M a diez años; el texto dice 3.300–5.700M y 4.500M para el caso base",
+   "grav": "revisar"
+  },
+  "50aa419a": {
+   "tipo": "lectura",
+   "plan": "PLANJUS",
+   "titulo": "Casos resueltos en 2035: 5.000.000 en un lugar y 4.000.000 en otro",
+   "grav": "revisar"
+  },
+  "fa4c03e9": {
+   "tipo": "lectura",
+   "plan": "PLANJUS",
+   "titulo": "La lista de dependencias del cierre (PLANSEG, PLANDIG, PLANRUTA) no coincide con las tablas de integración. Además se repiten los números de TABLA 13, 14, 15, 18, 19, 20 y 21, y no hay Sección 20",
+   "grav": "revisar"
+  },
+  "f089ad03": {
+   "tipo": "lectura",
+   "plan": "PLANMEMORIA",
+   "titulo": "El régimen pleno totaliza USD 792–1.184M en la tabla y USD 680–920M en la tesis y el diseño institucional",
+   "grav": "revisar"
+  },
+  "0acf3463": {
+   "tipo": "lectura",
+   "plan": "PLANMEMORIA",
+   "titulo": "Afirma que la ANM tiene «presupuesto constitucional protegido» y en otros dos lugares lo difiere a tranche-3+",
+   "grav": "revisar"
+  },
+  "96bebc0c": {
+   "tipo": "lectura",
+   "plan": "PLANMEMORIA",
+   "titulo": "Errata: «reduciéendose». Además no hay SECCIÓN 7 ni SECCIÓN 13",
+   "grav": "revisar"
+  },
+  "e03b57b5": {
+   "tipo": "lectura",
+   "plan": "PLANMEMORIA",
+   "titulo": "El cierre dice que depende solo de PLANDIG y PLANRUTA; la tabla de integración lista cinco fuentes más",
+   "grav": "revisar"
+  },
+  "0aaac6a9": {
+   "tipo": "lectura",
+   "plan": "PLANMEMORIA",
+   "titulo": "Cita una «Fase 0» que la hoja de ruta nunca define",
+   "grav": "revisar"
+  },
+  "d48e86b1": {
+   "tipo": "lectura",
+   "plan": "PLANMESA",
+   "titulo": "Quedan marcadores sin completar en la cabecera: «Presupuesto canónico: (tranche-2)» e «Instrumento legal: (tranche-2…)». La numeración salta la 7 y la 13",
+   "grav": "revisar"
+  },
+  "f0ffd32b": {
+   "tipo": "lectura",
+   "plan": "PLANMESA",
+   "titulo": "Régimen pleno: USD 420–680M en la introducción y USD 420–630M en la tabla 8.2",
+   "grav": "revisar"
+  },
+  "ac01b78f": {
+   "tipo": "lectura",
+   "plan": "PLANMESA",
+   "titulo": "Cita «PLANCÍRCULOS», que no es un PLAN",
+   "grav": "revisar"
+  },
+  "dc6bd1dd": {
+   "tipo": "lectura",
+   "plan": "PLANMESA",
+   "titulo": "El Protocolo de Emergencia dura 21 días y remite a «Sección 12»; más abajo dura 24 días, y la emergencia está en 6.5",
+   "grav": "revisar"
+  },
+  "08151c0d": {
+   "tipo": "lectura",
+   "plan": "PLANMESA",
+   "titulo": "El presupuesto de la AMCC es 0,05% del PBI en 4.2 y 0,07% en 8.3 y 16.1",
+   "grav": "revisar"
+  },
+  "f35c820b": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "Regalías energéticas: USD 2.000–5.000M/año en el cuerpo y USD 800–3.500M+/año en la integración",
+   "grav": "revisar"
+  },
+  "2f10dfb7": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "El gasto de emergencia tiene «Triple cerradura» (3) en un lugar y «5 candados» en otro",
+   "grav": "revisar"
+  },
+  "dc6d7ce0": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "Comercio intra-Mercosur: USD ~50–60B en un lugar y 40–60B en otro",
+   "grav": "revisar"
+  },
+  "e633f551": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "El glosario dice que el Panel tiene 15 ciudadanos; el cuerpo nunca da el número",
+   "grav": "revisar"
+  },
+  "0d5958a1": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "«Undécimo mandato»: ordinal de un conteo viejo",
+   "grav": "revisar"
+  },
+  "331ec929": {
+   "tipo": "lectura",
+   "plan": "PLANMON",
+   "titulo": "La integración llama al fondo «Fondo Soberano Ciudadano» (el FSC de PLANTER); el cuerpo lo llama «Fondo Soberano Bastardo»",
+   "grav": "revisar"
+  },
+  "66c648c8": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "Se llama «22° plan temático», «Vigésimo Tercer Mandato» y «vigésimo segundo» según el lugar",
+   "grav": "revisar"
+  },
+  "0c0ffac1": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "El personaje Julia vive en Villa Devoto, Liniers, Palermo y Mar del Plata según la escena; Héctor es de Laguna Paiva y de Alta Córdoba",
+   "grav": "revisar"
+  },
+  "9639ae1b": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "La Tabla 11.1 da 47.300 para la Fase 3 y 22.700 para la Fase 4; la tesis dice 47.000 y 23.000",
+   "grav": "revisar"
+  },
+  "3990cf3b": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "Manda el Protocolo de Falla a la «Sección 15»; es la 23. No hay Sección 10",
+   "grav": "revisar"
+  },
+  "e1a2a519": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "Siglas con dos expansiones: CAR («Costo Anual de Reconversión» / «Coeficiente de Automatización por Ruta») y PCAV («Protocolo de Conformidad de Activos de Movilidad» / «Permiso de Conducción Autónoma de Vehículo»)",
+   "grav": "revisar"
+  },
+  "eb7d6af6": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "Directorio de ANMov: 11 (luego 13) miembros con mandato de 5 años en un lugar; 13 miembros con 6 años y otra composición en otro",
+   "grav": "revisar"
+  },
+  "839c9ae8": {
+   "tipo": "lectura",
+   "plan": "PLANMOV",
+   "titulo": "Cita «ANEN», una agencia que ningún PLAN define",
+   "grav": "revisar"
+  },
+  "c8d7c8bb": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "El PLAN cuenta «22 PLANes» (diecisiete con piso y cinco sin él) y 23 documentos previos (154), pero la cabecera declara 27 temáticos más PLANRUTA",
+   "grav": "revisar"
+  },
+  "02a5d6af": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "Ingresos Brutos se da como 4,0–4,5% del PBI (138) y luego como «cuatro puntos y medio» (523) o «cuatro a cuatro y medio» (527): el extremo bajo cambia",
+   "grav": "revisar"
+  },
+  "0fe957e0": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "Dice que AFIP y ATN se cuentan en «46.234 líneas de los veintitrés documentos anteriores», cifra que ya no describe el corpus de 27 PLANes",
+   "grav": "revisar"
+  },
+  "d8b68a9b": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "El gasto consolidado de 42,8% del PBI se presenta como el nivel argentino real de 2015–2023, pero el escenario central del mismo PLAN fija G en 34,9% del PBI",
+   "grav": "revisar"
+  },
+  "4decfe53": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "Dice que veinticinco votos con doce provincias afines son mayoría, pero doce de veinticinco no alcanzan la mayoría simple de trece",
+   "grav": "revisar"
+  },
+  "9d0208a2": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "La integración dice que PLANARCO «aún no existe», mientras la nota final de 2026-08-02 informa que PLANARCO ya está escrito (ordinal 24)",
+   "grav": "revisar"
+  },
+  "c866dcdf": {
+   "tipo": "lectura",
+   "plan": "PLANPACTO",
+   "titulo": "La numeración de secciones salta de la SECCIÓN 12 (Tablero) a la SECCIÓN 14 (Dimensión Federal): no existe la SECCIÓN 13",
+   "grav": "revisar"
+  },
+  "e27360e7": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Se dice que el taller tiene veinticuatro documentos (196, 166, 668), pero la cabecera fija el canon en 27 PLANes más PLANRUTA",
+   "grav": "revisar"
+  },
+  "4be0bc4b": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Los otros PLANes se cuentan como veinticinco (438, 724, 744, 869) y como veintiséis (444, 903); con el canon en 27, el resto es 26",
+   "grav": "revisar"
+  },
+  "3c011996": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "El Seguro es el 10% del presupuesto y se describe como varias decenas de millones por año, pero 10% de la banda de régimen de 1.500–2.300M son 150–230M, cientos de millones",
+   "grav": "revisar"
+  },
+  "a9301422": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Dice que quince de las veintidós agencias del corpus siguen el patrón AN+sufijo; el canon actual tiene 27 PLANes y la cuenta de agencias está desactualizada",
+   "grav": "revisar"
+  },
+  "1014b9a0": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "La reserva anti-colapso del Fondo Intergeneracional se cita en PLANTER:710 y :839 en la sección 13.3, y en PLANTER:722 y :839 en el mapa de perdedores",
+   "grav": "revisar"
+  },
+  "75c22b8f": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "La numeración de secciones salta de la 17 a la 19: no existe la Sección 18",
+   "grav": "revisar"
+  },
+  "ffb4fa2e": {
+   "tipo": "lectura",
+   "plan": "PLANPREGUNTA",
+   "titulo": "La visión habla de doce años corridos de la Serie Centenaria para 2041, pero la Fase 1 dice que empieza a medirse en 2031-2032, o sea unos diez",
+   "grav": "revisar"
+  },
+  "681cd0bd": {
+   "tipo": "lectura",
+   "plan": "PLANPUERTA",
+   "titulo": "La SECCIÓN 3 dice que sin Estado corren dos dispositivos (Compadrazgo y Cuerpo de Scouts en la Fase 0), pero la SECCIÓN 12 cuenta «uno solo» en los tramos 1 y 2 y después vuelve a decir «los dos dispositivos que corren sin Estado»",
+   "grav": "revisar"
+  },
+  "dc5991b2": {
+   "tipo": "lectura",
+   "plan": "PLANPUERTA",
+   "titulo": "ANAR opera cuatro dispositivos (Lista, Cuerpo, Contrato, Tablero) y la Ventana no es poder suyo, pero la SECCIÓN 12 enumera sus cuatro como Lista, Cuerpo, Ventana y Contrato, omitiendo el Tablero",
+   "grav": "revisar"
+  },
+  "703ef75d": {
+   "tipo": "lectura",
+   "plan": "PLANPUERTA",
+   "titulo": "La oración «Y de la serie que juzga a este PLAN va a estar afuera siempre» está truncada: falta el sujeto, probablemente Delfina",
+   "grav": "revisar"
+  },
+  "9b77c88d": {
+   "tipo": "lectura",
+   "plan": "PLANREP",
+   "titulo": "«Tabla 7B» repite la etiqueta «Tabla 7b». La numeración salta la Sección 14",
+   "grav": "revisar"
+  },
+  "2e04c608": {
+   "tipo": "lectura",
+   "plan": "PLANREP",
+   "titulo": "A PLANEDU le toca el 15% del ahorro neto en la integración, y «10–15%, no antes del Año 4» en el cuerpo",
+   "grav": "revisar"
+  },
+  "55acad4e": {
+   "tipo": "lectura",
+   "plan": "PLANREP",
+   "titulo": "El título dice «Cinco Redes de Contención»; el texto dice seis y lista la RED 6",
+   "grav": "revisar"
+  },
+  "743ad3a7": {
+   "tipo": "lectura",
+   "plan": "PLANREP",
+   "titulo": "La ley da 100% durante la formación, luego 80% por 12 meses y 50% por 12 más; el calendario da 100% por 18 meses, luego 80%, 50% y 0%",
+   "grav": "revisar"
+  },
+  "b49f7471": {
+   "tipo": "lectura",
+   "plan": "PLANREP",
+   "titulo": "El título dice 20.000 personas y el párrafo siguiente 25.000",
+   "grav": "revisar"
+  },
+  "04887846": {
+   "tipo": "lectura",
+   "plan": "PLANRUTA",
+   "titulo": "La cabecera declara «27 thematic» y unas líneas después «22 thematic»",
+   "grav": "revisar"
+  },
+  "5d7b2308": {
+   "tipo": "lectura",
+   "plan": "PLANRUTA",
+   "titulo": "Fase 0: USD 10–22M en el resumen y 10,8–23,9M en el total de la tabla",
+   "grav": "revisar"
+  },
+  "f17c3a1d": {
+   "tipo": "lectura",
+   "plan": "PLANRUTA",
+   "titulo": "2,5–10% del presupuesto provincial en un lugar y ~2,5–5% en otro",
+   "grav": "revisar"
+  },
+  "75cd60b9": {
+   "tipo": "lectura",
+   "plan": "PLANRUTA",
+   "titulo": "«Depende de: PLANRUTA» (se declara dependiente de sí mismo) y queda un «Próximas secciones pendientes» sin limpiar",
+   "grav": "revisar"
+  },
+  "c7e01b56": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "La cabecera fija 1,8B/año; el cuerpo USD 600M/año; y el cierre dice que el pico no supera 3.000M anuales",
+   "grav": "revisar"
+  },
+  "dcb1c209": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "«Dieciséis mandatos» como conteo vigente",
+   "grav": "revisar"
+  },
+  "fb6a074a": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "Sedentarismo 44,2% contra 64,9%; licencia de paternidad de 30 días contra 3 meses",
+   "grav": "revisar"
+  },
+  "359dbb42": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "Remisiones internas mal numeradas: Centros de Vitalidad «(Sección 8)» está en la 9; Primeros 1.000 días «(Sección 9)» es la 4; queda un «[línea 144]» suelto",
+   "grav": "revisar"
+  },
+  "0310d04d": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "Escala: 3.000 Centros y 25.000 Familias Mentoras contra 5.000 Centros y 2 millones de Familias Mentoras",
+   "grav": "revisar"
+  },
+  "f54f788d": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "Retorno por peso invertido con tres valores: 5–8, 4–7 y 8–12",
+   "grav": "revisar"
+  },
+  "f7e3be94": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "Ahorro: USD 7.200M en un lugar y USD 7.800M en otro (30% de 26.000M es 7.800M)",
+   "grav": "revisar"
+  },
+  "7846e4da": {
+   "tipo": "lectura",
+   "plan": "PLANSAL",
+   "titulo": "10 Centros piloto en un lugar y 5.000 centros piloto en otros dos",
+   "grav": "revisar"
+  },
+  "a5d1a59b": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "La tesis fija la inversión en USD 3.000–6.000M a 15 años, pero el marco presupuestario la totaliza en USD 21.100-35.750M, y el piso de 1,5% del PBI para ANSEG se financia con solo USD 15.000-25.000M en 15 años",
+   "grav": "revisar"
+  },
+  "a1a97f09": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "Cuenta de mandatos obsoleta: se llama decimocuarto mandato dentro de un ecosistema de dieciséis (o catorce en el índice), cuando el canon es de 27 PLANes más PLANRUTA",
+   "grav": "revisar"
+  },
+  "3f98aa68": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "La referencia a la Sección 6.2 para los 5.000-10.000 efectivos de ciberseguridad apunta a un apartado equivocado; esa cifra está en 6.3",
+   "grav": "revisar"
+  },
+  "dab80af2": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "ANSEG se describe como ente autárquico con presupuesto constitucional protegido, pero la revisión posterior y el encabezado dicen que en tranche-2 es una execution cell sin autonomía constitucional ni nuevas agencias autónomas",
+   "grav": "revisar"
+  },
+  "46491abf": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "Se exige tener 250+ EB operativas 12 meses antes de la legalización, pero la pre-fase solo prevé 50 EB piloto y las 250 se alcanzan en el primer trimestre del Año 1",
+   "grav": "revisar"
+  },
+  "dd8a22d3": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "Numeración de secciones rota: falta la Sección 10, y los subapartados de las Secciones 13, 14 y 16 se numeran 12.x, 13.1 y 15.x",
+   "grav": "revisar"
+  },
+  "8a4c5fdd": {
+   "tipo": "lectura",
+   "plan": "PLANSEG",
+   "titulo": "Se proyectan 50.000 oficiales comunitarios, pero 5.000 EB con 4-6 oficiales cada una suman 20.000-30.000",
+   "grav": "revisar"
+  },
+  "fbd80228": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "La tesis da un costo de USD 500–1.500M; la Tabla 13.1 da USD 800M–2,2B",
+   "grav": "revisar"
+  },
+  "9965bef3": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "Ingresos 2031: USD 2.000–8.000M en la tesis y USD 2,2–4,4B en la Tabla 13.2",
+   "grav": "revisar"
+  },
+  "59f3c2ae": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "Estados de EE.UU. con cannabis legal: 37 en un lugar, 24 en otros dos",
+   "grav": "revisar"
+  },
+  "d3694472": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "Llama «constitucional» al piso de ANSUS y a la afectación del Puente Sanitario, y en otro lugar dice que no hace falta reforma constitucional",
+   "grav": "revisar"
+  },
+  "c1cf2d29": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "«PLANSALUD» no existe; el PLAN de salud es PLANSAL",
+   "grav": "revisar"
+  },
+  "3805b387": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "Remite a «Sección 7, marco cultural»; la Sección 7 es la de presos y no tiene marco cultural",
+   "grav": "revisar"
+  },
+  "ecc9a8e5": {
+   "tipo": "lectura",
+   "plan": "PLANSUS",
+   "titulo": "«Las otras 21 secciones»; el documento tiene 31",
+   "grav": "revisar"
+  },
+  "73ab8622": {
+   "tipo": "lectura",
+   "plan": "PLANTALLER",
+   "titulo": "«Tallers» / «TALLERS» donde el resto del documento escribe «Talleres»",
+   "grav": "revisar"
+  },
+  "efaa0d2d": {
+   "tipo": "lectura",
+   "plan": "PLANTALLER",
+   "titulo": "Inversión inicial por Taller: «USD 120–180K» en la tesis y USD 180K en el resto",
+   "grav": "revisar"
+  },
+  "68f263b2": {
+   "tipo": "lectura",
+   "plan": "PLANTALLER",
+   "titulo": "Remite la modalidad de aprendiz a la «Sección 6.2», que trata de ingresos del practicante; la figura está en 3.3",
+   "grav": "revisar"
+  },
+  "c253f14c": {
+   "tipo": "lectura",
+   "plan": "PLANTALLER",
+   "titulo": "Habla del presupuesto constitucional de la ANT como vigente y la hoja de ruta lo difiere a 2040",
+   "grav": "revisar"
+  },
+  "37cea97e": {
+   "tipo": "lectura",
+   "plan": "PLANTALLER",
+   "titulo": "No existen SECCIÓN 7 ni SECCIÓN 12; la INTEGRACIÓN queda sin número",
+   "grav": "revisar"
+  },
+  "dd965cb3": {
+   "tipo": "lectura",
+   "plan": "PLANTER",
+   "titulo": "«Vigésimo Segundo Mandato» en la portada, «vigésimo quinto PLAN» en el cuerpo y «27 thematic» en la cabecera",
+   "grav": "revisar"
+  },
+  "f62110c7": {
+   "tipo": "lectura",
+   "plan": "PLANTER",
+   "titulo": "ANTSPO administra el FSC como agencia, y la hoja de ruta ubica la L1 en una comisión o programa interministerial «sin agencia autárquica»",
+   "grav": "revisar"
+  },
+  "4693237e": {
+   "tipo": "lectura",
+   "plan": "PLANTER",
+   "titulo": "El mismo flujo del 20% se llama «Fondo de Territorio Afectado» en un lugar y «Compensación a Territorios Afectados» en otro",
+   "grav": "revisar"
+  },
+  "b48a5f51": {
+   "tipo": "lectura",
+   "plan": "PLANVIV",
+   "titulo": "La cabecera fija 2,5B/año + 8,0B de inversión en 24 meses; el cuerpo, USD 80.000–120.000M en 15 años",
+   "grav": "revisar"
+  },
+  "56b2d689": {
+   "tipo": "lectura",
+   "plan": "PLANVIV",
+   "titulo": "Se llama «Decimoquinto Mandato» y cuenta «dieciséis mandatos» y «14 planes sectoriales»",
+   "grav": "revisar"
+  },
+  "c868fef1": {
+   "tipo": "lectura",
+   "plan": "PLANVIV",
+   "titulo": "La matriz de riesgos sigue contando a los trabajadores regionales (5–10K) como fuente de mano de obra; esa fuente fue derogada el 2026-08-02 por PLANPUERTA",
+   "grav": "revisar"
+  },
+  "d8ef76e0": {
+   "tipo": "lectura",
+   "plan": "PLANVIV",
+   "titulo": "Dice «7 leyes»; §16.1 lista 8 instrumentos",
+   "grav": "revisar"
+  },
+  "b8ed4c9e": {
+   "tipo": "lectura",
+   "plan": "PLANVIV",
+   "titulo": "El indicador 14 cita un cuestionario en «§14.2»; no hay sección 14 numerada",
+   "grav": "revisar"
+  },
+  "ca68c14e": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANAGUA",
+   "titulo": "Dice tomar «Fondo Bastardo» de PLANEB, y PLANEB no lo nombra",
+   "grav": "revisar"
+  },
+  "0772495e": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANCUIDADO",
+   "titulo": "Dice tomar «Archivo de Memoria» de PLANMEMORIA, y PLANMEMORIA no lo nombra",
+   "grav": "revisar"
+  },
+  "0554ff75": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANDIG",
+   "titulo": "Dice tomar «Dendritas Culturales» de PLANCUL, y PLANCUL no lo nombra",
+   "grav": "revisar"
+  },
+  "dddbb91c": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANEDU",
+   "titulo": "Dice tomar «Red Digital Nacional» de PLAN24CN, y PLAN24CN no lo nombra",
+   "grav": "revisar"
+  },
+  "f1aaa7bd": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANEDU",
+   "titulo": "Dice tomar «Nodos de Actividad» de PLANREP, y PLANREP no lo nombra",
+   "grav": "revisar"
+  },
+  "c3615a43": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANEN",
+   "titulo": "Dice tomar «Hub Logístico Austral» de PLANGEO, y PLANGEO no lo nombra",
+   "grav": "revisar"
+  },
+  "029efae7": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANGEO",
+   "titulo": "Dice tomar «Tribunales Ciudadanos por Sorteo» de PLANJUS, y PLANJUS no lo nombra",
+   "grav": "revisar"
+  },
+  "d33a2b72": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANMESA",
+   "titulo": "Dice tomar «Archivo PLANMEMORIA» de PLANMEMORIA, y PLANMEMORIA no lo nombra",
+   "grav": "revisar"
+  },
+  "cad3eabb": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANMON",
+   "titulo": "Dice tomar «Unidad de Cuenta» de PLANEB, y PLANEB no lo nombra",
+   "grav": "revisar"
+  },
+  "95e4e237": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANMOV",
+   "titulo": "Dice tomar «Mesa Civil de Corredor» de PLANMESA, y PLANMESA no lo nombra",
+   "grav": "revisar"
+  },
+  "2848d598": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANMOV",
+   "titulo": "Dice tomar «Credencial de Materia Movilidad» de PLANMESA, y PLANMESA no lo nombra",
+   "grav": "revisar"
+  },
+  "228a769e": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANMOV",
+   "titulo": "Dice tomar «Síndicos de Archivo» de PLANDIG, y PLANDIG no lo nombra",
+   "grav": "revisar"
+  },
+  "67e93f89": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANMOV",
+   "titulo": "Dice tomar «Personalidad Jurídica del río Paraná» de PLANTER, y PLANTER no lo nombra",
+   "grav": "revisar"
+  },
+  "a954df42": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANPACTO",
+   "titulo": "Dice tomar «Sorteo canónico de paneles» de PLANJUS, y PLANJUS no lo nombra",
+   "grav": "revisar"
+  },
+  "cd1f9117": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANPUERTA",
+   "titulo": "Dice tomar «Tablero de Reconversión» de PLANREP, y PLANREP no lo nombra",
+   "grav": "revisar"
+  },
+  "28407eb4": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANREP",
+   "titulo": "Dice tomar «Paneles Ciudadanos de PLANJUS» de PLANJUS, y PLANJUS no lo nombra",
+   "grav": "revisar"
+  },
+  "3405cc17": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANRUTA",
+   "titulo": "Dice tomar «Tableros Nacionales» de PLANDIG, y PLANDIG no lo nombra",
+   "grav": "revisar"
+  },
+  "49d764ad": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANRUTA",
+   "titulo": "Dice tomar «Ley de Transparencia de Costos» de PLANEB, y PLANEB no lo nombra",
+   "grav": "revisar"
+  },
+  "2c03cbe9": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANRUTA",
+   "titulo": "Dice tomar «Ley de Presupuesto Abierto» de PLANDIG, y PLANDIG no lo nombra",
+   "grav": "revisar"
+  },
+  "b1989aa6": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANSEG",
+   "titulo": "Dice tomar «Sistema JUS» de PLANJUS, y PLANJUS no lo nombra",
+   "grav": "revisar"
+  },
+  "487173de": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANSEG",
+   "titulo": "Dice tomar «Centro de Operaciones de Ciberseguridad» de PLANDIG, y PLANDIG no lo nombra",
+   "grav": "revisar"
+  },
+  "13d4d191": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANSUS",
+   "titulo": "Dice tomar «Criterio de arraigo» de PLANPUERTA, y PLANPUERTA no lo nombra",
+   "grav": "revisar"
+  },
+  "5c6a48c6": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANTALLER",
+   "titulo": "Dice tomar «Infraestructura de estadio A de PLANDIG» de PLANDIG, y PLANDIG no lo nombra",
+   "grav": "revisar"
+  },
+  "5783d077": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANTER",
+   "titulo": "Dice tomar «Mesa Civil de Territorio» de PLANMESA, y PLANMESA no lo nombra",
+   "grav": "revisar"
+  },
+  "a8c4f922": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANTER",
+   "titulo": "Dice tomar «Pactos de Cuidado Intercultural» de PLANCUIDADO, y PLANCUIDADO no lo nombra",
+   "grav": "revisar"
+  },
+  "c5bbef47": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANTER",
+   "titulo": "Dice tomar «Credencial de Materia en Tierra» de PLANMESA, y PLANMESA no lo nombra",
+   "grav": "revisar"
+  },
+  "ff15a46e": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANTER",
+   "titulo": "Dice tomar «Bastardas Pesqueras» de PLANEB, y PLANEB no lo nombra",
+   "grav": "revisar"
+  },
+  "3294c16b": {
+   "tipo": "prestamo-sin-origen",
+   "plan": "PLANVIV",
+   "titulo": "Dice tomar «panel JUS-1» de PLANJUS, y PLANJUS no lo nombra",
+   "grav": "revisar"
+  },
+  "a0efd779": {
+   "tipo": "remision-interna-rota",
+   "plan": "PLANAGUA",
+   "titulo": "Remite a su propia §18.6, que no existe",
+   "grav": "revisar"
+  },
+  "ef62ef0d": {
+   "tipo": "remision-interna-rota",
+   "plan": "PLANVIV",
+   "titulo": "Remite a su propia §14.2, que no existe",
+   "grav": "revisar"
+  },
+  "9acf2e67": {
+   "tipo": "seccion-duplicada",
+   "plan": "PLANSEG",
+   "titulo": "Dos títulos llevan el número 12.1",
+   "grav": "revisar"
+  },
+  "4d094dca": {
+   "tipo": "seccion-duplicada",
+   "plan": "PLANSEG",
+   "titulo": "Dos títulos llevan el número 12.2",
+   "grav": "revisar"
+  },
+  "8209ba48": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANJUS",
+   "titulo": "Las tablas dicen que PLANJUS recibe de PLANPUERTA, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "91cf2b5d": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANMEMORIA",
+   "titulo": "Las tablas dicen que PLANMEMORIA recibe de PLANPUERTA, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "3dc7c27b": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANPUERTA",
+   "titulo": "Las tablas dicen que PLANPUERTA recibe de PLANSAL, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "37f48c4d": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANPUERTA",
+   "titulo": "Las tablas dicen que PLANPUERTA recibe de PLANEB, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "3e8ce2c2": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANPUERTA",
+   "titulo": "Las tablas dicen que PLANPUERTA recibe de PLANVIV, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "4001c9ee": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANPUERTA",
+   "titulo": "Las tablas dicen que PLANPUERTA recibe de PLANAGUA, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "c4499cf9": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANPUERTA",
+   "titulo": "Las tablas dicen que PLANPUERTA recibe de PLANCUIDADO, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "8197336f": {
+   "tipo": "tabla-sin-arista",
+   "plan": "PLANPUERTA",
+   "titulo": "Las tablas dicen que PLANPUERTA recibe de PLANMEMORIA, y arquitecto-data.ts no tiene arista entre los dos",
+   "grav": "revisar"
+  },
+  "437a4062": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLAN24CN",
+   "titulo": "Sus tablas ponen a 1 PLAN a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "f2e0a8ac": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANAGUA",
+   "titulo": "Sus tablas ponen a 2 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "51408e65": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANCUIDADO",
+   "titulo": "Sus tablas ponen a 2 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "2bb9895c": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANDIG",
+   "titulo": "Sus tablas ponen a 17 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "8507da30": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANEB",
+   "titulo": "Sus tablas ponen a 5 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "3918a4dd": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANEDU",
+   "titulo": "Sus tablas ponen a 4 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "b55a9daf": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANEN",
+   "titulo": "Sus tablas ponen a 3 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "7f008ef6": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANISV",
+   "titulo": "Sus tablas ponen a 1 PLAN a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "782e6c2e": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANJUS",
+   "titulo": "Sus tablas ponen a 8 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "ea1270da": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANMEMORIA",
+   "titulo": "Sus tablas ponen a 3 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "117b88f8": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANMESA",
+   "titulo": "Sus tablas ponen a 1 PLAN a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "3274115b": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANMON",
+   "titulo": "Sus tablas ponen a 4 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "84a85ff4": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANREP",
+   "titulo": "Sus tablas ponen a 7 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "50ace641": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANSAL",
+   "titulo": "Sus tablas ponen a 1 PLAN a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "a8d00b75": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANSEG",
+   "titulo": "Sus tablas ponen a 3 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "b9657e86": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANSUS",
+   "titulo": "Sus tablas ponen a 2 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "ee90b9e1": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANTALLER",
+   "titulo": "Sus tablas ponen a 1 PLAN a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "c76b3a86": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANTER",
+   "titulo": "Sus tablas ponen a 3 PLANes a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "b79c6569": {
+   "tipo": "vinculo-en-dos-direcciones",
+   "plan": "PLANVIV",
+   "titulo": "Sus tablas ponen a 1 PLAN a la vez en «aporta» y en «necesita»; la app dibuja una sola dirección",
+   "grav": "revisar"
+  },
+  "57a80d5f": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLAN24CN",
+   "titulo": "PLANPUERTA dice aportarle a PLAN24CN, y PLAN24CN no nombra a PLANPUERTA ni una vez",
+   "grav": "nota"
+  },
+  "a47e0b5f": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANAGUA",
+   "titulo": "PLANPACTO dice aportarle a PLANAGUA, y PLANAGUA no nombra a PLANPACTO ni una vez",
+   "grav": "nota"
+  },
+  "463d267a": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANCUIDADO",
+   "titulo": "PLANPACTO dice aportarle a PLANCUIDADO, y PLANCUIDADO no nombra a PLANPACTO ni una vez",
+   "grav": "nota"
+  },
+  "a902d3dc": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANEDU",
+   "titulo": "PLANPACTO dice aportarle a PLANEDU, y PLANEDU no nombra a PLANPACTO ni una vez",
+   "grav": "nota"
+  },
+  "48ddc308": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANEN",
+   "titulo": "PLANPREGUNTA dice aportarle a PLANEN, y PLANEN no nombra a PLANPREGUNTA ni una vez",
+   "grav": "nota"
+  },
+  "91e97a32": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANISV",
+   "titulo": "PLANPACTO dice aportarle a PLANISV, y PLANISV no nombra a PLANPACTO ni una vez",
+   "grav": "nota"
+  },
+  "7e2f8dee": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANISV",
+   "titulo": "PLANPREGUNTA dice aportarle a PLANISV, y PLANISV no nombra a PLANPREGUNTA ni una vez",
+   "grav": "nota"
+  },
+  "fc8dd8b7": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANJUS",
+   "titulo": "PLANPUERTA dice aportarle a PLANJUS, y PLANJUS no nombra a PLANPUERTA ni una vez",
+   "grav": "nota"
+  },
+  "679be694": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANMEMORIA",
+   "titulo": "PLANPREGUNTA dice aportarle a PLANMEMORIA, y PLANMEMORIA no nombra a PLANPREGUNTA ni una vez",
+   "grav": "nota"
+  },
+  "a847c76f": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANMEMORIA",
+   "titulo": "PLANPUERTA dice aportarle a PLANMEMORIA, y PLANMEMORIA no nombra a PLANPUERTA ni una vez",
+   "grav": "nota"
+  },
+  "119a6b07": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANPREGUNTA",
+   "titulo": "PLANSUS dice aportarle a PLANPREGUNTA, y PLANPREGUNTA no nombra a PLANSUS ni una vez",
+   "grav": "nota"
+  },
+  "185fc94f": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANPREGUNTA",
+   "titulo": "PLANPUERTA dice aportarle a PLANPREGUNTA, y PLANPREGUNTA no nombra a PLANPUERTA ni una vez",
+   "grav": "nota"
+  },
+  "0c836aa4": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANREP",
+   "titulo": "PLANPUERTA dice aportarle a PLANREP, y PLANREP no nombra a PLANPUERTA ni una vez",
+   "grav": "nota"
+  },
+  "0e272ea6": {
+   "tipo": "aporte-sin-acuse",
+   "plan": "PLANVIV",
+   "titulo": "PLANPACTO dice aportarle a PLANVIV, y PLANVIV no nombra a PLANPACTO ni una vez",
+   "grav": "nota"
+  },
+  "1b7ab20f": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANARCO",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "bd006cb1": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANARCO",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "9f12b5cb": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANARCO",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "4af86845": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANARCO",
+   "titulo": "Nombra a PLANVEJ, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "431439ba": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "57dea1d7": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "748de851": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "4d5595aa": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "42882e39": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "f7b478cb": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANJUB, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "cb37d2a4": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANCUL",
+   "titulo": "Nombra a PLANTRA, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "bd936352": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANDIG",
+   "titulo": "Nombra a PLANCOG, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "a2fbf2c4": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Nombra a PLANCYT, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "43ae2032": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Nombra a PLANCYT, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "ccd7731c": {
+   "tipo": "codigo-fantasma",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Nombra a PLANCYT, que no es un PLAN del registro",
+   "grav": "nota"
+  },
+  "e0ca2088": {
+   "tipo": "integracion-en-prosa",
+   "plan": "PLANARCO",
+   "titulo": "Declara su integración en prosa, no en las tablas del TEMPLATE_INTERCONEXIONES",
+   "grav": "nota"
+  },
+  "953520c1": {
+   "tipo": "integracion-en-prosa",
+   "plan": "PLANFOCO",
+   "titulo": "Declara su integración en prosa, no en las tablas del TEMPLATE_INTERCONEXIONES",
+   "grav": "nota"
+  },
+  "4741f5b9": {
+   "tipo": "integracion-en-prosa",
+   "plan": "PLANPACTO",
+   "titulo": "Declara su integración en prosa, no en las tablas del TEMPLATE_INTERCONEXIONES",
+   "grav": "nota"
+  },
+  "a49f59ba": {
+   "tipo": "integracion-en-prosa",
+   "plan": "PLANPREGUNTA",
+   "titulo": "Declara su integración en prosa, no en las tablas del TEMPLATE_INTERCONEXIONES",
+   "grav": "nota"
+  },
+  "b448c82c": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLAN24CN",
+   "titulo": "La numeración de secciones salta: falta 16",
+   "grav": "nota"
+  },
+  "0d339545": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANAGUA",
+   "titulo": "La numeración de secciones salta: falta 18",
+   "grav": "nota"
+  },
+  "31cd653b": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANARCO",
+   "titulo": "La numeración de secciones salta: falta 14",
+   "grav": "nota"
+  },
+  "e3d18ddc": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANCUIDADO",
+   "titulo": "La numeración de secciones salta: faltan 8, 15",
+   "grav": "nota"
+  },
+  "6ba0a09b": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANDIG",
+   "titulo": "La numeración de secciones salta: falta 18",
+   "grav": "nota"
+  },
+  "4f67dc82": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANEB",
+   "titulo": "La numeración de secciones salta: falta 14",
+   "grav": "nota"
+  },
+  "f367a313": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANEDU",
+   "titulo": "La numeración de secciones salta: falta 18",
+   "grav": "nota"
+  },
+  "eb8e193d": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANEN",
+   "titulo": "La numeración de secciones salta: falta 10",
+   "grav": "nota"
+  },
+  "9c31833a": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANFOCO",
+   "titulo": "La numeración de secciones salta: falta 18",
+   "grav": "nota"
+  },
+  "e8845b4a": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANISV",
+   "titulo": "La numeración de secciones salta: falta 21",
+   "grav": "nota"
+  },
+  "220e45ff": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANJUS",
+   "titulo": "La numeración de secciones salta: falta 20",
+   "grav": "nota"
+  },
+  "1bb0dd9a": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANMEMORIA",
+   "titulo": "La numeración de secciones salta: faltan 7, 13",
+   "grav": "nota"
+  },
+  "3591ad57": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANMESA",
+   "titulo": "La numeración de secciones salta: faltan 7, 13",
+   "grav": "nota"
+  },
+  "f55dbb79": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANMOV",
+   "titulo": "La numeración de secciones salta: falta 10",
+   "grav": "nota"
+  },
+  "4aca24e7": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANPACTO",
+   "titulo": "La numeración de secciones salta: falta 13",
+   "grav": "nota"
+  },
+  "02344701": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANPREGUNTA",
+   "titulo": "La numeración de secciones salta: falta 18",
+   "grav": "nota"
+  },
+  "6a1530a9": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANREP",
+   "titulo": "La numeración de secciones salta: falta 14",
+   "grav": "nota"
+  },
+  "ee7c1c30": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANSEG",
+   "titulo": "La numeración de secciones salta: falta 10",
+   "grav": "nota"
+  },
+  "1692d660": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANTALLER",
+   "titulo": "La numeración de secciones salta: faltan 7, 12",
+   "grav": "nota"
+  },
+  "eaea4a88": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANTER",
+   "titulo": "La numeración de secciones salta: faltan 10, 15",
+   "grav": "nota"
+  },
+  "e5e93d26": {
+   "tipo": "numeracion-con-huecos",
+   "plan": "PLANVIV",
+   "titulo": "La numeración de secciones salta: falta 14",
+   "grav": "nota"
+  },
+  "bdb870bd": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANAGUA",
+   "titulo": "PLANAGUA y PLANEB se nombran 13 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "cf53314c": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANARCO",
+   "titulo": "PLAN24CN y PLANARCO se nombran 12 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "ed2b6799": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANARCO",
+   "titulo": "PLANARCO y PLANCUL se nombran 38 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "6734cdea": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANARCO",
+   "titulo": "PLANARCO y PLANEB se nombran 15 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "4b95865f": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANARCO",
+   "titulo": "PLANARCO y PLANMEMORIA se nombran 24 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "ce7a4e1f": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANDIG",
+   "titulo": "PLANDIG y PLANISV se nombran 13 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "a9db071c": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANDIG",
+   "titulo": "PLANDIG y PLANREP se nombran 31 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "69fe7707": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANEB",
+   "titulo": "PLANEB y PLANREP se nombran 15 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "75b4f2da": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANEDU",
+   "titulo": "PLAN24CN y PLANEDU se nombran 17 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "9a23e7b5": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANEDU",
+   "titulo": "PLANEDU y PLANISV se nombran 19 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "ea52c69a": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANEN",
+   "titulo": "PLANEN y PLANGEO se nombran 14 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "20cc45f4": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANGEO",
+   "titulo": "PLAN24CN y PLANGEO se nombran 14 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "68e77325": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANGEO",
+   "titulo": "PLANGEO y PLANISV se nombran 14 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "7d6d34b3": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANGEO",
+   "titulo": "PLANGEO y PLANREP se nombran 19 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "2e41a351": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANGEO",
+   "titulo": "PLANGEO y PLANSAL se nombran 16 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "c2614315": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANISV",
+   "titulo": "PLANISV y PLANREP se nombran 32 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "8b4e1b1c": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANJUS",
+   "titulo": "PLANEDU y PLANJUS se nombran 12 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "2e7346c7": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANMON",
+   "titulo": "PLAN24CN y PLANMON se nombran 19 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "6b640152": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANMON",
+   "titulo": "PLANMON y PLANREP se nombran 20 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "a4798f69": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANPREGUNTA",
+   "titulo": "PLANARCO y PLANPREGUNTA se nombran 12 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "9966adb7": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANREP",
+   "titulo": "PLAN24CN y PLANREP se nombran 25 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "912002ba": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANSAL",
+   "titulo": "PLAN24CN y PLANSAL se nombran 20 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "cc1273fc": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANSAL",
+   "titulo": "PLANJUS y PLANSAL se nombran 12 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "fb01d7dd": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANSAL",
+   "titulo": "PLANREP y PLANSAL se nombran 13 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "d6e9cb44": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANSUS",
+   "titulo": "PLANEDU y PLANSUS se nombran 12 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "93d6fe54": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANSUS",
+   "titulo": "PLANREP y PLANSUS se nombran 17 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  },
+  "c9dfc1c9": {
+   "tipo": "texto-sin-declarar",
+   "plan": "PLANVIV",
+   "titulo": "PLANEN y PLANVIV se nombran 18 veces y ninguna capa declara un vínculo",
+   "grav": "nota"
+  }
+ },
+ "entradas": [
+  {
+   "n": 0,
+   "fecha": "2026-11-10",
+   "base": "d2791bea",
+   "nota": "Línea de base: el corpus tal como estaba cuando se publicó el atlas",
+   "totales": {
+    "rota": 8,
+    "revisar": 331,
+    "nota": 81,
+    "cerradas": 0
+   },
+   "cambios": [],
+   "resueltas": [],
+   "nuevas": [],
+   "planes": {
+    "PLAN24CN": {
+     "version": "2.0",
+     "palabras": 52631,
+     "lineas": 3050,
+     "huella": "67c3c117"
+    },
+    "PLANAGUA": {
+     "version": "1.0",
+     "palabras": 75730,
+     "lineas": 4474,
+     "huella": "8fd6fc94"
+    },
+    "PLANARCO": {
+     "version": "1.0",
+     "palabras": 34440,
+     "lineas": 1023,
+     "huella": "f43fe812"
+    },
+    "PLANCUIDADO": {
+     "version": "1.0",
+     "palabras": 10001,
+     "lineas": 926,
+     "huella": "2828e2d0"
+    },
+    "PLANCUL": {
+     "version": "4.0",
+     "palabras": 11437,
+     "lineas": 797,
+     "huella": "e4e5cb2a"
+    },
+    "PLANDIG": {
+     "version": "2.0",
+     "palabras": 40170,
+     "lineas": 2198,
+     "huella": "cf059c6f"
+    },
+    "PLANEB": {
+     "version": "1.0",
+     "palabras": 33596,
+     "lineas": 1874,
+     "huella": "82d23826"
+    },
+    "PLANEDU": {
+     "version": "2.0",
+     "palabras": 41217,
+     "lineas": 1948,
+     "huella": "a55f5fb0"
+    },
+    "PLANEN": {
+     "version": "1.0",
+     "palabras": 32109,
+     "lineas": 2161,
+     "huella": "bd4774db"
+    },
+    "PLANFOCO": {
+     "version": "1.0",
+     "palabras": 25631,
+     "lineas": 1026,
+     "huella": "72d4abf3"
+    },
+    "PLANGEO": {
+     "version": "1.2",
+     "palabras": 31402,
+     "lineas": 2004,
+     "huella": "d44d1b5f"
+    },
+    "PLANISV": {
+     "version": "3.0",
+     "palabras": 48925,
+     "lineas": 2712,
+     "huella": "9a838693"
+    },
+    "PLANJUS": {
+     "version": "1.1",
+     "palabras": 47419,
+     "lineas": 2507,
+     "huella": "b6b5b241"
+    },
+    "PLANMEMORIA": {
+     "version": "1.0",
+     "palabras": 10637,
+     "lineas": 919,
+     "huella": "834feda3"
+    },
+    "PLANMESA": {
+     "version": "1.0",
+     "palabras": 15943,
+     "lineas": 1228,
+     "huella": "d30cf123"
+    },
+    "PLANMON": {
+     "version": "1.0",
+     "palabras": 55759,
+     "lineas": 2277,
+     "huella": "2cffac22"
+    },
+    "PLANMOV": {
+     "version": "2.0",
+     "palabras": 39932,
+     "lineas": 2207,
+     "huella": "aa9c1e02"
+    },
+    "PLANPACTO": {
+     "version": "1.0",
+     "palabras": 26793,
+     "lineas": 819,
+     "huella": "aead7bfb"
+    },
+    "PLANPREGUNTA": {
+     "version": "1.0",
+     "palabras": 29445,
+     "lineas": 974,
+     "huella": "53e5cbf0"
+    },
+    "PLANPUERTA": {
+     "version": "1.0",
+     "palabras": 27235,
+     "lineas": 1059,
+     "huella": "a32e19cd"
+    },
+    "PLANREP": {
+     "version": "4.0",
+     "palabras": 53903,
+     "lineas": 2475,
+     "huella": "5424d4dc"
+    },
+    "PLANRUTA": {
+     "version": "1.0",
+     "palabras": 40422,
+     "lineas": 2740,
+     "huella": "6aa3cc24"
+    },
+    "PLANSAL": {
+     "version": "1.0",
+     "palabras": 53806,
+     "lineas": 2341,
+     "huella": "c204df25"
+    },
+    "PLANSEG": {
+     "version": "1.0",
+     "palabras": 25203,
+     "lineas": 1542,
+     "huella": "5d8f5f9b"
+    },
+    "PLANSUS": {
+     "version": "1.2",
+     "palabras": 49306,
+     "lineas": 2532,
+     "huella": "9c081bcd"
+    },
+    "PLANTALLER": {
+     "version": "1.0",
+     "palabras": 9973,
+     "lineas": 941,
+     "huella": "5b275dc9"
+    },
+    "PLANTER": {
+     "version": "1.0",
+     "palabras": 11716,
+     "lineas": 956,
+     "huella": "5ea54dd9"
+    },
+    "PLANVIV": {
+     "version": "3.0",
+     "palabras": 39361,
+     "lineas": 2404,
+     "huella": "95f59ada"
+    }
+   },
+   "abiertas": [
+    "c53a1471",
+    "78ae863e",
+    "e50d6a68",
+    "42ad1b5b",
+    "660b4eec",
+    "ed3f1b64",
+    "c40d51ab",
+    "5792ab56",
+    "5e9cf579",
+    "d63b7413",
+    "6a54d7e3",
+    "830ed196",
+    "a61f2f0e",
+    "3be18d45",
+    "9a3dcd52",
+    "917e45fd",
+    "84a7d5ea",
+    "1bbf84f1",
+    "e4398f5d",
+    "6a88ea2c",
+    "6f27d78e",
+    "6099663a",
+    "82ee1ad0",
+    "981f1bd3",
+    "6d2f073c",
+    "a9e07783",
+    "718870eb",
+    "ed5c8398",
+    "fc367c0e",
+    "6c1c7fae",
+    "ebe5d5bb",
+    "97331303",
+    "713eea58",
+    "b42e275b",
+    "0a852b9e",
+    "30d732ec",
+    "955d1c46",
+    "0032f726",
+    "1f093905",
+    "678b5f1e",
+    "0e5b4cb1",
+    "a7beef43",
+    "1416913d",
+    "a63d07ab",
+    "56096757",
+    "217ba0d0",
+    "5df27abd",
+    "cd0052f5",
+    "b26baf20",
+    "8b7f6e1a",
+    "9a2f7c9b",
+    "5065981b",
+    "7bddfe42",
+    "769d45aa",
+    "7c537056",
+    "b1de87a1",
+    "02f2d167",
+    "9f922e39",
+    "acebe7fb",
+    "bd756833",
+    "191976d1",
+    "e846021d",
+    "c532cb91",
+    "077a6ae0",
+    "cc61699f",
+    "2eedb70a",
+    "e27f40a5",
+    "ff1c1607",
+    "556a4b21",
+    "595868a2",
+    "eca81c22",
+    "6f1f2a97",
+    "d208653a",
+    "c681920c",
+    "d71959bc",
+    "fee623c5",
+    "bc1d71d4",
+    "0d2849f7",
+    "9b3c0e3b",
+    "dbae2e48",
+    "79ccc34d",
+    "2de77f2e",
+    "edea8951",
+    "65879eb9",
+    "a18b3d21",
+    "d1ef549a",
+    "062f5152",
+    "fe356420",
+    "e65c2726",
+    "822e08ed",
+    "ef4f481e",
+    "f7d527ed",
+    "fa5b459c",
+    "66865c3f",
+    "00fee363",
+    "1a8d7763",
+    "99cae1e7",
+    "62ba4547",
+    "1838056a",
+    "d5d90442",
+    "c8a36be4",
+    "87e26882",
+    "387f5925",
+    "9606140c",
+    "8b4b2638",
+    "743439d6",
+    "89b19c0a",
+    "e27aeaba",
+    "e4363c50",
+    "fb718ae3",
+    "2417969e",
+    "442f2218",
+    "f3f9d40e",
+    "9a7eeb7d",
+    "07e5de11",
+    "b7ae53fa",
+    "a767692f",
+    "00e84e5c",
+    "91f6c5d2",
+    "55bb2522",
+    "88ad1259",
+    "e6274c12",
+    "c25cc293",
+    "a3687b96",
+    "2fb384a9",
+    "ef2419a2",
+    "6a452b75",
+    "ae3de8f9",
+    "c795d47e",
+    "395c2f44",
+    "a212f14a",
+    "8a9ebff5",
+    "4cfa0d60",
+    "7dda5264",
+    "57fdf443",
+    "7292ae38",
+    "722b29c3",
+    "126185cc",
+    "2f54b912",
+    "684a00a2",
+    "53bd5ae8",
+    "ae03b620",
+    "0ae45ce2",
+    "59bfd51b",
+    "b78cbb60",
+    "9905f9f5",
+    "419b6cf2",
+    "5bdea93f",
+    "2511cefe",
+    "8a8f3769",
+    "16d5a046",
+    "f074d7ba",
+    "5efb9d41",
+    "315c1427",
+    "ce13b387",
+    "5e067aa8",
+    "11873ea9",
+    "b344fde8",
+    "061215f7",
+    "b58883e1",
+    "45299aa1",
+    "75624502",
+    "8cda7ebd",
+    "8434b1aa",
+    "13d74ff2",
+    "5de16100",
+    "f557fd83",
+    "f2734450",
+    "7246cd7a",
+    "fbf5f15f",
+    "35556b93",
+    "ed30c9ed",
+    "c2a2e829",
+    "8726c7b5",
+    "018b8454",
+    "d63d2e29",
+    "167e7b32",
+    "5b15c9cd",
+    "6169c989",
+    "6000b4c0",
+    "d8814f37",
+    "47cd82e5",
+    "239560f1",
+    "2b133053",
+    "2f0e31e1",
+    "b41db7a7",
+    "bf88beb7",
+    "4accd79a",
+    "c17ea1eb",
+    "ea257a23",
+    "2af762ac",
+    "50aa419a",
+    "fa4c03e9",
+    "f089ad03",
+    "0acf3463",
+    "96bebc0c",
+    "e03b57b5",
+    "0aaac6a9",
+    "d48e86b1",
+    "f0ffd32b",
+    "ac01b78f",
+    "dc6bd1dd",
+    "08151c0d",
+    "89875082",
+    "f35c820b",
+    "2f10dfb7",
+    "dc6d7ce0",
+    "e633f551",
+    "0d5958a1",
+    "331ec929",
+    "66c648c8",
+    "0c0ffac1",
+    "9639ae1b",
+    "3990cf3b",
+    "e1a2a519",
+    "eb7d6af6",
+    "839c9ae8",
+    "c8d7c8bb",
+    "02a5d6af",
+    "0fe957e0",
+    "d8b68a9b",
+    "4decfe53",
+    "9d0208a2",
+    "c866dcdf",
+    "e27360e7",
+    "4be0bc4b",
+    "3c011996",
+    "a9301422",
+    "1014b9a0",
+    "75c22b8f",
+    "ffb4fa2e",
+    "681cd0bd",
+    "dc5991b2",
+    "703ef75d",
+    "9b77c88d",
+    "2e04c608",
+    "55acad4e",
+    "743ad3a7",
+    "b49f7471",
+    "04887846",
+    "78744900",
+    "5d7b2308",
+    "f17c3a1d",
+    "75cd60b9",
+    "c7e01b56",
+    "dcb1c209",
+    "fb6a074a",
+    "359dbb42",
+    "0310d04d",
+    "f54f788d",
+    "f7e3be94",
+    "7846e4da",
+    "a5d1a59b",
+    "a1a97f09",
+    "55311591",
+    "3f98aa68",
+    "dab80af2",
+    "46491abf",
+    "dd8a22d3",
+    "8a4c5fdd",
+    "fbd80228",
+    "9965bef3",
+    "59f3c2ae",
+    "d3694472",
+    "c1cf2d29",
+    "3805b387",
+    "ecc9a8e5",
+    "73ab8622",
+    "efaa0d2d",
+    "68f263b2",
+    "c253f14c",
+    "37cea97e",
+    "dd965cb3",
+    "f62110c7",
+    "4693237e",
+    "b48a5f51",
+    "56b2d689",
+    "c868fef1",
+    "d8ef76e0",
+    "b8ed4c9e",
+    "ca68c14e",
+    "0772495e",
+    "0554ff75",
+    "dddbb91c",
+    "f1aaa7bd",
+    "c3615a43",
+    "029efae7",
+    "d33a2b72",
+    "cad3eabb",
+    "95e4e237",
+    "2848d598",
+    "228a769e",
+    "67e93f89",
+    "a954df42",
+    "cd1f9117",
+    "28407eb4",
+    "3405cc17",
+    "49d764ad",
+    "2c03cbe9",
+    "b1989aa6",
+    "487173de",
+    "13d4d191",
+    "5c6a48c6",
+    "5783d077",
+    "a8c4f922",
+    "c5bbef47",
+    "ff15a46e",
+    "3294c16b",
+    "a0efd779",
+    "ef62ef0d",
+    "9acf2e67",
+    "4d094dca",
+    "8209ba48",
+    "91cf2b5d",
+    "3dc7c27b",
+    "37f48c4d",
+    "3e8ce2c2",
+    "4001c9ee",
+    "c4499cf9",
+    "8197336f",
+    "437a4062",
+    "f2e0a8ac",
+    "51408e65",
+    "2bb9895c",
+    "8507da30",
+    "3918a4dd",
+    "b55a9daf",
+    "7f008ef6",
+    "782e6c2e",
+    "ea1270da",
+    "117b88f8",
+    "3274115b",
+    "84a85ff4",
+    "50ace641",
+    "a8d00b75",
+    "b9657e86",
+    "ee90b9e1",
+    "c76b3a86",
+    "b79c6569",
+    "57a80d5f",
+    "a47e0b5f",
+    "463d267a",
+    "a902d3dc",
+    "48ddc308",
+    "91e97a32",
+    "7e2f8dee",
+    "fc8dd8b7",
+    "679be694",
+    "a847c76f",
+    "119a6b07",
+    "185fc94f",
+    "0c836aa4",
+    "0e272ea6",
+    "1b7ab20f",
+    "bd006cb1",
+    "9f12b5cb",
+    "4af86845",
+    "431439ba",
+    "57dea1d7",
+    "748de851",
+    "4d5595aa",
+    "42882e39",
+    "f7b478cb",
+    "cb37d2a4",
+    "bd936352",
+    "a2fbf2c4",
+    "43ae2032",
+    "ccd7731c",
+    "e0ca2088",
+    "953520c1",
+    "4741f5b9",
+    "a49f59ba",
+    "b448c82c",
+    "0d339545",
+    "31cd653b",
+    "e3d18ddc",
+    "6ba0a09b",
+    "4f67dc82",
+    "f367a313",
+    "eb8e193d",
+    "9c31833a",
+    "e8845b4a",
+    "220e45ff",
+    "1bb0dd9a",
+    "3591ad57",
+    "f55dbb79",
+    "4aca24e7",
+    "02344701",
+    "6a1530a9",
+    "ee7c1c30",
+    "1692d660",
+    "eaea4a88",
+    "e5e93d26",
+    "bdb870bd",
+    "cf53314c",
+    "ed2b6799",
+    "6734cdea",
+    "4b95865f",
+    "ce7a4e1f",
+    "a9db071c",
+    "69fe7707",
+    "75b4f2da",
+    "9a23e7b5",
+    "ea52c69a",
+    "20cc45f4",
+    "68e77325",
+    "7d6d34b3",
+    "2e41a351",
+    "c2614315",
+    "8b4e1b1c",
+    "2e7346c7",
+    "6b640152",
+    "a4798f69",
+    "9966adb7",
+    "912002ba",
+    "cc1273fc",
+    "fb01d7dd",
+    "d6e9cb44",
+    "93d6fe54",
+    "c9dfc1c9"
+   ]
+  }
+ ]
+}

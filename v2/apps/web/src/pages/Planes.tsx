@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 import { IndicePlanes } from './Planes/sections/IndicePlanes';
+import { MapaCorpus } from './Planes/sections/MapaCorpus';
 import { MetodoPrueba } from './Planes/sections/MetodoPrueba';
 import { PortadaPrueba } from './Planes/sections/PortadaPrueba';
 
@@ -11,10 +14,12 @@ import { useTituloDePagina } from '~/lib/titulo-de-pagina';
  */
 export function Planes() {
   useTituloDePagina('Planes');
+  const [seleccionado, setSeleccionado] = useState<string | null>(null);
   return (
     <main>
       <PortadaPrueba />
-      <IndicePlanes />
+      <MapaCorpus seleccionado={seleccionado} onSeleccionar={setSeleccionado} />
+      <IndicePlanes abierto={seleccionado} onAbrir={setSeleccionado} />
       <MetodoPrueba />
     </main>
   );

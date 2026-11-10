@@ -13,16 +13,65 @@ Tarda dos segundos, no tiene dependencias (Node 20+) y reescribe `atlas.html`, `
 
 ## En el sitio
 
-El atlas es público en **`/atlas/`**. `construir.mjs` escribe también esa versión, en
-`v2/apps/web/public/atlas/` (`index.html`, `atlas.js`, `grafo.json`), y un push a `main` la despliega.
-Es la misma plantilla con tres diferencias: el código y los datos van en archivos aparte y las
-fuentes son las de `/fonts-ui/`, porque la política de seguridad del sitio (`v2/vercel.json`) no deja
-correr scripts en línea ni traer fuentes de afuera; cada número de línea abre el documento en GitHub en
-vez de copiar la ruta; y los comandos de terminal no se muestran.
+Son dos páginas. **`/planes`** es la entrada: el mapa de la red arriba y el índice de los documentos
+abajo, con una sola selección compartida (`v2/apps/web/src/pages/Planes/sections/MapaCorpus.tsx`).
+**`/atlas/`** es el análisis en profundidad: la matriz de vínculos, «antes de editar», los conceptos,
+las desarmonías y el historial.
+
+`construir.mjs` escribe todo lo que las dos necesitan en `v2/apps/web/public/atlas/`:
+
+| Archivo | Para quién |
+|---|---|
+| `mapa.json` (~55 KB) | la página de PLANes: nodos, vínculos, tesis y cuentas |
+| `index.html`, `atlas.js`, `grafo.json` (~2,8 MB) | la página de análisis |
+
+La página de análisis es la misma plantilla que `atlas.html` con tres diferencias: el código y los
+datos van en archivos aparte y las fuentes son las de `/fonts-ui/`, porque la política de seguridad
+del sitio (`v2/vercel.json`) no deja correr scripts en línea ni traer fuentes de afuera; cada número
+de línea abre el documento en GitHub en vez de copiar la ruta; y los comandos de terminal no se muestran.
 
 **Si editás un PLAN, corré `construir.mjs` y commiteá `v2/apps/web/public/atlas/` junto con el
 documento.** Ninguna guardia lo exige todavía: un atlas viejo en el sitio no rompe nada, pero sus
 números de línea dejan de coincidir con los documentos.
+
+## El registro: cómo se van cerrando las desarmonías
+
+Cada desarmonía tiene un **id** de ocho caracteres que sale de su tipo, su documento y lo que dice
+—nunca del número de línea—, así que se la puede seguir aunque el texto se corra. Está en
+`DESARMONIAS.md` y al pie de cada ítem en el atlas.
+
+El ciclo de una edición:
+
+```bash
+# 1. editar uno o más PLANes
+node "Iniciativas Estratégicas/atlas/construir.mjs"
+#    → «Desde la última entrada: cambiaron PLANPACTO · 2 dejaron de estar · 0 aparecieron»
+
+# 2. cerrar a mano lo que el script no puede ver
+node "Iniciativas Estratégicas/atlas/construir.mjs" --resolver  3fa9c1d2 "PLANJUS: el costo anual queda en 300–600M en la tesis y en la tabla"
+node "Iniciativas Estratégicas/atlas/construir.mjs" --descartar 7be0a455 "No es contradicción: la tesis da el costo neto y la tabla el bruto"
+
+# 3. dejar la entrada escrita
+node "Iniciativas Estratégicas/atlas/construir.mjs" --registrar "PLANPACTO: las dos citas a PLANJUS pasan a ser por línea"
+```
+
+Una desarmonía se cierra de tres maneras:
+
+- **Sola.** Se corrige el documento y el patrón deja de encontrarla. Vale para todo lo que sale de
+  `construir.mjs`: citas rotas, espejos, conteos, códigos fantasma, tablas sin orientar.
+- **Resuelta a mano** (`--resolver`). Las que anotó un lector no tienen patrón que las vuelva a
+  buscar. `lecturas.lock.json` guarda lo que decían sus líneas el día de la lectura; cuando ese texto
+  cambia, quedan marcadas «el texto cambió» y esperan que alguien confirme.
+- **Descartada** (`--descartar`). Alguien la miró y no era un error. No se borra: queda en
+  «Cerradas a mano» con su razón. `--reabrir <id>` la devuelve.
+
+`--registrar` agrega una entrada a `historial.json` con la fecha, el commit sobre el que se tomó, los
+documentos que cambiaron (versión, líneas y palabras), las desarmonías que dejaron de estar —con el
+cómo— y las que aparecieron. `HISTORIAL.md` es lo mismo para leer en un diff, y la vista «Historial»
+del atlas lo muestra de lo último a lo primero. La entrada 0 es la línea de base.
+
+Conviene **una entrada por edición con sentido**, commiteada junto con los documentos que tocó: el
+historial y `git log` cuentan entonces la misma historia, uno en desarmonías y el otro en líneas.
 
 ## Antes de editar un PLAN
 
@@ -55,10 +104,13 @@ reemplaza: aquélla falla el CI, ésta explica.
 | `construir.mjs` | El extractor: lee el taller y arma todo | sí, es código |
 | `plantilla.html` | El visor, sin datos | sí, es código |
 | `atlas.html` | El visor con los datos adentro, para abrir con doble clic | **no** — se regenera |
-| `v2/apps/web/public/atlas/` | La versión del sitio | **no** — se regenera |
+| `v2/apps/web/public/atlas/` | Lo que consumen las dos páginas del sitio | **no** — se regenera |
 | `DESARMONIAS.md` | La lista de lo que no cierra, para leer en un diff | **no** — se regenera |
 | `grafo.json` | Los datos crudos (ignorado por git: está entero en `atlas.html`) | **no** |
 | `anclas.lock.json` | Qué decía cada línea citada la última vez que se fijó | solo con `--fijar` |
+| `historial.json` / `HISTORIAL.md` | El registro de versiones del corpus | solo con `--registrar` |
+| `resoluciones.json` | Los cierres a mano, con su razón | con `--resolver`, `--descartar`, `--reabrir` |
+| `lecturas.lock.json` | Qué decían las líneas que citó cada lector | solo con `--fijar` |
 | `fichas/PLANX.json` | La ficha leída de cada PLAN | regenerar con un lector |
 | `lecturas/*.json` | Lo que vieron los lectores: contradicciones internas y cruces | regenerar con un lector |
 | `validar-ficha.mjs` | Comprueba cada cita de cada ficha contra el texto | sí, es código |

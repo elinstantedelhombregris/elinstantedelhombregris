@@ -165,6 +165,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | Abierta |
 | [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
 | [D-151](#d-151--los-planes-no-cierran-entre-sí-en-339-lugares-y-ahora-hay-lista) | Los PLANes no cierran entre sí en 339 lugares, y ahora hay lista | Media | Abierta |
+| [D-152](#d-152--el-atlas-del-sitio-no-se-regenera-solo-al-editar-un-plan) | El atlas del sitio no se regenera solo al editar un PLAN | Baja | Abierta |
 
 ---
 
@@ -2458,3 +2459,14 @@ El atlas cruzó los 28 documentos y encontró 8 desarmonías que se prueban cont
 Las de revisar son de cuatro clases. Los conteos del canon sin fechar («dieciséis mandatos», «22 PLANes») siguen en 39 lugares. Diecinueve documentos listan a los mismos PLANes en «aporta» y en «necesita», de modo que la tabla no dice hacia dónde corre el vínculo. Hay 160 contradicciones internas que anotaron los lectores al fichar cada documento —dos cifras para la misma partida, una remisión a la sección equivocada— y 41 conceptos que un PLAN describe distinto de como los define su dueño (ANCE con dos nombres, ArgenCloud usado como operativo donde PLANDIG lo difiere). Estas dos últimas clases las encontró un modelo y no las verificó nadie más: cada una trae las líneas, y más de una va a resultar una diferencia de fase bien rotulada.
 
 Nada de esto se corrigió: el atlas lee, no edita. Lo que haría falta es recorrer la lista por documento, empezando por las ocho probadas, y decidir en cada caso cuál de los dos lados manda.
+
+### D-152 · El atlas del sitio no se regenera solo al editar un PLAN
+
+**Dónde:** `Iniciativas Estratégicas/atlas/construir.mjs` y lo que escribe en `v2/apps/web/public/atlas/` (`mapa.json`, `grafo.json`, `atlas.js`, `index.html`).
+**Encontrada:** 2026-11-10, al integrar el mapa en la página de PLANes.
+**Severidad:** baja.
+**Estado:** abierta.
+
+El mapa de `/planes` y la página de análisis `/atlas/` leen archivos que genera un script a mano. Si alguien edita un PLAN y no corre `construir.mjs`, el sitio sigue mostrando el atlas anterior: nada se rompe, pero los números de línea de las citas dejan de coincidir con el documento y el historial no registra la edición. Ninguna guardia de CI lo exige, a diferencia de `planes:check`, que sí compara los MDX contra el taller.
+
+No se hizo guardia porque la salida lleva la fecha del día y no es reproducible byte a byte. Haría falta sacar la fecha de los archivos generados —o tomarla del último commit que tocó el taller— y agregar un `atlas:check` que regenere y compare, como hace `verify-planes-index.ts`.

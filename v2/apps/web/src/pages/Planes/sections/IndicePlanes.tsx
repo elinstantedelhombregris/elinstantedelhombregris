@@ -7,9 +7,20 @@ import type { PlanRegistryEntry } from '~/lib/plans-registry';
 
 import { FilaIndiceExpandible } from '~/components/papel/primitives';
 
+export interface IndicePlanesProps {
+  /** Slug de la fila abierta. Si se pasa, es la única fuente de verdad (controlado). */
+  abierto?: string | null;
+  onAbrir?: (slug: string | null) => void;
+}
+
 /** §2 + §3 de la spec — el índice de los {N} + el plan meta. Apertura única. */
-export function IndicePlanes() {
-  const [abierto, setAbierto] = useState<string | null>(null);
+export function IndicePlanes({ abierto: abiertoControlado, onAbrir }: IndicePlanesProps = {}) {
+  const [abiertoLocal, setAbiertoLocal] = useState<string | null>(null);
+  const abierto = abiertoControlado !== undefined ? abiertoControlado : abiertoLocal;
+  const setAbierto = (slug: string | null) => {
+    if (abiertoControlado === undefined) setAbiertoLocal(slug);
+    onAbrir?.(slug);
+  };
 
   const fila = (plan: PlanRegistryEntry, num: string) => (
     <FilaIndiceExpandible
@@ -23,7 +34,7 @@ export function IndicePlanes() {
       encabezado={
         <span className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
           <span
-            className={`font-anton text-2xl tracking-[0.01em] transition-colors group-hover:text-violeta ${abierto === plan.slug ? 'text-violeta' : 'text-tinta'}`}
+            className={`font-anton group-hover:text-violeta text-2xl tracking-[0.01em] transition-colors ${abierto === plan.slug ? 'text-violeta' : 'text-tinta'}`}
           >
             {plan.code}
           </span>
@@ -68,24 +79,6 @@ export function IndicePlanes() {
           </p>
         </>
       ) : null}
-
-      <h2 className="font-space text-tinta-50 mb-5 mt-14 text-[11px] uppercase tracking-[0.16em]">
-        Cómo se apoyan entre sí
-      </h2>
-      <div className="border-tinta border-t pt-5">
-        <p className="text-tinta-90 mb-3 max-w-[720px] text-base leading-relaxed [text-wrap:pretty]">
-          El atlas del corpus dibuja los {PLAN_COUNT} planes y el plan meta como una red: qué le da
-          cada uno a los demás, qué nombra como propio y dónde todavía no cierran entre sí.
-        </p>
-        {/* `<a>` y no `<Link>`: el atlas es una página estática (`public/atlas/`, la genera
-            «Iniciativas Estratégicas/atlas/construir.mjs»), fuera del router de la app. */}
-        <a
-          href="/atlas/"
-          className="font-space text-violeta text-xs font-bold uppercase tracking-[0.1em]"
-        >
-          Abrir el atlas →
-        </a>
-      </div>
     </section>
   );
 }

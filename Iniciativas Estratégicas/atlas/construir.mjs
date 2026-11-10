@@ -34,6 +34,8 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
+import { execSync } from 'node:child_process';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const TALLER = resolve(AQUI, '..');
@@ -557,7 +559,7 @@ for (const [k, citas] of citasPorAncla) {
 
 /** grav: 'rota' (está mal y se puede probar) · 'revisar' (probablemente) · 'nota' (para saber). */
 const HALLAZGOS = [];
-const hallar = (tipo, grav, plan, linea, titulo, detalle, texto = null, otro = null) => HALLAZGOS.push({ tipo, grav, plan, linea, titulo, detalle, texto, otro });
+const hallar = (tipo, grav, plan, linea, titulo, detalle, texto = null, otro = null) => { const h = { tipo, grav, plan, linea, titulo, detalle, texto, otro }; HALLAZGOS.push(h); return h; };
 
 for (const r of REMISIONES) {
   for (const s of r.secs) if (!s.ok) hallar('seccion-inexistente', 'rota', r.src, r.linea, `Cita ${r.dst} §${s.id} y esa sección no existe`, +s.id >= 100 ? `${r.dst} no tiene cien secciones: parece una cita por línea (\`${r.dst}:${s.id}\`) escrita con «§». La línea ${s.id} de ${r.dst} dice: «${(DOCS[r.dst].lineas[+s.id - 1] ?? '').slice(0, 110).trim()}…»` : `${r.dst} tiene estas secciones numeradas: ${[...DOCS[r.dst].ids.keys()].filter((k) => /^\d+$/.test(k)).join(', ') || '(sin numeración)'}.`, r.texto, r.dst);
@@ -697,7 +699,7 @@ const LEIDO = {};
         const lineas = (h.lineas ?? []).filter((n) => Number.isInteger(n) && n >= 1 && n <= DOCS[d.code].lineas.length);
         if (!h.que || !lineas.length) continue;
         LECTURAS.push({ plan: d.code, lineas, que: h.que, textos: lineas.slice(0, 4).map((n) => norm(DOCS[d.code].lineas[n - 1]).slice(0, 260)) });
-        hallar('lectura', 'revisar', d.code, lineas[0], h.que.replace(/\.$/, ''), `Líneas ${lineas.join(', ')}.`, null);
+        hallar('lectura', 'revisar', d.code, lineas[0], h.que.replace(/\.$/, ''), `Líneas ${lineas.join(', ')}.`, null).leido = LECTURAS.at(-1).textos;
       }
     }
   }
@@ -713,7 +715,13 @@ const CRUCES = [];
     let datos;
     try { datos = JSON.parse(leer(join(dir, f))); } catch { continue; }
     for (const c of datos.cruces ?? []) {
-      if (!c.que || !esta(c.dueno, c.lineaDueno, c.citaDueno) || !esta(c.otro, c.lineaOtro, c.citaOtro) || c.dueno === c.otro) continue;
+      if (!c.que || !ES_PLAN.has(c.dueno) || !ES_PLAN.has(c.otro) || c.dueno === c.otro) continue;
+      if (!esta(c.dueno, c.lineaDueno, c.citaDueno) || !esta(c.otro, c.lineaOtro, c.citaOtro)) {
+        // Las citas pasaron la comprobación cuando el lector las escribió; si hoy no están en su
+        // línea, el texto se editó. No se descarta: queda a la vista hasta que alguien lo cierre.
+        hallar('cruce', 'revisar', c.otro, 0, `«${c.concepto}»: ${c.que.replace(/\.$/, '')}`, `Decía ${c.dueno}:${c.lineaDueno} «${norm(c.citaDueno ?? '')}» y ${c.otro}:${c.lineaOtro} «${norm(c.citaOtro ?? '')}».`, null, c.dueno).tocada = true;
+        continue;
+      }
       CRUCES.push(c);
       hallar('cruce', 'revisar', c.otro, c.lineaOtro, `«${c.concepto}»: ${c.que.replace(/\.$/, '')}`, `${c.dueno}:${c.lineaDueno} dice «${norm(c.citaDueno)}». ${c.otro}:${c.lineaOtro} dice «${norm(c.citaOtro)}».`, null, c.dueno);
     }
@@ -722,6 +730,97 @@ const CRUCES = [];
 
 const ORDEN_GRAV = { rota: 0, revisar: 1, nota: 2 };
 HALLAZGOS.sort((x, y) => ORDEN_GRAV[x.grav] - ORDEN_GRAV[y.grav] || x.tipo.localeCompare(y.tipo) || x.plan.localeCompare(y.plan) || x.linea - y.linea);
+
+// ════════════════════════════════════════════════════════════════════════════
+// 6 bis. EL REGISTRO: qué desarmonía es cuál, en qué estado está y qué cambió
+// ════════════════════════════════════════════════════════════════════════════
+//
+// Para llevar la cuenta de cómo se van resolviendo hace falta que una desarmonía
+// conserve su nombre aunque se le corran las líneas. El id sale del tipo, el
+// documento y lo que dice —nunca del número de línea—, más un ordinal si hay dos
+// iguales en el mismo documento.
+{
+  const vistos = new Map();
+  const sinTitulo = new Set(['vinculo-en-dos-direcciones', 'numeracion-con-huecos']); // su título lleva una cuenta que cambia
+  for (const h of HALLAZGOS) {
+    const base = `${h.tipo}|${h.plan}|${sinTitulo.has(h.tipo) ? '' : h.titulo}`;
+    const n = (vistos.get(base) ?? 0) + 1;
+    vistos.set(base, n);
+    h.id = createHash('sha1').update(`${base}#${n}`).digest('hex').slice(0, 8);
+  }
+}
+
+// Lo que un lector vio no desaparece solo cuando el texto se corrige: no hay patrón que
+// lo vuelva a buscar. Se guarda lo que decían las líneas el día de la lectura; si cambian,
+// el hallazgo queda «tocado» y pide que alguien confirme si quedó resuelto.
+const RUTA_LEIDO = join(AQUI, 'lecturas.lock.json');
+{
+  const antes = existsSync(RUTA_LEIDO) ? JSON.parse(leer(RUTA_LEIDO)) : {};
+  const ahora = {};
+  for (const h of HALLAZGOS) {
+    if (!h.leido) continue;
+    const previo = antes[h.id];
+    if (previo && JSON.stringify(previo) !== JSON.stringify(h.leido)) h.tocada = true;
+    ahora[h.id] = previo && !process.argv.includes('--fijar') ? previo : h.leido;
+    delete h.leido;
+  }
+  writeFileSync(RUTA_LEIDO, `${JSON.stringify(ahora, Object.keys(ahora).sort(), 1)}\n`);
+}
+
+// Los cierres a mano: «resuelta» (se corrigió y el script no puede verlo) o
+// «descartada» (se miró y no era un error). Siempre con su razón.
+const RUTA_RES = join(AQUI, 'resoluciones.json');
+const RES = existsSync(RUTA_RES) ? JSON.parse(leer(RUTA_RES)) : {};
+const HOY = new Date().toISOString().slice(0, 10);
+{
+  let cambio = false;
+  for (const [bandera, estado] of [['--resolver', 'resuelta'], ['--descartar', 'descartada'], ['--reabrir', null]]) {
+    const i = process.argv.indexOf(bandera);
+    if (i === -1) continue;
+    const id = process.argv[i + 1];
+    const nota = process.argv[i + 2];
+    const h = HALLAZGOS.find((x) => x.id === id);
+    if (!h && !(estado === null && RES[id])) { console.error(`No hay ninguna desarmonía con id «${id}». Los ids están en DESARMONIAS.md y en el atlas.`); process.exit(2); }
+    if (estado && (!nota || nota.startsWith('--'))) { console.error(`${bandera} necesita la razón: ${bandera} ${id} "por qué"`); process.exit(2); }
+    if (estado) RES[id] = { estado, nota, fecha: HOY, tipo: h.tipo, plan: h.plan, titulo: h.titulo }; else delete RES[id];
+    cambio = true;
+  }
+  if (cambio) writeFileSync(RUTA_RES, `${JSON.stringify(RES, null, 1)}\n`);
+}
+const CERRADAS = [];
+for (const h of HALLAZGOS) { const r = RES[h.id]; if (r) { h.estado = r.estado; h.razon = r.nota; h.cerrada = r.fecha; CERRADAS.push(h); } }
+// De acá para abajo HALLAZGOS son solo las abiertas: todas las cuentas hablan de lo que falta.
+HALLAZGOS.splice(0, HALLAZGOS.length, ...HALLAZGOS.filter((h) => !h.estado));
+
+// El historial. Cada entrada es una foto: qué documentos cambiaron desde la anterior,
+// qué desarmonías dejaron de estar y cuáles aparecieron.
+const RUTA_HIST = join(AQUI, 'historial.json');
+const HIST = existsSync(RUTA_HIST) ? JSON.parse(leer(RUTA_HIST)) : { catalogo: {}, entradas: [] };
+const fichaDoc = (c) => { const d = DOCS[c]; const v = /versi[óo]n\s+v?(\d+(?:\.\d+)*)/i.exec(d.lineas.slice(d.cabecera, d.cabecera + 120).join('\n'))?.[1] ?? /(\d+(?:\.\d+)+)/.exec(FICHAS[c]?.version ?? '')?.[1] ?? null; return { version: v, palabras: d.palabras, lineas: d.lineas.length, huella: createHash('sha1').update(d.texto).digest('hex').slice(0, 8) }; };
+const ESTADO_DOCS = Object.fromEntries(CODIGOS.map((c) => [c, fichaDoc(c)]));
+const cuentaGrav = (hs) => { const c = { rota: 0, revisar: 0, nota: 0 }; for (const h of hs) c[h.grav]++; return c; };
+function diferencia(ultima) {
+  const antes = new Set(ultima.abiertas);
+  const ahora = new Set(HALLAZGOS.map((h) => h.id));
+  const cerradaHoy = new Map(CERRADAS.map((h) => [h.id, h]));
+  return {
+    cambios: CODIGOS.filter((c) => ultima.planes[c]?.huella !== ESTADO_DOCS[c].huella).map((c) => ({ code: c, de: ultima.planes[c] ?? null, a: ESTADO_DOCS[c] })),
+    resueltas: [...antes].filter((id) => !ahora.has(id)).map((id) => { const m = cerradaHoy.get(id); return { id, ...(HIST.catalogo[id] ?? {}), como: m ? (m.estado === 'descartada' ? 'descartada' : 'resuelta a mano') : 'dejó de aparecer', razon: m?.razon ?? null }; }),
+    nuevas: HALLAZGOS.filter((h) => !antes.has(h.id)).map((h) => ({ id: h.id, tipo: h.tipo, plan: h.plan, titulo: h.titulo, grav: h.grav })),
+  };
+}
+if (process.argv.includes('--registrar')) {
+  const nota = process.argv[process.argv.indexOf('--registrar') + 1];
+  if (!nota || nota.startsWith('--')) { console.error('--registrar necesita decir qué se hizo: --registrar "PLANPACTO: las dos citas a PLANJUS pasan a ser por línea"'); process.exit(2); }
+  let base = null;
+  try { base = execSync('git rev-parse --short HEAD', { cwd: REPO, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); } catch { /* fuera de git el registro igual sirve */ }
+  const ultima = HIST.entradas.at(-1);
+  const d = ultima ? diferencia(ultima) : { cambios: [], resueltas: [], nuevas: [] };
+  for (const h of [...HALLAZGOS, ...CERRADAS]) HIST.catalogo[h.id] = { tipo: h.tipo, plan: h.plan, titulo: h.titulo, grav: h.grav };
+  HIST.entradas.push({ n: HIST.entradas.length, fecha: HOY, base, nota, totales: { ...cuentaGrav(HALLAZGOS), cerradas: CERRADAS.length }, ...d, planes: ESTADO_DOCS, abiertas: HALLAZGOS.map((h) => h.id) });
+  writeFileSync(RUTA_HIST, `${JSON.stringify(HIST, null, 1)}\n`);
+}
+const PENDIENTE = HIST.entradas.length ? diferencia(HIST.entradas.at(-1)) : null;
 
 const TIPOS = {
   'ancla-corrida': ['Anclas corridas', 'Una cita por número de línea apunta a un texto que se movió. Se arregla renumerando la cita.'],
@@ -845,6 +944,12 @@ if (process.argv.includes('--impacto')) {
 // 8. LA SALIDA
 // ════════════════════════════════════════════════════════════════════════════
 
+// Diecinueve documentos listan cada vínculo en sus dos tablas, «aporta» y «necesita», sin
+// orientarlo. Si una dirección solo la sostiene esa tabla y la contraria la sostienen el
+// registro, el grafo o la app, la primera es eco de la segunda: los visores no la dibujan.
+const esFirme = (x) => !!(x.capas.registro || x.capas.ymlNecesita || x.capas.ymlAporta || x.capas.arqNecesita || x.capas.arqAporta);
+for (const x of ARISTAS.values()) { const inv = ARISTAS.get(`${x.b}>${x.a}`); x.eco = !esFirme(x) && !!inv && esFirme(inv); }
+
 const idx = Object.fromEntries(CODIGOS.map((c, i) => [c, i]));
 const planes = CODIGOS.map((c) => {
   const d = DOCS[c];
@@ -876,13 +981,15 @@ const grafo = {
   canon: { tematicos: CODIGOS.length - 1, documentos: CODIGOS.length, palabras: planes.reduce((s, p) => s + p.palabras, 0) },
   planes,
   transversales: TRANSVERSALES.map((t) => ({ archivo: t.archivo, titulo: t.titulo, estado: t.estado, palabras: t.palabras })),
-  aristas: [...ARISTAS.values()].map((x) => ({ a: idx[x.a], b: idx[x.b], k: x.capas, ab: x.txtAB, ba: x.txtBA, que: x.que, peso: x.peso, tipo: x.tipo })),
+  aristas: [...ARISTAS.values()].map((x) => ({ a: idx[x.a], b: idx[x.b], k: x.capas, ab: x.txtAB, ba: x.txtBA, que: x.que, peso: x.peso, tipo: x.tipo, eco: x.eco })),
   texto: [...TXT].map(([k, n]) => { const [a, b] = k.split('>'); return [idx[a], idx[b], n]; }),
   // remisiones: [origen, línea, destino, veces, bloque de origen, secciones, líneas, recorte]
   remisiones: REMISIONES.filter((r) => r.src !== r.dst || r.secs.length || r.lins.length).map((r) => [r.esPlan ? idx[r.src] : r.src, r.linea, idx[r.dst], r.n, r.bloque, r.secs.map((s) => [s.id, s.ok ? s.linea : 0]), r.lins.map((l) => [l.de, l.a ?? 0, l.ok ? 1 : 0]), r.texto]),
   conceptos: CONCEPTOS.map((c) => ({ ...c, dueno: idx[c.dueno], disputado: c.alias.some((a) => DISPUTADOS.some(([d]) => d === a)) })),
   prestamos: PRESTAMOS.map((p) => ({ ...p, quien: idx[p.quien], origen: idx[p.origen] })),
   hallazgos: HALLAZGOS,
+  cerradas: CERRADAS,
+  historial: { entradas: HIST.entradas.map(({ abiertas, planes, ...e }) => e), pendiente: PENDIENTE },
   cruces: CRUCES.map((c) => ({ ...c, dueno: idx[c.dueno], otro: idx[c.otro] })),
   lecturas: LECTURAS.map((l) => ({ ...l, plan: idx[l.plan] })),
   tipos: TIPOS,
@@ -922,6 +1029,17 @@ if (existsSync(PLANTILLA)) {
     const dir = join(SITIO_DIR, 'atlas');
     mkdirSync(dir, { recursive: true });
     writeFileSync(join(dir, 'grafo.json'), JSON.stringify(grafo));
+    // mapa.json: lo mínimo para dibujar la red en la página de PLANes de la app (unos 40 KB
+    // contra los 2,8 MB del grafo). El contrato lo consume `pages/Planes/sections/MapaCorpus.tsx`.
+    const cuenta = (hs) => { const c = { rota: 0, revisar: 0, nota: 0 }; for (const h of hs) c[h.grav]++; return c; };
+    writeFileSync(join(dir, 'mapa.json'), JSON.stringify({
+      generado: grafo.generado,
+      canon: grafo.canon,
+      desarmonias: cuenta(HALLAZGOS),
+      planes: planes.map((p) => ({ code: p.code, slug: p.code.toLowerCase(), nombre: p.nombre, tramo: p.fase ?? null, ordinal: p.ordinal ?? null, palabras: p.palabras, nombradoPor: p.nombradoPor, tesis: p.ficha?.tesis ?? null, resumen: p.ficha?.resumen ?? null, desarmonias: cuenta(HALLAZGOS.filter((h) => h.plan === p.code)) })),
+      // «a recibe de b». Solo vínculos firmes; peso = veces que los dos documentos se nombran.
+      vinculos: [...ARISTAS.values()].filter((x) => !x.eco).map((x) => ({ a: idx[x.a], b: idx[x.b], peso: x.txtAB + x.txtBA, que: x.que ?? null })),
+    }));
     writeFileSync(join(dir, 'atlas.js'), `// Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.\n${codigo.trim()}\n`);
     writeFileSync(join(dir, 'index.html'), `<!doctype html>
 <!-- Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe. -->
@@ -963,11 +1081,31 @@ ${cuerpo}
     // ya arreglado hasta que alguien regenere: se escribe «PLANX, línea N», que no matchea.
     const desarmar = (t) => (/^(linea-rota|ancla-)/.test(t0) ? t.replace(/(PLAN[A-Z0-9]+):(\d+)/g, '$1, línea $2') : t);
     for (const h of hs) {
-      L.push(`- **${h.plan}${h.linea ? `:${h.linea}` : ''}** — ${desarmar(h.titulo)}. ${desarmar(h.detalle)}`);
+      L.push(`- \`${h.id}\` **${h.plan}${h.linea ? `:${h.linea}` : ''}** — ${desarmar(h.titulo)}.${h.tocada ? ' **El texto citado cambió desde que se leyó: confirmar si quedó resuelta.**' : ''} ${desarmar(h.detalle)}`);
       if (h.texto) L.push(`  > ${desarmar(h.texto.replace(/\n/g, ' '))}`);
     }
   }
+  if (CERRADAS.length) {
+    L.push('', '## Cerradas a mano', '', 'Las que alguien miró y cerró, con su razón. Se reabren con `--reabrir <id>`.', '');
+    for (const h of CERRADAS) L.push(`- \`${h.id}\` **${h.plan}** — ${h.titulo}. _${h.estado === 'descartada' ? 'Descartada' : 'Resuelta'} el ${h.cerrada}: ${h.razon}_`);
+  }
   writeFileSync(join(AQUI, 'DESARMONIAS.md'), `${L.join('\n')}\n`);
+
+  // HISTORIAL.md — el registro, de lo último a lo primero.
+  const M = ['# Historial del corpus', '', '> Lo escribe `atlas/construir.mjs --registrar "qué se hizo"`. **No editar a mano.**', '',
+    'Cada entrada es una foto del corpus: qué documentos cambiaron desde la anterior, qué desarmonías dejaron de estar y cuáles aparecieron. El número entre paréntesis es el commit sobre el que se tomó.', ''];
+  const lista = (xs, f) => xs.map((x) => `  - \`${x.id}\` ${x.plan ?? ''} — ${x.titulo ?? '(sin título en el catálogo)'}${f ? f(x) : ''}`);
+  if (PENDIENTE && (PENDIENTE.cambios.length || PENDIENTE.resueltas.length || PENDIENTE.nuevas.length)) {
+    M.push('## Sin registrar todavía', '', `Desde la última entrada: ${PENDIENTE.cambios.length} documentos cambiaron, ${PENDIENTE.resueltas.length} desarmonías dejaron de estar, ${PENDIENTE.nuevas.length} aparecieron.`, '');
+  }
+  for (const e of [...HIST.entradas].reverse()) {
+    M.push(`## ${e.n} · ${e.fecha} — ${e.nota}`, '', `Quedan abiertas ${e.totales.rota} rotas, ${e.totales.revisar} para revisar y ${e.totales.nota} notas${e.totales.cerradas ? `; ${e.totales.cerradas} cerradas a mano` : ''}.${e.base ? ` (sobre \`${e.base}\`)` : ''}`, '');
+    if (e.cambios.length) M.push('- **Documentos que cambiaron:** ' + e.cambios.map((c) => `${c.code}${c.de && c.de.version !== c.a.version ? ` v${c.de.version ?? '?'} → v${c.a.version ?? '?'}` : ''} (${c.de ? `${c.a.lineas - c.de.lineas >= 0 ? '+' : ''}${c.a.lineas - c.de.lineas} líneas, ${c.a.palabras - c.de.palabras >= 0 ? '+' : ''}${c.a.palabras - c.de.palabras} palabras` : 'nuevo'})`).join(' · '));
+    if (e.resueltas.length) M.push(`- **Dejaron de estar (${e.resueltas.length}):**`, ...lista(e.resueltas, (x) => ` _(${x.como}${x.razon ? `: ${x.razon}` : ''})_`));
+    if (e.nuevas.length) M.push(`- **Aparecieron (${e.nuevas.length}):**`, ...lista(e.nuevas));
+    M.push('');
+  }
+  writeFileSync(join(AQUI, 'HISTORIAL.md'), `${M.join('\n')}\n`);
 }
 
 // Resumen de consola.
@@ -983,6 +1121,9 @@ ${cuerpo}
   const porTipo = {};
   for (const h of HALLAZGOS) porTipo[h.tipo] = (porTipo[h.tipo] ?? 0) + 1;
   for (const [t, n] of Object.entries(porTipo)) console.log(`     ${String(n).padStart(4)}  ${TIPOS[t]?.[0] ?? t}`);
+  if (CERRADAS.length) console.log(`  ${CERRADAS.length} cerradas a mano (resoluciones.json).`);
+  if (PENDIENTE && (PENDIENTE.cambios.length || PENDIENTE.resueltas.length || PENDIENTE.nuevas.length)) console.log(`\n  Desde la última entrada del historial (${HIST.entradas.at(-1).fecha}): cambiaron ${PENDIENTE.cambios.map((c) => c.code).join(', ') || 'ningún PLAN'} · ${PENDIENTE.resueltas.length} dejaron de estar · ${PENDIENTE.nuevas.length} aparecieron.\n  Para dejarlo anotado: --registrar "qué se hizo"`);
+  else if (!HIST.entradas.length) console.log('\n  El historial está vacío. La primera entrada: --registrar "Línea de base"');
   if (ANCLAS_CORRIDAS.length) console.log(`\n  ${ANCLAS_CORRIDAS.length} anclas cambiaron desde la última vez. Renumerá las citas y corré con --fijar.`);
   console.log(`\n  → ${join(AQUI, 'atlas.html')}\n`);
 }

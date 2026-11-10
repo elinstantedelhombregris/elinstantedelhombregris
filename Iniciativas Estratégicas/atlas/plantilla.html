@@ -110,6 +110,7 @@ code{font:400 12px/1.4 var(--mono);background:var(--hundido);padding:2px 5px;ove
 .aviso{border:1px solid var(--revisar);padding:10px 12px;font-size:13.5px;margin:10px 0}
 .filtros{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:14px}
 #toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--papel);font:400 12px/1.3 var(--mono);padding:9px 13px;z-index:30;max-width:min(92vw,560px);overflow-wrap:anywhere}
+details{margin-top:8px}
 details summary{cursor:pointer;font:700 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--tinta2);padding:6px 0}
 </style>
 
@@ -143,11 +144,7 @@ const gr = (g) => `<span class="g ${g}">${g}</span>`;
 // ── índices ────────────────────────────────────────────────────────────────
 const A = new Map(); // «a>b»: a recibe de b
 for (const x of G.aristas) A.set(x.a + '>' + x.b, x);
-// Diecinueve documentos listan cada vínculo en sus dos tablas, «aporta» y «necesita», sin orientarlo.
-// Si una dirección solo la sostiene esa tabla y la contraria la sostienen el registro, el grafo o la
-// app, la primera es eco de la segunda: no se dibuja como vínculo propio y se cuenta aparte.
-const firme = (x) => !!(x.k.registro || x.k.ymlNecesita || x.k.ymlAporta || x.k.arqNecesita || x.k.arqAporta);
-for (const x of G.aristas) { const inv = A.get(x.b + '>' + x.a); x.eco = !firme(x) && !!inv && firme(inv); }
+// Los vínculos «eco» (ver construir.mjs) no se dibujan: solo los sostiene una tabla sin orientar.
 const VIVAS = G.aristas.filter((x) => !x.eco);
 const T = Array.from({ length: N }, () => new Array(N).fill(0)); // T[a][b]: veces que el texto de a nombra a b
 for (const [a, b, n] of G.texto) T[a][b] = n;
@@ -161,15 +158,15 @@ const faseDe = (p) => p.fase ?? 'sin tramo';
 const orden = P.map((_, i) => i).sort((a, b) => faseDe(P[a]).localeCompare(faseDe(P[b])) || (P[a].ordinal ?? 99) - (P[b].ordinal ?? 99) || P[a].code.localeCompare(P[b].code));
 
 // ── estado y rutas ─────────────────────────────────────────────────────────
-const E = { vista: 'mapa', plan: null, par: null, modo: 'red', sinDeclarar: false, bloque: null, q: '', tipo: '', dueno: '', grav: '', htipo: '', hplan: '', lim: 120 };
-const VISTAS = [['mapa', 'El mapa'], ['editar', 'Antes de editar'], ['conceptos', 'Conceptos'], ['desarmonias', 'Desarmonías']];
+const E = { vista: 'mapa', plan: null, par: null, modo: SITIO ? 'matriz' : 'red', cerr: false, sinDeclarar: false, bloque: null, q: '', tipo: '', dueno: '', grav: '', htipo: '', hplan: '', lim: 120 };
+const VISTAS = [['mapa', SITIO ? 'Vínculos' : 'El mapa'], ['editar', 'Antes de editar'], ['conceptos', 'Conceptos'], ['desarmonias', 'Desarmonías'], ['historial', 'Historial']];
 function leerHash() {
   const [v, c] = location.hash.slice(1).split('-');
   E.vista = VISTAS.some(([k]) => k === v) ? v : 'mapa';
   const i = c ? idx[c.toUpperCase()] : undefined;
   if (i !== undefined) { E.plan = i; if (E.vista === 'desarmonias') E.hplan = P[i].code; } else if (E.vista === 'mapa') E.plan = null; else if (E.vista === 'editar' && E.plan === null) E.plan = idx.PLANDIG ?? 0;
 }
-function ir(vista, plan = E.plan) { E.par = null; E.bloque = null; E.lim = 120; const h = '#' + vista + (plan !== null && vista !== 'conceptos' ? '-' + P[plan].code.toLowerCase() : ''); if (location.hash === h) { leerHash(); pintar(); } else location.hash = h; }
+function ir(vista, plan = E.plan) { E.par = null; E.bloque = null; E.lim = 120; const h = '#' + vista + (plan !== null && vista !== 'conceptos' && vista !== 'historial' ? '-' + P[plan].code.toLowerCase() : ''); if (location.hash === h) { leerHash(); pintar(); } else location.hash = h; }
 addEventListener('hashchange', () => { leerHash(); pintar(); });
 
 // ── la red ─────────────────────────────────────────────────────────────────
@@ -301,29 +298,52 @@ function vistaConceptos() {
 }
 
 // ── desarmonías ────────────────────────────────────────────────────────────
-function hallLi(h) { return `<li><div class="fila">${gr(h.grav)}${h.plan in idx ? (h.linea ? loc(h.plan, h.linea) : pc(idx[h.plan])) : h.linea ? loc(h.plan, h.linea) : `<span class="k">${esc(nomDoc(h.plan))}</span>`}<b>${esc(h.titulo)}</b></div><span class="chico tenue">${esc(h.detalle)}</span>${h.texto ? `<blockquote>${esc(h.texto)}</blockquote>` : ''}</li>`; }
+function hallLi(h) { return `<li><div class="fila">${h.estado ? `<span class="g nota">${esc(h.estado)}</span>` : gr(h.grav)}${h.tocada ? '<span class="g revisar">el texto cambió</span>' : ''}${h.plan in idx ? (h.linea ? loc(h.plan, h.linea) : pc(idx[h.plan])) : h.linea ? loc(h.plan, h.linea) : `<span class="k">${esc(nomDoc(h.plan))}</span>`}<b>${esc(h.titulo)}</b></div>${h.razon ? `<span class="chico"><b>${h.estado === 'descartada' ? 'Descartada' : 'Resuelta'} el ${esc(h.cerrada)}.</b> ${esc(h.razon)}</span>` : ''}${h.tocada ? '<span class="chico">El texto que se citaba cambió desde que se leyó. Falta que alguien confirme si quedó resuelta.</span>' : ''}<span class="chico tenue">${esc(h.detalle)}</span>${h.texto ? `<blockquote>${esc(h.texto)}</blockquote>` : ''}<span class="k">id ${esc(h.id)}</span></li>`; }
 function vistaDesarmonias() {
-  const base = G.hallazgos.filter((h) => (!E.grav || h.grav === E.grav) && (!E.hplan || h.plan === E.hplan));
+  const base = (E.cerr ? G.cerradas : G.hallazgos).filter((h) => (!E.grav || h.grav === E.grav) && (!E.hplan || h.plan === E.hplan));
   const porTipo = {}; for (const h of base) (porTipo[h.tipo] ??= []).push(h);
   const hs = E.htipo ? porTipo[E.htipo] ?? [] : base;
   return `<p class="lead">Lo que ya no cierra, con la línea para ir a mirar.</p><p class="chico tenue"><b>Rota</b>: se prueba contra el texto. <b>Revisar</b>: el patrón o el lector casi siempre aciertan, pero hay que leer la línea. <b>Nota</b>: no es un error; conviene saberlo antes de editar.</p>
-  <div class="filtros"><div class="seg">${[['', 'todas'], ['rota', 'rotas'], ['revisar', 'revisar'], ['nota', 'notas']].map(([k, v]) => `<button data-grav="${k}" aria-pressed="${E.grav === k}">${v}</button>`).join('')}</div><select id="hplan" aria-label="Documento"><option value="">todos los documentos</option>${orden.map((k) => `<option value="${P[k].code}"${E.hplan === P[k].code ? ' selected' : ''}>${P[k].code}</option>`).join('')}</select><span class="k">${hs.length} hallazgos</span></div>
+  <div class="filtros"><div class="seg">${[['', 'todas'], ['rota', 'rotas'], ['revisar', 'revisar'], ['nota', 'notas']].map(([k, v]) => `<button data-grav="${k}" aria-pressed="${E.grav === k}">${v}</button>`).join('')}</div><select id="hplan" aria-label="Documento"><option value="">todos los documentos</option>${orden.map((k) => `<option value="${P[k].code}"${E.hplan === P[k].code ? ' selected' : ''}>${P[k].code}</option>`).join('')}</select><button class="btn2" data-cerr="1" aria-pressed="${E.cerr}">${E.cerr ? '← Volver a las abiertas' : `Cerradas a mano · ${G.cerradas.length}`}</button><span class="k">${hs.length} ${E.cerr ? 'cerradas' : 'abiertas'}</span></div>
   <div class="mesa"><section><div class="tw"><table><thead><tr><th>Qué desentona</th><th class="n">Cuántas</th></tr></thead><tbody><tr class="cl${E.htipo ? '' : ' on'}" data-htipo=""><td><b>Todo</b></td><td class="n">${base.length}</td></tr>${Object.entries(porTipo).map(([t, l]) => `<tr class="cl${E.htipo === t ? ' on' : ''}" data-htipo="${t}" tabindex="0"><td><div class="fila">${gr(l[0].grav)}<b>${esc(G.tipos[t]?.[0] ?? t)}</b></div><span class="chico tenue">${esc(G.tipos[t]?.[1] ?? '')}</span></td><td class="n">${l.length}</td></tr>`).join('')}</tbody></table></div></section>
   <aside><div class="hoja"><p class="k">${E.hplan || 'Todo el corpus'}</p><h2>${esc(E.htipo ? G.tipos[E.htipo]?.[0] ?? E.htipo : 'Todas')}</h2><ul class="l" style="margin-top:14px">${hs.slice(0, E.lim).map(hallLi).join('') || '<li class="tenue">Nada con este filtro.</li>'}</ul>${hs.length > E.lim ? `<p><button class="btn2" data-mas="1">Mostrar más</button></p>` : ''}</div></aside></div>`;
 }
 
+// ── historial ──────────────────────────────────────────────────────────────
+function vistaHistorial() {
+  const H = G.historial, es = [...H.entradas].reverse(), p = H.pendiente, signo = (n) => (n >= 0 ? '+' : '−') + num(Math.abs(n));
+  const mx = Math.max(1, ...H.entradas.map((e) => e.totales.rota + e.totales.revisar));
+  const item = (x) => `<li><div class="fila">${x.grav ? gr(x.grav) : ''}${x.plan in idx ? pc(idx[x.plan]) : x.plan ? `<span class="k">${esc(nomDoc(x.plan))}</span>` : ''}<span>${esc(x.titulo ?? 'Sin título en el catálogo')}</span></div>${x.como ? `<span class="k">${esc(x.como)}${x.razon ? ' · ' + esc(x.razon) : ''}</span>` : ''}</li>`;
+  const cambio = (c) => `<li class="fila">${pc(idx[c.code])}${c.de && c.de.version !== c.a.version ? `<b>v${esc(c.de.version ?? '?')} → v${esc(c.a.version ?? '?')}</b>` : c.a.version ? `<span class="k">v${esc(c.a.version)}</span>` : ''}<span class="k">${c.de ? signo(c.a.lineas - c.de.lineas) + ' líneas · ' + signo(c.a.palabras - c.de.palabras) + ' palabras' : 'documento nuevo'}</span></li>`;
+  const plegable = (t, xs, f) => (xs.length ? `<details${xs.length <= 10 ? ' open' : ''}><summary>${t} · ${xs.length}</summary><ul class="l">${xs.map(f).join('')}</ul></details>` : '');
+  const cuerpo = (d) => plegable('Documentos que cambiaron', d.cambios, cambio) + plegable('Dejaron de estar', d.resueltas, item) + plegable('Aparecieron', d.nuevas, item);
+  const hayPend = p && (p.cambios.length || p.resueltas.length || p.nuevas.length);
+  const entrada = (e) => { const ab = e.totales.rota + e.totales.revisar; return `<li class="hoja"><p class="k">Entrada ${e.n} · ${esc(e.fecha)}${e.base ? ' · sobre ' + esc(e.base) : ''}</p><h2>${esc(e.nota)}</h2><div class="fila" style="margin:12px 0 4px" title="Abiertas sin contar las notas"><span class="bar" style="width:${(ab / mx * 55).toFixed(1)}%"></span><b>${num(ab)}</b><span class="k">abiertas · ${e.totales.rota} rotas · ${e.totales.revisar} para revisar · ${e.totales.nota} notas${e.totales.cerradas ? ' · ' + e.totales.cerradas + ' cerradas a mano' : ''}</span></div>${cuerpo(e) || (e.n === 0 ? '<p class="chico tenue">La primera foto: contra esta se mide todo lo que venga.</p>' : '<p class="chico tenue">Sin cambios respecto de la entrada anterior.</p>')}</li>`; };
+  return `<p class="lead">Cómo se va arreglando el corpus, edición por edición.</p><p class="chico tenue">Cada entrada es una foto: qué documentos cambiaron desde la anterior, qué desarmonías dejaron de estar y cuáles aparecieron. Una desarmonía conserva su identidad aunque se le corran las líneas, así que se puede seguir de una foto a la otra.</p>
+  <div class="mesa"><section><ul class="l" style="gap:16px">${hayPend ? `<li class="hoja" style="border-color:var(--revisar)"><p class="k">Sin registrar todavía</p><h2>Cambios desde la última entrada</h2>${cuerpo(p)}</li>` : ''}${es.map(entrada).join('') || '<li class="tenue">Todavía no hay ninguna entrada.</li>'}</ul></section>
+  <aside><div class="hoja"><p class="k">Cómo se lleva</p><h2>Editar, medir, anotar</h2>
+  <p style="margin-top:12px">Una desarmonía se cierra de tres maneras. <b>Sola</b>, cuando se corrige el documento y el patrón deja de encontrarla. <b>Resuelta a mano</b>, cuando la vio un lector y solo una persona puede confirmar que el arreglo la cubre. <b>Descartada</b>, cuando alguien la miró y no era un error: queda anotada con su razón, no se borra.</p>
+  <p>Las que un lector anotó llevan guardado lo que decían sus líneas el día de la lectura. Si ese texto cambia, quedan marcadas «el texto cambió» hasta que alguien las cierre.</p>
+  <h3 class="cmd">En la terminal</h3>
+  <p class="cmd chico">Después de editar uno o más PLANes:</p><p class="cmd"><code>node "Iniciativas Estratégicas/atlas/construir.mjs"</code></p>
+  <p class="cmd chico">Dice qué cambió desde la última entrada. Para cerrar a mano una desarmonía, con su id:</p><p class="cmd"><code>… construir.mjs --resolver &lt;id&gt; "qué se corrigió"</code><br><code>… construir.mjs --descartar &lt;id&gt; "por qué no era un error"</code></p>
+  <p class="cmd chico">Y para dejar la entrada escrita:</p><p class="cmd"><code>… construir.mjs --registrar "qué se hizo"</code></p>
+  <h3>Hoy</h3><div class="fila">${['rota', 'revisar', 'nota'].map((g) => gr(g) + '<b>' + G.hallazgos.filter((h) => h.grav === g).length + '</b>').join(' ')}<span class="k">· ${G.cerradas.length} cerradas a mano · ${G.hallazgos.filter((h) => h.tocada).length} con el texto cambiado</span></div>
+  <p style="margin-top:12px"><button class="btn2" data-go="desarmonias" data-sinplan="1">Ver las abiertas →</button></p></div></aside></div>`;
+}
+
 // ── pintar y escuchar ──────────────────────────────────────────────────────
 function pintar() {
-  const cuenta = { desarmonias: G.hallazgos.filter((h) => h.grav !== 'nota').length, conceptos: G.conceptos.length };
+  const cuenta = { desarmonias: G.hallazgos.filter((h) => h.grav !== 'nota').length, conceptos: G.conceptos.length, historial: G.historial.entradas.length };
   $('#nav').innerHTML = VISTAS.map(([k, v]) => `<button data-go="${k}"${E.vista === k ? ' aria-current="page"' : ''}>${v}${cuenta[k] ? `<b>${cuenta[k]}</b>` : ''}</button>`).join('');
-  $('#sub').textContent = `¡BASTA! · ${G.canon.documentos} documentos · ${num(G.canon.palabras)} palabras · al ${G.generado}`;
+  $('#sub').textContent = `${SITIO ? 'Análisis en profundidad · ' : ''}¡BASTA! · ${G.canon.documentos} documentos · ${num(G.canon.palabras)} palabras · al ${G.generado}`;
   const foco = document.activeElement?.id, sel = document.activeElement?.selectionStart;
-  $('#app').innerHTML = { mapa: vistaMapa, editar: vistaEditar, conceptos: vistaConceptos, desarmonias: vistaDesarmonias }[E.vista]();
+  $('#app').innerHTML = { mapa: vistaMapa, editar: vistaEditar, conceptos: vistaConceptos, desarmonias: vistaDesarmonias, historial: vistaHistorial }[E.vista]();
   if (foco && $('#' + foco)) { $('#' + foco).focus(); if (sel != null && $('#' + foco).setSelectionRange) $('#' + foco).setSelectionRange(sel, sel); }
 }
 function avisar(t) { const e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(avisar.t); avisar.t = setTimeout(() => (e.hidden = true), 2600); }
 document.addEventListener('click', (ev) => {
-  const t = ev.target.closest('[data-loc],[data-plan],[data-par],[data-go],[data-modo],[data-limpiar],[data-bloque],[data-concepto],[data-mas],[data-grav],[data-htipo]');
+  const t = ev.target.closest('[data-loc],[data-plan],[data-par],[data-go],[data-modo],[data-limpiar],[data-bloque],[data-concepto],[data-mas],[data-grav],[data-htipo],[data-cerr]');
   if (!t) return; const d = t.dataset;
   if (d.loc) { const ruta = 'Iniciativas Estratégicas/' + d.loc; (navigator.clipboard?.writeText(ruta) ?? Promise.reject()).then(() => avisar('Copiado: ' + ruta), () => avisar(ruta)); return; }
   if (d.concepto) { if (E.vista !== 'conceptos') { E.abierto = d.concepto; E.q = d.concepto.split('/')[1]; E.tipo = ''; E.dueno = ''; ir('conceptos'); } else { E.abierto = E.abierto === d.concepto ? null : d.concepto; pintar(); } return; }
@@ -332,6 +352,7 @@ document.addEventListener('click', (ev) => {
   if (d.go) { if (d.sinplan) { E.hplan = ''; E.htipo = ''; E.plan = null; } if (d.go === 'desarmonias' && !d.sinplan && E.plan !== null && t.closest('.hoja')) E.hplan = P[E.plan].code; ir(d.go, d.go === 'desarmonias' && !E.hplan ? null : E.plan); return; }
   if (d.modo) E.modo = d.modo; if (d.limpiar) { E.plan = null; E.par = null; ir('mapa', null); return; }
   if (d.bloque) E.bloque = E.bloque === +d.bloque ? null : +d.bloque; if (d.mas) E.lim += 200;
+  if (d.cerr) { E.cerr = !E.cerr; E.htipo = ''; E.lim = 120; }
   if (d.grav !== undefined) E.grav = d.grav; if (d.htipo !== undefined) { E.htipo = d.htipo; E.lim = 120; }
   pintar();
 });
