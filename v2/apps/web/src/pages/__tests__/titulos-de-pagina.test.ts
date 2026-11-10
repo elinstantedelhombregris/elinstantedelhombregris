@@ -34,6 +34,7 @@ const TITULOS: readonly (readonly [archivo: string, titulo: string])[] = [
   ['ElMandatoVivo.tsx', "'El mandato vivo'"],
   ['LaIdea.tsx', "'La idea'"],
   ['Planes.tsx', "'Planes'"],
+  ['Atlas.tsx', "'Atlas del corpus'"],
   ['Biblioteca.tsx', "'Biblioteca'"],
 ];
 

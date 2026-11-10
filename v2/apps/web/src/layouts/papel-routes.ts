@@ -52,6 +52,8 @@ const PAPEL_ROUTES = new Set([
   '/la-simulacion',
   '/mandato-vivo',
   '/planes',
+  // El análisis en profundidad del corpus: se llega desde el mapa de /planes.
+  '/atlas',
   '/sembrar',
   '/biblioteca',
   // El frame del redirect a /biblioteca no debe mostrar el chrome v1.

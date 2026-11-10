@@ -117,6 +117,11 @@ export const KitDePrensa = lazy(async () => {
   const m = await import('~/pages/KitDePrensa');
   return { default: m.KitDePrensa };
 });
+export const Atlas = lazy(async () => {
+  const m = await import('~/pages/Atlas');
+  return { default: m.Atlas };
+});
+
 export const Planes = lazy(async () => {
   const m = await import('~/pages/Planes');
   return { default: m.Planes };

@@ -9,6 +9,7 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/el-mapa')).toBe(true);
     expect(esRutaPapel('/mandato-vivo')).toBe(true);
     expect(esRutaPapel('/planes')).toBe(true);
+    expect(esRutaPapel('/atlas')).toBe(true);
     expect(esRutaPapel('/sembrar')).toBe(true);
     expect(esRutaPapel('/biblioteca')).toBe(true);
     // El frame del redirect de /ensayos no debe mostrar el chrome v1.

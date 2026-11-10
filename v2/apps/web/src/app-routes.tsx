@@ -68,6 +68,7 @@ import {
   NotFound,
   Notifications,
   PlanDetail,
+  Atlas,
   Planes,
   PoliticaPrivacidad,
   PracticaDetail,
@@ -174,6 +175,7 @@ export function AppRoutes() {
       <Route path="/kit-de-prensa" component={KitDePrensa} />
 
       {/* PLAN catalog */}
+      <Route path="/atlas" component={Atlas} />
       <Route path="/planes" component={Planes} />
       <Route path="/planes/:slug" component={PlanDetail} />
 

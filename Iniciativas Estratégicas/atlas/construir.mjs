@@ -31,7 +31,7 @@
  *
  * Sin dependencias: Node 20+ y nada más.
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -1013,21 +1013,33 @@ if (existsSync(PLANTILLA)) {
   // 1. El archivo suelto: todo adentro, para abrir con doble clic.
   writeFileSync(join(AQUI, 'atlas.html'), plantilla.replace('/*__GRAFO__*/null', () => JSON.stringify(grafo).replace(/</g, '\\u003c')));
 
-  // 2. La página del sitio (v2). La política de seguridad del sitio no deja correr
-  // scripts en línea ni traer fuentes de afuera (`script-src 'self'`, `font-src 'self'`
-  // en v2/vercel.json), así que acá el código y los datos van en archivos propios y
-  // las fuentes son las que el sitio ya aloja en /fonts-ui/.
+  // 2. El visor para la app (v2). La página es una ruta de la app —`/atlas`,
+  // `v2/apps/web/src/pages/Atlas.tsx`—, que pone el encabezado y el pie del sitio y monta
+  // este visor adentro. Acá salen sus tres piezas: los estilos, todos bajo `.atlas`; el
+  // código, que deja `window.__atlasBASTA.iniciar(grafo, elemento)`; y los datos. Van en
+  // archivos propios porque la política de seguridad del sitio (`script-src 'self'` en
+  // v2/vercel.json) no deja correr scripts en línea.
   const SITIO_DIR = join(REPO, 'v2/apps/web/public');
   if (existsSync(SITIO_DIR)) {
     const entre = (a, z) => plantilla.slice(plantilla.indexOf(a) + a.length, plantilla.indexOf(z, plantilla.indexOf(a)));
-    const estilo = entre('<style>', '</style>');
-    const cuerpo = plantilla.slice(plantilla.indexOf('</style>') + 8, plantilla.indexOf('<script>')).trim();
+    // En la app el registro es papel, siempre: se van los tokens de noche y las reglas del
+    // documento suelto (`:root`, `html`, `body`); los tokens pasan a colgar de `.atlas`.
+    const estilo = entre('<style>', '</style>')
+      .replace(/@media \(prefers-color-scheme:dark\)\{:root:not\(\[data-theme="light"\]\)\{[^}]*\}\}\n?/, '')
+      .replace(/:root\[data-theme="dark"\]\{[^}]*\}\n?/, '')
+      .replace(/^:root\{/m, '.atlas{')
+      .replace(/^html,body\{[^}]*\}\n?/m, '')
+      .replace(/^body\{[^}]*\}\n?/m, '');
+    if (/:root|prefers-color-scheme|(^|\})\s*(html|body)\b/.test(estilo)) throw new Error('Los estilos del visor tienen reglas fuera de `.atlas`: en la app pisarían al sitio. Revisar la plantilla.');
     const codigo = entre('<script>', '</script>')
       .replace('/*__SITIO__*/false', 'true')
-      .replace('iniciar(/*__GRAFO__*/null);', "fetch('/atlas/grafo.json').then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(iniciar).catch(() => { document.getElementById('app').innerHTML = '<p>No se pudo cargar el atlas. Probá recargar la página.</p>'; });");
+      .replace('iniciar(/*__GRAFO__*/null);', 'window.__atlasBASTA = { iniciar };');
     if (codigo.includes('__GRAFO__') || codigo.includes('__SITIO__')) throw new Error('La plantilla cambió y la versión del sitio quedó sin armar: revisar los marcadores __SITIO__ y __GRAFO__.');
     const dir = join(SITIO_DIR, 'atlas');
     mkdirSync(dir, { recursive: true });
+    rmSync(join(dir, 'index.html'), { force: true }); // era la página suelta: con ella ahí, /atlas no llega a la app
+    writeFileSync(join(dir, 'atlas.css'), `/* Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe. */\n${estilo.trim()}\n`);
+    writeFileSync(join(dir, 'atlas.js'), `// Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.\n(() => {\n${codigo.trim()}\n})();\n`);
     writeFileSync(join(dir, 'grafo.json'), JSON.stringify(grafo));
     // mapa.json: lo mínimo para dibujar la red en la página de PLANes de la app (unos 40 KB
     // contra los 2,8 MB del grafo). El contrato lo consume `pages/Planes/sections/MapaCorpus.tsx`.
@@ -1041,25 +1053,6 @@ if (existsSync(PLANTILLA)) {
       vinculos: [...ARISTAS.values()].filter((x) => !x.eco).map((x) => ({ a: idx[x.a], b: idx[x.b], peso: x.txtAB + x.txtBA, que: x.que ?? null })),
     }));
     writeFileSync(join(dir, 'atlas.js'), `// Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.\n${codigo.trim()}\n`);
-    writeFileSync(join(dir, 'index.html'), `<!doctype html>
-<!-- Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe. -->
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Atlas del corpus · ¡BASTA!</title>
-<meta name="description" content="El grafo de los ${CODIGOS.length} documentos de ¡BASTA!: qué propone cada PLAN, quién se apoya en quién, qué nombra cada uno como propio y dónde no cierran entre sí.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/fonts-ui/fuentes.css">
-<style>${estilo}</style>
-</head>
-<body>
-${cuerpo}
-<noscript><p style="padding:24px">El atlas necesita JavaScript para dibujarse. Los documentos están en <a href="/planes">Los PLANes</a>.</p></noscript>
-<script src="/atlas/atlas.js" defer></script>
-</body>
-</html>
-`);
   }
 }
 

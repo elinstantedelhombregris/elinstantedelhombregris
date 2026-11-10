@@ -81,7 +81,7 @@ describe('MapaCorpus', () => {
     expect(screen.getByText('El mapa · tocá un plan')).toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: /Análisis del corpus en profundidad/ }),
-    ).toHaveAttribute('href', '/atlas/');
+    ).toHaveAttribute('href', '/atlas');
   });
 
   it('click y Enter sobre un nodo piden seleccionarlo', async () => {
@@ -109,7 +109,7 @@ describe('MapaCorpus', () => {
     );
     expect(screen.getByRole('link', { name: /2 desarmonías abiertas/ })).toHaveAttribute(
       'href',
-      `/atlas/#desarmonias-${un.slug}`,
+      `/atlas#desarmonias-${un.slug}`,
     );
   });
 

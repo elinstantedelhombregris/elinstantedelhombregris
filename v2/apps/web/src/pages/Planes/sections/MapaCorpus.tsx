@@ -324,13 +324,12 @@ function PanelGeneral({ datos }: { datos: MapaCorpusData }) {
           </div>
         ))}
       </dl>
-      {/* `<a>` y no `<Link>`: el atlas es una página estática (`public/atlas/`), fuera del router. */}
-      <a
-        href="/atlas/"
+      <Link
+        href="/atlas"
         className="font-space text-violeta text-xs font-bold uppercase tracking-[0.1em]"
       >
         Análisis del corpus en profundidad →
-      </a>
+      </Link>
     </div>
   );
 }
@@ -422,10 +421,9 @@ function PanelPlan({
 
       {abiertas > 0 ? (
         <p className="font-space text-tinta-75 mb-5 text-[11px] uppercase tracking-[0.1em]">
-          {/* `<a>` y no `<Link>`: el atlas es una página estática, fuera del router. */}
-          <a href={`/atlas/#desarmonias-${plan.slug}`} className="text-violeta font-bold">
+          <Link href={`/atlas#desarmonias-${plan.slug}`} className="text-violeta font-bold">
             {abiertas} {abiertas === 1 ? 'desarmonía abierta' : 'desarmonías abiertas'} →
-          </a>
+          </Link>
         </p>
       ) : null}
 
@@ -436,13 +434,12 @@ function PanelPlan({
         >
           Leer el documento →
         </Link>
-        {/* `<a>` y no `<Link>`: el atlas es una página estática, fuera del router. */}
-        <a
-          href={`/atlas/#editar-${plan.slug}`}
+        <Link
+          href={`/atlas#editar-${plan.slug}`}
           className="font-space text-violeta text-xs font-bold uppercase tracking-[0.1em]"
         >
           Analizar en profundidad →
-        </a>
+        </Link>
       </div>
 
       <BotonPapel

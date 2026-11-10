@@ -5,8 +5,8 @@
   "outputDirectory": "apps/web/dist",
   "redirects": [
     {
-      "source": "/atlas",
-      "destination": "/atlas/",
+      "source": "/atlas/",
+      "destination": "/atlas",
       "permanent": false
     },
     {

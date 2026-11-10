@@ -13,26 +13,35 @@ Tarda dos segundos, no tiene dependencias (Node 20+) y reescribe `atlas.html`, `
 
 ## En el sitio
 
-Son dos páginas. **`/planes`** es la entrada: el mapa de la red arriba y el índice de los documentos
-abajo, con una sola selección compartida (`v2/apps/web/src/pages/Planes/sections/MapaCorpus.tsx`).
-**`/atlas/`** es el análisis en profundidad: la matriz de vínculos, «antes de editar», los conceptos,
-las desarmonías y el historial.
+Son dos páginas de la app, las dos con el encabezado y el pie del sitio. **`/planes`** es la
+entrada: el mapa de la red arriba y el índice de los documentos abajo, con una sola selección
+compartida (`v2/apps/web/src/pages/Planes/sections/MapaCorpus.tsx`). **`/atlas`** es el análisis en
+profundidad: la matriz de vínculos, «antes de editar», los conceptos, las desarmonías y el
+historial (`v2/apps/web/src/pages/Atlas.tsx`).
 
-`construir.mjs` escribe todo lo que las dos necesitan en `v2/apps/web/public/atlas/`:
+La página `/atlas` no reimplementa el visor: lo monta. `construir.mjs` deja sus piezas en
+`v2/apps/web/public/atlas/` y la página las carga:
 
-| Archivo | Para quién |
+| Archivo | Qué es |
 |---|---|
-| `mapa.json` (~55 KB) | la página de PLANes: nodos, vínculos, tesis y cuentas |
-| `index.html`, `atlas.js`, `grafo.json` (~2,8 MB) | la página de análisis |
+| `mapa.json` (~55 KB) | lo que dibuja la página de PLANes: nodos, vínculos, tesis y cuentas |
+| `atlas.css` | los estilos del visor, **todos bajo la clase `.atlas`** para no pisar los del sitio |
+| `atlas.js` | el visor; deja `window.__atlasBASTA.iniciar(grafo, elemento)`, que devuelve cómo desmontarlo |
+| `grafo.json` (~2,8 MB) | los datos completos |
 
-La página de análisis es la misma plantilla que `atlas.html` con tres diferencias: el código y los
-datos van en archivos aparte y las fuentes son las de `/fonts-ui/`, porque la política de seguridad
-del sitio (`v2/vercel.json`) no deja correr scripts en línea ni traer fuentes de afuera; cada número
-de línea abre el documento en GitHub en vez de copiar la ruta; y los comandos de terminal no se muestran.
+Es la misma plantilla que `atlas.html`, con cuatro diferencias: no trae título ni encabezado
+propios (los pone la app); usa solo el registro papel; cada número de línea abre el documento en
+GitHub en vez de copiar la ruta; y los comandos de terminal no se muestran. El código va en un
+archivo aparte porque la política de seguridad del sitio (`v2/vercel.json`) no deja correr scripts
+en línea.
+
+Dos reglas para tocar `plantilla.html` sin romper el sitio: **toda regla de estilo cuelga de
+`.atlas`** (el script falla si encuentra una suelta) y **el visor no busca nada fuera de su
+elemento raíz** (ni `document.getElementById` ni escuchas en `document`).
 
 **Si editás un PLAN, corré `construir.mjs` y commiteá `v2/apps/web/public/atlas/` junto con el
-documento.** Ninguna guardia lo exige todavía: un atlas viejo en el sitio no rompe nada, pero sus
-números de línea dejan de coincidir con los documentos.
+documento.** Ninguna guardia lo exige todavía (D-152): un atlas viejo en el sitio no rompe nada,
+pero sus números de línea dejan de coincidir con los documentos.
 
 ## El registro: cómo se van cerrando las desarmonías
 

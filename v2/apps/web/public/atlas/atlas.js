@@ -1,8 +1,12 @@
 // Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.
-function iniciar(G) {
+// El visor se monta dentro de un elemento `.atlas` y no toca nada fuera de él: así vive igual
+// en el archivo suelto y como página de la app (`v2/apps/web/src/pages/Atlas.tsx`), que le pone
+// el encabezado y el pie del sitio. Devuelve cómo desmontarlo.
+function iniciar(G, raiz = document.querySelector('.atlas')) {
 const SITIO = true;
-if (SITIO) { document.documentElement.classList.add('sitio'); for (const id of ['volver', 'pie']) document.getElementById(id).hidden = false; }
-const P = G.planes, N = P.length, $ = (s, r = document) => r.querySelector(s);
+raiz.classList.toggle('sitio', SITIO);
+raiz.innerHTML = `<header class="barra"><div class="w">${SITIO ? '' : '<h1>Atlas del corpus</h1>'}<p class="sub" data-a="sub"></p><nav data-a="nav" aria-label="Vistas del atlas"></nav></div></header><div class="w cuerpo" data-a="app"></div><div class="tip" data-a="tip" hidden></div><div class="toast" data-a="toast" hidden></div>${SITIO ? `<div class="w pie"><p>Este atlas se arma solo, desde los documentos, con un programa abierto. Las fichas, las lecturas y los cruces los escribió un modelo de lenguaje: cada cita está comprobada contra el texto; el juicio de que algo desentona, no. Cada número de línea abre el documento en ese lugar para que lo mires vos.</p><p><a href="/lo-que-falta">Si algo está mal, decilo en Lo que falta</a> · <a href="https://github.com/elinstantedelhombregris/elinstantedelhombregris/tree/main/Iniciativas%20Estrat%C3%A9gicas/atlas" target="_blank" rel="noopener">Cómo está hecho</a></p></div>` : ''}`;
+const P = G.planes, N = P.length, $ = (s, r = raiz) => r.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const num = (n) => Number(n).toLocaleString('es-AR');
 const idx = Object.fromEntries(P.map((p, i) => [p.code, i]));
@@ -41,7 +45,8 @@ function leerHash() {
   if (i !== undefined) { E.plan = i; if (E.vista === 'desarmonias') E.hplan = P[i].code; } else if (E.vista === 'mapa') E.plan = null; else if (E.vista === 'editar' && E.plan === null) E.plan = idx.PLANDIG ?? 0;
 }
 function ir(vista, plan = E.plan) { E.par = null; E.bloque = null; E.lim = 120; const h = '#' + vista + (plan !== null && vista !== 'conceptos' && vista !== 'historial' ? '-' + P[plan].code.toLowerCase() : ''); if (location.hash === h) { leerHash(); pintar(); } else location.hash = h; }
-addEventListener('hashchange', () => { leerHash(); pintar(); });
+const alCambiarHash = () => { leerHash(); pintar(); };
+addEventListener('hashchange', alCambiarHash);
 
 // ── la red ─────────────────────────────────────────────────────────────────
 function posiciones() {
@@ -209,14 +214,14 @@ function vistaHistorial() {
 // ── pintar y escuchar ──────────────────────────────────────────────────────
 function pintar() {
   const cuenta = { desarmonias: G.hallazgos.filter((h) => h.grav !== 'nota').length, conceptos: G.conceptos.length, historial: G.historial.entradas.length };
-  $('#nav').innerHTML = VISTAS.map(([k, v]) => `<button data-go="${k}"${E.vista === k ? ' aria-current="page"' : ''}>${v}${cuenta[k] ? `<b>${cuenta[k]}</b>` : ''}</button>`).join('');
-  $('#sub').textContent = `${SITIO ? 'Análisis en profundidad · ' : ''}¡BASTA! · ${G.canon.documentos} documentos · ${num(G.canon.palabras)} palabras · al ${G.generado}`;
+  $('[data-a="nav"]').innerHTML = VISTAS.map(([k, v]) => `<button data-go="${k}"${E.vista === k ? ' aria-current="page"' : ''}>${v}${cuenta[k] ? `<b>${cuenta[k]}</b>` : ''}</button>`).join('');
+  $('[data-a="sub"]').textContent = `${SITIO ? '' : '¡BASTA! · '}${G.canon.documentos} documentos · ${num(G.canon.palabras)} palabras · al ${G.generado}`;
   const foco = document.activeElement?.id, sel = document.activeElement?.selectionStart;
-  $('#app').innerHTML = { mapa: vistaMapa, editar: vistaEditar, conceptos: vistaConceptos, desarmonias: vistaDesarmonias, historial: vistaHistorial }[E.vista]();
+  $('[data-a="app"]').innerHTML = { mapa: vistaMapa, editar: vistaEditar, conceptos: vistaConceptos, desarmonias: vistaDesarmonias, historial: vistaHistorial }[E.vista]();
   if (foco && $('#' + foco)) { $('#' + foco).focus(); if (sel != null && $('#' + foco).setSelectionRange) $('#' + foco).setSelectionRange(sel, sel); }
 }
-function avisar(t) { const e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(avisar.t); avisar.t = setTimeout(() => (e.hidden = true), 2600); }
-document.addEventListener('click', (ev) => {
+function avisar(t) { const e = $('[data-a="toast"]'); e.textContent = t; e.hidden = false; clearTimeout(avisar.t); avisar.t = setTimeout(() => (e.hidden = true), 2600); }
+raiz.addEventListener('click', (ev) => {
   const t = ev.target.closest('[data-loc],[data-plan],[data-par],[data-go],[data-modo],[data-limpiar],[data-bloque],[data-concepto],[data-mas],[data-grav],[data-htipo],[data-cerr]');
   if (!t) return; const d = t.dataset;
   if (d.loc) { const ruta = 'Iniciativas Estratégicas/' + d.loc; (navigator.clipboard?.writeText(ruta) ?? Promise.reject()).then(() => avisar('Copiado: ' + ruta), () => avisar(ruta)); return; }
@@ -230,12 +235,13 @@ document.addEventListener('click', (ev) => {
   if (d.grav !== undefined) E.grav = d.grav; if (d.htipo !== undefined) { E.htipo = d.htipo; E.lim = 120; }
   pintar();
 });
-document.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('tr.cl,.nodo')) { ev.preventDefault(); ev.target.dispatchEvent(new MouseEvent('click', { bubbles: true })); } });
-document.addEventListener('change', (ev) => { const t = ev.target;
+raiz.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('tr.cl,.nodo')) { ev.preventDefault(); ev.target.dispatchEvent(new MouseEvent('click', { bubbles: true })); } });
+raiz.addEventListener('change', (ev) => { const t = ev.target;
   if (t.id === 'sd') E.sinDeclarar = t.checked; else if (t.id === 'selplan') { E.plan = +t.value; return ir('editar'); } else if (t.id === 'ftipo') E.tipo = t.value; else if (t.id === 'fdueno') E.dueno = t.value; else if (t.id === 'hplan') { E.hplan = t.value; E.htipo = ''; } else return; pintar(); });
-document.addEventListener('input', (ev) => { if (ev.target.id === 'q') { E.q = ev.target.value; E.lim = 120; pintar(); } });
-const tip = $('#tip');
-document.addEventListener('pointermove', (ev) => { const t = ev.target.closest?.('[data-tip]'); if (!t) { tip.hidden = true; return; } tip.textContent = t.dataset.tip; tip.hidden = false; const w = tip.offsetWidth; tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, ev.clientX + 14)) + 'px'; tip.style.top = ev.clientY + 16 + 'px'; });
+raiz.addEventListener('input', (ev) => { if (ev.target.id === 'q') { E.q = ev.target.value; E.lim = 120; pintar(); } });
+const tip = $('[data-a="tip"]');
+raiz.addEventListener('pointermove', (ev) => { const t = ev.target.closest?.('[data-tip]'); if (!t) { tip.hidden = true; return; } tip.textContent = t.dataset.tip; tip.hidden = false; const w = tip.offsetWidth; tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, ev.clientX + 14)) + 'px'; tip.style.top = ev.clientY + 16 + 'px'; });
 leerHash(); pintar();
+return () => removeEventListener('hashchange', alCambiarHash);
 }
-fetch('/atlas/grafo.json').then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(iniciar).catch(() => { document.getElementById('app').innerHTML = '<p>No se pudo cargar el atlas. Probá recargar la página.</p>'; });
+window.__atlasBASTA = { iniciar };
