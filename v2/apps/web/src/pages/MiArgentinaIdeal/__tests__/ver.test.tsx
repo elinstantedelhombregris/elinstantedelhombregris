@@ -400,6 +400,25 @@ describe('Ver: el mapa', () => {
 });
 
 describe('Ver: la base en cero', () => {
+  it('con aportes esperando opiniones, los vacíos mandan a opinar y no a escribir (D-171)', async () => {
+    const esperando = {
+      ...enCero(),
+      cifras: { personas: 4, opiniones: 9, provincias: 2 },
+      recien: conDatos().recien,
+    };
+    responder({ status: 200, cuerpo: { data: esperando } });
+    montar();
+    await screen.findByRole('heading', { level: 1 });
+    expect(screen.queryByRole('link', { name: /Sumá el tuyo/ })).not.toBeInTheDocument();
+    const opinar = screen.getAllByRole('link', { name: /Opiná sobre los que ya llegaron/ });
+    expect(opinar.length).toBeGreaterThanOrEqual(5);
+    for (const o of opinar) expect(o).toHaveAttribute('href', '/mi-argentina-ideal/mirar');
+    // Cada sección conserva su propia frase: sólo cambia adónde lleva.
+    expect(
+      screen.getByText(/Todavía ningún aporte llegó: hace falta que uno junte 20/),
+    ).toBeVisible();
+  });
+
   it('dice cero, no muestra porcentajes y cada sección dice qué falta', async () => {
     responder({ status: 200, cuerpo: { data: enCero() } });
     montar();

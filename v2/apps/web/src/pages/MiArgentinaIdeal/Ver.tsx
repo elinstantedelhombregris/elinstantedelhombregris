@@ -6,6 +6,7 @@ import { CompartirVision } from './ver/CompartirVision';
 import { DondeNoCoincidimos } from './ver/DondeNoCoincidimos';
 import { ElPaisQueFalta } from './ver/ElPaisQueFalta';
 import { EnCadaTema } from './ver/EnCadaTema';
+import { HayAportesEsperando } from './ver/esperando';
 import { LoQueNosUne } from './ver/LoQueNosUne';
 import { LoQueRecienLlega } from './ver/LoQueRecienLlega';
 import { LoQueVaPrimero } from './ver/LoQueVaPrimero';
@@ -23,11 +24,12 @@ import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 /**
  * La visión, en el orden de la spec §5. Cada sección se explica sola en cero: dice qué
- * falta para que aparezca algo y ofrece sumar el aporte propio.
+ * falta para que aparezca algo y ofrece sumar el aporte propio o, si ya hay aportes
+ * esperando opiniones, opinar.
  */
 export function Vision({ vision: v, ahora }: { vision: VisionCampana; ahora: number }) {
   return (
-    <>
+    <HayAportesEsperando.Provider value={v.recien.length > 0}>
       <Cabecera campana={v.campana} cifras={v.cifras} ahora={ahora} />
       {v.tuyo ? <TuAporte tuyo={v.tuyo} /> : null}
       <LoQueNosUne une={v.une} enDiscusion={v.enDiscusion} />
@@ -44,7 +46,7 @@ export function Vision({ vision: v, ahora }: { vision: VisionCampana; ahora: num
       <LoQueRecienLlega recien={v.recien} />
       <SeguirAfuera campanaId={v.campana.id} />
       <PieHonesto />
-    </>
+    </HayAportesEsperando.Provider>
   );
 }
 

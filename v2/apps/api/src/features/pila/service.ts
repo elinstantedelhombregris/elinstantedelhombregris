@@ -108,6 +108,7 @@ export async function pedirTanda(
           : { id: estado.provincia.id, nombre: estado.provincia.nombre },
       preguntarProvincia: estado.provincia === null && !estado.yaPregunto,
       yaAporto: estado.yaAporto,
+      yaOpino: estado.respuestasDadas > 0,
       paresComparados: estado.paresComparados,
       acuerdos: estado.acuerdos,
     },

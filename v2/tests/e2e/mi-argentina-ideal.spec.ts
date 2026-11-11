@@ -85,6 +85,7 @@ const tandaDe = (cuantas: number, yaAporto = true): TandaPila => ({
     provincia: { id: 17, nombre: 'Salta' },
     preguntarProvincia: false,
     yaAporto,
+    yaOpino: false,
     paresComparados: [],
     acuerdos: [],
   },

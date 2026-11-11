@@ -309,7 +309,7 @@ export function useGestionPila() {
     queryFn: async ({ pageParam, signal }) =>
       leerPaginaDeGestion(
         await api.get<RespuestaDeGestion>(
-          `/api/v1/gestion/pila${pageParam ? `?cursor=${encodeURIComponent(pageParam)}` : ''}`,
+          `/api/v1/gestion/pila${pageParam ? `?desde=${encodeURIComponent(pageParam)}` : ''}`,
           { signal },
         ),
       ),

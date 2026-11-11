@@ -213,7 +213,13 @@ describe.skipIf(!habilitada)('Mirar por HTTP: la pila y su gestión', () => {
       expect(vacia.status).toBe(200);
       expect(vacia.body.data).toMatchObject({
         tarjetas: [],
-        estado: { provincia: null, preguntarProvincia: true, yaAporto: false, acuerdos: [] },
+        estado: {
+          provincia: null,
+          preguntarProvincia: true,
+          yaAporto: false,
+          yaOpino: false,
+          acuerdos: [],
+        },
       });
       const nada = await nav.tanda(`no-existe-${randomUUID()}`);
       expect(nada.status).toBe(404);
@@ -351,6 +357,8 @@ describe.skipIf(!habilitada)('Mirar por HTTP: la pila y su gestión', () => {
       expect(despues.body.data.estado).toMatchObject({
         preguntarProvincia: false,
         provincia: null,
+        // Con una respuesta dada, una tanda vacía ya no quiere decir «nadie publicó» (D-171).
+        yaOpino: true,
       });
       const conProvincia = new Navegador();
       await conProvincia.opinar(s.idPublico, 'acuerdo', salta);

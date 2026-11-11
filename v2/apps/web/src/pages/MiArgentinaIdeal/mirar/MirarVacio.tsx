@@ -21,8 +21,12 @@ const INVITACION: ContenidoDeImagen = {
  * Mirar sólo muestra aportes reales (decisión D1): si para esta persona no hay
  * ninguno, el momento no se finge. Dice qué falta para que haya algo y ofrece lo
  * que sí se puede hacer, sin pedir perdón. Se apaga solo cuando llegan aportes.
+ *
+ * Una tanda vacía quiere decir dos cosas distintas: que todavía no publicó nadie
+ * más, o que esta persona ya miró todo lo que había. Antes las dos decían
+ * «todavía nadie más publicó», que en el segundo caso es falso (D-171).
  */
-export function MirarVacio({ yaAporto }: { yaAporto: boolean }) {
+export function MirarVacio({ yaAporto, yaOpino }: { yaAporto: boolean; yaOpino: boolean }) {
   return (
     <div
       data-foco
@@ -32,10 +36,14 @@ export function MirarVacio({ yaAporto }: { yaAporto: boolean }) {
       className="flex flex-col gap-4"
     >
       <h2 id="vacio-titulo" className="font-anton text-[clamp(28px,7.5vw,38px)] leading-[1.05]">
-        Todavía nadie más publicó su aporte en Mi Argentina ideal.
+        {yaOpino
+          ? 'Ya miraste todos los aportes que hay por ahora.'
+          : 'Todavía nadie más publicó su aporte en Mi Argentina ideal.'}
       </h2>
       <p className="text-tinta-75 text-[16px] leading-relaxed">
-        El tuyo va a ser de los primeros que vean otras personas.
+        {yaOpino
+          ? 'Cuando alguien publique uno nuevo, lo vas a encontrar acá.'
+          : 'El tuyo va a ser de los primeros que vean otras personas.'}
       </p>
       {yaAporto ? (
         <div className="max-w-[26rem]">

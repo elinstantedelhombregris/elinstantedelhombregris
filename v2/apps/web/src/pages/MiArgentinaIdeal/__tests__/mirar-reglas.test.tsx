@@ -63,6 +63,7 @@ describe('el recorrido de la tanda', () => {
       provincia: null,
       preguntarProvincia: false,
       yaAporto: false,
+      yaOpino: false,
       paresComparados: [],
       acuerdos,
     },

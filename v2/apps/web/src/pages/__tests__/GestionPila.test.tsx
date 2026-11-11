@@ -177,11 +177,13 @@ describe('Gestión de Mirar', () => {
     });
   });
 
-  it('pagina con el cursor que trae la respuesta', async () => {
+  it('pide la página siguiente como la espera la API: `desde` y el número que trajo', async () => {
     modelo.auth = { user: { id: 1, esAdmin: true }, isLoading: false };
+    // La API manda `siguiente` como la fila desde la que sigue y sólo acepta `campana` y
+    // `desde`. La pantalla mandaba `cursor`, y la segunda página daba 400 (D-171).
     paginas = {
-      '/api/v1/gestion/pila': { items: [reportado], siguiente: 'c2' },
-      '/api/v1/gestion/pila?cursor=c2': { items: [retenido], siguiente: null },
+      '/api/v1/gestion/pila': { items: [reportado], siguiente: 50 },
+      '/api/v1/gestion/pila?desde=50': { items: [retenido], siguiente: null },
     };
     montar();
     await screen.findByText('«Que la salita abra de noche.»');

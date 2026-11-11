@@ -1,6 +1,7 @@
-import { useId } from 'react';
+import { useContext, useId } from 'react';
 import { Link } from 'wouter';
 
+import { HayAportesEsperando, MIRAR_HREF } from './esperando';
 import { IMAGINAR_HREF } from './formato';
 
 import type { ReactNode } from 'react';
@@ -84,16 +85,24 @@ export function EnlaceVer({
 }
 
 /**
- * La base en cero: qué falta para que aparezca algo, sin pedir perdón, y la invitación
- * a sumar el propio aporte.
+ * Lo que una sección dice mientras no tiene nada: qué falta para que aparezca algo, sin
+ * pedir perdón, y el gesto que lo acerca. Con la base en cero invita a sumar el aporte
+ * propio; con aportes esperando opiniones, a opinar.
  */
 export function Vacio({ children }: { children: ReactNode }) {
+  const esperando = useContext(HayAportesEsperando);
   return (
     <div className="border-tinta-30 flex flex-col items-start gap-2 border border-dashed px-4 py-4">
       <p className="text-tinta-75 text-[15px] leading-relaxed">{children}</p>
-      <EnlaceVer href={IMAGINAR_HREF} className="text-violeta font-bold">
-        Sumá el tuyo →
-      </EnlaceVer>
+      {esperando ? (
+        <EnlaceVer href={MIRAR_HREF} className="text-violeta font-bold">
+          Opiná sobre los que ya llegaron →
+        </EnlaceVer>
+      ) : (
+        <EnlaceVer href={IMAGINAR_HREF} className="text-violeta font-bold">
+          Sumá el tuyo →
+        </EnlaceVer>
+      )}
     </div>
   );
 }

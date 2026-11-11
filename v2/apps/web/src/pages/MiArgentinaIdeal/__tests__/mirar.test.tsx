@@ -103,6 +103,7 @@ const tandaDe = (cuantas: number, estado: Partial<EstadoEnLaPila> = {}): TandaPi
     provincia: { id: 17, nombre: 'Salta' },
     preguntarProvincia: false,
     yaAporto: true,
+    yaOpino: false,
     paresComparados: [],
     acuerdos: [],
     ...estado,
@@ -282,6 +283,18 @@ describe('Mirar', () => {
         name: 'Todavía nadie más publicó su aporte en Mi Argentina ideal.',
       }),
     ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Escribir el mío' })).toBeInTheDocument();
+  });
+
+  it('vacía porque ya los miró todos, no dice que nadie publicó (D-171)', async () => {
+    tandas = [tandaDe(0, { yaAporto: false, yaOpino: true })];
+    montar();
+    expect(
+      await screen.findByRole('heading', {
+        name: 'Ya miraste todos los aportes que hay por ahora.',
+      }),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/Todavía nadie más publicó/)).toBeNull();
     expect(screen.getByRole('link', { name: 'Escribir el mío' })).toBeInTheDocument();
   });
 

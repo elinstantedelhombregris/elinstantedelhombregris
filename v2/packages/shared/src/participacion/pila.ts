@@ -187,6 +187,8 @@ export interface EstadoEnLaPila {
   /** Nunca contestó y no publicó con provincia: se le pregunta antes del primer papelito. */
   preguntarProvincia: boolean;
   yaAporto: boolean;
+  /** Ya contestó algún aporte: si la tanda viene vacía, es porque los miró todos (D-171). */
+  yaOpino: boolean;
   /** Pares ya comparados, como `clavePar(a, b)` de civic-core. */
   paresComparados: string[];
   /** Aportes que dijo querer, en orden de respuesta: alimenta los duelos. */

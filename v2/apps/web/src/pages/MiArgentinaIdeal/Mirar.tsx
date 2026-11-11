@@ -185,7 +185,8 @@ export function Mirar() {
           }}
         />
       );
-    if (tanda.items.length === 0) return <MirarVacio yaAporto={servidor.yaAporto} />;
+    if (tanda.items.length === 0)
+      return <MirarVacio yaAporto={servidor.yaAporto} yaOpino={servidor.yaOpino} />;
     if (!actual) {
       const vistos = tanda.vistos;
       return (
