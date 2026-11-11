@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import { contratoCampanaSchema, USO_DATOS_CONTRATO_ANTERIOR, METODO_LECTURA_CONTRATO_ANTERIOR } from '../campanas.js';
+import {
+  contratoCampanaSchema,
+  diaArgentino,
+  USO_DATOS_CONTRATO_ANTERIOR,
+  METODO_LECTURA_CONTRATO_ANTERIOR,
+} from '../campanas.js';
 import { MAX_TEMAS } from '../temas.js';
 
 const anterior = {
@@ -15,7 +20,13 @@ const anterior = {
   devolucion: 'Una lectura pública para revisar con quienes participaron.',
   fechaDevolucion: '2099-12-20',
   efecto: 'Una exploración sin aceptación institucional.',
-  fases: [{ nombre: 'Imaginar', salida: 'Relatos revisados por quienes participan.', fecha: '2099-12-01' }],
+  fases: [
+    {
+      nombre: 'Imaginar',
+      salida: 'Relatos revisados por quienes participan.',
+      fecha: '2099-12-01',
+    },
+  ],
 };
 
 describe('Contrato de campaña con uso de datos y método declarado', () => {
@@ -27,12 +38,25 @@ describe('Contrato de campaña con uso de datos y método declarado', () => {
     expect(anterior).not.toHaveProperty('usoDatos');
   });
   it('un contrato nuevo no puede declarar vacíos los usos o el método', () => {
-    expect(contratoCampanaSchema.safeParse({ ...anterior, usoDatos: '', metodoLectura: '' }).success).toBe(false);
-    const c = contratoCampanaSchema.parse({ ...anterior, usoDatos: 'Leer las voces autorizadas sin cambiar los permisos elegidos.', metodoLectura: 'Contrastar fuentes, ausencias y diferencias con devolución revisable.', institucion: 'Institución mencionada' });
+    expect(
+      contratoCampanaSchema.safeParse({ ...anterior, usoDatos: '', metodoLectura: '' }).success,
+    ).toBe(false);
+    const c = contratoCampanaSchema.parse({
+      ...anterior,
+      usoDatos: 'Leer las voces autorizadas sin cambiar los permisos elegidos.',
+      metodoLectura: 'Contrastar fuentes, ausencias y diferencias con devolución revisable.',
+      institucion: 'Institución mencionada',
+    });
     expect(c.institucion).toBe('Institución mencionada');
   });
   it('nombrar una institución no permite inventar aceptación institucional', () => {
-    expect(contratoCampanaSchema.safeParse({ ...anterior, institucion: 'Una institución', institucionAcepto: true }).success).toBe(false);
+    expect(
+      contratoCampanaSchema.safeParse({
+        ...anterior,
+        institucion: 'Una institución',
+        institucionAcepto: true,
+      }).success,
+    ).toBe(false);
   });
 });
 
@@ -121,5 +145,25 @@ describe('El tope de temas de una campaña es el catálogo entero', () => {
     const fase = anterior.fases[0];
     const nueve = Array.from({ length: 9 }, () => fase);
     expect(contratoCampanaSchema.safeParse({ ...anterior, fases: nueve }).success).toBe(false);
+  });
+});
+
+describe('diaArgentino', () => {
+  it('a las 22:00 de la Argentina todavía es hoy, aunque en UTC ya sea mañana (D-172)', () => {
+    // 15/3/2027 22:00 en Buenos Aires = 16/3/2027 01:00 UTC.
+    const noche = new Date('2027-03-16T01:00:00.000Z');
+    expect(noche.toISOString().slice(0, 10)).toBe('2027-03-16');
+    expect(diaArgentino(noche)).toBe('2027-03-15');
+  });
+
+  it('cambia de día a la medianoche de acá', () => {
+    expect(diaArgentino(new Date('2027-03-16T02:59:59.000Z'))).toBe('2027-03-15');
+    expect(diaArgentino(new Date('2027-03-16T03:00:00.000Z'))).toBe('2027-03-16');
+  });
+
+  it('se compara como texto contra una fecha de las reglas', () => {
+    const hoy = diaArgentino(new Date('2027-03-16T01:00:00.000Z'));
+    expect('2027-03-15' < hoy).toBe(false);
+    expect('2027-03-14' < hoy).toBe(true);
   });
 });

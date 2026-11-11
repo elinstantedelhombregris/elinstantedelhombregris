@@ -534,5 +534,44 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       ).toBe(200);
       expect(await estado(propuesta.id)).toMatchObject({ estado: 'cerrada' });
     });
+
+    it('una propuesta que llega a revisión con la fecha de devolución vencida se puede devolver (D-172)', async () => {
+      // Juntar gente no tiene plazo: la fecha puede vencer antes de que la revisen.
+      const [vencida] = (
+        await getDb().execute<{ id: string }>(sql`
+          insert into campanas (slug, creador_id, id_local, estado, contrato)
+          values (${'campana-' + randomUUID()}, ${impulsora}, ${randomUUID()}::uuid, 'por_revisar',
+            ${JSON.stringify({ ...contrato, fechaDevolucion: '2020-01-01' })}::jsonb)
+          returning id`)
+      ).rows;
+      const id = vencida?.id ?? '';
+
+      // Abrir y programar siguen exigiendo una fecha que se pueda cumplir, y el mensaje le
+      // dice a la administración qué hacer, porque ella no puede cambiar la fecha.
+      for (const hacia of ['abierta', 'programada']) {
+        const r = await cambiar(cookieAdmin, id, hacia, 'La abrimos igual, a ver qué pasa.');
+        expect(r.status).toBe(400);
+        expect(r.body.error.code).toBe('FECHA_VENCIDA');
+        expect(r.body.error.message).toContain('Devolvésela');
+      }
+      // Devolverla sí se puede: es la única salida, y antes daba el mismo error.
+      const devuelta = await cambiar(
+        cookieAdmin,
+        id,
+        'reuniendo',
+        'La fecha de devolución ya pasó: corregila y volvé a presentarla.',
+      );
+      expect(devuelta.status).toBe(200);
+      expect(await estado(id)).toMatchObject({ estado: 'reuniendo' });
+      // Y quien la impulsa la retira para corregir la fecha.
+      expect(
+        (await cambiar(cookieImpulsora, id, 'borrador', 'La retiro para corregir la fecha.'))
+          .status,
+      ).toBe(200);
+      // Presentarla de nuevo sin corregir la fecha sigue sin poder hacerse.
+      const otraVez = await cambiar(cookieImpulsora, id, 'reuniendo', 'La presento otra vez.');
+      expect(otraVez.status).toBe(400);
+      expect(otraVez.body.error.message).toContain('Elegí una fecha');
+    });
   },
 );

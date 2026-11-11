@@ -5,6 +5,7 @@ import {
   cambiarCampanaSchema,
   devolucionCampanaSchema,
   contratoCampanaSchema,
+  diaArgentino,
 } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
@@ -177,11 +178,18 @@ router.post('/:id/estado', authenticate, async (req, res, next) => {
         usuario.id,
         'Verificá tu correo antes de convocar públicamente.',
       );
-      if (c.fechaDevolucion < new Date().toISOString().slice(0, 10))
+      // Devolver una propuesta para que la corrijan no convoca a nadie, así que no pide fecha
+      // vigente. Si la pidiera, una campaña que llega a revisión con la fecha vencida —juntar
+      // gente no tiene plazo— no tendría salida: abrir, programar y devolver darían el mismo
+      // error, y quien la impulsa no puede editarla ni retirarla mientras se revisa (D-172).
+      const devuelve = c.estado === 'por_revisar' && v.estado === 'reuniendo';
+      if (!devuelve && c.fechaDevolucion < diaArgentino())
         throw new HttpError(
           400,
           'FECHA_VENCIDA',
-          'Elegí una fecha de devolución que todavía podamos cumplir.',
+          impulsa
+            ? 'Elegí una fecha de devolución que todavía podamos cumplir.'
+            : 'La fecha de devolución de esta campaña ya pasó. Devolvésela a quien la impulsa para que la corrija.',
         );
     }
     const presenta = c.estado === 'borrador' && v.estado === 'reuniendo';

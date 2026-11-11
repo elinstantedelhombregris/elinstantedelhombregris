@@ -199,3 +199,18 @@ export type CampanaEnCatalogo = Pick<
   /** Sólo en `?mias=1`: el último motivo escrito para el estado actual (por ejemplo, por qué la devolvieron). */
   motivo?: string | null;
 };
+
+/**
+ * El día de hoy en la Argentina, como `AAAA-MM-DD`: lo que se compara contra las fechas de
+ * las reglas de una campaña, que son días sueltos. `new Date().toISOString()` da el día en
+ * UTC, y desde las 21:00 de acá ya es mañana: una devolución que vencía hoy figuraba vencida
+ * tres horas antes (D-172; la misma familia que D-158, del lado del servidor).
+ */
+export function diaArgentino(ahora: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(ahora);
+}
