@@ -364,6 +364,14 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-148',
       // 10/11/2026: la función de Vercel suelta la consulta del runtime (`51f6589a`); comprobado en producción.
       'D-156',
+      // 2026-11-10: los defectos chicos del relevamiento de diseño, cada uno con su test y comprobado en
+      // producción: el kit de prensa, la cuenta de días, los enlaces pegados y el crédito del mapa.
+      'D-157',
+      'D-158',
+      'D-159',
+      'D-160',
+      'D-162', // 2026-11-10: el pie le pasa la página a «Lo que falta». D-161 sigue abierta: borra datos.
+      'D-164', // 2026-11-10: el mapa deja de pedirle un complemento a api.mapbox.com.
     ]);
   });
 });

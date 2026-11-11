@@ -167,12 +167,14 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-151](#d-151--los-planes-no-cierran-entre-sí-en-339-lugares-y-ahora-hay-lista) | Los PLANes no cierran entre sí en 339 lugares, y ahora hay lista | Media | Abierta |
 | [D-152](#d-152--el-atlas-del-sitio-no-se-regenera-solo-al-editar-un-plan) | El atlas del sitio no se regenera solo al editar un PLAN | Baja | Abierta |
 | [D-156](#d-156--la-radiografía-no-carga-en-producción-la-api-rechaza-el-parámetro-interno-del-rewrite) | La Radiografía no carga en producción: la API rechaza el parámetro interno del rewrite | Alta | **Resuelta** |
-| [D-157](#d-157--el-kit-de-prensa-ofrece-cinco-descargas-y-ninguna-existe) | El kit de prensa ofrece cinco descargas y ninguna existe | Media | Abierta |
-| [D-158](#d-158--la-cuenta-de-días-de-la-campaña-cierra-un-día-antes-que-el-contrato) | La cuenta de días de la campaña cierra un día antes que el contrato | Baja | Abierta |
-| [D-159](#d-159--en-el-mandato-dos-enlaces-seguidos-se-leen-como-uno) | En El mandato, dos enlaces seguidos se leen como uno | Baja | Abierta |
-| [D-160](#d-160--el-mapa-le-da-el-crédito-a-protomaps-y-las-teselas-son-de-carto) | El mapa le da el crédito a Protomaps y las teselas son de Carto | Media | Abierta |
+| [D-157](#d-157--el-kit-de-prensa-ofrece-cinco-descargas-y-ninguna-existe) | El kit de prensa ofrece cinco descargas y ninguna existe | Media | **Resuelta** |
+| [D-158](#d-158--la-cuenta-de-días-de-la-campaña-cierra-un-día-antes-que-el-contrato) | La cuenta de días de la campaña cierra un día antes que el contrato | Baja | **Resuelta** |
+| [D-159](#d-159--en-el-mandato-dos-enlaces-seguidos-se-leen-como-uno) | En El mandato, dos enlaces seguidos se leen como uno | Baja | **Resuelta** |
+| [D-160](#d-160--el-mapa-le-da-el-crédito-a-protomaps-y-las-teselas-son-de-carto) | El mapa le da el crédito a Protomaps y las teselas son de Carto | Media | **Resuelta** |
 | [D-161](#d-161--quedaron-publicaciones-de-prueba-de-mayo-en-la-base-de-producción) | Quedaron publicaciones de prueba de mayo en la base de producción | Baja | Abierta |
-| [D-162](#d-162--el-pie-no-le-pasa-la-ruta-al-canal-lo-que-falta) | El pie no le pasa la ruta al canal «Lo que falta» | Baja | Abierta |
+| [D-162](#d-162--el-pie-no-le-pasa-la-ruta-al-canal-lo-que-falta) | El pie no le pasa la ruta al canal «Lo que falta» | Baja | **Resuelta** |
+| [D-163](#d-163--el-ícono-de-la-pestaña-sigue-siendo-el-de-la-versión-anterior) | El ícono de la pestaña sigue siendo el de la versión anterior | Baja | Abierta |
+| [D-164](#d-164--el-mapa-le-pide-un-complemento-a-un-servidor-de-mapbox) | El mapa le pide un complemento a un servidor de Mapbox | Media | **Resuelta** |
 
 ---
 
@@ -2500,36 +2502,44 @@ Los ids D-153 a D-155 están tomados por entradas que otra sesión todavía no p
 **Dónde:** `v2/apps/web/src/pages/KitDePrensa.tsx`; falta la carpeta `v2/apps/web/public/assets/`.
 **Encontrada:** 2026-11-10, en la revisión hostil de un tablero de ideas de diseño.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
 
 En `/kit-de-prensa`, los cinco enlaces de descarga devuelven 404 en producción: `/assets/logo.svg`, `/assets/logo-dark.png`, `/assets/logo-light.png`, `/assets/manifiesto.pdf` y `/assets/ficha.pdf`. La carpeta que deberían servir no existe en v2. La página además sigue con el diseño viejo (D-118) y sólo se enlaza desde el pie de las páginas sin migrar. Un periodista que llega ahí se va sin nada. Haría falta decidir si la página sigue; si sigue, generar los archivos y migrarla al papel.
+
+**Resolución (2026-11-10, `3588d66a`).** Las cinco descargas se reemplazaron por lo que existe. La marca se generó de verdad: dos SVG con los contornos de Anton —uno para fondo claro y otro para fondo oscuro— y dos PNG de 2000 × 1000 px, en `v2/apps/web/public/media/prensa/`, con su `LEEME.md` y el script que los produce (`v2/scripts/build/marca/generar_marca.py`). El resultado coincide con lo que dibuja el navegador: mismo avance y misma caja de tinta. El manifiesto dejó de ofrecerse como PDF aparte, porque una copia suelta envejece sola: la página enlaza al lector, que ya trae la edición impresa. La «ficha técnica» nunca se había escrito y la página dejó de prometerla; en su lugar enlaza a «Quién está detrás». También se fueron los tamaños de archivo, que eran números escritos a mano. Un test nuevo falla si la página vuelve a ofrecer una descarga que no está en disco. Lo que sigue abierto es el diseño de la página, que es D-118, y escribir la ficha técnica si se la quiere. Comprobado en producción después del despliegue.
 
 ### D-158 · La cuenta de días de la campaña cierra un día antes que el contrato
 
 **Dónde:** `v2/apps/web/src/pages/MiArgentinaIdeal/ver/formato.ts` (`diasHasta`).
 **Encontrada:** 2026-11-10, en la misma revisión.
 **Severidad:** baja.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
 
 `recibeHasta` llega como fecha sin hora (`2027-02-28`) y `Date.parse` la lee como medianoche UTC, que en la Argentina son las 21:00 del día anterior. El contrato de la campaña nacional dice que el 28 de febrero todavía se reciben aportes (`packages/db/scripts/campana-nacional/contrato.ts`, `CIERRE_RECEPCION`). La pantalla va a decir «ya no recibe aportes» desde las 21:00 del 27, y hasta entonces cuenta un día de menos. No se encontró que el servidor rechace aportes por fecha: el defecto está en lo que se dice, no en lo que se acepta. Haría falta contar hasta el fin del día en hora argentina.
+
+**Resolución (2026-11-10, `20e3f058`).** Una fecha sin hora ahora vale el día argentino entero: `diasHasta` cuenta hasta el último instante de ese día en la Argentina. La frase sigue contando el día de hoy y el último, como en la spec («faltan 132 días» el 20 de octubre). El último día dice «falta 1 día» a cualquier hora, y «ya no recibe aportes» aparece recién cuando ese día terminó. El test de la página no veía el defecto porque su dato de mentira traía una hora que el servidor nunca manda; ahora usa el día suelto, igual que la API, y hay siete casos nuevos sobre los bordes. Comprobado en producción después del despliegue.
 
 ### D-159 · En El mandato, dos enlaces seguidos se leen como uno
 
 **Dónde:** `v2/apps/web/src/pages/ElMandatoVivo/sections/ProcesosPublicos.tsx`.
 **Encontrada:** 2026-11-10, al capturar el sitio en producción.
 **Severidad:** baja.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
 
 Los dos enlaces de «Lo que ya podemos seguir» son hermanos en línea sin separación. En pantalla ancha quedan pegados: «…síntesis entre territorios →Consultar ediciones con revisión del equipo…». Haría falta apilarlos o darles separación.
+
+**Resolución (2026-11-10, `44057278`).** Los dos enlaces pasaron a una lista, uno por renglón. Hay un test que comprueba que cada uno está en su propio ítem. Comprobado en producción después del despliegue.
 
 ### D-160 · El mapa le da el crédito a Protomaps y las teselas son de Carto
 
 **Dónde:** `v2/apps/web/src/pages/ElMapa/instrumento/Instrumento.tsx` (pie del instrumento), `MapaBase.tsx` y `v2/apps/web/public/maps/oscuro.json`.
 **Encontrada:** 2026-11-10, en la revisión del tablero de ideas de diseño.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
 
 El pie del mapa dice «Mapa © OpenStreetMap contributors · Protomaps», y el comentario del código afirma que Carto se fue el 12/8/2026. El estilo publicado sigue leyendo las teselas de `tiles.basemaps.cartocdn.com`, la CSP las permite y el control de atribución del mapa está apagado. Mientras D-051 siga abierta y las teselas sean de Carto, la línea de crédito tiene que nombrarlo: es una condición de uso de esas teselas, y además el sitio dice dónde van los pedidos de quien lo lee.
+
+**Resolución (2026-11-10, `08c93657`).** El pie del mapa dice «Mapa © OpenStreetMap contributors · © CARTO». El crédito y el estilo que se publica ahora viven juntos en `instrumento/credito.ts`, y un test lee las fuentes del estilo y falla si el crédito nombra a quien no sirve las teselas. El día que se publique el estilo de teselas propias (D-051), las dos constantes cambian juntas. Comprobado en producción después del despliegue.
 
 ### D-161 · Quedaron publicaciones de prueba de mayo en la base de producción
 
@@ -2540,11 +2550,37 @@ El pie del mapa dice «Mapa © OpenStreetMap contributors · Protomaps», y el c
 
 La API pública devuelve entradas que crearon las pruebas de integración cuando todavía corrían contra producción (D-014, ya resuelta): «Test post» y «gamification-hooks-test…» en el blog, y «Hola comunidad — Un post de prueba para la comunidad.» en comunidad, todas del 12/5/2026. La página `/comunidad` lee ese listado. La bitácora no las muestra porque lee los MDX. Haría falta borrarlas a mano, mirando antes qué más dejó el usuario de prueba que las creó.
 
+**Inventario (2026-11-10).** Leído de la base de producción, sin tocar nada. Las tres publicaciones son de tres de los trece usuarios `@test.local` que las pruebas crearon entre el 8 y el 12 de mayo; en la base hay un solo usuario que no es de prueba. Lo que dejaron esos trece: 11 filas de ranking, 6 de actividad diaria, 6 de niveles, 5 insignias, las 2 entradas del blog y un comentario en una de ellas, la publicación de comunidad, y una fila en cada una de evaluación cívica, objetivos, perfil cívico, progreso de desafíos y verificación de mail. Borrar sólo las tres publicaciones deja el resto; lo que cierra la deuda es borrar los trece usuarios con todo lo que cuelga de ellos. Es un borrado sin vuelta atrás en producción y espera una confirmación.
+
 ### D-162 · El pie no le pasa la ruta al canal «Lo que falta»
 
 **Dónde:** `v2/apps/web/src/components/papel/PapelFooter.tsx`; `v2/docs/specs/2026-08-12-lo-que-falta.md` §2.8.
 **Encontrada:** 2026-11-10, en la revisión del tablero de ideas de diseño.
 **Severidad:** baja.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
 
 La spec dice que la boca del pie, la que está en todas las páginas, adjunta la ruta actual. El pie es un enlace simple a `/lo-que-falta`, y la página abre el panel con su propia ruta como contexto. Quien llega desde un PLAN o desde el mapa tiene que volver a decir de qué página habla, y quien lee la falta no sabe dónde se originó. Haría falta que el enlace lleve la ruta de origen, o corregir la spec para que diga lo que pasa.
+
+**Resolución (2026-11-10, `c7973fc5`).** El enlace del pie le pasa a la página la ruta desde la que se sale. Viaja en el estado de la navegación y no en la dirección, así no se comparte al copiar el enlace: quien abre `/lo-que-falta` por su cuenta no arrastra la página de otro. Va sólo el camino, sin la consulta, que es donde viajan las llaves de un solo uso. La página lee ese estado con desconfianza —sólo acepta una ruta del propio sitio— y con eso el panel abre en la superficie que corresponde, dice qué página va adjunta antes de enviar, y la ficha de la falta muestra de dónde vino. De paso, la línea de contexto de la ficha dejó de usar el gris que no llega a contraste. Comprobado en producción después del despliegue.
+
+### D-163 · El ícono de la pestaña sigue siendo el de la versión anterior
+
+**Dónde:** `v2/apps/web/public/favicon.svg`, enlazado desde `v2/apps/web/index.html`.
+**Encontrada:** 2026-11-10, al generar la marca para el kit de prensa (D-157).
+**Severidad:** baja.
+**Estado:** abierta.
+
+El ícono que se ve en la pestaña del navegador es el de v1: un círculo oscuro con el violeta viejo (`#7D5BDE`) y un trazo claro. El sistema de diseño pide otra cosa: el signo «¡» en violeta sobre papel. Es lo primero que alguien ve del sitio en una pestaña o en un marcador, y no se parece a nada de lo que hay adentro. El contorno del signo ya se genera para la marca del kit de prensa (`v2/scripts/build/marca/generar_marca.py`); haría falta sacar de ahí el ícono y, de paso, la versión para la pantalla de inicio del teléfono.
+
+### D-164 · El mapa le pide un complemento a un servidor de Mapbox
+
+**Dónde:** `v2/apps/web/src/pages/ElMapa/instrumento/MapaBase.tsx`; el valor por defecto está en `react-map-gl` 7.1.9 (`utils/set-globals.js`).
+**Encontrada:** 2026-11-10, al comprobar en producción los arreglos de D-157 a D-162: la página del mapa dejaba un error en la consola.
+**Severidad:** media.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
+
+Si no se le dice otra cosa, `react-map-gl` registra por su cuenta un complemento para texto de derecha a izquierda servido por `api.mapbox.com`, y lo baja la primera vez que una tesela trae texto en árabe o en hebreo. El mapa nunca le pasaba esa opción. En producción la CSP frenaba el pedido y quedaba un error en la consola en cada visita a `/el-mapa`. Sin CSP —en desarrollo, o si la política se aflojara— el pedido salía: quien miraba el mapa le dejaba su IP a un tercero que el sitio no nombra en ningún lado. La guarda de `estilo-oscuro.test.ts` dice que el único host de afuera es el de las teselas, pero lee el estilo, y esto vive adentro de una librería.
+
+**Resolución (2026-11-10, `55fae6f0`).** El mapa base le niega el complemento a la librería (`RTLTextPlugin={false}`): un mapa de la Argentina no lo necesita. Un test nuevo cuida lo que el componente le pasa. Comprobado sobre el build sin CSP: antes `/el-mapa` le pedía algo a `api.mapbox.com`, y ahora sólo a los hosts de teselas de Carto. En producción, el error de la consola dejó de aparecer.
+
+Lo que queda sin cubrir es la clase entera: ningún test mira a qué hosts le habla una página cuando corre de verdad. Las guardas leen archivos propios, y un valor por defecto de una dependencia se les escapa.
