@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { BarraModos, PanelLateral } from './Chrome';
+import { CREDITO_DEL_MAPA } from './credito';
 import { encuadreAhora } from './encuadre-actual';
 import { EstadoConsulta } from './EstadoConsulta';
 import { EstadoGeometria } from './EstadoGeometria';
@@ -263,10 +264,8 @@ export function Instrumento({
       ) : null}
 
       <div className="font-space text-oscuro-meta border-oscuro-borde flex flex-wrap items-center justify-between gap-3 border-t px-4 py-2 text-[10px]">
-        {/* Los datos son de OpenStreetMap y la ODbL obliga a decirlo; las
-            teselas las arma Protomaps, que pide su línea. Carto se fue el
-            12/8/2026 junto con las teselas que servía. */}
-        <span>Mapa © OpenStreetMap contributors · Protomaps</span>
+        {/* A quién se nombra depende de qué estilo se publica: ver `credito.ts`. */}
+        <span>{CREDITO_DEL_MAPA}</span>
         {/* El pedido de mejora adjunta el encuadre y el modo actuales. */}
         <button
           type="button"

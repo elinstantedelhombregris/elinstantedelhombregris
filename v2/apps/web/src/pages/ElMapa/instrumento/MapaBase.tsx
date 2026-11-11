@@ -1,6 +1,7 @@
 import { useCallback, useRef, type ReactNode } from 'react';
 import { Map as MapaGL, NavigationControl, ScaleControl, type MapRef } from 'react-map-gl/maplibre';
 
+import { ESTILO_DEL_MAPA } from './credito';
 import { FONDO } from './paleta';
 import { registrarProtocoloPmtiles } from './protocolo-pmtiles';
 import { vistaInicial } from './vista-inicial';
@@ -19,8 +20,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 // antes de que maplibre lea el estilo, y este módulo se evalúa antes de que
 // el componente se monte. Ver `protocolo-pmtiles.ts`.
 registrarProtocoloPmtiles();
-
-const ESTILO = '/maps/oscuro.json';
 
 export interface MapaBaseProps {
   children?: ReactNode;
@@ -65,7 +64,7 @@ export function MapaBase({
         onFallo?.();
       }}
       initialViewState={vistaInicial(conLugar)}
-      mapStyle={ESTILO}
+      mapStyle={ESTILO_DEL_MAPA}
       dragPan={arrastreHabilitado}
       dragRotate={false}
       touchZoomRotate={arrastreHabilitado}

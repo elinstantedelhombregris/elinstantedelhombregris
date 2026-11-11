@@ -19,6 +19,8 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
+import { CREDITO_DEL_MAPA, ESTILO_DEL_MAPA } from '../credito';
+
 import type { StyleSpecification } from 'maplibre-gl';
 
 const RAIZ_WEB = resolve(dirname(fileURLToPath(import.meta.url)), '../../../../..');
@@ -187,5 +189,22 @@ describe('estilo de teselas propias (oscuro-propio.json, esperando D-051)', () =
     for (const familia of pedidas) {
       expect(enDisco, `el estilo pide «${familia}» y no está en public/fonts/`).toContain(familia);
     }
+  });
+});
+
+describe('el crédito del mapa', () => {
+  it('nombra a quien sirve las teselas del estilo que se publica (D-160)', () => {
+    // El pie decía «Protomaps» con las teselas todavía saliendo de Carto. El
+    // crédito y el estilo viven juntos en `credito.ts`; esto falla si se cambia
+    // uno sin el otro.
+    const fuentes = JSON.stringify(leer(ESTILO_DEL_MAPA.replace('/maps/', '')).sources);
+    const sonDeCarto = fuentes.includes('cartocdn.com');
+    const sonPropias = fuentes.includes('pmtiles://');
+    expect(sonDeCarto !== sonPropias, 'el estilo publicado mezcla o no declara sus teselas').toBe(
+      true,
+    );
+    expect(CREDITO_DEL_MAPA).toContain('OpenStreetMap');
+    expect(CREDITO_DEL_MAPA).toContain(sonDeCarto ? 'CARTO' : 'Protomaps');
+    expect(CREDITO_DEL_MAPA).not.toContain(sonDeCarto ? 'Protomaps' : 'CARTO');
   });
 });
