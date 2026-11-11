@@ -21,6 +21,17 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 // el componente se monte. Ver `protocolo-pmtiles.ts`.
 registrarProtocoloPmtiles();
 
+/**
+ * Sin complemento para texto de derecha a izquierda.
+ *
+ * Si no se le dice otra cosa, `react-map-gl` registra por su cuenta uno que se baja de
+ * `api.mapbox.com` la primera vez que una tesela trae texto en árabe o en hebreo. Es un host
+ * ajeno que ningún estilo nombra, así que la guarda de `estilo-oscuro.test.ts` no lo veía: en
+ * producción lo frenaba la CSP, con un error en la consola, y sin CSP el pedido salía (D-164).
+ * Un mapa de la Argentina no lo necesita.
+ */
+const COMPLEMENTO_RTL = false;
+
 export interface MapaBaseProps {
   children?: ReactNode;
   onFallo?: () => void;
@@ -65,6 +76,7 @@ export function MapaBase({
       }}
       initialViewState={vistaInicial(conLugar)}
       mapStyle={ESTILO_DEL_MAPA}
+      RTLTextPlugin={COMPLEMENTO_RTL}
       dragPan={arrastreHabilitado}
       dragRotate={false}
       touchZoomRotate={arrastreHabilitado}
