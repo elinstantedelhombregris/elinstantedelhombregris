@@ -18,7 +18,15 @@ import { sql } from 'drizzle-orm';
 import { campanas } from '../schema/campanas.js';
 import { senales } from '../schema/senales.js';
 
-import { ajeno, campanaEnMirar, deQuienMira, elegible, iso } from './_pila.js';
+import {
+  ajeno,
+  campanaEnMirar,
+  deQuienMira,
+  elegible,
+  enDiscusion,
+  iso,
+  type FilaCandidato,
+} from './_pila.js';
 import { textoDeSenalPublica } from './senal-publicacion.js';
 
 import type { Db } from '../client.js';
@@ -41,6 +49,8 @@ export interface CandidatoPila {
   /** «Yo también» + «Yo no» de la región de quien mira; 0 si no se sabe su región. */
   opinionesDeMiRegion: number;
   publicadaEn: string;
+  /** Ya entró en la visión (`REGLAS_DE_VISION`). */
+  enDiscusion: boolean;
 }
 
 export interface EstadoDelActor {
@@ -62,20 +72,6 @@ export interface OpinionGuardada {
   regionCompleta: boolean;
   /** Respuestas con valor de este actor, contando ésta. */
   respuestasDelActor: number;
-}
-
-interface FilaCandidato extends Record<string, unknown> {
-  id: string;
-  texto: string;
-  origen: string | null;
-  provincia_id: number | null;
-  provincia_nombre: string | null;
-  provincia_iso: string | null;
-  tema_clave: string | null;
-  tema_etiqueta: string | null;
-  respuestas: number;
-  de_mi_region: number;
-  publicada_en: string;
 }
 
 const PROVINCIA_JSON = sql`jsonb_build_object('id', g.id, 'nombre', g.name, 'iso', g.iso_code)`;
@@ -125,6 +121,8 @@ export class PilaRepository {
     actorId: number;
     userId: number | null;
     region: string | null;
+    /** Desde «Completar los de tu región»: primero lo que se discute sin esa región (D-166). */
+    completar?: boolean;
     limite?: number;
   }): Promise<CandidatoPila[]> {
     const r = await this.db.execute<FilaCandidato>(sql`
@@ -141,6 +139,7 @@ export class PilaRepository {
           (select count(*)::int from pila_respuestas r
             where r.senal_id = ${senales.id} and r.region = ${e.region}::text
               and r.valor in ('acuerdo', 'desacuerdo')) as de_mi_region,
+          ${enDiscusion} as en_discusion,
           ${iso(sql`coalesce(${senales.publicadaEn}, ${senales.creadaEn})`)} as publicada_en
         from ${senales}
         left join geographic_locations g on g.id = ${senales.provinceId}
@@ -151,7 +150,9 @@ export class PilaRepository {
           and not exists (select 1 from pila_reportes p
             where p.senal_id = ${senales.id} and p.actor_id = ${e.actorId}::bigint)
       ) x
-      order by (${e.region}::text is not null and x.de_mi_region < ${OPINIONES_PARA_CONTAR}) desc,
+      order by (${e.completar === true}::boolean and ${e.region}::text is not null
+          and x.en_discusion and x.de_mi_region < ${OPINIONES_PARA_CONTAR}) desc,
+        (${e.region}::text is not null and x.de_mi_region < ${OPINIONES_PARA_CONTAR}) desc,
         x.respuestas, x.publicada_en, x.id
       limit ${e.limite ?? 60}`);
     return r.rows.map((f) => ({
@@ -169,6 +170,7 @@ export class PilaRepository {
       respuestas: f.respuestas,
       opinionesDeMiRegion: e.region === null ? 0 : f.de_mi_region,
       publicadaEn: f.publicada_en,
+      enDiscusion: f.en_discusion,
     }));
   }
 

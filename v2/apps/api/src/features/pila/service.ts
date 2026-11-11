@@ -64,9 +64,14 @@ export async function pedirTanda(
   const estado = await repo.estadoDelActor(campanaId, quien.actorId, quien.userId);
   const provinciaIso = estado.provincia?.iso ?? null;
   const region = regionDe(provinciaIso);
-  const candidatos = await repo.candidatos({ campanaId, ...quien, region });
   const prioridad: Region | null =
     esRegion(priorizarRegion) && priorizarRegion === region ? region : null;
+  const candidatos = await repo.candidatos({
+    campanaId,
+    ...quien,
+    region,
+    completar: prioridad !== null,
+  });
   const elegidos = armarTanda(
     candidatos.map((c) => ({
       id: c.id,
@@ -75,6 +80,7 @@ export async function pedirTanda(
       publicadaEn: c.publicadaEn,
       tema: c.tema?.clave ?? null,
       provinciaIso: c.provincia?.iso ?? null,
+      enDiscusion: c.enDiscusion,
     })),
     { provinciaIso, priorizarRegion: prioridad },
   );

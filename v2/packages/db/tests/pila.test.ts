@@ -227,6 +227,44 @@ viva('PilaRepository', () => {
       expect(sinRegion[0]?.opinionesDeMiRegion).toBe(0);
     });
 
+    it('«completar» trae primero lo que ya se discute y donde la región de quien mira no cuenta (D-166)', async () => {
+      const campana = await nuevaCampana();
+      const [yo, autor, ...otros] = await actores(22);
+      const noa = { provinciaId: salta, region: 'NOA' };
+      const bsas = { provinciaId: caba, region: 'Buenos Aires' };
+      // `discutido` tiene 20 opiniones y dos regiones que cuentan: 15 de Buenos Aires y 5 de Cuyo.
+      const discutido = await aporte(campana, { actorId: autor! });
+      const nuevos = [
+        await aporte(campana, { actorId: autor! }),
+        await aporte(campana, { actorId: autor! }),
+      ];
+      const cuyo = await filas<{ id: number }>(sql`
+        select id from geographic_locations where level = 'province' and iso_code = 'AR-M'`);
+      const mendoza = { provinciaId: cuyo[0]!.id, region: 'Cuyo' };
+      for (const a of otros.slice(0, 15)) await responder(discutido, a, 'acuerdo', bsas);
+      for (const a of otros.slice(15, 20)) await responder(discutido, a, 'acuerdo', mendoza);
+      const pedir = (completar: boolean) =>
+        pila.candidatos({
+          campanaId: campana,
+          actorId: yo!,
+          userId: null,
+          region: 'NOA',
+          completar,
+        });
+
+      const sin = await pedir(false);
+      expect(ids(sin)).toEqual([...nuevos.map((n) => n.idPublico), discutido.idPublico]);
+      expect(sin.find((c) => c.id === discutido.idPublico)?.enDiscusion).toBe(true);
+      expect(sin.find((c) => c.id === nuevos[0]!.idPublico)?.enDiscusion).toBe(false);
+
+      const con = await pedir(true);
+      expect(ids(con)[0]).toBe(discutido.idPublico);
+
+      // Cuando el NOA ya cuenta en ese aporte, deja de ir primero.
+      for (const a of await actores(5)) await responder(discutido, a, 'acuerdo', noa);
+      expect(ids(await pedir(true)).at(-1)).toBe(discutido.idPublico);
+    });
+
     it('trae lo que escribió completo sólo si es la respuesta a la pregunta y difiere de la línea', async () => {
       const campana = await nuevaCampana();
       const [yo] = await actores(1);

@@ -244,6 +244,33 @@ describe.skipIf(!habilitada)('Mirar por HTTP: la pila y su gestión', () => {
       expect(idsDe(await nav.tanda(c.slug, { priorizarRegion: 'NOA' }))).toEqual(sin);
     });
 
+    it('priorizarRegion propia trae primero lo que se discute sin esa región (D-166)', async () => {
+      const c = await nuevaCampana();
+      const discutido = await aporte(c.id);
+      for (let i = 0; i < 4; i++) await aporte(c.id);
+      // 20 opiniones y dos regiones que cuentan (15 de Buenos Aires, 5 de Cuyo); del NOA, ninguna.
+      const prov = await filas<{ id: number; iso: string }>(sql`
+        select id, iso_code as iso from geographic_locations
+        where level = 'province' and iso_code in ('AR-C', 'AR-M')`);
+      const caba = prov.find((p) => p.iso === 'AR-C')?.id ?? 0;
+      const mendoza = prov.find((p) => p.iso === 'AR-M')?.id ?? 0;
+      expect(caba > 0 && mendoza > 0).toBe(true);
+      for (let i = 0; i < 20; i++)
+        await getDb().execute(sql`
+          insert into pila_respuestas (senal_id, actor_id, valor, provincia_id, region, respondida_en)
+          values (${discutido.id}, ${await autor()}::bigint, 'acuerdo', ${i < 15 ? caba : mendoza}::int,
+            ${i < 15 ? 'Buenos Aires' : 'Cuyo'}, now())`);
+      const nav = new Navegador();
+      const base = await aporte(c.id);
+      await nav.opinar(base.idPublico, 'paso', salta);
+
+      const sin = idsDe(await nav.tanda(c.slug));
+      expect(sin.at(-1)).toBe(discutido.idPublico);
+      const con = idsDe(await nav.tanda(c.slug, { priorizarRegion: 'NOA' }));
+      expect(con[0]).toBe(discutido.idPublico);
+      expect([...con].sort()).toEqual([...sin].sort());
+    });
+
     it('el techo por persona responde 429 con un mensaje en castellano', async () => {
       const c = await nuevaCampana();
       const nav = new Navegador();

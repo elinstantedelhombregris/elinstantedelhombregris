@@ -8,6 +8,11 @@
  * Sobre ese orden, dos reglas de reparto: los lugares 3, 6 y 9 prefieren la
  * provincia de quien mira y después su región; nunca van cuatro seguidos del
  * mismo tema si hay alternativa.
+ *
+ * Desde «Completar los de tu región» (§5, «El país que falta») hay un paso 0:
+ * primero van los aportes que ya se están discutiendo y donde la región de quien
+ * mira todavía no cuenta. Son los que más respuestas tienen, así que sin este
+ * paso salían últimos y el botón repartía la misma tanda que Mirar (D-166).
  */
 import { regionDe, type Region } from '../regiones.js';
 
@@ -24,6 +29,8 @@ export interface CandidatoDeTanda {
   readonly tema: string | null;
   /** ISO de la provincia de quien lo escribió. */
   readonly provinciaIso: string | null;
+  /** Ya entró en la visión: tiene las opiniones y las regiones que pide `REGLAS_DE_VISION`. */
+  readonly enDiscusion?: boolean;
 }
 
 export interface QuienMira {
@@ -36,12 +43,19 @@ function urgente(c: CandidatoDeTanda, region: Region | null): boolean {
   return region !== null && c.opinionesDeMiRegion < OPINIONES_PARA_CONTAR;
 }
 
+/** En discusión y sin la región de quien mira: lo que «Completar los de tu región» viene a cerrar. */
+function porCompletar(c: CandidatoDeTanda, region: Region | null): boolean {
+  return c.enDiscusion === true && urgente(c, region);
+}
+
 export function ordenarCandidatos(
   candidatos: readonly CandidatoDeTanda[],
   region: Region | null,
+  completar = false,
 ): CandidatoDeTanda[] {
   return [...candidatos].sort(
     (x, y) =>
+      (completar ? Number(porCompletar(y, region)) - Number(porCompletar(x, region)) : 0) ||
       Number(urgente(y, region)) - Number(urgente(x, region)) ||
       x.respuestas - y.respuestas ||
       x.publicadaEn.localeCompare(y.publicadaEn) ||
@@ -55,7 +69,9 @@ export function armarTanda(
   tamano = TAMANO_DE_TANDA,
 ): string[] {
   const region = regionDe(mira.provinciaIso);
-  const ordenados = ordenarCandidatos(candidatos, region);
+  // La prioridad sólo vale para la región propia: nadie completa una región desde otra.
+  const completar = region !== null && mira.priorizarRegion === region;
+  const ordenados = ordenarCandidatos(candidatos, region, completar);
   const elegidos: CandidatoDeTanda[] = [];
   const usados = new Set<string>();
   while (elegidos.length < tamano && usados.size < ordenados.length) {

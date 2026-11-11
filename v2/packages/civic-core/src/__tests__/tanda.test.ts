@@ -13,6 +13,48 @@ const c = (id: string, over: Partial<CandidatoDeTanda> = {}): CandidatoDeTanda =
 });
 
 describe('armarTanda', () => {
+  describe('«Completar los de tu región» (D-166)', () => {
+    // `viejo` ya se discute y al NOA le falta contar; `nuevo` casi no tiene respuestas.
+    const pila = [
+      c('nuevo', { respuestas: 1, opinionesDeMiRegion: 0 }),
+      c('viejo', { respuestas: 40, opinionesDeMiRegion: 2, enDiscusion: true }),
+      c('cerrado', { respuestas: 45, opinionesDeMiRegion: 9, enDiscusion: true }),
+    ];
+
+    it('con la prioridad en mi región, primero va lo que se discute y donde mi región no cuenta', () => {
+      const t = armarTanda(pila, { provinciaIso: 'AR-Y', priorizarRegion: 'NOA' });
+      expect(t).toEqual(['viejo', 'nuevo', 'cerrado']);
+    });
+
+    it('sin la prioridad, la tanda es la de siempre', () => {
+      expect(armarTanda(pila, { provinciaIso: 'AR-Y' })).toEqual(['nuevo', 'viejo', 'cerrado']);
+      expect(armarTanda(pila, { provinciaIso: 'AR-Y', priorizarRegion: null })).toEqual([
+        'nuevo',
+        'viejo',
+        'cerrado',
+      ]);
+    });
+
+    it('la prioridad en una región ajena, o sin saber la provincia, no cambia nada', () => {
+      const sin = armarTanda(pila, { provinciaIso: 'AR-Y' });
+      expect(armarTanda(pila, { provinciaIso: 'AR-Y', priorizarRegion: 'Patagonia' })).toEqual(sin);
+      expect(armarTanda(pila, { provinciaIso: null, priorizarRegion: 'NOA' })).toEqual(
+        armarTanda(pila, { provinciaIso: null }),
+      );
+    });
+
+    it('donde mi región ya cuenta no hay nada que completar', () => {
+      const t = armarTanda(
+        [
+          c('nuevo', { respuestas: 1, opinionesDeMiRegion: 0 }),
+          c('cerrado', { respuestas: 45, opinionesDeMiRegion: 9, enDiscusion: true }),
+        ],
+        { provinciaIso: 'AR-Y', priorizarRegion: 'NOA' },
+      );
+      expect(t).toEqual(['nuevo', 'cerrado']);
+    });
+  });
+
   it('pone primero los aportes con menos respuestas', () => {
     const t = armarTanda(
       [c('a', { respuestas: 30 }), c('b', { respuestas: 2 }), c('c', { respuestas: 9 })],

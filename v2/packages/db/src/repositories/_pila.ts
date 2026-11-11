@@ -4,6 +4,7 @@
  * si se escribieran dos veces, el día que cambie una la pila y su gestión
  * dejarían de mirar los mismos aportes.
  */
+import { REGLAS_DE_VISION } from '@v2/civic-core';
 import { LARGO_LINEA } from '@v2/shared';
 import { sql, type SQL } from 'drizzle-orm';
 
@@ -70,3 +71,33 @@ export function deQuienMira(t: SQL, actorId: number | null, userId: number | nul
 /** Una fecha en ISO 8601 con milisegundos y en UTC, como la lee el resto de la API. */
 export const iso = (columna: SQL): SQL<string> =>
   sql<string>`to_char(${columna} at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')`;
+
+/**
+ * El aporte ya se está discutiendo: tiene las opiniones y las regiones que pide la visión
+ * (`REGLAS_DE_VISION`, la misma regla que usa Ver). Lo necesita el reparto de «Completar los
+ * de tu región» (D-166). Va con referencias a `senales` sin alias, como `aporteQueEntra`.
+ */
+export const enDiscusion: SQL<boolean> = sql<boolean>`(
+    (select count(*) from pila_respuestas r where r.senal_id = ${senales.id}
+      and r.valor in ('acuerdo', 'desacuerdo')) >= ${REGLAS_DE_VISION.MINIMO_OPINIONES}
+    and (select count(*) from (
+      select 1 from pila_respuestas r where r.senal_id = ${senales.id}
+        and r.valor in ('acuerdo', 'desacuerdo') and r.region is not null
+      group by r.region having count(*) >= ${REGLAS_DE_VISION.OPINIONES_POR_REGION}) regiones
+    ) >= ${REGLAS_DE_VISION.MINIMO_REGIONES})`;
+
+/** La fila cruda de un candidato de la tanda, como sale de la consulta de `PilaRepository.candidatos`. */
+export interface FilaCandidato extends Record<string, unknown> {
+  id: string;
+  texto: string;
+  origen: string | null;
+  provincia_id: number | null;
+  provincia_nombre: string | null;
+  provincia_iso: string | null;
+  tema_clave: string | null;
+  tema_etiqueta: string | null;
+  respuestas: number;
+  de_mi_region: number;
+  publicada_en: string;
+  en_discusion: boolean;
+}
