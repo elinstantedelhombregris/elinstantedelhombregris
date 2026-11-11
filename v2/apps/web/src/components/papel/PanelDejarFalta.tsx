@@ -10,6 +10,7 @@ import {
   guardarLlave,
   LARGO_MAXIMO_CUERPO,
   LARGO_MAXIMO_TITULO,
+  paginaDeOrigen,
   SUPERFICIES,
 } from '~/pages/LoQueFalta/lo-que-falta-data';
 
@@ -58,6 +59,7 @@ export function PanelDejarFalta({
   const primerCampo = useRef<HTMLInputElement>(null);
 
   const mutacion = useDejarFalta();
+  const origen = paginaDeOrigen(contexto);
 
   useEffect(() => {
     if (abierto) setSuperficie(superficieInicial);
@@ -222,6 +224,13 @@ export function PanelDejarFalta({
               <p className="text-tinta-50 mb-6 text-[13px] leading-snug">
                 Va con el encuadre del mapa que estabas mirando
                 {contexto.capa ? ` y la capa «${contexto.capa}»` : ''}. Sin nada tuyo.
+              </p>
+            ) : null}
+
+            {origen ? (
+              <p className="text-tinta-50 mb-6 text-[13px] leading-snug">
+                Va con la página desde la que llegaste,{' '}
+                <span className="font-space text-tinta break-all">{origen}</span>. Sin nada tuyo.
               </p>
             ) : null}
 

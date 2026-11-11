@@ -8,6 +8,7 @@
  * pide. No hay cuenta, no hay mail, no hay nada más que esto.
  */
 import type {
+  ContextoDeFalta,
   EstadoDeFalta,
   FaltaPublica,
   SuperficieDeFalta,
@@ -26,6 +27,51 @@ export const SUPERFICIES: readonly OpcionDeSuperficie[] = [
   { valor: 'los-entrenamientos', etiqueta: 'Los entrenamientos', guia: 'Cursos, lecciones, prácticas.' },
   { valor: 'la-plataforma', etiqueta: 'La plataforma', guia: 'Todo lo demás: la cuenta, el rendimiento, lo que se rompe.' },
 ];
+
+/** La dirección de esta página. La boca del pie llega acá desde cualquier otra. */
+export const RUTA_DE_LO_QUE_FALTA = '/lo-que-falta';
+
+/** El tope que la API le pone a `contexto.ruta`. */
+const LARGO_MAXIMO_RUTA = 200;
+
+/**
+ * La página desde la que alguien llegó por el enlace del pie (spec §2.8: «el pie, en todas las
+ * páginas → la ruta actual»; D-162).
+ *
+ * Viaja en el estado de la navegación y no en la dirección. Así no se comparte con el enlace:
+ * quien abre `/lo-que-falta` por su cuenta no arrastra la página que miraba otro. Lo que llega es
+ * un `history.state`, que cualquiera puede escribir: se lee con desconfianza, y sólo se acepta
+ * una ruta del propio sitio. Nunca trae la consulta: ahí viven las llaves de un solo uso.
+ */
+export function rutaDeOrigen(estado: unknown): string | null {
+  if (typeof estado !== 'object' || estado === null || !('desde' in estado)) return null;
+  const { desde } = estado;
+  if (typeof desde !== 'string') return null;
+  if (!desde.startsWith('/') || desde.startsWith('//')) return null;
+  if (desde.length > LARGO_MAXIMO_RUTA || /[?#\s]/.test(desde)) return null;
+  return desde === RUTA_DE_LO_QUE_FALTA ? null : desde;
+}
+
+const SUPERFICIE_POR_RUTA: readonly (readonly [RegExp, SuperficieDeFalta])[] = [
+  [/^\/el-mapa(\/|$)/, 'el-mapa'],
+  [/^\/(planes|atlas)(\/|$)/, 'los-planes'],
+  [/^\/(biblioteca|ensayos|cronica|bitacora|blog|manifiesto)(\/|$)/, 'la-biblioteca'],
+  [/^\/entrenamientos(\/|$)/, 'los-entrenamientos'],
+];
+
+/** La superficie con la que abre el panel cuando se llegó desde `ruta`: «lo que la ruta diga». */
+export function superficieDeRuta(ruta: string): SuperficieDeFalta {
+  return SUPERFICIE_POR_RUTA.find(([forma]) => forma.test(ruta))?.[1] ?? 'la-plataforma';
+}
+
+/**
+ * La página de origen que vale la pena decirle a quien lee: ni esta misma, ni la del mapa, que
+ * ya dice su encuadre.
+ */
+export function paginaDeOrigen(contexto: ContextoDeFalta | null | undefined): string | null {
+  if (!contexto?.ruta || contexto.encuadre) return null;
+  return contexto.ruta === RUTA_DE_LO_QUE_FALTA ? null : contexto.ruta;
+}
 
 export const LARGO_MAXIMO_TITULO = 140;
 export const LARGO_MAXIMO_CUERPO = 4000;

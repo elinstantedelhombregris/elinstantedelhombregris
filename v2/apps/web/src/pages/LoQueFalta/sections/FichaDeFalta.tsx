@@ -9,6 +9,7 @@ import {
   leerLlavero,
   llaveDeFirma,
   olvidarLlave,
+  paginaDeOrigen,
   selloDeEstado,
 } from '../lo-que-falta-data';
 
@@ -37,6 +38,7 @@ export function FichaDeFalta({ falta }: FichaDeFaltaProps) {
 
   const estado = ESTADOS[falta.estado];
   const bajada = falta.estado === 'bajada';
+  const origen = paginaDeOrigen(falta.contexto);
   const firmas = firmar.data?.firmas ?? falta.firmas;
 
   return (
@@ -101,9 +103,15 @@ export function FichaDeFalta({ falta }: FichaDeFaltaProps) {
       ) : null}
 
       {falta.contexto?.encuadre ? (
-        <p className="text-tinta-30 mb-10 text-[13px] leading-snug">
+        <p className="text-tinta-50 mb-10 text-[13px] leading-snug">
           Llegó desde el mapa, con el encuadre que se estaba mirando
           {falta.contexto.capa ? ` y la capa «${falta.contexto.capa}»` : ''}.
+        </p>
+      ) : null}
+
+      {origen ? (
+        <p className="text-tinta-50 mb-10 text-[13px] leading-snug">
+          Llegó desde la página <span className="font-space text-tinta break-all">{origen}</span>.
         </p>
       ) : null}
 

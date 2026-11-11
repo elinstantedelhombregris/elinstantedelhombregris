@@ -1,4 +1,4 @@
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 
 import {
   FALTA_HREF,
@@ -27,6 +27,8 @@ const PRINCIPIOS = [
  * repiten acá.
  */
 export function PapelFooter() {
+  // Sólo el camino, sin la consulta: ahí viajan las llaves de un solo uso.
+  const [ruta] = useLocation();
   return (
     <footer className="bg-tinta text-papel print:hidden">
       <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-16 min-[961px]:px-10">
@@ -114,8 +116,14 @@ export function PapelFooter() {
             {/* La cuarta boca del canal de escucha, y la que está en todas las
                 páginas (spec 2026-08-12-lo-que-falta.md §2.8). Va acá abajo y
                 no en el recorrido: es una puerta que tiene que estar siempre y
-                no pedir nada, no una sección que compita con las del header. */}
-            <Link href={FALTA_HREF} className="hover:text-papel underline transition-colors">
+                no pedir nada, no una sección que compita con las del header.
+                Le pasa la página desde la que se sale, en el estado de la
+                navegación: la spec lo pedía y el enlace no lo hacía (D-162). */}
+            <Link
+              href={FALTA_HREF}
+              state={{ desde: ruta }}
+              className="hover:text-papel underline transition-colors"
+            >
               {FALTA_LABEL}
             </Link>
             {/* La simulación vivía acá, como tercera inquilina de la franja. Salió

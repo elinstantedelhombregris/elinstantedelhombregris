@@ -1,5 +1,10 @@
 import { useState } from 'react';
 
+import {
+  RUTA_DE_LO_QUE_FALTA,
+  rutaDeOrigen,
+  superficieDeRuta,
+} from './LoQueFalta/lo-que-falta-data';
 import { PortadaLoQueFalta } from './LoQueFalta/sections/PortadaLoQueFalta';
 import { RegistroDeFaltas } from './LoQueFalta/sections/RegistroDeFaltas';
 
@@ -19,6 +24,9 @@ const ENLACE_DE_DESCARGA =
  */
 export function LoQueFalta() {
   const [panelAbierto, setPanelAbierto] = useState(false);
+  // La página desde la que se llegó por el pie (D-162). Se lee una vez, al entrar: es de esta
+  // entrada del historial y no cambia mientras se está acá.
+  const [origen] = useState(() => rutaDeOrigen(window.history.state));
   const conteos = useConteosDeFaltas();
 
   return (
@@ -56,7 +64,8 @@ export function LoQueFalta() {
         onCerrar={() => {
           setPanelAbierto(false);
         }}
-        contexto={{ ruta: '/lo-que-falta' }}
+        superficieInicial={origen ? superficieDeRuta(origen) : 'la-plataforma'}
+        contexto={{ ruta: origen ?? RUTA_DE_LO_QUE_FALTA }}
       />
     </main>
   );
