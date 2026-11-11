@@ -190,8 +190,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Sin `--with-deps`: la imagen `ubuntu-24.04` ya trae todas las bibliotecas que pide
+      # Chromium, y lo único que ese modificador sumaba eran nueve paquetes de tipografías que
+      # ninguna prueba usa. Bajarlos depende de los espejos de Ubuntu, y el 11/11/2026 el
+      # trabajo se cayó ahí mismo («Temporary failure resolving») antes de correr nada (D-181).
       - name: Install Playwright browsers
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm exec playwright install chromium
 
       - name: Run Playwright
         env:
