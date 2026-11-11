@@ -162,7 +162,11 @@ jobs:
 
   e2e-tests:
     name: end-to-end (Playwright)
-    runs-on: ubuntu-latest
+    # Imagen fija, no `ubuntu-latest`: el Playwright del repositorio (1.59) instala Chromium
+    # hasta Ubuntu 24.04. Cuando `ubuntu-latest` pasó a 26.04 este trabajo empezó a fallar al
+    # instalar el navegador, antes de correr una sola prueba (D-181). Al subir Playwright a una
+    # versión que soporte la imagen nueva, se puede volver a `ubuntu-latest`.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     needs: build-and-test
 

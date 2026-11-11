@@ -191,6 +191,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-178](#d-178--bordes-de-permisos-y-avisos-en-la-coordinación-de-una-campaña) | Bordes de permisos y avisos en la coordinación de una campaña | Media | Abierta |
 | [D-179](#d-179--proponer-una-campaña-pierde-a-la-gente-en-el-formulario-y-en-sumate) | Proponer una campaña pierde a la gente en el formulario y en «Sumate» | Media | Abierta |
 | [D-180](#d-180--la-política-de-privacidad-no-describe-la-participación-sin-cuenta) | La política de privacidad no describe la participación sin cuenta | Alta | Abierta |
+| [D-181](#d-181--las-pruebas-de-punta-a-punta-no-corren-en-ci) | Las pruebas de punta a punta no corren en CI | Media | Abierta |
 
 ---
 
@@ -2768,3 +2769,14 @@ Del lado de quien propone: el formulario son 23 entradas en una sola página, di
 **Estado:** abierta.
 
 La política habla de cuentas. No nombra los aportes de Mi Argentina ideal, las opiniones de Mirar ni el identificador de navegador que se guarda un año para reconocer a quien participa sin cuenta, y no encontré en las pantallas de Imaginar ni de Mirar un aviso de ese identificador. Lo que se guarda son deseos y acuerdos sobre cómo debería ser el país: la propia política dice que la opinión política es dato sensible. La edad mínima sigue sin fijarse y el responsable legal sigue en trámite (D-057), y los límites de uso se pensaron para aulas. Pendiente: una versión de la política que describa esta participación, y la regla de menores antes de llevar la campaña a una escuela.
+
+### D-181 · Las pruebas de punta a punta no corren en CI
+
+**Dónde:** `.github/workflows/v2-ci.yml`, trabajo `e2e-tests` («end-to-end (Playwright)»).
+**Encontrada:** 2026-11-11, al mirar el CI del despliegue de los arreglos de la auditoría de campañas.
+**Severidad:** media.
+**Estado:** abierta.
+
+El trabajo falla antes de correr una sola prueba, en el paso que instala el navegador: «Playwright does not support chromium on ubuntu26.04-x64». El trabajo pide `ubuntu-latest`; el repositorio pide `@playwright/test` `^1.49.0` y hoy instala la 1.59.1. Falla igual en los cuatro commits anteriores de `main` que miré (`9d02d9d3`, `7c52cb42`, `55fae6f0`, `3588d66a`), así que no es de hoy. Como además depende del trabajo de lint, tipos, pruebas y build, cuando ése falla figura como salteado y no como roto. La consecuencia es que las especificaciones de `v2/tests/e2e/` no se ejecutan en ningún push: la de Mi Argentina ideal la corrí a mano el 11/11 y pasa, las demás no las corrió nadie. Pendiente: fijar la imagen del trabajo a una que Playwright soporte, o subir Playwright, y después ver qué especificaciones fallan, porque llevan un tiempo sin correr.
+
+**Arreglo aplicado (2026-11-11), falta verlo correr en CI.** El trabajo pide `ubuntu-24.04`, que es la última imagen para la que el Playwright instalado trae Chromium; cuando se suba Playwright se puede volver a `ubuntu-latest`. Con el navegador instalado apareció lo que el fallo tapaba: de las 22 especificaciones, una no pasaba, «la bienvenida recuerda el ciclo al recargar, pedir otra cita y abrir pestañas» (`tests/e2e/home.spec.ts`). No era un defecto de la bienvenida: el ciclo de citas sale bien, pero con tres pestañas abiertas y el retrato animándose en cada una, la última recarga tarda unos 4 segundos en mostrarla contra el servidor de desarrollo, pegada al límite de 5 que trae la comprobación. Se le dio más plazo a esa prueba. Corrida entera en local con la configuración de CI: 21 pasan y una se saltea a propósito (la que necesita la API levantada).

@@ -95,10 +95,15 @@ test.describe('public home', () => {
     page,
     context,
   }) => {
+    // Seis cargas de la portada y tres pestañas con el retrato animándose: contra el servidor de
+    // desarrollo, la última recarga tarda unos 4 s en mostrar la bienvenida (medido el 11/11/2026),
+    // pegada al límite de 5 s que trae `expect`. El ciclo estaba bien; lo que fallaba era el plazo
+    // (D-181).
+    test.slow();
     const vistas = new Set<string>();
     const recordar = async (pagina: typeof page) => {
       const dialog = pagina.getByRole('dialog');
-      await expect(dialog).toBeVisible();
+      await expect(dialog).toBeVisible({ timeout: 20_000 });
       const id = await dialog.getAttribute('data-instante');
       expect(id).toMatch(/^\d{2}$/);
       if (!id) throw new Error('No se seleccionó un instante.');
