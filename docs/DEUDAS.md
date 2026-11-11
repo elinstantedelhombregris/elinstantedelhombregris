@@ -176,13 +176,13 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-163](#d-163--el-ícono-de-la-pestaña-sigue-siendo-el-de-la-versión-anterior) | El ícono de la pestaña sigue siendo el de la versión anterior | Baja | Abierta |
 | [D-164](#d-164--el-mapa-le-pide-un-complemento-a-un-servidor-de-mapbox) | El mapa le pide un complemento a un servidor de Mapbox | Media | **Resuelta** |
 | [D-165](#d-165--el-reparto-de-mirar-reparte-parejo-y-la-visión-pide-veinte-opiniones-por-aporte) | El reparto de Mirar reparte parejo y la visión pide veinte opiniones por aporte | Alta | Abierta |
-| [D-166](#d-166--completar-los-de-tu-región-reparte-la-misma-tanda-que-mirar) | «Completar los de tu región» reparte la misma tanda que Mirar | Media | Resuelta en código; despliegue pendiente |
-| [D-167](#d-167--la-cinta-de-la-portada-cuenta-aportes-retirados) | La cinta de la portada cuenta aportes retirados | Baja | Resuelta en código; despliegue pendiente |
+| [D-166](#d-166--completar-los-de-tu-región-reparte-la-misma-tanda-que-mirar) | «Completar los de tu región» reparte la misma tanda que Mirar | Media | **Resuelta** |
+| [D-167](#d-167--la-cinta-de-la-portada-cuenta-aportes-retirados) | La cinta de la portada cuenta aportes retirados | Baja | **Resuelta** |
 | [D-168](#d-168--un-enlace-compartido-no-lleva-imagen-y-el-de-un-aporte-lleva-a-ver) | Un enlace compartido no lleva imagen, y el de un aporte lleva a Ver | Media | **Parcial** |
 | [D-169](#d-169--opiniones-que-cuentan-de-más-o-que-no-cuentan-para-ninguna-región) | Opiniones que cuentan de más o que no cuentan para ninguna región | Media | Abierta |
 | [D-170](#d-170--corregir-un-aporte-no-pasa-por-el-filtro-de-datos-personales-ni-por-el-tope-de-la-línea) | Corregir un aporte no pasa por el filtro de datos personales ni por el tope de la línea | Media | **Parcial** |
 | [D-171](#d-171--textos-de-mirar-ver-y-la-gestión-que-no-dicen-lo-que-pasa) | Textos de Mirar, Ver y la gestión que no dicen lo que pasa | Baja | **Parcial** |
-| [D-172](#d-172--una-campaña-en-revisión-con-la-fecha-de-devolución-vencida-queda-trabada) | Una campaña en revisión con la fecha de devolución vencida queda trabada | Alta | Resuelta en código; despliegue pendiente |
+| [D-172](#d-172--una-campaña-en-revisión-con-la-fecha-de-devolución-vencida-queda-trabada) | Una campaña en revisión con la fecha de devolución vencida queda trabada | Alta | **Resuelta** |
 | [D-173](#d-173--programar-deja-una-campaña-sin-salida) | «Programar» deja una campaña sin salida | Media | Abierta |
 | [D-174](#d-174--el-conteo-de-personas-nuevas-de-una-propuesta-cuenta-de-más) | El conteo de personas nuevas de una propuesta cuenta de más | Media | Abierta |
 | [D-175](#d-175--la-administración-no-puede-bajar-una-campaña-ajena) | La administración no puede bajar una campaña ajena | Alta | Abierta |
@@ -2615,33 +2615,39 @@ Cada tanda trae primero los aportes que menos respuestas tienen. Un aporte entra
 **Dónde:** `v2/packages/civic-core/src/pila/tanda.ts` (`armarTanda`) y `v2/apps/api/src/features/pila/service.ts`.
 **Encontrada:** 2026-11-11, en la auditoría de punta a punta del constructor de campañas y de Mi Argentina ideal (`v2/docs/analisis/2026-11-11-auditoria-campanas/README.md`).
 **Severidad:** media.
-**Estado:** ~~abierta~~ → **resuelta en código, 2026-11-11**; falta desplegarla.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-11**
 
 El botón de «El país que falta» manda `priorizarRegion`. El servicio lo valida y se lo pasa a `armarTanda`, que no lo lee: el campo sólo existe en el tipo. La persona recibe la misma tanda que sin el botón, y como los aportes en discusión son los que más respuestas tienen, le tocan últimos. Pendiente: que la tanda pedida desde ahí traiga primero los aportes en discusión donde falta su región, y un test con conteos distintos de cero (el de `pila.test.ts` compara dos tandas con todo en cero).
 
 **Resolución (2026-11-11).** La tanda pedida desde «Completar los de tu región» trae primero los aportes que ya se discuten y donde la región de quien mira todavía no cuenta; después sigue el orden de siempre. La consulta de candidatos calcula «en discusión» con las mismas constantes que usa Ver (`REGLAS_DE_VISION`), y `armarTanda` lee por fin `priorizarRegion`. La prioridad sigue valiendo sólo para la región propia. Pruebas: la regla pura en `civic-core` (`tanda.test.ts`), la consulta en `packages/db/tests/pila.test.ts` y el pedido por HTTP en `apps/api/tests/pila.test.ts`, esta vez con conteos distintos de cero. El orden general del reparto no cambió: eso es D-165.
+
+**Desplegada el 11/11/2026 (`a2522f3a`).** No se ejercitó en producción: pedir una tanda escribe en la base, y hoy no hay aportes en discusión con los que probarla. La cubren las tres pruebas de arriba.
 
 ### D-167 · La cinta de la portada cuenta aportes retirados
 
 **Dónde:** `v2/apps/web/src/pages/Home/sections/VocesTicker.tsx` y `GET /api/v1/civic/senales`.
 **Encontrada:** 2026-11-11, en la auditoría de punta a punta del constructor de campañas y de Mi Argentina ideal (`v2/docs/analisis/2026-11-11-auditoria-campanas/README.md`).
 **Severidad:** baja.
-**Estado:** ~~abierta~~ → **resuelta en código, 2026-11-11**; falta desplegarla.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-11**
 
 La cinta dice «Los últimos aportes tienen el texto reservado por quien los escribió» cuando no hay ningún aporte vigente: la lista pública devuelve también los que están en estado `retirada`, y la cinta los toma como publicados. Hoy en producción los dos únicos aportes son de prueba y están retirados. Es la misma familia que D-148, que se resolvió para el contador y no para esta lista. Pendiente: que la lista deje afuera lo retirado, o que la cinta lo filtre.
 
 **Resolución (2026-11-11).** La cinta deja afuera los aportes en estado `retirada` (`vocesDeLaLista` en `apps/web/src/lib/queries/analytics.ts`, con su prueba). Sin aportes vigentes vuelve a decir «Todavía nadie publicó un aporte». La lista pública sigue devolviendo las filas retiradas, sin texto: no se tocó porque la descarga de datos abiertos usa la misma consulta.
+
+**Desplegada y comprobada en producción el 11/11/2026 (`b88593e6`).** Con los dos aportes de prueba retirados todavía en la lista pública, la cinta de la portada dice «Todavía nadie publicó un aporte.»
 
 ### D-168 · Un enlace compartido no lleva imagen, y el de un aporte lleva a Ver
 
 **Dónde:** `v2/apps/web/index.html`, `v2/apps/web/src/pages/MiArgentinaIdeal/imaginar/Listo.tsx` y `ver/CompartirVision.tsx`.
 **Encontrada:** 2026-11-11, en la auditoría de punta a punta del constructor de campañas y de Mi Argentina ideal (`v2/docs/analisis/2026-11-11-auditoria-campanas/README.md`).
 **Severidad:** media.
-**Estado:** abierta; **resuelta en parte en código, 2026-11-11**.
+**Estado:** abierta; **parcialmente resuelta 2026-11-11**.
 
 Ninguna dirección del sitio tiene etiquetas `og:` ni imagen: por WhatsApp, cualquier enlace —la campaña nacional, una campaña propuesta, la visión— muestra el título y la descripción genéricos. D-149 lo anota para las crónicas; pasa en todo el sitio. Además, «Compartir mi aporte» manda a `/mi-argentina-ideal`, que es Ver, y no al aporte: quien lo recibe no puede responderlo desde el enlace. La página del aporte (`/senal/:id`) ya deja responder, pero ahí una persona nueva queda sin región (D-169). Pendiente: título, descripción e imagen del sitio en `index.html`, que alcanza a todas las direcciones; después, el enlace del aporte. El texto de un aporte no va en la vista previa: se publica sin revisión y una vista previa guardada por un tercero sobrevive al retiro.
 
 **Resuelto en parte (2026-11-11).** `index.html` lleva título, descripción e imagen para la vista previa (`og:` y `twitter:card`), iguales para todas las direcciones, con la marca de `public/media/prensa/` como imagen. Va sin `og:url`, que apuntaría siempre a la portada. La guarda de la CSP que revisa los hosts del documento deja pasar el dominio propio, y un test comprueba que la imagen exista. Falta desplegarlo y mirarlo en WhatsApp. **Sigue pendiente:** que «Compartir mi aporte» lleve al aporte y que esa página pregunte la provincia; y el título propio de cada campaña o crónica en la vista previa (D-149), que pide una función aparte.
+
+**Lo resuelto, desplegado y comprobado en producción el 11/11/2026 (`7a3284d2`).** Pedida como la pide WhatsApp, `/campanas/mi-argentina-ideal` devuelve `og:title`, `og:description`, `og:image` y `twitter:card`, y la imagen responde 200 como `image/png`. Falta mirarlo en un teléfono: WhatsApp guarda la vista previa vieja de un enlace que ya se compartió.
 
 ### D-169 · Opiniones que cuentan de más o que no cuentan para ninguna región
 
@@ -2657,33 +2663,39 @@ Tres cosas sobre el mismo conteo. (1) Quien opina sin cuenta y después ingresa 
 **Dónde:** `v2/apps/api/src/features/contribuciones/routes.ts` (`PATCH /:id`) y `v2/packages/shared/src/participacion/pila.ts`.
 **Encontrada:** 2026-11-11, en la auditoría de punta a punta del constructor de campañas y de Mi Argentina ideal (`v2/docs/analisis/2026-11-11-auditoria-campanas/README.md`).
 **Severidad:** media.
-**Estado:** abierta; **resuelta en parte en código, 2026-11-11**.
+**Estado:** abierta; **parcialmente resuelta 2026-11-11**.
 
 El filtro que frena teléfonos, correos y DNI corre al publicar y no al corregir, y la corrección acepta hasta 2.000 letras. Un aporte puede publicarse limpio y recibir después un dato personal; y quien alarga el suyo por encima de 140 letras lo saca de Mirar y de Ver sin que nada se lo avise. El filtro, además, frena como teléfono cosas que no lo son («2027-2030», «20 000 000 de árboles»). Pendiente: el mismo filtro y el mismo tope en la corrección de un deseo, y afinar la expresión de los teléfonos.
 
 **Resuelto en parte (2026-11-11).** Corregir un deseo pasa por el mismo filtro que publicarlo, y un deseo que es una línea no se puede alargar más allá de las 140 letras: el servidor responde 422 (`DATOS_PERSONALES` o `LINEA_LARGA`) y la pantalla de corrección limita el campo con el tope que le informa la lectura privada (`largoMaximo`). Prueba en `apps/api/tests/participacion-ideal.test.ts`. **Sigue pendiente:** afinar la expresión de los teléfonos, que frena rangos de años y cifras grandes.
+
+**Lo resuelto, desplegado el 11/11/2026 (`b999857e`).** No se ejercitó en producción, porque corregir un aporte pide publicar uno.
 
 ### D-171 · Textos de Mirar, Ver y la gestión que no dicen lo que pasa
 
 **Dónde:** `v2/apps/web/src/pages/MiArgentinaIdeal/` (`Mirar.tsx`, `mirar/MirarVacio.tsx`, `ver/piezas.tsx`, `ver/formato.ts`, `ver/SeguirAfuera.tsx`) y `v2/apps/web/src/lib/queries/pila.ts`.
 **Encontrada:** 2026-11-11, en la auditoría de punta a punta del constructor de campañas y de Mi Argentina ideal (`v2/docs/analisis/2026-11-11-auditoria-campanas/README.md`).
 **Severidad:** baja.
-**Estado:** abierta; **resuelta en parte en código, 2026-11-11**.
+**Estado:** abierta; **parcialmente resuelta 2026-11-11**.
 
 Cinco casos. Toda tanda vacía dice «Todavía nadie más publicó su aporte», también cuando hay aportes y la persona ya los contestó todos. Con aportes esperando opiniones, los vacíos de Ver siguen mandando a escribir («Sumá el tuyo →») y no a opinar; con la base en cero ese enlace es el correcto. Después del 28/2/2027 la cabecera de Ver va a decir que la campaña ya no recibe aportes y el servidor los va a seguir recibiendo, porque nada cambia el estado en esa fecha. «La devolución firmada de cada edición» lleva a `/sintesis-nacional`, y las devoluciones de la campaña se publican en `/campanas/:slug/devolucion`. Y la segunda página de `/gestion/pila` responde 400: la web manda `cursor` y la API espera `desde`.
 
 **Resuelto en parte (2026-11-11).** Tres de los cinco. La tanda vacía distingue «todavía nadie más publicó» de «ya miraste todos los aportes que hay por ahora» (el servidor manda `yaOpino`). Con aportes esperando opiniones, los vacíos de Ver llevan a Mirar («Opiná sobre los que ya llegaron →»); con la base en cero siguen invitando a sumar el propio, y cada sección conserva su frase. Y la gestión pide la página siguiente con `desde`; la prueba vieja simulaba una API que aceptaba `cursor`. **Siguen pendientes:** la cabecera de Ver después del 28/2/2027 y el destino de «La devolución firmada de cada edición».
+
+**Lo resuelto, desplegado el 11/11/2026 (`5032145f`).** Los dos textos nuevos están en los archivos que sirve producción, y Ver, con la base en cero, sigue invitando a sumar el propio aporte. La tanda vacía no se abrió en producción, porque abrir Mirar escribe en la base.
 
 ### D-172 · Una campaña en revisión con la fecha de devolución vencida queda trabada
 
 **Dónde:** `v2/apps/api/src/features/campanas/routes.ts` (`POST /:id/estado`, `PUT /:id`) y `v2/packages/db/src/repositories/impulso.ts`.
 **Encontrada:** 2026-11-11, en la auditoría de punta a punta del constructor de campañas y de Mi Argentina ideal (`v2/docs/analisis/2026-11-11-auditoria-campanas/README.md`).
 **Severidad:** alta.
-**Estado:** ~~abierta~~ → **resuelta en código, 2026-11-11**; falta desplegarla.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-11**
 
 Abrir, programar y devolver a juntar gente exigen que la fecha de devolución no haya pasado, y son las tres únicas salidas de una campaña en revisión. El paso automático a revisión no mira la fecha, y juntar gente no tiene plazo. Si la campaña llega a revisión con la fecha vencida, o vence mientras espera, la administración no puede decidir nada, y quien la impulsa no puede editarla, retirarla ni proponer otra. Sólo se destraba a mano en la base. La comparación, además, usa el día en UTC: desde las 21:00 de la Argentina la fecha de hoy ya figura vencida (la misma familia que D-158, del lado del servidor). Pendiente: que devolverla para corregir no exija fecha vigente, que el día sea el argentino, y una prueba que mueva el reloj.
 
 **Resolución (2026-11-11).** Devolver una propuesta en revisión para que la corrijan ya no exige fecha vigente: es la salida que faltaba. Abrir y programar la siguen exigiendo, y cuando quien lo intenta es la administración el mensaje le dice que la devuelva, porque ella no puede cambiar la fecha. Quien la impulsa la retira, corrige la fecha y la vuelve a presentar. La comparación usa el día argentino (`diaArgentino` en `@v2/shared`, con su prueba a las 22:00). Prueba de punta a punta en `apps/api/tests/campanas-propuestas.test.ts`. No se tocó que una campaña devuelta con las 50 personas ya contadas vuelva sola a revisión con la persona siguiente: es el primer borde de D-142.
+
+**Desplegada el 11/11/2026 (`988e2b51`).** No se ejercitó en producción: no hay ninguna campaña propuesta, y probarlo pide crear una.
 
 ### D-173 · «Programar» deja una campaña sin salida
 

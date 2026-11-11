@@ -372,6 +372,12 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-160',
       'D-162', // 2026-11-10: el pie le pasa la página a «Lo que falta». D-161 sigue abierta: borra datos.
       'D-164', // 2026-11-10: el mapa deja de pedirle un complemento a api.mapbox.com.
+      // 2026-11-11: de la auditoría de campañas y de Mi Argentina ideal, lo que no pedía una decisión.
+      // «Completar los de tu región» y el candado de la fecha, con sus pruebas de integración; la cinta
+      // de la portada, comprobada en producción. D-168, D-170 y D-171 quedaron parciales: siguen abiertas.
+      'D-166',
+      'D-167',
+      'D-172',
     ]);
   });
 });

@@ -283,7 +283,7 @@ Nada de esto es una idea. Es lo que separa un primer resultado creíble de uno q
 
 ## 10. Lo que se arregló el mismo día
 
-Juan pidió arreglar lo que no necesitaba una decisión suya. Quedó en código, con pruebas, el 11/11/2026:
+Juan pidió arreglar lo que no necesitaba una decisión suya. Quedó en código, con pruebas, y se desplegó el 11/11/2026 (`a343efcb`). En producción se comprobaron la vista previa y la cinta; lo demás pide escribir en la base y quedó cubierto por las pruebas de integración.
 
 | Deuda | Qué cambió |
 |---|---|
