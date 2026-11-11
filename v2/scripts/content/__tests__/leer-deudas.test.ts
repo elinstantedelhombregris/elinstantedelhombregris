@@ -378,6 +378,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-166',
       'D-167',
       'D-172',
+      'D-181', // 2026-11-11: las pruebas de punta a punta vuelven a correr en CI (22 corridas, 21 pasan).
     ]);
   });
 });
