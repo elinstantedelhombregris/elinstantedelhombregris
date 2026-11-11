@@ -182,6 +182,20 @@ describe('Procesos públicos del mandato', () => {
     expect(container.textContent).not.toContain('2026-11-01');
   });
 
+  it('los dos enlaces de arriba van cada uno en su renglón, no pegados (D-159)', () => {
+    render(<ProcesosPublicos />);
+    const vision = screen.getByRole('link', { name: /Leer objetivos, evidencia y síntesis/ });
+    const sintesis = screen.getByRole('link', { name: /Consultar ediciones con revisión/ });
+    expect(vision).toHaveAttribute('href', '/vision-compartida');
+    expect(sintesis).toHaveAttribute('href', '/sintesis-nacional');
+    const renglonDeVision = vision.closest('li');
+    const renglonDeSintesis = sintesis.closest('li');
+    expect(renglonDeVision).not.toBeNull();
+    expect(renglonDeSintesis).not.toBeNull();
+    expect(renglonDeVision).not.toBe(renglonDeSintesis);
+    expect(renglonDeVision?.parentElement).toBe(renglonDeSintesis?.parentElement);
+  });
+
   it('el cero va en palabras en los conteos de una ficha', () => {
     vi.mocked(useFichas).mockReturnValue({
       data: {

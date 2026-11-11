@@ -43,12 +43,20 @@ export function ProcesosPublicos() {
       <p className="text-oscuro-secundario mt-4 max-w-[760px] leading-relaxed">
         Campañas y fichas abiertas hoy. Aparecer acá no les da representación ni efecto oficial.
       </p>
-      <Link href="/vision-compartida" className={`${ENLACE} mt-4`}>
-        Leer objetivos, evidencia y síntesis entre territorios →
-      </Link>
-      <Link href="/sintesis-nacional" className={`${ENLACE} mt-4`}>
-        Consultar ediciones con revisión del equipo y referencias citables →
-      </Link>
+      {/* Eran dos enlaces hermanos en línea: en pantalla ancha quedaban pegados y se leían
+          como uno solo (D-159). Van en lista, uno por renglón. */}
+      <ul className="mt-4 flex flex-col items-start">
+        <li>
+          <Link href="/vision-compartida" className={ENLACE}>
+            Leer objetivos, evidencia y síntesis entre territorios →
+          </Link>
+        </li>
+        <li>
+          <Link href="/sintesis-nacional" className={ENLACE}>
+            Consultar ediciones con revisión del equipo y referencias citables →
+          </Link>
+        </li>
+      </ul>
       {hayError ? (
         <p role="alert" className="text-oscuro-texto mt-4">
           {ERROR_AL_CARGAR}
