@@ -11,6 +11,31 @@
       content="¡BASTA! es un lugar para imaginar entre todos cómo podría ser la Argentina. Contás qué querrías que fuera posible en tu vida y se suma a lo que cuentan otras personas."
     />
     <!--
+      Vista previa al compartir un enlace (D-168). WhatsApp, X y Facebook no ejecutan JavaScript:
+      leen este <head> tal como llega, y es el mismo para todas las direcciones. Por eso acá va lo
+      del sitio entero, sin `og:url` (apuntaría siempre a la portada) y sin el texto de ningún
+      aporte. La imagen va con dirección completa porque los rastreadores no resuelven rutas.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="¡BASTA!" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="¡BASTA! — El país lo diseña la gente" />
+    <meta
+      property="og:description"
+      content="En tu Argentina ideal, ¿qué sería posible en tu vida? Contalo en una frase y mirá lo que imaginan otras personas."
+    />
+    <meta
+      property="og:image"
+      content="https://elinstantedelhombregris.com/media/prensa/basta-marca-fondo-claro.png"
+    />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1000" />
+    <meta
+      property="og:image:alt"
+      content="¡BASTA!, la marca en letras negras con los signos en violeta"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--
       Anton/Archivo/Space Mono: sistema «Papel y Tinta». Inter/JetBrains/Playfair: páginas legado.
       Las seis salen del mismo origen que la app: ningún tercero ve tu IP por abrir una página
       (D-049). Procedencia y cómo se rebajan: apps/web/public/fonts-ui/LEEME.md.

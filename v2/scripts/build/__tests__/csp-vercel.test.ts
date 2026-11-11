@@ -12,7 +12,7 @@
  * commiteado siga siendo el que sale de la tabla. El otro lado del lazo lo
  * cierra `apps/api/tests/cabeceras-seguridad.test.ts`.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -144,5 +144,28 @@ describe('cabeceras del documento en vercel.json', () => {
       hostsExternosDe(indexHtml),
       'apps/web/index.html volvió a pedir un host de terceros: o se lo trae al origen, o la CSP lo bloquea y el recurso no carga.',
     ).toEqual([]);
+  });
+
+  it('el dominio propio no cuenta como tercero, y uno ajeno sí', () => {
+    const html =
+      '<meta property="og:image" content="https://elinstantedelhombregris.com/media/prensa/x.png" />' +
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css2" />';
+    expect(hostsExternosDe(html)).toEqual(['fonts.googleapis.com']);
+  });
+
+  it('un enlace compartido lleva título, descripción e imagen del sitio (D-168)', () => {
+    const meta = (propiedad: string): string =>
+      new RegExp(`<meta\\s+property="${propiedad}"\\s+content="([^"]*)"`).exec(indexHtml)?.[1] ?? '';
+    expect(meta('og:title')).toContain('¡BASTA!');
+    expect(meta('og:description')).not.toBe('');
+    // Los rastreadores no resuelven rutas relativas ni ejecutan JavaScript.
+    const imagen = meta('og:image');
+    expect(imagen).toMatch(/^https:\/\/elinstantedelhombregris\.com\/media\//);
+    expect(
+      existsSync(join(raizV2, 'apps', 'web', 'public', new URL(imagen).pathname)),
+      'la imagen de la vista previa tiene que existir en public/',
+    ).toBe(true);
+    // Sin `og:url`: el mismo documento sirve todas las direcciones y apuntaría siempre a la portada.
+    expect(indexHtml).not.toContain('property="og:url"');
   });
 });

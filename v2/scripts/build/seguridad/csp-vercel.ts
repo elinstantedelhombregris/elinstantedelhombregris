@@ -128,13 +128,19 @@ export function conBloqueDeHeaders(vercelJson: string): string {
  * IP de cada visitante a un tercero— o el recurso no carga. Hasta el 13/8/2026
  * había dos, `fonts.googleapis.com` y `fonts.gstatic.com`, y por eso D-048
  * pedía cerrar D-049 primero. Hoy no hay ninguno, y el test lo mantiene así.
+ *
+ * El dominio propio no es un tercero: aparece escrito entero en la imagen de la
+ * vista previa (`og:image`, D-168), que los rastreadores exigen con dirección
+ * completa y que el navegador no baja.
  */
+export const HOST_DEL_SITIO = 'elinstantedelhombregris.com';
+
 export function hostsExternosDe(html: string): string[] {
   const encontrados = html.matchAll(/\bhttps?:\/\/([a-zA-Z0-9.-]+)/g);
   const hosts = new Set<string>();
   for (const m of encontrados) {
     const host = m[1];
-    if (host !== undefined) hosts.add(host);
+    if (host !== undefined && host !== HOST_DEL_SITIO) hosts.add(host);
   }
   return [...hosts].sort();
 }
