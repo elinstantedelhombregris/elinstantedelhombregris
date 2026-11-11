@@ -166,6 +166,13 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
 | [D-151](#d-151--los-planes-no-cierran-entre-sí-en-339-lugares-y-ahora-hay-lista) | Los PLANes no cierran entre sí en 339 lugares, y ahora hay lista | Media | Abierta |
 | [D-152](#d-152--el-atlas-del-sitio-no-se-regenera-solo-al-editar-un-plan) | El atlas del sitio no se regenera solo al editar un PLAN | Baja | Abierta |
+| [D-156](#d-156--la-radiografía-no-carga-en-producción-la-api-rechaza-el-parámetro-interno-del-rewrite) | La Radiografía no carga en producción: la API rechaza el parámetro interno del rewrite | Alta | **Resuelta** |
+| [D-157](#d-157--el-kit-de-prensa-ofrece-cinco-descargas-y-ninguna-existe) | El kit de prensa ofrece cinco descargas y ninguna existe | Media | Abierta |
+| [D-158](#d-158--la-cuenta-de-días-de-la-campaña-cierra-un-día-antes-que-el-contrato) | La cuenta de días de la campaña cierra un día antes que el contrato | Baja | Abierta |
+| [D-159](#d-159--en-el-mandato-dos-enlaces-seguidos-se-leen-como-uno) | En El mandato, dos enlaces seguidos se leen como uno | Baja | Abierta |
+| [D-160](#d-160--el-mapa-le-da-el-crédito-a-protomaps-y-las-teselas-son-de-carto) | El mapa le da el crédito a Protomaps y las teselas son de Carto | Media | Abierta |
+| [D-161](#d-161--quedaron-publicaciones-de-prueba-de-mayo-en-la-base-de-producción) | Quedaron publicaciones de prueba de mayo en la base de producción | Baja | Abierta |
+| [D-162](#d-162--el-pie-no-le-pasa-la-ruta-al-canal-lo-que-falta) | El pie no le pasa la ruta al canal «Lo que falta» | Baja | Abierta |
 
 ---
 
@@ -2470,3 +2477,74 @@ Nada de esto se corrigió: el atlas lee, no edita. Lo que haría falta es recorr
 El mapa de `/planes` y la página de análisis `/atlas/` leen archivos que genera un script a mano. Si alguien edita un PLAN y no corre `construir.mjs`, el sitio sigue mostrando el atlas anterior: nada se rompe, pero los números de línea de las citas dejan de coincidir con el documento y el historial no registra la edición. Ninguna guardia de CI lo exige, a diferencia de `planes:check`, que sí compara los MDX contra el taller.
 
 No se hizo guardia porque la salida lleva la fecha del día y no es reproducible byte a byte. Haría falta sacar la fecha de los archivos generados —o tomarla del último commit que tocó el taller— y agregar un `atlas:check` que regenere y compare, como hace `verify-planes-index.ts`.
+
+### D-156 · La Radiografía no carga en producción: la API rechaza el parámetro interno del rewrite
+
+**Dónde:** `v2/apps/api/src/vercel/handler.ts` y el rewrite de `/api/*` en `v2/vercel.json`.
+**Encontrada:** 2026-11-10, al capturar el sitio en producción para un relevamiento de diseño.
+**Severidad:** alta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-10**
+
+En elinstantedelhombregris.com, `/la-radiografia` mostraba «No pudimos cargar el análisis. Probá de nuevo en un rato.» y la franja de cifras decía «No se pudo leer». `GET /api/v1/civic/radiografia` respondía 400 con `Unrecognized key(s) in object: '__ruta'`. No era la única: las rutas públicas que validan la consulta con un esquema estricto fallaban igual. Comprobadas una por una contra producción: `/api/v1/exportaciones/publica` y `/contexto`, `/api/iniciativas/tareas-disponibles`, `/escuchas`, `/:id/tareas` y `/:slug/acciones`, y `/api/fichas/:id/resultados-campo`. Las que no validan en estricto, como `/api/analytics/cifras`, respondían bien, y por eso el sitio parecía andar.
+
+`__ruta` es el parámetro con el que el rewrite de Vercel le pasa la ruta original a la función. El handler lo borraba de `req.url`, pero el runtime de Node de Vercel le cuelga al request una `req.query` calculada desde la URL original antes de llamar a la función, y el middleware de consulta de Express sólo calcula la suya si todavía no existe. La causa está leída en el código de `@vercel/node` 5.9.5 (`getQueryParser` captura la URL al adjuntarse). En desarrollo y en los tests no hay rewrite ni runtime: todas las suites llamaban a la app directo y el handler no tenía ningún test.
+
+**Resolución (2026-11-10, `51f6589a`).** El handler borra la `req.query` del runtime y Express la calcula desde la URL ya corregida, con su propio parser: lo mismo que en desarrollo. No se tocan `req.body` ni `req.cookies`. Dos tests nuevos recorren el tramo que va de Vercel a la app con una réplica de lo que el runtime le hace al request (`apps/api/tests/helpers/como-vercel.ts`): uno sin base, sobre el mecanismo, y otro contra la app real. Los dos fallan sin el arreglo. Después del despliegue se comprobó en producción: las ocho rutas contestan y la página muestra su vacío propio, «Todavía no hay un análisis.».
+
+Queda una cosa sin cubrir: nada prueba el artefacto desplegado. El bundle se cargó en Node y rutea bien, pero contra un Postgres local no llega a la base, así que el camino entero sólo se comprobó a mano en producción.
+
+Los ids D-153 a D-155 están tomados por entradas que otra sesión todavía no publicó; el salto no es un error.
+
+### D-157 · El kit de prensa ofrece cinco descargas y ninguna existe
+
+**Dónde:** `v2/apps/web/src/pages/KitDePrensa.tsx`; falta la carpeta `v2/apps/web/public/assets/`.
+**Encontrada:** 2026-11-10, en la revisión hostil de un tablero de ideas de diseño.
+**Severidad:** media.
+**Estado:** abierta.
+
+En `/kit-de-prensa`, los cinco enlaces de descarga devuelven 404 en producción: `/assets/logo.svg`, `/assets/logo-dark.png`, `/assets/logo-light.png`, `/assets/manifiesto.pdf` y `/assets/ficha.pdf`. La carpeta que deberían servir no existe en v2. La página además sigue con el diseño viejo (D-118) y sólo se enlaza desde el pie de las páginas sin migrar. Un periodista que llega ahí se va sin nada. Haría falta decidir si la página sigue; si sigue, generar los archivos y migrarla al papel.
+
+### D-158 · La cuenta de días de la campaña cierra un día antes que el contrato
+
+**Dónde:** `v2/apps/web/src/pages/MiArgentinaIdeal/ver/formato.ts` (`diasHasta`).
+**Encontrada:** 2026-11-10, en la misma revisión.
+**Severidad:** baja.
+**Estado:** abierta.
+
+`recibeHasta` llega como fecha sin hora (`2027-02-28`) y `Date.parse` la lee como medianoche UTC, que en la Argentina son las 21:00 del día anterior. El contrato de la campaña nacional dice que el 28 de febrero todavía se reciben aportes (`packages/db/scripts/campana-nacional/contrato.ts`, `CIERRE_RECEPCION`). La pantalla va a decir «ya no recibe aportes» desde las 21:00 del 27, y hasta entonces cuenta un día de menos. No se encontró que el servidor rechace aportes por fecha: el defecto está en lo que se dice, no en lo que se acepta. Haría falta contar hasta el fin del día en hora argentina.
+
+### D-159 · En El mandato, dos enlaces seguidos se leen como uno
+
+**Dónde:** `v2/apps/web/src/pages/ElMandatoVivo/sections/ProcesosPublicos.tsx`.
+**Encontrada:** 2026-11-10, al capturar el sitio en producción.
+**Severidad:** baja.
+**Estado:** abierta.
+
+Los dos enlaces de «Lo que ya podemos seguir» son hermanos en línea sin separación. En pantalla ancha quedan pegados: «…síntesis entre territorios →Consultar ediciones con revisión del equipo…». Haría falta apilarlos o darles separación.
+
+### D-160 · El mapa le da el crédito a Protomaps y las teselas son de Carto
+
+**Dónde:** `v2/apps/web/src/pages/ElMapa/instrumento/Instrumento.tsx` (pie del instrumento), `MapaBase.tsx` y `v2/apps/web/public/maps/oscuro.json`.
+**Encontrada:** 2026-11-10, en la revisión del tablero de ideas de diseño.
+**Severidad:** media.
+**Estado:** abierta.
+
+El pie del mapa dice «Mapa © OpenStreetMap contributors · Protomaps», y el comentario del código afirma que Carto se fue el 12/8/2026. El estilo publicado sigue leyendo las teselas de `tiles.basemaps.cartocdn.com`, la CSP las permite y el control de atribución del mapa está apagado. Mientras D-051 siga abierta y las teselas sean de Carto, la línea de crédito tiene que nombrarlo: es una condición de uso de esas teselas, y además el sitio dice dónde van los pedidos de quien lo lee.
+
+### D-161 · Quedaron publicaciones de prueba de mayo en la base de producción
+
+**Dónde:** las tablas de blog y de comunidad en producción; `GET /api/blog/posts`, `GET /api/community/posts` y la página `/comunidad`.
+**Encontrada:** 2026-11-10, al probar las rutas públicas de la API por D-156.
+**Severidad:** baja.
+**Estado:** abierta.
+
+La API pública devuelve entradas que crearon las pruebas de integración cuando todavía corrían contra producción (D-014, ya resuelta): «Test post» y «gamification-hooks-test…» en el blog, y «Hola comunidad — Un post de prueba para la comunidad.» en comunidad, todas del 12/5/2026. La página `/comunidad` lee ese listado. La bitácora no las muestra porque lee los MDX. Haría falta borrarlas a mano, mirando antes qué más dejó el usuario de prueba que las creó.
+
+### D-162 · El pie no le pasa la ruta al canal «Lo que falta»
+
+**Dónde:** `v2/apps/web/src/components/papel/PapelFooter.tsx`; `v2/docs/specs/2026-08-12-lo-que-falta.md` §2.8.
+**Encontrada:** 2026-11-10, en la revisión del tablero de ideas de diseño.
+**Severidad:** baja.
+**Estado:** abierta.
+
+La spec dice que la boca del pie, la que está en todas las páginas, adjunta la ruta actual. El pie es un enlace simple a `/lo-que-falta`, y la página abre el panel con su propia ruta como contexto. Quien llega desde un PLAN o desde el mapa tiene que volver a decir de qué página habla, y quien lee la falta no sabe dónde se originó. Haría falta que el enlace lleve la ruta de origen, o corregir la spec para que diga lo que pasa.

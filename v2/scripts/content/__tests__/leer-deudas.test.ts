@@ -347,6 +347,8 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-100',
       'D-101',
       'D-104', // La limpieza de pruebas conserva datos ajenos y elimina sus propios procesos públicos.
+      // 9/11/2026: Mi espacio lista lo publicado sin cuenta (`a075b29d`). Se cerró sin pasar por esta lista.
+      'D-107',
       'D-130', // Membresías atómicas, contadores conciliados y errores visibles en iniciativas.
       // Cerradas el 20/10/2026 al integrar Mi Argentina ideal: el enlace a una
       // síntesis que no existía, las tres preguntas de la campaña nacional, la
@@ -358,6 +360,10 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-137',
       'D-140',
       'D-146', // 20/10/2026: CORS acepta el propio sitio sin depender de la lista.
+      // 9/11/2026: un aporte retirado deja de sumar en el conteo (`db1c6124`). Tampoco pasó por acá.
+      'D-148',
+      // 10/11/2026: la función de Vercel suelta la consulta del runtime (`51f6589a`); comprobado en producción.
+      'D-156',
     ]);
   });
 });
