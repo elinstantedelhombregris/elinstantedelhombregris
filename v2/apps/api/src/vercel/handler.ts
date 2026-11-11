@@ -19,6 +19,21 @@
  * `req.url` llega como `/api/index?__ruta=analytics/cifras`, y Express rutea
  * por `req.url` — así que hay que devolvérsela antes de pasarle el request.
  * Es el mismo problema y la misma solución que `api/index.ts` de v1.
+ *
+ * ## Por qué hay que soltar la consulta que trae el runtime
+ *
+ * Corregir `req.url` no alcanza (D-156). Antes de llamar a esta función, el
+ * runtime de Node de Vercel le cuelga al request una `req.query` propia,
+ * calculada desde la URL **original**: la que todavía lleva `__ruta`. Y el
+ * middleware de consulta de Express sólo calcula la suya `if (!req.query)`,
+ * así que se quedaba con la del runtime. Las rutas que validan la consulta con
+ * un esquema estricto rechazaban `__ruta` con un 400 —La Radiografía entre
+ * ellas—, y las demás la ignoraban sin que nadie lo notara.
+ *
+ * Borrar esa propiedad deja que Express calcule la consulta desde la URL ya
+ * corregida, con su propio parser: el mismo resultado que en desarrollo y en
+ * los tests, donde no hay runtime en el medio. No se tocan `req.body` ni
+ * `req.cookies`, que el runtime también adjunta y que no dependen de la URL.
  */
 import { createApp } from '../app.js';
 
@@ -39,6 +54,9 @@ export default function handler(req: IncomingMessage, res: ServerResponse): void
     const query = url.searchParams.toString();
     req.url = `/api/${ruta}${query ? `?${query}` : ''}`;
   }
+
+  // La consulta la calcula Express desde `req.url`, nunca el runtime (D-156).
+  Reflect.deleteProperty(req, 'query');
 
   app(req, res);
 }
