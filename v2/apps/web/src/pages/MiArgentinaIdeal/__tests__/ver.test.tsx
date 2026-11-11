@@ -79,7 +79,8 @@ function conDatos(): VisionCampana {
       slug: 'mi-argentina-ideal',
       titulo: 'Mi Argentina ideal',
       edicion: 1,
-      recibeHasta: '2027-02-28T23:59:00-03:00',
+      // Un día suelto, como lo manda la API: es la fecha de la primera fase del contrato (D-158).
+      recibeHasta: '2027-02-28',
       devolucion: null,
     },
     cifras: { personas: 1234, opiniones: 5678, provincias: 18 },

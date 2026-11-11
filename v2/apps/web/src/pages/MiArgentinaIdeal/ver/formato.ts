@@ -66,11 +66,33 @@ export function extremos(
 }
 
 const DIA = 86_400_000;
+const DIA_SUELTO = /^(\d{4})-(\d{2})-(\d{2})$/;
 
-/** Días que faltan hasta `fecha`, redondeando para arriba; `null` si no hay fecha válida. */
+/**
+ * El último instante en que `fecha` todavía vale, o `NaN` si no es una fecha.
+ *
+ * La API manda un día suelto (`2027-02-28`): la fecha de una fase del contrato, «hasta acá se
+ * reciben aportes». Ese día vale entero, y entero en la Argentina. `Date.parse` lo leería como
+ * medianoche UTC, que acá son las 21:00 del día anterior, y la campaña cerraría una noche antes
+ * de lo que dice su contrato (D-158). La Argentina no cambia la hora: el corrimiento es fijo.
+ */
+function finDe(fecha: string): number {
+  const dia = DIA_SUELTO.exec(fecha);
+  if (!dia) return Date.parse(fecha);
+  const [, anio, mes, diaDelMes] = dia;
+  // `Date.parse` acepta un 30 de febrero y lo corre a marzo: se comprueba que el día exista.
+  const existe = new Date(Date.UTC(Number(anio), Number(mes) - 1, Number(diaDelMes)));
+  if (existe.toISOString().slice(0, 10) !== fecha) return Number.NaN;
+  return Date.parse(`${fecha}T23:59:59.999-03:00`);
+}
+
+/**
+ * Días que quedan para llegar a `fecha`, contando el de hoy y el último; `null` si no hay fecha
+ * válida. El último día devuelve 1 a cualquier hora, y 0 recién cuando ese día terminó.
+ */
 export function diasHasta(fecha: string | null, ahora: number): number | null {
   if (!fecha) return null;
-  const fin = Date.parse(fecha);
+  const fin = finDe(fecha);
   if (Number.isNaN(fin)) return null;
   return Math.max(0, Math.ceil((fin - ahora) / DIA));
 }
