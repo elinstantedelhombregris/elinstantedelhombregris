@@ -23,9 +23,14 @@ export function EditarAporte({ id }: { id: string }) {
     queryKey: ['aporte-privado', id, auth.user?.id],
     enabled: abierto,
     queryFn: () =>
-      api.get<{ texto: string; revision: string; cedeLicencia: boolean; textoProtegido: boolean }>(
-        `/api/v1/contribuciones/${id}/privado`,
-      ),
+      api.get<{
+        texto: string;
+        revision: string;
+        cedeLicencia: boolean;
+        textoProtegido: boolean;
+        /** 140 si el aporte es una línea de Mi Argentina ideal; el servidor rechaza más (D-170). */
+        largoMaximo?: number;
+      }>(`/api/v1/contribuciones/${id}/privado`),
   });
   useEffect(() => {
     setTexto(q.data?.texto ?? '');
@@ -87,7 +92,7 @@ export function EditarAporte({ id }: { id: string }) {
                   <textarea
                     className={CAMPO}
                     rows={4}
-                    maxLength={2000}
+                    maxLength={q.data.largoMaximo ?? 2000}
                     readOnly={q.data.textoProtegido}
                     value={texto}
                     onChange={(e) => {

@@ -302,6 +302,43 @@ describe.skipIf(!habilitada)(
       );
       expect(fila.rows[0]?.v).toBe(VERSION_DE_CESION);
     });
+    it('corregir un deseo pasa por el filtro de datos personales y no lo alarga más que una línea (D-170)', async () => {
+      const v = cuerpo();
+      const r = await conCuenta('post', '/api/v1/contribuciones').send(v).expect(201);
+      const id = r.body.data.idPublico as string;
+      const privado = await request
+        .get(`/api/v1/contribuciones/${id}/privado`)
+        .set('Cookie', cookie)
+        .expect(200);
+      expect(privado.body.data.largoMaximo).toBe(140);
+      const cambio = (texto: string) =>
+        conCuenta('patch', `/api/v1/contribuciones/${id}`).send({
+          revision: privado.body.data.revision as string,
+          texto,
+          cedeLicencia: true,
+          aceptaPublicar: true,
+        });
+
+      const conTelefono = await cambio('Que me puedan llamar al 11 1234-5678 si hace falta.');
+      expect(conTelefono.status).toBe(422);
+      expect(conTelefono.body.error.code).toBe('DATOS_PERSONALES');
+      expect(JSON.stringify(conTelefono.body)).not.toContain('1234-5678');
+
+      const larga = await cambio('Podría aprender cerca de mi familia. '.repeat(5));
+      expect(larga.status).toBe(422);
+      expect(larga.body.error.code).toBe('LINEA_LARGA');
+      expect(larga.body.error.message).toContain('140');
+
+      // Ninguno de los dos intentos tocó el texto, y una corrección sana sigue entrando.
+      const despues = await request
+        .get(`/api/v1/contribuciones/${id}/privado`)
+        .set('Cookie', cookie)
+        .expect(200);
+      expect(despues.body.data.texto).toBe(v.senal.texto);
+      await cambio('Podría aprender cerca de mi familia.').expect(200);
+      // Lo retira: los casos que siguen cuentan los aportes de esta campaña.
+      await conCuenta('delete', `/api/v1/contribuciones/${id}`).expect(200);
+    });
     it('un aporte contestado en Mirar no se corrige, y Mi espacio muestra su retención', async () => {
       const v = cuerpo();
       const r = await conCuenta('post', '/api/v1/contribuciones').send(v).expect(201);

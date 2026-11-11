@@ -60,9 +60,11 @@ router.get('/contexto', async (req, res, next) => {
  */
 function frenarDatosPersonales(v: ContribucionInput): void {
   if (claseDe(v.senal.tipo) !== 'deseo') return;
-  const hallazgos = [v.senal.texto, ...v.fragmentos.map((f) => f.respuesta)].flatMap((t) =>
-    buscarDatosPersonales(t),
-  );
+  frenarDatosEn([v.senal.texto, ...v.fragmentos.map((f) => f.respuesta)]);
+}
+/** El filtro sobre los textos de un deseo. Lo usan publicar y corregir (D-170). */
+function frenarDatosEn(textos: readonly string[]): void {
+  const hallazgos = textos.flatMap((t) => buscarDatosPersonales(t));
   const primero = hallazgos[0];
   if (!primero) return;
   throw new HttpError(
@@ -177,6 +179,18 @@ router.patch('/:id', async (req, res, next) => {
         'TEXTO_CON_HISTORIA',
         'Este aporte ya tiene respuestas o adhesiones de otras personas, o conserva evidencia de un hecho o una acción. Compartí un aporte nuevo para corregirlo; así nadie queda respondiendo a palabras que no leyó.',
       );
+    // Lo que vale al publicar un deseo vale al corregirlo: sin datos de una persona, y si era
+    // una línea, sigue siéndolo. Antes una corrección podía agregar un teléfono o alargar el
+    // texto hasta sacarlo de Mirar y de Ver sin que nadie se enterara (D-170).
+    if (propia?.esDeseo && propia.texto !== v.texto) {
+      frenarDatosEn([v.texto]);
+      if (v.texto.length > propia.largoMaximo)
+        throw new HttpError(
+          422,
+          'LINEA_LARGA',
+          `En Mi Argentina ideal tu aporte es una línea de hasta ${String(propia.largoMaximo)} letras. Acortalo para que siga en Mirar.`,
+        );
+    }
     if (
       !(await repo.corregir(
         id,

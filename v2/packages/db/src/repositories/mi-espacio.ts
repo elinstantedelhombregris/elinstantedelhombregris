@@ -1,3 +1,4 @@
+import { LARGO_LINEA } from '@v2/shared';
 import { and, desc, eq, isNull, or, sql } from 'drizzle-orm';
 
 import { campanas, contribuciones } from '../schema/campanas.js';
@@ -49,8 +50,12 @@ export class MiEspacioRepository {
       revision: string;
       cedeLicencia: boolean;
       textoProtegido: boolean;
+      /** Un deseo: al corregirlo corre el mismo filtro de datos personales que al publicarlo (D-170). */
+      esDeseo: boolean;
+      /** Hasta cuántas letras puede tener la corrección: un deseo que es una línea sigue siéndolo. */
+      largoMaximo: number;
     }>(
-      sql`select texto,to_char(date_trunc('milliseconds',actualizada_en) at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as revision,cesion_licencia as "cedeLicencia",(clase in('hecho','acto') or exists(select 1 from adhesiones a where a.senal_id=s.id) or ${CONTESTADO_EN_MIRAR}) as "textoProtegido" from senales s where id_publico=${id}::uuid and (user_id=${uid ?? null} or (user_id is null and actor_id=${actorId ?? null}))`,
+      sql`select texto,to_char(date_trunc('milliseconds',actualizada_en) at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as revision,cesion_licencia as "cedeLicencia",(clase in('hecho','acto') or exists(select 1 from adhesiones a where a.senal_id=s.id) or ${CONTESTADO_EN_MIRAR}) as "textoProtegido",clase='deseo' as "esDeseo",case when clase='deseo' and char_length(texto)<=${LARGO_LINEA} then ${LARGO_LINEA}::int else 2000 end as "largoMaximo" from senales s where id_publico=${id}::uuid and (user_id=${uid ?? null} or (user_id is null and actor_id=${actorId ?? null}))`,
     );
     return r.rows[0] ?? null;
   }
