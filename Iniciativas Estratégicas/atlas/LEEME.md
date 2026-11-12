@@ -24,7 +24,7 @@ La página `/atlas` no reimplementa el visor: lo monta. `construir.mjs` deja sus
 
 | Archivo | Qué es |
 |---|---|
-| `mapa.json` (~55 KB) | lo que dibuja la página de PLANes: nodos, vínculos, tesis y cuentas |
+| `mapa.json` (~55 KB) | lo que dibuja la página de PLANes: nodos, dependencias, relaciones auditadas, tesis y cuentas |
 | `atlas.css` | los estilos del visor, **todos bajo la clase `.atlas`** para no pisar los del sitio |
 | `atlas.js` | el visor; deja `window.__atlasBASTA.iniciar(grafo, elemento)`, que devuelve cómo desmontarlo |
 | `grafo.json` (~2,8 MB) | los datos completos |
@@ -42,6 +42,18 @@ elemento raíz** (ni `document.getElementById` ni escuchas en `document`).
 **Si editás un PLAN, corré `construir.mjs` y commiteá `v2/apps/web/public/atlas/` junto con el
 documento.** Ninguna guardia lo exige todavía (D-152): un atlas viejo en el sitio no rompe nada,
 pero sus números de línea dejan de coincidir con los documentos.
+
+## Relaciones de la auditoría
+
+`relaciones.json` alimenta la red, la matriz y la ficha de cada par. Una relación **documentada**
+tiene un intercambio, una condición o una coordinación escrita en el corpus. Una relación
+**inferida** surge de leer juntas las reglas de varios documentos. El visor muestra ambas con
+marcas propias y conserva las dependencias que declaran el registro, el YAML, la app y las tablas
+de integración.
+
+Cada cita se verifica contra su documento. Si el texto se movió y sigue apareciendo en una sola
+línea, la ficha enlaza a la nueva ubicación. Si la cita ya no se puede ubicar, la ficha la marca
+para revisar.
 
 ## El registro: cómo se van cerrando las desarmonías
 
@@ -116,6 +128,7 @@ reemplaza: aquélla falla el CI, ésta explica.
 | `v2/apps/web/public/atlas/` | Lo que consumen las dos páginas del sitio | **no** — se regenera |
 | `DESARMONIAS.md` | La lista de lo que no cierra, para leer en un diff | **no** — se regenera |
 | `grafo.json` | Los datos crudos (ignorado por git: está entero en `atlas.html`) | **no** |
+| `relaciones.json` | Pares auditados, con estado, resumen y citas literales | sí, después de leer las fuentes |
 | `anclas.lock.json` | Qué decía cada línea citada la última vez que se fijó | solo con `--fijar` |
 | `historial.json` / `HISTORIAL.md` | El registro de versiones del corpus | solo con `--registrar` |
 | `resoluciones.json` | Los cierres a mano, con su razón | con `--resolver`, `--descartar`, `--reabrir` |

@@ -24,6 +24,10 @@ const A = new Map(); // «a>b»: a recibe de b
 for (const x of G.aristas) A.set(x.a + '>' + x.b, x);
 // Los vínculos «eco» (ver construir.mjs) no se dibujan: solo los sostiene una tabla sin orientar.
 const VIVAS = G.aristas.filter((x) => !x.eco);
+const relaciones = G.relaciones ?? [];
+const clavePar = (a, b) => `${Math.min(a, b)},${Math.max(a, b)}`;
+const porPar = new Map(relaciones.map((r) => [clavePar(r.a, r.b), r]));
+const etiquetaRelacion = { documentada: 'Documentada', inferida: 'Inferida' };
 const T = Array.from({ length: N }, () => new Array(N).fill(0)); // T[a][b]: veces que el texto de a nombra a b
 for (const [a, b, n] of G.texto) T[a][b] = n;
 const hacia = Array.from({ length: N }, () => []); // remisiones que apuntan a cada PLAN
@@ -39,13 +43,19 @@ const orden = P.map((_, i) => i).sort((a, b) => faseDe(P[a]).localeCompare(faseD
 const E = { vista: 'mapa', plan: null, par: null, modo: SITIO ? 'matriz' : 'red', cerr: false, sinDeclarar: false, bloque: null, q: '', tipo: '', dueno: '', grav: '', htipo: '', hplan: '', lim: 120 };
 const VISTAS = [['mapa', SITIO ? 'Vínculos' : 'El mapa'], ['editar', 'Antes de editar'], ['conceptos', 'Conceptos'], ['desarmonias', 'Desarmonías'], ['historial', 'Historial']];
 function leerHash() {
-  const [v, c] = location.hash.slice(1).split('-');
+  const [v, c, d] = location.hash.slice(1).split('-');
   E.vista = VISTAS.some(([k]) => k === v) ? v : 'mapa';
   const i = c ? idx[c.toUpperCase()] : undefined;
+  const j = d ? idx[d.toUpperCase()] : undefined;
+  if (E.vista === 'mapa' && i !== undefined && j !== undefined && porPar.has(clavePar(i, j))) {
+    E.par = [i, j];
+    E.plan = null;
+    return;
+  }
   if (i !== undefined) { E.plan = i; if (E.vista === 'desarmonias') E.hplan = P[i].code; } else if (E.vista === 'mapa') E.plan = null; else if (E.vista === 'editar' && E.plan === null) E.plan = idx.PLANDIG ?? 0;
 }
 function ir(vista, plan = E.plan) { E.par = null; E.bloque = null; E.lim = 120; const h = '#' + vista + (plan !== null && vista !== 'conceptos' && vista !== 'historial' ? '-' + P[plan].code.toLowerCase() : ''); if (location.hash === h) { leerHash(); pintar(); } else location.hash = h; }
-const alCambiarHash = () => { leerHash(); pintar(); };
+const alCambiarHash = () => { E.par = null; leerHash(); pintar(); };
 addEventListener('hashchange', alCambiarHash);
 
 // ── la red ─────────────────────────────────────────────────────────────────
@@ -59,8 +69,8 @@ function red() {
   const W = 780, C = W / 2, R = 232, { pos, grupos } = posiciones(), s = E.plan;
   const xy = (i, r = R) => [C + r * Math.cos(pos[i]), C + r * Math.sin(pos[i])];
   const curva = (a, b) => { const [x1, y1] = xy(b), [x2, y2] = xy(a), mx = (x1 + x2) / 2, my = (y1 + y2) / 2; return `M${x1.toFixed(1)} ${y1.toFixed(1)}Q${(C + (mx - C) * .42).toFixed(1)} ${(C + (my - C) * .42).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`; };
-  let o = `<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="Red de los ${N} PLANes y sus vínculos declarados">`;
-  const rec = new Set(), apo = new Set(); let arriba = '';
+  let o = `<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="Red de los ${N} PLANes, sus dependencias y relaciones auditadas">`;
+  const rec = new Set(), apo = new Set(), auditados = new Set(); let arriba = '';
   for (const x of VIVAS) {
     const w = (0.7 + Math.min(3.4, Math.log2(1 + x.ab + x.ba) * 0.5)).toFixed(2);
     let c = 'ar';
@@ -68,7 +78,12 @@ function red() {
     const p = `<path class="${c}" d="${curva(x.a, x.b)}" stroke-width="${w}"/>`;
     if (c.length > 6 && !c.endsWith('off')) arriba += p; else o += p;
   }
-  if (E.sinDeclarar) for (let a = 0; a < N; a++) for (let b = a + 1; b < N; b++) if (!A.has(a + '>' + b) && !A.has(b + '>' + a) && T[a][b] + T[b][a] >= 12 && (s === null || s === a || s === b)) arriba += `<path class="ar sd" d="${curva(a, b)}" stroke-width="2"/>`;
+  if (E.sinDeclarar) for (let a = 0; a < N; a++) for (let b = a + 1; b < N; b++) if (!porPar.has(clavePar(a, b)) && !A.has(a + '>' + b) && !A.has(b + '>' + a) && T[a][b] + T[b][a] >= 12 && (s === null || s === a || s === b)) arriba += `<path class="ar sd" d="${curva(a, b)}" stroke-width="2"/>`;
+  for (const r of relaciones) {
+    if (s !== null && s !== r.a && s !== r.b) continue;
+    auditados.add(r.a); auditados.add(r.b);
+    arriba += `<path class="ar auditada ${r.estado}" d="${curva(r.a, r.b)}" stroke-width="2" data-par="${r.a},${r.b}" data-tip="${esc(`${P[r.a].code} y ${P[r.b].code} · ${etiquetaRelacion[r.estado]}`)}"/>`;
+  }
   o += arriba;
   for (const g of grupos) {
     const r = R + 118, a0 = g.t0 - 0.05, a1 = g.t1 + 0.05, m = (a0 + a1) / 2;
@@ -77,10 +92,10 @@ function red() {
   }
   for (const i of orden) {
     const [x, y] = xy(i), izq = Math.cos(pos[i]) < 0, g = (pos[i] * 180) / Math.PI, r = 4 + Math.sqrt(P[i].nombradoPor) / 3.2;
-    const c = 'nodo' + (i === s ? ' sel' : '') + (rec.has(i) ? ' rec' : '') + (apo.has(i) ? ' apo' : '') + (s !== null && i !== s && !rec.has(i) && !apo.has(i) ? ' off' : '');
+    const c = 'nodo' + (i === s ? ' sel' : '') + (rec.has(i) ? ' rec' : '') + (apo.has(i) ? ' apo' : '') + (s !== null && i !== s && !rec.has(i) && !apo.has(i) && !auditados.has(i) ? ' off' : '');
     o += `<g class="${c}" data-plan="${i}" data-tip="${esc(P[i].code + ' — ' + P[i].nombre + ' · lo nombran ' + num(P[i].nombradoPor) + ' veces')}" tabindex="0" role="button" aria-label="${P[i].code}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"/><text transform="translate(${(C + (R + r + 7) * Math.cos(pos[i])).toFixed(1)} ${(C + (R + r + 7) * Math.sin(pos[i])).toFixed(1)}) rotate(${izq ? g + 180 : g})" text-anchor="${izq ? 'end' : 'start'}" dy="3.5">${P[i].code}</text></g>`;
   }
-  return o + '</svg>' + `<div class="ley"><span><i></i>vínculo declarado (grosor: cuánto se nombran)</span>${s !== null ? `<span><i class="r"></i>${P[s].code} recibe de</span><span><i class="a"></i>${P[s].code} aporta a</span>` : ''}${E.sinDeclarar ? '<span><i class="s"></i>se nombran 12+ veces y nadie lo declaró</span>' : ''}<span>tamaño del círculo: veces que lo nombran los demás</span></div>`;
+  return o + '</svg>' + `<div class="ley"><span><i></i>dependencia declarada (grosor: cuánto se nombran)</span><span><i class="documentada"></i>relación documentada</span><span><i class="inferida"></i>relación inferida</span>${s !== null ? `<span><i class="r"></i>${P[s].code} recibe de</span><span><i class="a"></i>${P[s].code} aporta a</span>` : ''}${E.sinDeclarar ? '<span><i class="s"></i>12+ menciones pendientes de revisar</span>' : ''}<span>tamaño del círculo: veces que lo nombran los demás</span></div>`;
 }
 function matriz() {
   const c = 21, m0 = 104, W = m0 + c * N + 6, max = Math.log(1 + Math.max(...G.texto.map((t) => t[2])));
@@ -90,19 +105,30 @@ function matriz() {
   });
   orden.forEach((a, r) => orden.forEach((b, k) => {
     if (a === b) return; const n = T[a][b], x = m0 + k * c, y = m0 + r * c, ar = A.get(a + '>' + b);
-    o += `<rect class="${n ? 'cel' : 'cel0'}" x="${x + 1}" y="${y + 1}" width="${c - 2}" height="${c - 2}"${n ? ` opacity="${(0.12 + 0.88 * Math.log(1 + n) / max).toFixed(2)}"` : ''} data-par="${a},${b}" data-tip="${esc(`${P[a].code} nombra a ${P[b].code} ${n} veces · ${ar && !ar.eco ? 'declarado: ' + P[a].code + ' recibe de ' + P[b].code : 'sin vínculo declarado en esta dirección'}`)}"/>`;
+    const auditada = porPar.get(clavePar(a, b));
+    const estado = auditada ? ` · Relación ${auditada.estado}` : '';
+    o += `<rect class="${n ? 'cel' : 'cel0'}" x="${x + 1}" y="${y + 1}" width="${c - 2}" height="${c - 2}"${n ? ` opacity="${(0.12 + 0.88 * Math.log(1 + n) / max).toFixed(2)}"` : ''} data-par="${a},${b}" data-tip="${esc(`${P[a].code} nombra a ${P[b].code} ${n} veces · ${ar && !ar.eco ? 'declarado: ' + P[a].code + ' recibe de ' + P[b].code : 'sin vínculo declarado en esta dirección'}${estado}`)}"/>`;
     if (ar && !ar.eco) o += n ? `<rect class="mdec" x="${x + 7.5}" y="${y + 7.5}" width="6" height="6"/>` : `<rect class="mvac" x="${x + 4}" y="${y + 4}" width="${c - 8}" height="${c - 8}"/>`;
+    if (auditada?.estado === 'documentada') o += `<circle class="marca-auditada" cx="${x + 16}" cy="${y + 5}" r="3.5"/>`;
+    if (auditada?.estado === 'inferida') o += `<rect class="marca-auditada inferida" x="${x + 13}" y="${y + 2}" width="6" height="6" transform="rotate(45 ${x + 16} ${y + 5})"/>`;
     if (E.par && E.par[0] === a && E.par[1] === b) o += `<rect class="msel" x="${x}" y="${y}" width="${c}" height="${c}"/>`;
   }));
-  return o + '</svg><div class="ley"><span>fila: el que recibe · columna: el que aporta</span><span><i class="c"></i>cuánto nombra la fila a la columna</span><span><i class="d"></i>vínculo declarado</span><span><i class="v"></i>declarado y la fila no lo nombra nunca</span></div>';
+  return o + '</svg><div class="ley"><span>fila: el que recibe · columna: el que aporta</span><span><i class="c"></i>cuánto nombra la fila a la columna</span><span><i class="d"></i>dependencia declarada</span><span><i class="v"></i>dependencia declarada sin mención</span><span><i class="marca-documentada"></i>relación documentada</span><span><i class="marca-inferida"></i>relación inferida</span></div>';
 }
 
 // ── paneles del mapa ───────────────────────────────────────────────────────
+function listaAuditada(rs, plan = null) {
+  return `<ul class="l">${rs.map((r) => {
+    const nombre = plan === null ? `${P[r.a].code} y ${P[r.b].code}` : P[r.a === plan ? r.b : r.a].code;
+    return `<li><div class="fila"><button class="pc" data-par="${r.a},${r.b}">${nombre}</button><span class="g ${r.estado}">${etiquetaRelacion[r.estado]}</span></div><span class="chico">${esc(r.resumen)}</span></li>`;
+  }).join('')}</ul>`;
+}
 function panelCorpus() {
   const g = (x) => G.hallazgos.filter((h) => h.grav === x).length, top = P.map((p, i) => [i, p.nombradoPor]).sort((a, b) => b[1] - a[1]).slice(0, 8), mx = top[0][1];
   return `<div class="hoja"><p class="k">El corpus entero · generado el ${esc(G.generado)}</p><h2>${G.canon.tematicos} PLANes y un protocolo</h2>
-  <p class="lead">Cada círculo es un documento. Cada línea, un vínculo que alguna declaración sostiene. Elegí un PLAN para ver qué es, de quién recibe y a quién le aporta.</p>
+  <p class="lead">Elegí un PLAN para ver sus dependencias y las relaciones encontradas al leer el corpus.</p>
   <div class="cifras"><div><b>${num(G.canon.palabras)}</b><span>palabras</span></div><div><b>${num(G.remisiones.length)}</b><span>remisiones entre documentos</span></div><div><b>${num(VIVAS.length)}</b><span>vínculos declarados</span></div><div><b>${num(G.conceptos.length)}</b><span>conceptos con dueño</span></div></div>
+  <details><summary>Relaciones de la auditoría (${relaciones.length})</summary>${listaAuditada(relaciones)}</details>
   <h3>Lo que hoy desentona</h3><div class="fila">${gr('rota')}<b>${g('rota')}</b> ${gr('revisar')}<b>${g('revisar')}</b> ${gr('nota')}<b>${g('nota')}</b> <button class="btn2" data-go="desarmonias" data-sinplan="1">Verlas todas →</button></div>
   <h3>Los más nombrados por los demás</h3><ul class="l">${top.map(([i, n]) => `<li class="fila">${pc(i)}<span class="bar" style="width:${(n / mx * 46).toFixed(1)}%"></span><span class="k">${num(n)}</span></li>`).join('')}</ul>
   <h3>Para qué sirve cada vista</h3><p class="chico"><b>El mapa</b> muestra quién se apoya en quién y dónde las declaraciones no coinciden con el texto. <b>Antes de editar</b> dice, sección por sección, qué otros documentos apuntan a lo que estás por tocar. <b>Conceptos</b> es el índice de lo que cada PLAN nombra como propio y quién más lo usa. <b>Desarmonías</b> es la lista de lo que ya no cierra.</p></div>`;
@@ -111,6 +137,7 @@ function capasDe(x) { return Object.keys(x.k).map((k) => `<span class="k">${esc(
 function panelPlan(i) {
   const p = P[i], f = p.ficha, rec = VIVAS.filter((x) => x.a === i).sort((x, y) => y.ab + y.ba - x.ab - x.ba), apo = VIVAS.filter((x) => x.b === i).sort((x, y) => y.ab + y.ba - x.ab - x.ba), ecos = G.aristas.filter((x) => x.eco && (x.a === i || x.b === i)).length;
   const cs = G.conceptos.filter((c) => c.dueno === i).sort((a, b) => b.planesAjenos - a.planesAjenos || b.totalAfuera - a.totalAfuera), hs = hallDe(p.code);
+  const auditadas = relaciones.filter((r) => r.a === i || r.b === i);
   const vinc = (xs, otro) => xs.length ? `<ul class="l">${xs.map((x) => `<li><div class="fila">${pc(x[otro])}<button class="k loc" data-par="${x.a},${x.b}">ver el par</button>${x.peso ? `<span class="k">${esc(x.peso)} · ${esc(x.tipo ?? '')}</span>` : ''}</div>${x.que ? `<span class="chico">${esc(x.que)}</span>` : ''}</li>`).join('')}</ul>` : '<p class="tenue chico">Ninguno declarado.</p>';
   return `<div class="hoja"><p class="k">${p.ordinal ? 'Ordinal ' + p.ordinal + ' · ' : ''}${esc(FASES[p.fase] ?? p.fase ?? '')}${p.tamano ? ' · presupuesto clase ' + esc(p.tamano) : ''}${f?.version ? ' · v' + esc(f.version.replace(/^v/i, '')) : ''}</p>
   <h2>${p.code}</h2><p class="tenue">${esc(p.nombre)}</p>
@@ -118,6 +145,7 @@ function panelPlan(i) {
   <div class="cifras"><div><b>${num(p.palabras)}</b><span>palabras</span></div><div><b>${num(p.nombradoPor)}</b><span>veces lo nombran</span></div><div><b>${num(p.nombra)}</b><span>veces nombra a otros</span></div>${p.presupuesto ? `<div><b>${num(p.presupuesto[0])}–${num(p.presupuesto[1])}</b><span>USD millones (app)</span></div>` : ''}</div>
   <div class="fila"><button class="btn" data-go="editar">Antes de editar ${p.code} →</button>${SITIO ? `<a class="btn2" href="/planes/${p.code.toLowerCase()}">Leer el documento →</a>` : ''}</div>
   ${f ? `<h3>El problema que ataca</h3><p class="chico">${esc(f.problema)}</p><h3>Plazos y plata</h3><p class="chico">${esc(f.horizonte)}</p><p class="chico">${esc(f.financiamiento)}</p>` : ''}
+  ${auditadas.length ? `<h3>Relaciones de la auditoría (${auditadas.length})</h3>${listaAuditada(auditadas, i)}` : ''}
   <h3>Recibe de ${rec.length}</h3>${vinc(rec, 'b')}
   <h3>Aporta a ${apo.length}</h3>${vinc(apo, 'a')}
   ${ecos ? `<p class="chico tenue">${ecos} vínculo${ecos > 1 ? 's' : ''} más figura${ecos > 1 ? 'n' : ''} también en la dirección contraria, solo en las tablas de los documentos, que no orientan. No se dibujan; están en Desarmonías como «tablas de integración sin orientar».</p>` : ''}
@@ -128,9 +156,11 @@ function panelPlan(i) {
   <h3>Desarmonías abiertas</h3><div class="fila">${['rota', 'revisar', 'nota'].map((g) => gr(g) + '<b>' + hs.filter((h) => h.grav === g).length + '</b>').join(' ')} <button class="btn2" data-go="desarmonias">Ver las de ${p.code} →</button></div></div>`;
 }
 function panelPar([a, b]) {
+  const r = porPar.get(clavePar(a, b));
+  const auditoria = r ? `<h3>Relación de la auditoría</h3><p><span class="g ${r.estado}">${etiquetaRelacion[r.estado]}</span></p><p class="chico">${esc(r.resumen)}</p><ul class="l">${r.fuentes.map((f) => `<li>${f.vigente ? loc(f.doc, f.linea) : `<span class="g revisar">Revisar cita de ${esc(nomDoc(f.doc))}</span>`}<blockquote>${esc(f.cita)}</blockquote></li>`).join('')}</ul>` : '';
   const lado = (x, y) => { const ar = A.get(x + '>' + y); return `<h3>${P[x].code} recibe de ${P[y].code}</h3>${ar ? `<p class="chico">${ar.que ? esc(ar.que) : ''}</p><p>${capasDe(ar)}</p>${ar.eco ? '<p class="chico tenue">Solo lo dice la tabla del documento, que lista el mismo vínculo en las dos direcciones.</p>' : ''}` : '<p class="tenue chico">Ninguna declaración lo dice.</p>'}`; };
   const citas = (x, y) => { const rs = desde[x].filter((r) => r[2] === y); return `<h3>${P[x].code} nombra a ${P[y].code} · ${T[x][y]} veces en ${rs.length} líneas</h3>${rs.length ? `<ul class="l">${rs.slice(0, 40).map((r) => `<li><div class="fila">${loc(x, r[1])}${r[5].map((s) => `<span class="k">→ §${esc(s[0])}</span>`).join('')}${r[6].map((l) => `<span class="k">→ ${P[y].code}:${l[0]}</span>`).join('')}</div><blockquote>${esc(r[7])}</blockquote></li>`).join('')}</ul>${rs.length > 40 ? `<p class="k">y ${rs.length - 40} más</p>` : ''}` : '<p class="tenue chico">Nunca.</p>'}`; };
-  return `<div class="hoja"><p class="k">Un par</p><h2>${P[a].code} y ${P[b].code}</h2><div class="fila" style="margin-top:8px">${pc(a)}${pc(b)}</div>${lado(a, b)}${lado(b, a)}${citas(a, b)}${citas(b, a)}</div>`;
+  return `<div class="hoja"><p class="k">Un par</p><h2 data-par-titulo tabindex="-1">${P[a].code} y ${P[b].code}</h2><div class="fila" style="margin-top:8px">${pc(a)}${pc(b)}</div>${auditoria}${lado(a, b)}${lado(b, a)}${citas(a, b)}${citas(b, a)}</div>`;
 }
 function vistaMapa() {
   return `<div class="mesa"><section><div class="herr"><div class="seg"><button data-modo="red" aria-pressed="${E.modo === 'red'}">Red</button><button data-modo="matriz" aria-pressed="${E.modo === 'matriz'}">Matriz</button></div>${E.modo === 'red' ? `<label class="chk"><input type="checkbox" id="sd" ${E.sinDeclarar ? 'checked' : ''}> lo que el texto sostiene y nadie declaró</label>` : ''}${E.plan !== null || E.par ? '<button class="btn2" data-limpiar="1">Ver el corpus entero</button>' : ''}</div>${E.modo === 'red' ? red() : matriz()}</section><aside>${E.par ? panelPar(E.par) : E.plan !== null ? panelPlan(E.plan) : panelCorpus()}</aside></div>`;
@@ -226,7 +256,14 @@ raiz.addEventListener('click', (ev) => {
   if (!t) return; const d = t.dataset;
   if (d.loc) { const ruta = 'Iniciativas Estratégicas/' + d.loc; (navigator.clipboard?.writeText(ruta) ?? Promise.reject()).then(() => avisar('Copiado: ' + ruta), () => avisar(ruta)); return; }
   if (d.concepto) { if (E.vista !== 'conceptos') { E.abierto = d.concepto; E.q = d.concepto.split('/')[1]; E.tipo = ''; E.dueno = ''; ir('conceptos'); } else { E.abierto = E.abierto === d.concepto ? null : d.concepto; pintar(); } return; }
-  if (d.par) { E.par = d.par.split(',').map(Number); E.vista = 'mapa'; E.modo = 'matriz'; if (location.hash.slice(1).split('-')[0] !== 'mapa') location.hash = '#mapa'; pintar(); return; }
+  if (d.par) {
+    E.par = d.par.split(',').map(Number);
+    pintar();
+    const titulo = $('[data-par-titulo]');
+    titulo?.focus({ preventScroll: true });
+    titulo?.scrollIntoView({ block: 'nearest' });
+    return;
+  }
   if (d.plan) { E.plan = +d.plan; ir(E.vista === 'editar' ? 'editar' : 'mapa'); return; }
   if (d.go) { if (d.sinplan) { E.hplan = ''; E.htipo = ''; E.plan = null; } if (d.go === 'desarmonias' && !d.sinplan && E.plan !== null && t.closest('.hoja')) E.hplan = P[E.plan].code; ir(d.go, d.go === 'desarmonias' && !E.hplan ? null : E.plan); return; }
   if (d.modo) E.modo = d.modo; if (d.limpiar) { E.plan = null; E.par = null; ir('mapa', null); return; }

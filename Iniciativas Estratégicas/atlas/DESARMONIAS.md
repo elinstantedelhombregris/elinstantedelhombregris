@@ -1,6 +1,6 @@
 # Desarmonías del corpus
 
-> Generado por `atlas/construir.mjs` el 2026-11-10. **No editar a mano**: se reescribe en cada corrida.
+> Generado por `atlas/construir.mjs` el 2026-11-12. **No editar a mano**: se reescribe en cada corrida.
 > 8 rotas · 331 para revisar · 81 notas.
 
 Tres gravedades. **Rota**: se puede probar contra el texto y está mal. **Revisar**: el patrón casi siempre señala un problema, pero hay que leer la línea. **Nota**: no es un error; conviene saberlo antes de editar.

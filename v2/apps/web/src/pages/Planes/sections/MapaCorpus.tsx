@@ -15,7 +15,13 @@ import {
   vinculosDe,
 } from '../mapa-corpus';
 
-import type { LayoutMapa, MapaCorpusData, PlanDelMapa, VinculoDelMapa } from '../mapa-corpus';
+import type {
+  LayoutMapa,
+  MapaCorpusData,
+  PlanDelMapa,
+  RelacionAuditadaDelMapa,
+  VinculoDelMapa,
+} from '../mapa-corpus';
 import type { KeyboardEvent } from 'react';
 
 import { BotonPapel } from '~/components/papel/primitives';
@@ -64,11 +70,20 @@ function Cuerpo({
   const indice =
     seleccionado === null ? -1 : datos.planes.findIndex((p) => p.slug === seleccionado);
   const plan = indice === -1 ? undefined : datos.planes[indice];
+  const relaciones = (datos.relaciones ?? []).filter(
+    ({ a, b }) => indice === -1 || a === indice || b === indice,
+  );
   const layout = useMemo(() => layoutMapa(datos.planes), [datos.planes]);
 
   return (
     <>
-      <RedSvg datos={datos} layout={layout} indice={indice} onSeleccionar={onSeleccionar} />
+      <RedSvg
+        datos={datos}
+        layout={layout}
+        indice={indice}
+        relaciones={relaciones}
+        onSeleccionar={onSeleccionar}
+      />
       <div>
         <SelectorDePlan
           datos={datos}
@@ -77,7 +92,13 @@ function Cuerpo({
           onSeleccionar={onSeleccionar}
         />
         {plan ? (
-          <PanelPlan datos={datos} plan={plan} indice={indice} onSeleccionar={onSeleccionar} />
+          <PanelPlan
+            datos={datos}
+            plan={plan}
+            indice={indice}
+            relaciones={relaciones}
+            onSeleccionar={onSeleccionar}
+          />
         ) : (
           <PanelGeneral datos={datos} />
         )}
@@ -127,11 +148,13 @@ function RedSvg({
   datos,
   layout,
   indice,
+  relaciones,
   onSeleccionar,
 }: {
   datos: MapaCorpusData;
   layout: LayoutMapa;
   indice: number;
+  relaciones: RelacionAuditadaDelMapa[];
   onSeleccionar: (slug: string | null) => void;
 }) {
   const hay = indice !== -1;
@@ -150,6 +173,7 @@ function RedSvg({
   ];
   const recibeDe = new Set<number>();
   const aportaA = new Set<number>();
+  const auditados = new Set(relaciones.flatMap(({ a, b }) => [a, b]));
   for (const { v, rel } of pintados) {
     if (rel === 'recibe') recibeDe.add(v.b);
     if (rel === 'aporta') aportaA.add(v.a);
@@ -187,6 +211,25 @@ function RedSvg({
           );
         })}
 
+        {relaciones.map(({ a, b, estado }) => {
+          const anguloA = layout.angulos[a];
+          const anguloB = layout.angulos[b];
+          if (anguloA === undefined || anguloB === undefined) return null;
+          return (
+            <path
+              key={`${a}-${b}`}
+              d={trazoDeVinculo(anguloA, anguloB)}
+              fill="none"
+              className={estado === 'documentada' ? 'stroke-verde' : 'stroke-violeta'}
+              strokeWidth={2}
+              strokeOpacity={hay ? 0.85 : 0.55}
+              strokeDasharray={estado === 'documentada' ? '5 4' : '1 4'}
+              strokeLinecap={estado === 'inferida' ? 'round' : undefined}
+              aria-hidden="true"
+            />
+          );
+        })}
+
         {layout.grupos.map((g) => {
           const arco = arcoDeGrupo(g);
           return (
@@ -215,7 +258,7 @@ function RedSvg({
           const grados = (ang * 180) / Math.PI;
           const [lx, ly] = puntoEn(ang, RADIO + r + 7);
           const relacionado = recibeDe.has(i) || aportaA.has(i);
-          const apagado = hay && !activo && !relacionado;
+          const apagado = hay && !activo && !relacionado && !auditados.has(i);
           const anillo = recibeDe.has(i)
             ? 'stroke-violeta'
             : aportaA.has(i)
@@ -263,7 +306,13 @@ function RedSvg({
       </svg>
 
       <ul className="font-space text-tinta-75 mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.1em]">
-        <li>Cada línea: algo que un plan le da a otro</li>
+        <li>Línea fina: dependencia declarada</li>
+        {(datos.relaciones?.length ?? 0) > 0 ? (
+          <>
+            <li>Línea verde a trazos: relación documentada</li>
+            <li>Línea violeta de puntos: relación inferida</li>
+          </>
+        ) : null}
         <li>Tamaño: cuántas veces lo nombran los demás</li>
         <li className="min-[561px]:hidden">En el teléfono, elegí el plan en la lista de abajo</li>
         {hay ? (
@@ -280,7 +329,7 @@ function RedSvg({
                   strokeDasharray="5 3"
                 />
               </svg>
-              Línea punteada violeta: recibe de
+              Línea violeta a trazos: recibe de
             </li>
             <li className="flex items-center gap-2">
               <svg width="28" height="6" aria-hidden="true">
@@ -299,7 +348,7 @@ function PanelGeneral({ datos }: { datos: MapaCorpusData }) {
   const abiertas = datos.desarmonias.rota + datos.desarmonias.revisar;
   const cifras: [string, string][] = [
     [nf.format(datos.canon.palabras), 'palabras del corpus'],
-    [nf.format(datos.vinculos.length), 'vínculos'],
+    [nf.format(datos.vinculos.length), 'dependencias declaradas'],
     [nf.format(abiertas), 'desarmonías abiertas'],
   ];
   return (
@@ -311,8 +360,8 @@ function PanelGeneral({ datos }: { datos: MapaCorpusData }) {
         {PLAN_COUNT} planes y un plan meta
       </p>
       <p className="text-tinta-90 mb-6 max-w-[520px] text-base leading-relaxed [text-wrap:pretty]">
-        Cada círculo es un documento. Cada línea, algo que un plan le da a otro. Tocá uno para ver
-        qué propone, de quién recibe y a quién le aporta.
+        Cada círculo es un documento. Elegí un plan para ver qué propone, sus dependencias y las
+        relaciones encontradas en la auditoría.
       </p>
       <dl className="border-tinta mb-6 grid grid-cols-3 gap-4 border-t pt-4">
         {cifras.map(([valor, rotulo]) => (
@@ -380,11 +429,13 @@ function PanelPlan({
   datos,
   plan,
   indice,
+  relaciones,
   onSeleccionar,
 }: {
   datos: MapaCorpusData;
   plan: PlanDelMapa;
   indice: number;
+  relaciones: RelacionAuditadaDelMapa[];
   onSeleccionar: (slug: string | null) => void;
 }) {
   const { recibe, aporta } = vinculosDe(datos, indice);
@@ -418,6 +469,33 @@ function PanelPlan({
         campo="a"
         onSeleccionar={onSeleccionar}
       />
+
+      {relaciones.length > 0 ? (
+        <div className="mb-5">
+          <p className="font-space text-tinta-50 mb-2 text-[11px] uppercase tracking-[0.12em]">
+            Relaciones de la auditoría {relaciones.length}
+          </p>
+          <ul className="space-y-2">
+            {relaciones.map(({ a, b, estado, resumen }) => {
+              const otro = datos.planes[a === indice ? b : a];
+              if (!otro) return null;
+              return (
+                <li key={otro.slug} className="text-tinta-90 text-sm leading-snug">
+                  <Link
+                    href={`/atlas#mapa-${plan.slug}-${otro.slug}`}
+                    className="text-violeta mr-2 font-semibold underline"
+                    aria-label={`${otro.code}, ver fuentes de la relación ${estado}`}
+                  >
+                    {otro.code}
+                  </Link>
+                  <span className="font-space mr-2 text-[10px] uppercase">{estado}</span>
+                  {resumen}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ) : null}
 
       {abiertas > 0 ? (
         <p className="font-space text-tinta-75 mb-5 text-[11px] uppercase tracking-[0.1em]">

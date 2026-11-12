@@ -22,6 +22,7 @@
  *   · PLAN_REGISTRY.yml, DEPENDENCY_GRAPH.yml y shared/arquitecto-data.ts
  *     (las tres declaraciones de dependencias que viven fuera de los documentos)
  *   · atlas/fichas/*.json (la capa leída: qué es cada PLAN y qué nombra)
+ *   · atlas/relaciones.json (relaciones auditadas y sus citas)
  *   · atlas/anclas.lock.json (qué decía cada línea citada la última vez)
  *
  * ── QUÉ NO HACE ──────────────────────────────────────────────────────────────
@@ -951,6 +952,31 @@ const esFirme = (x) => !!(x.capas.registro || x.capas.ymlNecesita || x.capas.yml
 for (const x of ARISTAS.values()) { const inv = ARISTAS.get(`${x.b}>${x.a}`); x.eco = !esFirme(x) && !!inv && esFirme(inv); }
 
 const idx = Object.fromEntries(CODIGOS.map((c, i) => [c, i]));
+const paresAuditados = new Set();
+const documentosAuditados = new Map(TRANSVERSALES.map((doc) => [doc.archivo, doc]));
+const relaciones = JSON.parse(leer(join(AQUI, 'relaciones.json'))).map(({ planes, estado, resumen, fuentes }) => {
+  const [a, b] = [...planes].sort();
+  const par = `${a}/${b}`;
+  if (planes.length !== 2 || a === b || !ES_PLAN.has(a) || !ES_PLAN.has(b) || paresAuditados.has(par) ||
+      !['documentada', 'inferida'].includes(estado) || !resumen?.trim() || !fuentes?.length) {
+    throw new Error(`Relación inválida o repetida en relaciones.json: ${par}`);
+  }
+  paresAuditados.add(par);
+  return {
+    a: idx[a], b: idx[b], estado, resumen,
+    fuentes: fuentes.map(({ doc, linea, cita }) => {
+      const origen = ES_PLAN.has(doc) ? DOCS[doc] : documentosAuditados.get(doc);
+      if (!origen || !Number.isInteger(linea) || linea < 1 || typeof cita !== 'string' || !cita.trim()) {
+        throw new Error(`Fuente inválida en relaciones.json: ${par} · ${doc}:${linea}`);
+      }
+      const coincide = (texto) => texto?.includes(cita);
+      if (coincide(origen.lineas[linea - 1])) return { doc, linea, cita, vigente: true };
+      const primera = origen.lineas.findIndex(coincide);
+      const unica = primera >= 0 && primera === origen.lineas.findLastIndex(coincide);
+      return { doc, linea: unica ? primera + 1 : linea, cita, vigente: unica };
+    }),
+  };
+});
 const planes = CODIGOS.map((c) => {
   const d = DOCS[c];
   const reg = REGISTRO[c] ?? {};
@@ -982,6 +1008,7 @@ const grafo = {
   planes,
   transversales: TRANSVERSALES.map((t) => ({ archivo: t.archivo, titulo: t.titulo, estado: t.estado, palabras: t.palabras })),
   aristas: [...ARISTAS.values()].map((x) => ({ a: idx[x.a], b: idx[x.b], k: x.capas, ab: x.txtAB, ba: x.txtBA, que: x.que, peso: x.peso, tipo: x.tipo, eco: x.eco })),
+  relaciones,
   texto: [...TXT].map(([k, n]) => { const [a, b] = k.split('>'); return [idx[a], idx[b], n]; }),
   // remisiones: [origen, línea, destino, veces, bloque de origen, secciones, líneas, recorte]
   remisiones: REMISIONES.filter((r) => r.src !== r.dst || r.secs.length || r.lins.length).map((r) => [r.esPlan ? idx[r.src] : r.src, r.linea, idx[r.dst], r.n, r.bloque, r.secs.map((s) => [s.id, s.ok ? s.linea : 0]), r.lins.map((l) => [l.de, l.a ?? 0, l.ok ? 1 : 0]), r.texto]),
@@ -1041,8 +1068,7 @@ if (existsSync(PLANTILLA)) {
     writeFileSync(join(dir, 'atlas.css'), `/* Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe. */\n${estilo.trim()}\n`);
     writeFileSync(join(dir, 'atlas.js'), `// Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.\n(() => {\n${codigo.trim()}\n})();\n`);
     writeFileSync(join(dir, 'grafo.json'), JSON.stringify(grafo));
-    // mapa.json: lo mínimo para dibujar la red en la página de PLANes de la app (unos 40 KB
-    // contra los 2,8 MB del grafo). El contrato lo consume `pages/Planes/sections/MapaCorpus.tsx`.
+    // mapa.json: nodos y relaciones para un mapa compacto, sin el detalle de las citas.
     const cuenta = (hs) => { const c = { rota: 0, revisar: 0, nota: 0 }; for (const h of hs) c[h.grav]++; return c; };
     writeFileSync(join(dir, 'mapa.json'), JSON.stringify({
       generado: grafo.generado,
@@ -1051,6 +1077,7 @@ if (existsSync(PLANTILLA)) {
       planes: planes.map((p) => ({ code: p.code, slug: p.code.toLowerCase(), nombre: p.nombre, tramo: p.fase ?? null, ordinal: p.ordinal ?? null, palabras: p.palabras, nombradoPor: p.nombradoPor, tesis: p.ficha?.tesis ?? null, resumen: p.ficha?.resumen ?? null, desarmonias: cuenta(HALLAZGOS.filter((h) => h.plan === p.code)) })),
       // «a recibe de b». Solo vínculos firmes; peso = veces que los dos documentos se nombran.
       vinculos: [...ARISTAS.values()].filter((x) => !x.eco).map((x) => ({ a: idx[x.a], b: idx[x.b], peso: x.txtAB + x.txtBA, que: x.que ?? null })),
+      relaciones: relaciones.map(({ a, b, estado, resumen }) => ({ a, b, estado, resumen })),
     }));
     writeFileSync(join(dir, 'atlas.js'), `// Generado por «Iniciativas Estratégicas/atlas/construir.mjs». No editar: se reescribe.\n${codigo.trim()}\n`);
   }

@@ -1,0 +1,252 @@
+[
+  {
+    "planes": ["PLAN24CN", "PLANEDU"],
+    "estado": "documentada",
+    "resumen": "El diseño de ciudades nuevas incorpora la conectividad para el Portfolio Ciudadano Único. Educación define su estándar interoperable y el control ciudadano de los datos.",
+    "fuentes": [
+      {"doc": "PLAN24CN", "linea": 2173, "cita": "columna vertebral del Portfolio Ciudadano Único (PLANEDU)"},
+      {"doc": "PLANEDU", "linea": 1725, "cita": "El ciudadano decide qué comparte, con quién, y para qué."}
+    ]
+  },
+  {
+    "planes": ["PLAN24CN", "PLANPACTO"],
+    "estado": "documentada",
+    "resumen": "El pacto fiscal asigna la plusvalía por obra al nivel que la financia. Para la rezonificación rige la competencia sobre ese acto. Ambas reglas afectan los ingresos de las ciudades nuevas.",
+    "fuentes": [
+      {"doc": "PLANPACTO", "linea": 607, "cita": "cobra el nivel que financió la obra que creó el valor"},
+      {"doc": "PLAN24CN", "linea": 1988, "cita": "financia la siguiente etapa de construcción"}
+    ]
+  },
+  {
+    "planes": ["PLAN24CN", "PLANSAL"],
+    "estado": "documentada",
+    "resumen": "Salud se articula con el diseño urbano de las ciudades nuevas para incorporar espacios verdes accesibles como infraestructura sanitaria.",
+    "fuentes": [
+      {"doc": "PLANSAL", "linea": 538, "cita": "PLANSAL, en articulación con PLAN24CN (que diseña ciudades con naturaleza integrada en cada cuadra)"},
+      {"doc": "PLANSAL", "linea": 538, "cita": "propone la reconexión con la naturaleza como infraestructura de salud"}
+    ]
+  },
+  {
+    "planes": ["PLAN24CN", "PLANSUS"],
+    "estado": "documentada",
+    "resumen": "Sustancias identifica la vivienda social de las ciudades nuevas como posible destino del hormigón de cáñamo.",
+    "fuentes": [
+      {"doc": "PLANSUS", "linea": 897, "cita": "las 24 nuevas ciudades pueden usar hempcrete en vivienda social"}
+    ]
+  },
+  {
+    "planes": ["PLAN24CN", "PLANVIV"],
+    "estado": "documentada",
+    "resumen": "Las ciudades nuevas quedan en investigación y cualquier avance a construcción requiere resultados visibles de Vivienda en ciudades existentes.",
+    "fuentes": [
+      {"doc": "PLAN24CN", "linea": 2649, "cita": "resultados visibles de PLANVIV en ciudad existente"}
+    ]
+  },
+  {
+    "planes": ["PLANAGUA", "PLANJUS"],
+    "estado": "documentada",
+    "resumen": "Agua prevé representación de la ANJUS en su gobernanza y su intervención en la resolución de disputas hídricas.",
+    "fuentes": [
+      {"doc": "PLANAGUA", "linea": 1988, "cita": "Designado por el directorio de ANJUS (resolución de disputas hídricas)"},
+      {"doc": "PLANAGUA", "linea": 3210, "cita": "aplican el Derecho de Primer Trago como principio rector"}
+    ]
+  },
+  {
+    "planes": ["PLANAGUA", "PLANMOV"],
+    "estado": "documentada",
+    "resumen": "Logística de insumos de potabilización y acceso a plantas. Los cruces ferroviarios por cuencas críticas requieren un convenio.",
+    "fuentes": [
+      {"doc": "PLANAGUA", "linea": 4429, "cita": "logística para químicos de potabilización"},
+      {"doc": "PLANAGUA", "linea": 4431, "cita": "trazas ferroviarias que cruzan cuencas críticas requieren convenio explícito"}
+    ]
+  },
+  {
+    "planes": ["PLANAGUA", "PLANREP"],
+    "estado": "documentada",
+    "resumen": "Agua cuenta con los Centros de la Vida para formar personal técnico y atribuye a Reconversión el financiamiento de esa formación.",
+    "fuentes": [
+      {"doc": "PLANAGUA", "linea": 3587, "cita": "los Centros de la Vida de PLANREP que forman técnicos"},
+      {"doc": "PLANAGUA", "linea": 3776, "cita": "PLANREP financia la capacitación de los oficios del agua"}
+    ]
+  },
+  {
+    "planes": ["PLANDIG", "PLANISV"],
+    "estado": "documentada",
+    "resumen": "Suelo Vivo aporta mediciones de campo para calibración satelital. Soberanía Digital aporta datos de sensores al monitoreo de suelos.",
+    "fuentes": [
+      {"doc": "PROTOCOLOS_OPERATIVOS_BASTA.md", "linea": 128, "cita": "PLANISV -> PLANDIG"},
+      {"doc": "PROTOCOLOS_OPERATIVOS_BASTA.md", "linea": 150, "cita": "PLANDIG -> PLANISV"}
+    ]
+  },
+  {
+    "planes": ["PLANDIG", "PLANREP"],
+    "estado": "documentada",
+    "resumen": "Reconversión aporta datos de empleo, competencias y formación al Navegante Ciudadano, con consentimiento para los datos nominales.",
+    "fuentes": [
+      {"doc": "PROTOCOLOS_OPERATIVOS_BASTA.md", "linea": 183, "cita": "PLANREP -> PLANDIG"},
+      {"doc": "PROTOCOLOS_OPERATIVOS_BASTA.md", "linea": 184, "cita": "nominativo con consentimiento para el Navegante personal"}
+    ]
+  },
+  {
+    "planes": ["PLANEB", "PLANISV"],
+    "estado": "documentada",
+    "resumen": "La Red Bastarda aporta trazabilidad de la cadena de custodia. Suelo Vivo verifica el cumplimiento de estándares de producción.",
+    "fuentes": [
+      {"doc": "PROTOCOLOS_OPERATIVOS_BASTA.md", "linea": 161, "cita": "PLANEB -> PLANISV"},
+      {"doc": "PROTOCOLOS_OPERATIVOS_BASTA.md", "linea": 165, "cita": "certifica que la produccion cumple estandares de suelo regenerativo"}
+    ]
+  },
+  {
+    "planes": ["PLANEDU", "PLANMOV"],
+    "estado": "documentada",
+    "resumen": "Transporte escolar accesible y datos de ubicación de escuelas para planificar redes.",
+    "fuentes": [
+      {"doc": "PLANEDU", "linea": 1883, "cita": "transporte escolar accesible"},
+      {"doc": "PLANEDU", "linea": 1884, "cita": "datos de localización escolar para planificar redes de transporte"}
+    ]
+  },
+  {
+    "planes": ["PLANEDU", "PLANTER"],
+    "estado": "documentada",
+    "resumen": "Coordinación de contenidos de educación intercultural en territorios originarios.",
+    "fuentes": [
+      {"doc": "PLANEDU", "linea": 1889, "cita": "contenidos de educación intercultural en territorios originarios"},
+      {"doc": "PLANTER", "linea": 411, "cita": "educación en primera lengua"}
+    ]
+  },
+  {
+    "planes": ["PLANEN", "PLANVIV"],
+    "estado": "documentada",
+    "resumen": "Vivienda cuenta con infraestructura eléctrica para urbanizar barrios. Los dos planes proyectan 500.000 viviendas con aislamiento térmico y usan estimaciones diferentes de ahorro energético.",
+    "fuentes": [
+      {"doc": "PLANVIV", "linea": 431, "cita": "La Urbanización de Villas necesita la infraestructura de PLANAGUA, PLANEN y PLANDIG."},
+      {"doc": "PLANVIV", "linea": 1192, "cita": "equivalente a una planta de generación de 200-300 MW"},
+      {"doc": "PLANEN", "linea": 1197, "cita": "equivalente a una central térmica de 500 MW"}
+    ]
+  },
+  {
+    "planes": ["PLANGEO", "PLANISV"],
+    "estado": "documentada",
+    "resumen": "Geopolítica incorpora la restauración de suelos a su oferta de cooperación y plantea coordinar estándares para el acceso a mercados agrícolas.",
+    "fuentes": [
+      {"doc": "PLANGEO", "linea": 455, "cita": "tecnología de regeneración de suelos + sistema de gestión hídrica de PLANAGUA"},
+      {"doc": "PLANGEO", "linea": 1406, "cita": "Acceso a mercados agrícolas premium + protección contra barreras fitosanitarias"}
+    ]
+  },
+  {
+    "planes": ["PLANGEO", "PLANMOV"],
+    "estado": "documentada",
+    "resumen": "Movilidad asigna a la política exterior la coordinación logística, la representación técnica y el alineamiento del financiamiento multilateral.",
+    "fuentes": [
+      {"doc": "PLANMOV", "linea": 1545, "cita": "La política exterior argentina se integra con PLANMOV a través de PLANGEO."}
+    ]
+  },
+  {
+    "planes": ["PLANISV", "PLANMOV"],
+    "estado": "documentada",
+    "resumen": "Transporte de muestras de suelo a laboratorios y uso de datos del suelo para planificar trazas y servidumbres ferroviarias.",
+    "fuentes": [
+      {"doc": "PLANISV", "linea": 2667, "cita": "logística de insumos y muestras de suelo a laboratorios"},
+      {"doc": "PLANISV", "linea": 2668, "cita": "datos de uso de suelo para planificar trazas ferroviarias y servidumbres"}
+    ]
+  },
+  {
+    "planes": ["PLANISV", "PLANSUS"],
+    "estado": "documentada",
+    "resumen": "Sustancias describe una coordinación con Suelo Vivo sobre rotaciones de cáñamo industrial y aprovechamiento de residuos vegetales.",
+    "fuentes": [
+      {"doc": "PLANSUS", "linea": 841, "cita": "el cáñamo industrial entra en rotaciones de cultivo para restauración de suelos"},
+      {"doc": "PLANSUS", "linea": 2073, "cita": "cross-ref con PLANISV para integración con cadena de cáñamo industrial"}
+    ]
+  },
+  {
+    "planes": ["PLANJUS", "PLANSAL"],
+    "estado": "documentada",
+    "resumen": "Los Centros de Vitalidad derivan conflictos no resueltos a Casas JUS. Salud también prevé auditoría ciudadana de su agencia por vía de Justicia.",
+    "fuentes": [
+      {"doc": "PLANSAL", "linea": 1517, "cita": "se derivan a *Casas JUS*"},
+      {"doc": "PLANSAL", "linea": 1501, "cita": "Auditoría ciudadana permanente vía PLANJUS."}
+    ]
+  },
+  {
+    "planes": ["PLANMOV", "PLANSAL"],
+    "estado": "documentada",
+    "resumen": "Logística de medicamentos esenciales, acceso a atención primaria y traslados sanitarios.",
+    "fuentes": [
+      {"doc": "PLANSAL", "linea": 2296, "cita": "logística de medicamentos esenciales + acceso vehicular a APS"}
+    ]
+  },
+  {
+    "planes": ["PLANMOV", "PLANSUS"],
+    "estado": "inferida",
+    "resumen": "El régimen de inhabilitación de conductores profesionales tiene consecuencias para la elegibilidad de los operadores acreditados de la Bastarda Logística Federal.",
+    "fuentes": [
+      {"doc": "PLANSUS", "linea": 1817, "cita": "Primera infracción: inhabilitación profesional 2 años"},
+      {"doc": "PLANMOV", "linea": 909, "cita": "Cada chofer de BLF porta Credencial PLANREP"}
+    ]
+  },
+  {
+    "planes": ["PLANMOV", "PLANVIV"],
+    "estado": "documentada",
+    "resumen": "Vivienda y alquiler protegido cerca de estaciones, con coordinación de densidad y servidumbres ferroviarias.",
+    "fuentes": [
+      {"doc": "PLANMOV", "linea": 1563, "cita": "PLANVIV prioriza desarrollo TOD alrededor de estaciones ferroviarias reactivadas por PLANMOV"},
+      {"doc": "PLANVIV", "linea": 2360, "cita": "reservas de suelo cerca de estaciones para alquiler protegido"},
+      {"doc": "PLANVIV", "linea": 2361, "cita": "expansión urbana en suelo bajo servidumbre ferroviaria"}
+    ]
+  },
+  {
+    "planes": ["PLANPACTO", "PLANPREGUNTA"],
+    "estado": "documentada",
+    "resumen": "La asignación ordinaria al Fondo de la Pregunta se toma del flujo ya afectado por PLANTER. PLANPREGUNTA prevé un posible efecto adicional sobre el Techo B si se cubre el faltante del año malo.",
+    "fuentes": [
+      {"doc": "PLANPREGUNTA", "linea": 827, "cita": "salvo el hueco de 180 millones del año malo"},
+      {"doc": "PLANTER", "linea": 373, "cita": "este flujo ya estaba afectado al 100% por este PLAN"}
+    ]
+  },
+  {
+    "planes": ["PLANPREGUNTA", "PLANSAL"],
+    "estado": "documentada",
+    "resumen": "La vertical Cuerpo prevé un modelo epidemiológico con Salud y le reconoce la decisión sobre la materia cuando coinciden.",
+    "fuentes": [
+      {"doc": "PLANPREGUNTA", "linea": 416, "cita": "Cuando las dos coinciden sobre lo mismo, manda PLANSAL"},
+      {"doc": "PLANPREGUNTA", "linea": 552, "cita": "uno de padrón epidemiológico para Cuerpo, con `PLANSAL`"}
+    ]
+  },
+  {
+    "planes": ["PLANPUERTA", "PLANSEG"],
+    "estado": "inferida",
+    "resumen": "La infraestructura compartida de PLANDIG tiene que preservar la prohibición de transferir datos de PLANPUERTA a fuerzas de seguridad.",
+    "fuentes": [
+      {"doc": "PLANPUERTA", "linea": 636, "cita": "Ningún dato producido por este PLAN se comparte con fuerzas de seguridad ni con control migratorio."},
+      {"doc": "PLANPUERTA", "linea": 656, "cita": "Vive en el registro de PLANDIG"},
+      {"doc": "PLANSEG", "linea": 989, "cita": "Todos los datos de seguridad de PLANSEG se almacenan en infraestructura soberana de PLANDIG."}
+    ]
+  },
+  {
+    "planes": ["PLANPUERTA", "PLANTER"],
+    "estado": "inferida",
+    "resumen": "La oferta futura de lotes del Paquete queda condicionada por la consulta previa que las ciudades nuevas requieren de PLANTER para sus sitios.",
+    "fuentes": [
+      {"doc": "PLANPUERTA", "linea": 490, "cita": "Los lotes salen de PLAN24CN"},
+      {"doc": "PLAN24CN", "linea": 3011, "cita": "consulta previa originaria obligatoria sobre cualquier sitio"}
+    ]
+  },
+  {
+    "planes": ["PLANSAL", "PLANTER"],
+    "estado": "documentada",
+    "resumen": "Atención sanitaria intercultural y coordinación sobre contaminación que afecta la salud.",
+    "fuentes": [
+      {"doc": "PLANSAL", "linea": 2302, "cita": "atención sanitaria intercultural en territorios originarios"},
+      {"doc": "PLANSAL", "linea": 2303, "cita": "enforcement ambiental sobre contaminación que afecta salud"}
+    ]
+  },
+  {
+    "planes": ["PLANSUS", "PLANVIV"],
+    "estado": "documentada",
+    "resumen": "Vivienda contempla el hormigón de cáñamo como aislante local si se habilita el cultivo industrial.",
+    "fuentes": [
+      {"doc": "PLANVIV", "linea": 1981, "cita": "Si PLANISV y PLANSUS habilitan el cultivo de cáñamo industrial"}
+    ]
+  }
+]

@@ -22,12 +22,20 @@ export interface VinculoDelMapa {
   que: string | null;
 }
 
+export interface RelacionAuditadaDelMapa {
+  a: number;
+  b: number;
+  estado: 'documentada' | 'inferida';
+  resumen: string;
+}
+
 export interface MapaCorpusData {
   generado: string;
   canon: { tematicos: number; documentos: number; palabras: number };
   desarmonias: { rota: number; revisar: number; nota: number };
   planes: PlanDelMapa[];
   vinculos: VinculoDelMapa[];
+  relaciones?: RelacionAuditadaDelMapa[];
 }
 
 export type EstadoMapa =

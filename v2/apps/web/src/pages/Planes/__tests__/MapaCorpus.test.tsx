@@ -113,6 +113,27 @@ describe('MapaCorpus', () => {
     );
   });
 
+  it('enlaza cada relación auditada con las fuentes del par en el atlas', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(() =>
+        Promise.resolve({
+          ok: true,
+          json: () =>
+            Promise.resolve({
+              ...FIXTURE,
+              relaciones: [{ a: 0, b: 1, estado: 'inferida', resumen: 'Resumen de la relación' }],
+            }),
+        }),
+      ),
+    );
+    render(<MapaCorpus seleccionado={un.slug} onSeleccionar={() => undefined} />);
+    expect(
+      await screen.findByRole('link', { name: 'PLANDOS, ver fuentes de la relación inferida' }),
+    ).toHaveAttribute('href', `/atlas#mapa-${un.slug}-${dos.slug}`);
+    expect(screen.getByText('Resumen de la relación')).toBeInTheDocument();
+  });
+
   it('si falla la carga muestra la línea de respaldo', async () => {
     stubFetch(false);
     render(<MapaCorpus seleccionado={null} onSeleccionar={() => undefined} />);
