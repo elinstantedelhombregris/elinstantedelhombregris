@@ -192,6 +192,9 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-179](#d-179--proponer-una-campaña-pierde-a-la-gente-en-el-formulario-y-en-sumate) | Proponer una campaña pierde a la gente en el formulario y en «Sumate» | Media | Abierta |
 | [D-180](#d-180--la-política-de-privacidad-no-describe-la-participación-sin-cuenta) | La política de privacidad no describe la participación sin cuenta | Alta | Abierta |
 | [D-181](#d-181--las-pruebas-de-punta-a-punta-no-corren-en-ci) | Las pruebas de punta a punta no corren en CI | Media | **Resuelta** |
+| [D-182](#d-182--a-igualdad-de-respuestas-mirar-reparte-primero-lo-más-viejo) | A igualdad de respuestas, Mirar reparte primero lo más viejo | Media | Abierta |
+| [D-183](#d-183--vos-y-n-personas-más-muestra-un-número-por-debajo-de-los-umbrales) | «Vos y N personas más» muestra un número por debajo de los umbrales | Media | Abierta |
+| [D-184](#d-184--los-reportes-que-retiran-un-aporte-pueden-salir-de-una-sola-sala) | Los reportes que retiran un aporte pueden salir de una sola sala | Media | Abierta |
 
 ---
 
@@ -2784,3 +2787,30 @@ El trabajo falla antes de correr una sola prueba, en el paso que instala el nave
 **Segundo tropiezo, mismo día.** Con la imagen fijada, el trabajo llegó a instalar el navegador y se cayó en otro lado: `playwright install --with-deps` baja paquetes del sistema, y el corredor no pudo resolver los espejos de Ubuntu («Temporary failure resolving 'azure.archive.ubuntu.com'»). El registro de esa corrida muestra que la imagen ya trae todas las bibliotecas que pide Chromium y que lo único que faltaba eran nueve paquetes de tipografías, que ninguna prueba usa. El paso instala ahora sólo el navegador, sin paquetes del sistema. No pude volver a lanzar la corrida fallida: pide permisos de administración del repositorio.
 
 **Resolución (2026-11-11, `58879949` y `9cf97ebb`).** Comprobada en CI: en `9cf97ebb` el trabajo corrió las 22 especificaciones, 21 pasaron y una se salteó a propósito, y los cuatro trabajos quedaron en verde. Lo que queda sin cubrir es esa especificación salteada (`escuela-api-local.spec.ts`), que necesita la API levantada y por eso no corre en CI.
+
+### D-182 · A igualdad de respuestas, Mirar reparte primero lo más viejo
+
+**Dónde:** `v2/packages/civic-core/src/pila/tanda.ts:61` (`ordenarCandidatos`) y `v2/packages/db/src/repositories/pila.ts:156`.
+**Encontrada:** 2026-11-14, en la revisión en contra de una propuesta de encuentros en persona para lanzar la campaña nacional.
+**Severidad:** media.
+**Estado:** abierta.
+
+Una tanda ordena los aportes así: primero los que tu región todavía no completó, después los que tienen menos respuestas y, a igualdad, el más viejo. Con una pila nueva casi todos empatan en cero respuestas, así que decide la antigüedad. Quien sabe que un grupo va a abrir Mirar a una hora determinada puede publicar unos aportes la noche anterior desde actores nuevos (gratis mientras siga abierta D-071; el techo de aportes es de 150 por hora por IP) y ocupar la primera tanda de todas esas personas. Una exposición sin respuesta no cuenta para el reparto, así que el efecto dura hasta que esos aportes se contestan. Pendiente: desempatar por un valor que nadie elija, por ejemplo un hash público del aporte y de quien mira. Cambia `tanda.test.ts` y la frase «Los aportes con menos opiniones aparecen antes» de `ver/formato.ts:119`. Se relaciona con D-165 y con el sorteo semanal que propone la auditoría del 11/11.
+
+### D-183 · «Vos y N personas más» muestra un número por debajo de los umbrales
+
+**Dónde:** `v2/packages/db/src/repositories/pila.ts:241-243` (`coinciden`) y `v2/apps/web/src/pages/MiArgentinaIdeal/mirar/avisos.ts:27-30`.
+**Encontrada:** 2026-11-14, en la revisión en contra de una propuesta de encuentros en persona para lanzar la campaña nacional.
+**Severidad:** media.
+**Estado:** abierta.
+
+Después de responder se lee «Vos y N personas más» o «Vos y N personas más dijeron que no», con el conteo exacto de quienes eligieron lo mismo, desde la primera respuesta. La spec del 19/10 lo pide así (§4, «Lo que se ve y lo que no»), y la misma spec dice que ninguna pantalla muestra un número calculado con menos opiniones que los umbrales (§10). Las dos reglas no chocan mientras quien opina no sabe quiénes son los demás. En un grupo que contesta junto —una sala, un aula, una familia— sí chocan: el número dice cómo se partió el grupo sobre el deseo de alguien que está presente, y con pocos aportes en la pila quien escribió un aporte recibe números que salen sólo de esas personas. Es la objeción por la que cayó «la mesa» en la auditoría del 11/11. Pendiente: decidir si el aviso calla por debajo de cinco, como el resto del sitio, o si dice que hay coincidencia sin dar el número. Es una enmienda de la spec.
+
+### D-184 · Los reportes que retiran un aporte pueden salir de una sola sala
+
+**Dónde:** `v2/packages/db/src/repositories/pila-gestion.ts:95-114`; `UMBRAL_REPORTES` y `RESPUESTAS_PARA_REPORTAR` en `v2/packages/shared/src/participacion/pila.ts:14-16`.
+**Encontrada:** 2026-11-14, en la revisión en contra de una propuesta de encuentros en persona para lanzar la campaña nacional.
+**Severidad:** media.
+**Estado:** abierta.
+
+Un aporte sale de Mirar y de toda lectura pública con 13 reportes de actores distintos que ya contestaron cinco aportes; nadie lo revisa antes (D3). La condición de las cinco respuestas frena a quien abre pestañas privadas, pero no a un grupo real: después de una tanda, cada persona de una sala ya cuenta para reportar, y trece de ellas alcanzan para retener cualquier aporte, también los de otras regiones. La administración puede devolverlo desde `/gestion/pila`, pero mientras tanto el aporte no se lee. Pendiente: que los reportes que retienen vengan de más de una región o de más de un día, o que durante encuentros organizados la retención la confirme la administración. Toca D3, que es una decisión de Juan.
