@@ -2814,3 +2814,16 @@ Después de responder se lee «Vos y N personas más» o «Vos y N personas más
 **Estado:** abierta.
 
 Un aporte sale de Mirar y de toda lectura pública con 13 reportes de actores distintos que ya contestaron cinco aportes; nadie lo revisa antes (D3). La condición de las cinco respuestas frena a quien abre pestañas privadas, pero no a un grupo real: después de una tanda, cada persona de una sala ya cuenta para reportar, y trece de ellas alcanzan para retener cualquier aporte, también los de otras regiones. La administración puede devolverlo desde `/gestion/pila`, pero mientras tanto el aporte no se lee. Pendiente: que los reportes que retienen vengan de más de una región o de más de un día, o que durante encuentros organizados la retención la confirme la administración. Toca D3, que es una decisión de Juan.
+
+### D-185 · Corregir una fecha en el contrato de una campaña abierta la saca de línea
+
+**Dónde:** `v2/packages/db/src/repositories/campanas.ts` (`revisar`); `v2/apps/api/src/features/campanas/routes.ts` (`PUT /:id`).
+**Encontrada:** 2026-11-25, al lanzar formalmente la campaña nacional «Mi Argentina ideal».
+**Severidad:** baja.
+**Estado:** abierta.
+
+Toda edición del contrato de una campaña la devuelve a borrador y abre una edición nueva, aunque el cambio sea una fecha mal puesta o una errata. Para una campaña abierta eso significa dejar de recibir aportes hasta volver a abrirla, y que el recibo pase a decir «edición 2». No hay un camino para una corrección menor que deje constancia sin cortar la campaña.
+
+Por eso la corrección del 25/11/2026 se hizo a mano en la base, y queda anotada acá porque el historial de la campaña no la muestra. La campaña nacional se había abierto el 27/10/2026 para probarla y no se anunció. El día del lanzamiento, la frase del contrato «Se reciben aportes desde el 27 de octubre de 2026 hasta el 28 de febrero de 2027» pasó a decir «desde el 25 de noviembre de 2026», en el contrato vigente y en la copia de la edición 1. No cambió nada más: el cierre, la lectura y la devolución quedaron igual, y la fecha de creación del registro sigue siendo el 27 de octubre. En ese momento la campaña tenía un solo aporte, del 9 de noviembre, ya retirado por quien lo publicó.
+
+Pendiente: decidir si hace falta una corrección menor con motivo escrito, que quede en el historial sin abrir edición.

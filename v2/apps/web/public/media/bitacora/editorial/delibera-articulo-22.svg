@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">El pueblo no delibera ni gobierna: el artículo 22, corregido a mano</title>
+  <desc id="desc">El comienzo del artículo 22 de la Constitución argentina, «El pueblo no delibera ni gobierna, sino por medio de sus representantes», impreso en grande. Una mano tachó en rojo las palabras «no» y «ni» y escribió una «y» encima, de modo que se lee «El pueblo delibera y gobierna». Abajo, una franja oscura pregunta: elegimos cada dos años, ¿cuándo decidimos?</desc>
+  <style>
+    .tacha{stroke:#a72c35;stroke-width:11;stroke-linecap:round;fill:none;stroke-dasharray:260;animation:tachar .7s ease-out both}
+    .t2{animation-delay:.6s}
+    .y{fill:#a72c35;animation:aparecer .5s ease-out both;animation-delay:1.3s}
+    @keyframes tachar{from{stroke-dashoffset:260}to{stroke-dashoffset:0}}
+    @keyframes aparecer{from{opacity:0}to{opacity:1}}
+    @media(prefers-reduced-motion:reduce){.tacha,.y{animation:none}}
+  </style>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <g font-family="Arial,sans-serif">
+    <text x="60" y="70" font-family="monospace" font-size="20" letter-spacing="3" fill="#525a61">CONSTITUCIÓN DE LA NACIÓN ARGENTINA · ARTÍCULO 22</text>
+
+    <text x="60" y="190" font-size="104" font-weight="700" fill="#17131d">EL PUEBLO</text>
+    <text x="60" y="312" font-size="104" font-weight="700" fill="#17131d">NO DELIBERA</text>
+    <text x="60" y="434" font-size="104" font-weight="700" fill="#17131d">NI GOBIERNA</text>
+    <text x="60" y="492" font-size="27" fill="#4d4547">…sino por medio de sus representantes y autoridades creadas por esta Constitución.</text>
+
+    <!-- corrección a mano -->
+    <path class="tacha" d="M48 284 C 100 262, 160 296, 228 268"/>
+    <path class="tacha t2" d="M48 406 C 86 386, 130 418, 176 392"/>
+    <text class="y" x="96" y="356" font-size="62" font-style="italic" font-weight="700" transform="rotate(-8 96 356)">y</text>
+
+    <!-- franja -->
+    <rect x="0" y="560" width="1200" height="160" fill="#17131d"/>
+    <text x="60" y="628" font-size="40" font-weight="700" fill="#f2eadb">ELEGIMOS CADA DOS AÑOS.</text>
+    <text x="60" y="680" font-size="40" font-weight="700" fill="#e9a3a8">¿CUÁNDO DECIDIMOS?</text>
+    <text x="1140" y="680" text-anchor="end" font-family="monospace" font-size="18" letter-spacing="2" fill="#d6d8d7">1853 — HOY</text>
+  </g>
+</svg>

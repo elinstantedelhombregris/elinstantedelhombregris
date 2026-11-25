@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="860" viewBox="0 0 720 860" role="img" aria-labelledby="title desc">
+  <title id="title">Dos formas de decidir: desde lo que hay o desde lo que queremos</title>
+  <desc id="desc">Arriba, sobre fondo oscuro, el camino que parte del presente: hoy, un parche, otro parche, otro parche, y una flecha que vuelve al punto de partida; el destino no tiene nombre. Abajo, sobre papel, el camino que parte del ideal: primero se nombra el país que queremos y desde ahí se vuelve hacia hoy preguntando, en cada paso, qué tendría que ser cierto un paso antes, hasta llegar al primer paso que se puede dar esta semana.</desc>
+  <defs>
+    <marker id="fCrema" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#f2eadb"/></marker>
+    <marker id="fRoja" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#a72c35"/></marker>
+    <marker id="fTinta" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#17131d"/></marker>
+  </defs>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17131d}
+    .k{font-family:monospace;letter-spacing:2px;font-size:20px;fill:#525a61}
+    .h{font-size:42px;font-weight:700}
+    .s{font-size:22px;fill:#4d4547}
+    .lab{font-size:22px;font-weight:700}
+    .m{font-family:monospace;font-size:16px}
+    .c{fill:#f2eadb}
+    .g{fill:#d6d8d7}
+  </style>
+  <rect width="720" height="860" fill="#f2eadb"/>
+  <text x="38" y="48" class="k">03 / DISEÑO</text>
+  <text x="38" y="106" class="h">DOS FORMAS DE LLEGAR</text>
+  <text x="38" y="146" class="s">desde lo que hay, o desde lo que queremos</text>
+
+  <!-- desde el presente -->
+  <rect x="38" y="180" width="644" height="290" fill="#17131d"/>
+  <text x="62" y="224" class="lab c">DESDE EL PRESENTE</text>
+  <text x="62" y="252" class="s g" style="font-size:18px">se elige entre lo que hay</text>
+
+  <circle cx="100" cy="345" r="26" fill="#f2eadb"/>
+  <text x="100" y="351" text-anchor="middle" class="m" style="font-weight:700">HOY</text>
+  <line x1="130" y1="345" x2="196" y2="345" stroke="#f2eadb" stroke-width="3" marker-end="url(#fCrema)"/>
+  <rect x="206" y="322" width="96" height="46" fill="none" stroke="#f2eadb" stroke-width="2"/>
+  <text x="254" y="351" text-anchor="middle" class="m c">parche</text>
+  <line x1="306" y1="345" x2="362" y2="345" stroke="#f2eadb" stroke-width="3" marker-end="url(#fCrema)"/>
+  <rect x="372" y="322" width="96" height="46" fill="none" stroke="#f2eadb" stroke-width="2"/>
+  <text x="420" y="351" text-anchor="middle" class="m c">parche</text>
+  <line x1="472" y1="345" x2="528" y2="345" stroke="#f2eadb" stroke-width="3" marker-end="url(#fCrema)"/>
+  <rect x="538" y="322" width="96" height="46" fill="none" stroke="#f2eadb" stroke-width="2"/>
+  <text x="586" y="351" text-anchor="middle" class="m c">parche</text>
+  <!-- vuelta -->
+  <path d="M586 372 C 586 430, 100 430, 100 380" fill="none" stroke="#e9a3a8" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#fRoja)"/>
+  <text x="343" y="448" text-anchor="middle" class="m" style="fill:#e9a3a8">y volvemos al mismo lugar</text>
+  <text x="634" y="252" text-anchor="end" class="m g">destino: sin nombre</text>
+
+  <!-- desde el ideal -->
+  <rect x="38" y="500" width="644" height="300" fill="#eee4d3" stroke="#17131d" stroke-width="2"/>
+  <text x="62" y="544" class="lab">DESDE EL IDEAL</text>
+  <text x="62" y="572" class="s" style="font-size:18px">se decide qué cortar para llegar</text>
+
+  <circle cx="100" cy="670" r="26" fill="#17131d"/>
+  <text x="100" y="676" text-anchor="middle" class="m c" style="font-weight:700">HOY</text>
+
+  <rect x="482" y="634" width="176" height="72" fill="#a72c35"/>
+  <text x="570" y="664" text-anchor="middle" class="m c" style="font-weight:700">EL PAÍS</text>
+  <text x="570" y="688" text-anchor="middle" class="m c" style="font-weight:700">QUE QUEREMOS</text>
+  <text x="570" y="622" text-anchor="middle" class="m" style="fill:#a72c35">1.º se nombra esto</text>
+
+  <!-- pasos hacia atrás -->
+  <line x1="476" y1="670" x2="400" y2="670" stroke="#17131d" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#fTinta)"/>
+  <circle cx="380" cy="670" r="12" fill="none" stroke="#17131d" stroke-width="3"/>
+  <line x1="364" y1="670" x2="288" y2="670" stroke="#17131d" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#fTinta)"/>
+  <circle cx="268" cy="670" r="12" fill="none" stroke="#17131d" stroke-width="3"/>
+  <line x1="252" y1="670" x2="140" y2="670" stroke="#17131d" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#fTinta)"/>
+  <text x="372" y="738" text-anchor="middle" class="m">«¿qué tendría que ser cierto un paso antes?»</text>
+  <text x="100" y="722" text-anchor="middle" class="m" style="fill:#a72c35;font-weight:700">primer</text>
+  <text x="100" y="742" text-anchor="middle" class="m" style="fill:#a72c35;font-weight:700">paso</text>
+  <text x="634" y="776" text-anchor="end" class="m" style="fill:#525a61">cada paso se mide contra el destino</text>
+
+  <text x="38" y="836" class="s" style="font-size:18px">Ilustrativo. El ideal se revisa cada vez que aprendemos algo.</text>
+</svg>
