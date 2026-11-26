@@ -74,7 +74,20 @@ describe('Compartir', () => {
     await waitFor(() => {
       expect(screen.getByRole('status')).toHaveTextContent('Copiamos el enlace');
     });
-    expect(escribir).toHaveBeenCalled();
+    expect(escribir).toHaveBeenCalledWith(
+      '¿Y vos? #MiArgentinaIdeal http://localhost:3000/mi-argentina-ideal',
+    );
+  });
+
+  it('la hoja del teléfono recibe el texto con la etiqueta de la campaña', async () => {
+    const compartir = vi.fn((_datos: ShareData) => Promise.resolve());
+    Object.defineProperty(navigator, 'share', { value: compartir, configurable: true });
+    render(<Compartir contenido={contenido} enlace="/mi-argentina-ideal" texto="¿Y vos?" />);
+    fireEvent.click(screen.getByRole('button', { name: 'Compartir' }));
+    await waitFor(() => {
+      expect(compartir).toHaveBeenCalled();
+    });
+    expect(compartir.mock.calls[0]?.[0].text).toBe('¿Y vos? #MiArgentinaIdeal');
   });
 
   it('si no puede copiar, muestra el enlace para copiarlo a mano', async () => {

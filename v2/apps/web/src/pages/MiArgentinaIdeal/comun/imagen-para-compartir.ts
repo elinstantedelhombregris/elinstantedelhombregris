@@ -49,6 +49,13 @@ export interface ContenidoDeImagen {
 
 export const DIRECCION_DEL_SITIO = 'elinstantedelhombregris.com';
 
+/**
+ * La etiqueta de la campaña en redes. Va en el pie de la imagen y al final del texto que
+ * acompaña cualquier cosa que se comparte desde Mi Argentina ideal, así todo lo que la gente
+ * publica se junta bajo el mismo nombre.
+ */
+export const ETIQUETA_DE_LA_CAMPANA = '#MiArgentinaIdeal';
+
 /** Dibuja la imagen en `lienzo`. Espera las tipografías si el navegador las tiene cargadas. */
 export async function dibujarPapelito(
   lienzo: HTMLCanvasElement,
@@ -110,7 +117,7 @@ export async function dibujarPapelito(
   ctx.font = '700 30px "Space Mono", monospace';
   ctx.fillText(c.bajada.toUpperCase(), 120, 1250);
   ctx.fillStyle = TINTA_50;
-  ctx.fillText(DIRECCION_DEL_SITIO, 120, 1295);
+  ctx.fillText(`${DIRECCION_DEL_SITIO} · ${ETIQUETA_DE_LA_CAMPANA}`, 120, 1295);
   ctx.font = '64px Anton, Impact, sans-serif';
   const basta = 'BASTA';
   const x = W - 120 - ctx.measureText(`¡${basta}!`).width;

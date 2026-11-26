@@ -56,8 +56,10 @@ function ponerEnElHead<T extends HTMLElement>(
 /**
  * Lo que un buscador lee de una crónica: título de pestaña, descripción,
  * dirección canónica y datos estructurados (`BlogPosting`). El sitio es una
- * SPA, así que esto lo ve quien ejecuta JavaScript —Google sí—; las vistas
- * previas de redes sociales no (D-149).
+ * SPA, así que esto lo ve quien ejecuta JavaScript —Google sí—. Las vistas
+ * previas de redes sociales no lo ejecutan: para ellas el build escribe una copia
+ * de `index.html` por crónica con el mismo título y resumen (D-149,
+ * `vista-previa.ts`).
  */
 export function useMetaDeCronica(post: BlogPost | undefined): void {
   useTituloDePagina(post?.title ?? '');

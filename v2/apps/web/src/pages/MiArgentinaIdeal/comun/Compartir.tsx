@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { dibujarPapelito, type ContenidoDeImagen } from './imagen-para-compartir';
+import {
+  dibujarPapelito,
+  ETIQUETA_DE_LA_CAMPANA,
+  type ContenidoDeImagen,
+} from './imagen-para-compartir';
 
 import { BotonAccion } from '~/components/participacion/Elementos';
 
@@ -8,7 +12,7 @@ export interface CompartirProps {
   contenido: ContenidoDeImagen;
   /** La dirección que se comparte, absoluta o relativa al sitio. */
   enlace: string;
-  /** El texto que acompaña: «¿Y vos? Sumá el tuyo». */
+  /** El texto que acompaña: «¿Y vos? Sumá el tuyo». La etiqueta de la campaña se agrega sola. */
   texto: string;
   /** El rótulo del botón. */
   rotulo?: string;
@@ -37,6 +41,7 @@ export function Compartir({
   const [imagen, setImagen] = useState<string | null>(null);
   const [estado, setEstado] = useState<Estado>({ tipo: 'quieto' });
   const absoluto = new URL(enlace, window.location.origin).toString();
+  const conEtiqueta = `${texto} ${ETIQUETA_DE_LA_CAMPANA}`;
 
   useEffect(() => {
     const c = document.createElement('canvas');
@@ -62,7 +67,7 @@ export function Compartir({
         : null;
       const archivo = blob ? new File([blob], nombreDeArchivo, { type: 'image/png' }) : null;
       const conArchivo = archivo
-        ? { title: 'Mi Argentina ideal', text: texto, url: absoluto, files: [archivo] }
+        ? { title: 'Mi Argentina ideal', text: conEtiqueta, url: absoluto, files: [archivo] }
         : null;
       if (conArchivo && 'canShare' in navigator && navigator.canShare(conArchivo)) {
         await navigator.share(conArchivo);
@@ -70,11 +75,11 @@ export function Compartir({
         return;
       }
       if (typeof navigator.share === 'function') {
-        await navigator.share({ title: 'Mi Argentina ideal', text: texto, url: absoluto });
+        await navigator.share({ title: 'Mi Argentina ideal', text: conEtiqueta, url: absoluto });
         setEstado({ tipo: 'listo' });
         return;
       }
-      await navigator.clipboard.writeText(`${texto} ${absoluto}`);
+      await navigator.clipboard.writeText(`${conEtiqueta} ${absoluto}`);
       setEstado({ tipo: 'copiado' });
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') return;
