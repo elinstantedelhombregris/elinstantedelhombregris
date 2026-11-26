@@ -13,8 +13,13 @@ import { useProvincias } from '~/lib/queries/open-data';
  */
 export function PreguntaProvincia({
   onElegir,
+  rotulo = 'Antes de empezar',
+  accion = 'Empezar a mirar',
 }: {
   onElegir: (provinciaId: number | null) => void;
+  /** En la página de un aporte se pregunta antes de opinar, no antes de mirar. */
+  rotulo?: string;
+  accion?: string;
 }) {
   const provincias = useProvincias();
   const [elegida, setElegida] = useState('');
@@ -33,7 +38,7 @@ export function PreguntaProvincia({
       className="flex flex-col gap-4"
     >
       <p className="font-space text-tinta-50 text-[11px] font-bold uppercase tracking-[0.12em]">
-        Antes de empezar
+        {rotulo}
       </p>
       <h2 id={`${id}-titulo`} className="font-anton text-[clamp(30px,8vw,40px)] leading-[1.05]">
         ¿De qué provincia sos?
@@ -85,7 +90,7 @@ export function PreguntaProvincia({
             onElegir(Number(elegida));
           }}
         >
-          Empezar a mirar
+          {accion}
         </BotonAccion>
         <button
           type="button"

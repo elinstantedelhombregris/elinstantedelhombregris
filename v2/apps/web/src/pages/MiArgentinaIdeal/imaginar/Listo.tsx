@@ -69,8 +69,9 @@ export function Listo({
       {cedio ? (
         <Compartir
           contenido={contenido}
-          enlace="/mi-argentina-ideal"
-          texto={`«${linea}» ¿Y vos? Sumá el tuyo en Mi Argentina ideal.`}
+          // Al aporte, no a la portada: quien recibe el enlace lo puede contestar ahí (D-168).
+          enlace={`/senal/${recibo.idPublico}`}
+          texto={`«${linea}» ¿Vos también lo querés? Contestalo o sumá el tuyo en Mi Argentina ideal.`}
           rotulo="Compartir mi aporte"
         />
       ) : null}

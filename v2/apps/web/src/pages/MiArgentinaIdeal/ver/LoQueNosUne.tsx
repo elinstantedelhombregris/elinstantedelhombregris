@@ -1,6 +1,13 @@
 import { REGLAS_DE_VISION } from '@v2/civic-core';
 
-import { deCadaDiez, fraseMiOpinion, lecturaDeRegiones, numero, regionesDe } from './formato';
+import {
+  deCadaDiez,
+  fraseFueraDeMirar,
+  fraseMiOpinion,
+  lecturaDeRegiones,
+  numero,
+  regionesDe,
+} from './formato';
 import { FilaAporte, Meta, Seccion, Vacio } from './piezas';
 import { SeguiConstruyendo } from './SeguiConstruyendo';
 
@@ -76,6 +83,7 @@ function Leyenda() {
 
 function FilaUne({ aporte: a }: { aporte: AporteEnVision }) {
   const mia = fraseMiOpinion(a.miOpinion);
+  const fuera = fraseFueraDeMirar(a);
   return (
     <FilaAporte texto={a.texto}>
       <BarraAcuerdo acuerdo={a.acuerdo} />
@@ -90,6 +98,7 @@ function FilaUne({ aporte: a }: { aporte: AporteEnVision }) {
         {a.tema ? <span>{a.tema.etiqueta}</span> : null}
         {mia ? <span className="text-tinta">{mia}</span> : null}
       </Meta>
+      {fuera ? <Meta>{fuera}</Meta> : null}
       <SeguiConstruyendo aporteId={a.id} />
     </FilaAporte>
   );

@@ -467,11 +467,11 @@ describe.skipIf(!habilitada)('Mirar por HTTP: la pila y su gestión', () => {
       const s = await aporte(c.id);
       const fuera = await aporte(null);
       const anonimo = await request.get(`/api/v1/pila/aportes/${s.idPublico}`).expect(200);
-      expect(anonimo.body.data).toEqual({ enMirar: true, miOpinion: null });
+      expect(anonimo.body.data).toEqual({ enMirar: true, miOpinion: null, sabeProvincia: false });
       expect(anonimo.headers['set-cookie']).toBeUndefined();
       const nav = new Navegador();
       await nav.opinar(s.idPublico, 'acuerdo');
-      expect((await nav.get(`/api/v1/pila/aportes/${s.idPublico}`)).body.data).toEqual({
+      expect((await nav.get(`/api/v1/pila/aportes/${s.idPublico}`)).body.data).toMatchObject({
         enMirar: true,
         miOpinion: 'acuerdo',
       });

@@ -362,6 +362,8 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-146', // 20/10/2026: CORS acepta el propio sitio sin depender de la lista.
       // 9/11/2026: un aporte retirado deja de sumar en el conteo (`db1c6124`). Tampoco pasó por acá.
       'D-148',
+      // 26/11/2026: cada crónica con su vista previa al compartirla (`1b4a3ba0`), comprobada en producción.
+      'D-149',
       // 10/11/2026: la función de Vercel suelta la consulta del runtime (`51f6589a`); comprobado en producción.
       'D-156',
       // 2026-11-10: los defectos chicos del relevamiento de diseño, cada uno con su test y comprobado en

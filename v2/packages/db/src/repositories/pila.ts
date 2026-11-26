@@ -228,8 +228,8 @@ export class PilaRepository {
         returning r.senal_id
       ),
       escrita as (
-        insert into pila_respuestas (senal_id, actor_id, user_id, valor, provincia_id, region, respondida_en)
-        select id, ${e.actorId}::bigint, ${e.userId}::int, ${e.valor}, ${e.provinciaId}::int, ${e.region}::text, now()
+        insert into pila_respuestas (senal_id, actor_id, user_id, valor, provincia_id, region, respondida_en, fuera_de_mirar)
+        select id, ${e.actorId}::bigint, ${e.userId}::int, ${e.valor}, ${e.provinciaId}::int, ${e.region}::text, now(), true
         from s where not exists (select 1 from por_cuenta)
         on conflict (senal_id, actor_id) do update set valor = excluded.valor,
           provincia_id = excluded.provincia_id, region = excluded.region,

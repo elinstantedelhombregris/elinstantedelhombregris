@@ -52,7 +52,8 @@ const conteo = (
   opiniones: number,
   acuerdos: number,
   pasos = 0,
-): ConteoPorRegion => ({ id, region, opiniones, acuerdos, pasos });
+  fueraDeMirar = 0,
+): ConteoPorRegion => ({ id, region, opiniones, acuerdos, pasos, fueraDeMirar });
 
 const AHORA = new Date('2026-10-20T12:00:00.000Z');
 
@@ -156,6 +157,25 @@ describe('armarVision', () => {
     expect(v.recien[0]).toMatchObject({ id: 'nuevo', opiniones: 12, acuerdo: 0, peor: null });
     expect(v.recien[0]?.regiones.every((r) => r.acuerdo === null)).toBe(true);
     expect(v.recien[0]?.regiones.find((r) => r.region === 'NOA')?.cuenta).toBe(true);
+  });
+
+  it('dice qué parte de las opiniones llegó fuera de Mirar, y cuentan igual (D-168)', () => {
+    const v = armarVision(
+      campana,
+      datos({
+        aportes: [aporte('a'), aporte('nuevo')],
+        conteos: [
+          conteo('a', 'NOA', 10, 9, 0, 6),
+          conteo('a', 'NEA', 10, 9, 0, 0),
+          conteo('a', null, 5, 5, 0, 4),
+          conteo('nuevo', 'NOA', 12, 3, 0, 12),
+        ],
+      }),
+      AHORA,
+    );
+    expect(v.une[0]).toMatchObject({ id: 'a', opiniones: 25, fueraDeMirar: 10 / 25 });
+    // Mientras no entra en la visión, ningún porcentaje (D-088).
+    expect(v.recien[0]).toMatchObject({ id: 'nuevo', fueraDeMirar: null });
   });
 
   it('«Lo que recién llega» tiene tope', () => {

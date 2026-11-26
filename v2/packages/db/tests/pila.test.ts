@@ -287,6 +287,24 @@ viva('PilaRepository', () => {
   });
 
   describe('opinar', () => {
+    it('marca la opinión que no pidió el reparto de Mirar (D-168)', async () => {
+      const campana = await nuevaCampana();
+      const [enMirar, porEnlace] = await actores(2);
+      const s = await aporte(campana);
+      const base = { idPublico: s.idPublico, userId: null, provinciaId: null, region: null };
+      await pila.registrarExposicion([s.idPublico], enMirar!, null);
+      await pila.opinar({ ...base, actorId: enMirar!, valor: 'acuerdo' });
+      await pila.opinar({ ...base, actorId: porEnlace!, valor: 'acuerdo' });
+      // Cambiarla no le borra la marca.
+      await pila.opinar({ ...base, actorId: porEnlace!, valor: 'desacuerdo' });
+      const filas = await db.execute<{ actor_id: string; fuera_de_mirar: boolean }>(sql`
+        select actor_id::text, fuera_de_mirar from pila_respuestas where senal_id = ${s.id}
+        order by actor_id`);
+      expect(
+        Object.fromEntries(filas.rows.map((f) => [Number(f.actor_id), f.fuera_de_mirar])),
+      ).toEqual({ [enMirar!]: false, [porEnlace!]: true });
+    });
+
     it('opinar dos veces cambia la opinión y no la duplica', async () => {
       const campana = await nuevaCampana();
       const [yo, otra] = await actores(2);

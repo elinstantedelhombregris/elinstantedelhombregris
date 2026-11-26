@@ -61,8 +61,10 @@ function conteosDeAportes(datos: DatosDeVision): ConteoDeAporte[] {
   const porRegion = new Map<string, Partial<Record<Region, ConteoRegional>>>();
   const sinRegion = new Map<string, ConteoRegional>();
   const pasos = new Map<string, number>();
+  const fuera = new Map<string, number>();
   for (const c of datos.conteos) {
     pasos.set(c.id, (pasos.get(c.id) ?? 0) + c.pasos);
+    fuera.set(c.id, (fuera.get(c.id) ?? 0) + c.fueraDeMirar);
     const conteo = { opiniones: c.opiniones, acuerdos: c.acuerdos };
     if (esRegion(c.region)) {
       const regiones = porRegion.get(c.id) ?? {};
@@ -84,6 +86,7 @@ function conteosDeAportes(datos: DatosDeVision): ConteoDeAporte[] {
     porRegion: porRegion.get(a.id) ?? {},
     sinRegion: sinRegion.get(a.id) ?? { opiniones: 0, acuerdos: 0 },
     pasos: pasos.get(a.id) ?? 0,
+    fueraDeMirar: fuera.get(a.id) ?? 0,
     comparaciones: duelos.get(a.id)?.comparaciones ?? 0,
     primero: duelos.get(a.id)?.primero ?? 0,
   }));
@@ -150,6 +153,8 @@ export function armarVision(
       pasos: l.pasos,
       acuerdo: l.enDiscusion ? l.acuerdo : 0,
       peor: l.enDiscusion ? l.peor : null,
+      // Como los otros porcentajes: sólo cuando el aporte entra en la visión (D-088).
+      fueraDeMirar: l.enDiscusion && l.opiniones > 0 ? l.fueraDeMirar / l.opiniones : null,
       regiones: l.regiones.map((r) => ({
         region: r.region,
         acuerdo: l.enDiscusion ? r.acuerdo : null,

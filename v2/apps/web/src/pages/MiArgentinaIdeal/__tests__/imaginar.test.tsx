@@ -382,7 +382,18 @@ describe('Imaginar — publicar', () => {
     ]);
     expect(cuerpo).toMatchObject({ campanaId: NACIONAL.id, edicion: 1, cuentaEsperada: null });
 
-    expect(screen.getByRole('button', { name: 'Compartir mi aporte' })).toBeInTheDocument();
+    // El enlace lleva al aporte, donde quien lo recibe lo puede contestar (D-168).
+    const escribir = vi.fn((_t: string) => Promise.resolve());
+    Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText: escribir },
+      configurable: true,
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Compartir mi aporte' }));
+    await waitFor(() => {
+      expect(escribir).toHaveBeenCalled();
+    });
+    expect(escribir.mock.calls[0]?.[0]).toMatch(new RegExp(`/senal/${RECIBO.idPublico}$`));
     expect(
       screen.getByRole('link', { name: 'Ahora mirá lo que imaginan otros →' }),
     ).toHaveAttribute('href', '/mi-argentina-ideal/mirar?desde=imaginar');

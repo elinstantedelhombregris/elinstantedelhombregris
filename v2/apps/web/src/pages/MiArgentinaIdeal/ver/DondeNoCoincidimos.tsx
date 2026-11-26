@@ -3,6 +3,7 @@ import { REGLAS_DE_VISION } from '@v2/civic-core';
 import {
   REGION_CORTA,
   fraseDeDistancia,
+  fraseFueraDeMirar,
   fraseMiOpinion,
   lecturaDeRegiones,
   regionesDe,
@@ -81,6 +82,7 @@ export function DondeNoCoincidimos({
                   <span>{fraseDeDistancia(a)}</span>
                   {mia ? <span className="text-tinta">{mia}</span> : null}
                 </Meta>
+                {fraseFueraDeMirar(a) ? <Meta>{fraseFueraDeMirar(a)}</Meta> : null}
               </FilaAporte>
             );
           })}

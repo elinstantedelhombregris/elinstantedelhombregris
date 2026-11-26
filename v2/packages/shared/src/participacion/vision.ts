@@ -30,6 +30,12 @@ export interface AporteEnVision {
   acuerdo: number;
   /** El acuerdo de la región que cuenta y anda peor; `null` si ninguna cuenta o si el aporte no entra en la visión. */
   peor: number | null;
+  /**
+   * Qué parte de las opiniones, de 0 a 1, no la pidió el reparto de Mirar: llegó por un
+   * enlace compartido o desde la página del aporte (D-168). Cuentan igual; esto sólo lo
+   * dice. `null` mientras el aporte no entra en la visión.
+   */
+  fueraDeMirar: number | null;
   /** Mientras el aporte no entra en la visión, ninguna región muestra porcentaje. */
   regiones: RegionEnAporte[];
   miOpinion?: ValorDeOpinion | null;

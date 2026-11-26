@@ -67,6 +67,8 @@ export interface ConteoPorRegion {
   opiniones: number;
   acuerdos: number;
   pasos: number;
+  /** De esas opiniones, las que no pidió el reparto de Mirar (D-168). */
+  fueraDeMirar: number;
 }
 
 export interface ConteoDeDuelos {
@@ -206,7 +208,8 @@ export class VisionRepository {
           select e.id, r.region,
             count(*) filter (where r.valor in ('acuerdo', 'desacuerdo'))::int as opiniones,
             count(*) filter (where r.valor = 'acuerdo')::int as acuerdos,
-            count(*) filter (where r.valor = 'paso')::int as pasos
+            count(*) filter (where r.valor = 'paso')::int as pasos,
+            count(*) filter (where r.valor in ('acuerdo', 'desacuerdo') and r.fuera_de_mirar)::int as "fueraDeMirar"
           from ${pilaRespuestas} r join e on e.sid = r.senal_id
           where r.valor is not null
           group by e.id, r.region`),

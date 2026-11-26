@@ -36,6 +36,7 @@ const aporte = (p: Partial<AporteEnVision> & Pick<AporteEnVision, 'id' | 'texto'
     pasos: 5,
     acuerdo: 0.82,
     peor: 0.71,
+    fueraDeMirar: null,
     regiones: regiones({}),
     ...p,
   }) satisfies AporteEnVision;
@@ -62,6 +63,7 @@ const queNosUne = aporte({
   texto: 'Que un turno en el hospital no tarde tres meses',
   regiones: regiones({ NOA: 0.9, NEA: 0.8, Cuyo: 0.76, Centro: 0.71, 'Buenos Aires': 0.86 }),
   miOpinion: 'acuerdo',
+  fueraDeMirar: 0.35,
 });
 const queDivide = aporte({
   id: DIVIDE,
@@ -262,6 +264,11 @@ describe('Ver: la visión con datos', () => {
       within(une).getByText(/al menos 7 de cada 10 «yo también» en cada región/),
     ).toBeVisible();
     expect(within(une).getByText('faltan opiniones')).toBeInTheDocument();
+    expect(
+      within(une).getByText(
+        'El 35 % de estas opiniones llegó por un enlace compartido o desde la página del aporte, no por Mirar.',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('lo que va primero, donde no coincidimos y en cada tema', async () => {

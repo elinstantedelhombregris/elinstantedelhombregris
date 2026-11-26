@@ -143,11 +143,16 @@ router.get('/aportes/:idPublico', async (req, res, next) => {
   try {
     const id = idDelAporte(req);
     const actorId = await actorSiExiste(req);
-    const r: OpinionDeAporte = await new PilaRepository(getDb()).opinionDe(
-      id,
-      actorId,
-      req.user?.id ?? null,
-    );
+    const userId = req.user?.id ?? null;
+    const repo = new PilaRepository(getDb());
+    const [opinion, provincia] = await Promise.all([
+      repo.opinionDe(id, actorId, userId),
+      // Sin actor ni cuenta no hay de dónde saberla. El 0 no es el id de ningún actor.
+      actorId === null && userId === null
+        ? Promise.resolve(null)
+        : repo.provinciaConocida(actorId ?? 0, userId),
+    ]);
+    const r: OpinionDeAporte = { ...opinion, sabeProvincia: provincia !== null };
     res.set('Cache-Control', 'no-store').json({ data: r });
   } catch (err) {
     next(err);

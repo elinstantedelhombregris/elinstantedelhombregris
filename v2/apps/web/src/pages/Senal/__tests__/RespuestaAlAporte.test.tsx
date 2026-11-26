@@ -20,7 +20,7 @@ interface Pedido {
   cuerpo: unknown;
 }
 let pedidos: Pedido[] = [];
-let enMirar: OpinionDeAporte = { enMirar: true, miOpinion: 'desacuerdo' };
+let enMirar: OpinionDeAporte = { enMirar: true, miOpinion: 'desacuerdo', sabeProvincia: true };
 
 const respuesta = (status: number, data: unknown) =>
   ({
@@ -32,6 +32,10 @@ const respuesta = (status: number, data: unknown) =>
 function servir(ruta: string, init?: RequestInit): Promise<Response> {
   const cuerpo = typeof init?.body === 'string' ? (JSON.parse(init.body) as unknown) : undefined;
   pedidos.push({ metodo: init?.method ?? 'GET', ruta, cuerpo });
+  if (ruta === '/api/open-data/provinces')
+    return Promise.resolve(
+      respuesta(200, { provinces: [{ id: 17, name: 'Salta', isoCode: 'AR-A', level: 'province' }] }),
+    );
   if (ruta === `/api/v1/pila/aportes/${ID}`) return Promise.resolve(respuesta(200, enMirar));
   if (ruta === `/api/v1/pila/opiniones/${ID}`)
     return Promise.resolve(respuesta(200, { coinciden: 1, regionCompleta: null }));
@@ -54,7 +58,7 @@ function montar(props: Partial<Parameters<typeof RespuestaAlAporte>[0]> = {}) {
 
 beforeEach(() => {
   pedidos = [];
-  enMirar = { enMirar: true, miOpinion: 'desacuerdo' };
+  enMirar = { enMirar: true, miOpinion: 'desacuerdo', sabeProvincia: true };
   recordarProvincia(undefined);
   document.cookie = 'eihg_csrf=prueba';
   vi.stubGlobal('fetch', vi.fn(servir));
@@ -94,8 +98,36 @@ describe('/senal con un deseo en Mirar', () => {
     });
   });
 
+  it('si no se sabe la provincia de quien llega por un enlace, la pregunta antes de opinar (D-168)', async () => {
+    enMirar = { enMirar: true, miOpinion: null, sabeProvincia: false };
+    montar();
+    expect(await screen.findByText('¿De qué provincia sos?')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Yo también' })).toBeNull();
+    const lista = await screen.findByRole('combobox');
+    await screen.findByRole('option', { name: 'Salta' });
+    fireEvent.change(lista, { target: { value: '17' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Yo también' }));
+    await waitFor(() => {
+      expect(pedidos.filter((p) => p.metodo === 'PUT')).toEqual([
+        {
+          metodo: 'PUT',
+          ruta: `/api/v1/pila/opiniones/${ID}`,
+          cuerpo: { valor: 'acuerdo', provinciaId: 17 },
+        },
+      ]);
+    });
+  });
+
+  it('si el servidor ya sabe la provincia, no la pregunta', async () => {
+    enMirar = { enMirar: true, miOpinion: null, sabeProvincia: true };
+    montar();
+    expect(await screen.findByRole('button', { name: 'Yo también' })).toBeInTheDocument();
+    expect(screen.queryByText('¿De qué provincia sos?')).toBeNull();
+  });
+
   it('un deseo que no está en Mirar sigue con la adhesión', async () => {
-    enMirar = { enMirar: false, miOpinion: null };
+    enMirar = { enMirar: false, miOpinion: null, sabeProvincia: false };
     montar();
     expect(await screen.findByRole('button', { name: 'A mí también me pasa' })).toBeInTheDocument();
   });

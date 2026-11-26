@@ -43,6 +43,12 @@ export interface ConteoDeAporte {
   /** Opiniones de quien no dijo su provincia: suman al total, a ninguna región. */
   readonly sinRegion: ConteoRegional;
   readonly pasos: number;
+  /**
+   * De las opiniones, las que no pidió el reparto de Mirar: se dieron en la página del
+   * aporte, adonde se llega por un enlace compartido (D-168). Cuentan como las otras; la
+   * visión sólo dice qué parte son.
+   */
+  readonly fueraDeMirar?: number;
   readonly comparaciones: number;
   /** Veces que se lo eligió primero en un duelo. */
   readonly primero: number;
@@ -61,6 +67,7 @@ export interface LecturaDeAporte {
   readonly opiniones: number;
   readonly acuerdos: number;
   readonly pasos: number;
+  readonly fueraDeMirar: number;
   readonly acuerdo: number;
   readonly peor: number | null;
   readonly mejor: number | null;
@@ -112,6 +119,7 @@ export function leerAporte(c: ConteoDeAporte): LecturaDeAporte {
     opiniones,
     acuerdos,
     pasos: c.pasos,
+    fueraDeMirar: c.fueraDeMirar ?? 0,
     acuerdo,
     peor,
     mejor,

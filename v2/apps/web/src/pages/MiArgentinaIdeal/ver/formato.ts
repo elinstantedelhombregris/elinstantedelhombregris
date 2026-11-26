@@ -140,6 +140,19 @@ export function fraseDeDistancia(a: AporteEnVision): string {
   return `En ${conArticulo(e.alto.region)}, ${deCadaDiez(e.alto.acuerdo)} de cada 10. En ${conArticulo(e.bajo.region)}, ${deCadaDiez(e.bajo.acuerdo)}.`;
 }
 
+/**
+ * Qué parte de las opiniones no la pidió el reparto de Mirar (D-168): cuentan igual, y
+ * esto lo dice para que se vea si un aporte llegó acá empujado por quienes lo compartieron.
+ * `null` si no hay ninguna o si el aporte todavía no entra en la visión.
+ */
+export function fraseFueraDeMirar(a: AporteEnVision): string | null {
+  const x = a.fueraDeMirar;
+  if (x === null || x <= 0) return null;
+  const pct = Math.round(x * 100);
+  const cuanto = pct < 1 ? 'Menos del 1 %' : pct >= 100 ? 'Todas' : `El ${pct} %`;
+  return `${cuanto} de estas opiniones ${pct >= 100 ? 'llegaron' : 'llegó'} por un enlace compartido o desde la página del aporte, no por Mirar.`;
+}
+
 /** Mirar con la prioridad puesta en una región: el servidor sólo la honra si es la de quien mira. */
 export const completarHref = (region: string) =>
   `${MIRAR_HREF}?${new URLSearchParams({ region }).toString()}`;

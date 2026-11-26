@@ -1,8 +1,16 @@
+import { useState } from 'react';
+
 import { BotonAdherir } from './BotonAdherir';
 
-import { provinciaRecordada, useOpinar, useOpinionDe } from '~/lib/queries/pila';
+import {
+  provinciaRecordada,
+  recordarProvincia,
+  useOpinar,
+  useOpinionDe,
+} from '~/lib/queries/pila';
 import { AvisoPendientes } from '~/pages/MiArgentinaIdeal/mirar/AvisoPendientes';
 import { BotonesRespuesta } from '~/pages/MiArgentinaIdeal/mirar/BotonesRespuesta';
+import { PreguntaProvincia } from '~/pages/MiArgentinaIdeal/mirar/PreguntaProvincia';
 
 export interface RespuestaAlAporteProps {
   idPublico: string;
@@ -16,6 +24,10 @@ export interface RespuestaAlAporteProps {
  * Un solo «yo también» por aporte (spec 2026-10-19 §7). Si el aporte está en Mirar,
  * acá se contesta lo mismo que en Mirar, con la respuesta propia marcada y la
  * posibilidad de cambiarla. Si no, sigue la adhesión de siempre.
+ *
+ * A esta página se llega por «Compartir mi aporte», muchas veces sin haber pasado por
+ * Mirar: si no se sabe la provincia de quien mira, se pregunta antes de opinar, para que
+ * la opinión cuente para su región (D-168, D-169).
  */
 export function RespuestaAlAporte({
   idPublico,
@@ -25,6 +37,7 @@ export function RespuestaAlAporte({
 }: RespuestaAlAporteProps) {
   const q = useOpinionDe(esDeseo ? idPublico : undefined);
   const opinion = useOpinar();
+  const [provincia, setProvincia] = useState(provinciaRecordada);
 
   if (esDeseo && q.isLoading) {
     return (
@@ -41,6 +54,17 @@ export function RespuestaAlAporte({
           Es tu aporte: otras personas lo ven en Mirar y contestan si también lo quieren.
         </p>
       );
+    if (provincia === undefined && !q.data.sabeProvincia && q.data.miOpinion === null)
+      return (
+        <PreguntaProvincia
+          rotulo="Antes de opinar"
+          accion="Seguir"
+          onElegir={(id) => {
+            recordarProvincia(id);
+            setProvincia(id);
+          }}
+        />
+      );
     return (
       <section aria-labelledby="respuesta-titulo" className="flex max-w-[30rem] flex-col gap-3">
         <h2
@@ -55,7 +79,7 @@ export function RespuestaAlAporte({
             void opinion.opinar({
               id: idPublico,
               valor,
-              provinciaId: provinciaRecordada() ?? null,
+              provinciaId: provincia ?? null,
             });
           }}
         />

@@ -162,7 +162,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-146](#d-146--toda-escritura-desde-el-navegador-respondía-500-en-producción) | Toda escritura desde el navegador respondía 500 en producción | Crítica | **Resuelta** |
 | [D-147](#d-147--un-origen-que-cors-no-permite-recibe-500-y-no-403) | Un origen que CORS no permite recibe 500 y no 403 | Baja | Abierta |
 | [D-148](#d-148--un-aporte-retirado-sigue-sumando-en-el-conteo-de-la-portada) | Un aporte retirado sigue sumando en el conteo de la portada | Media | **Resuelta** |
-| [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | Abierta |
+| [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | **Resuelta** |
 | [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
 | [D-151](#d-151--los-planes-no-cierran-entre-sí-en-339-lugares-y-ahora-hay-lista) | Los PLANes no cierran entre sí en 339 lugares, y ahora hay lista | Media | Abierta |
 | [D-152](#d-152--el-atlas-del-sitio-no-se-regenera-solo-al-editar-un-plan) | El atlas del sitio no se regenera solo al editar un PLAN | Baja | Abierta |
@@ -195,6 +195,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-182](#d-182--a-igualdad-de-respuestas-mirar-reparte-primero-lo-más-viejo) | A igualdad de respuestas, Mirar reparte primero lo más viejo | Media | Abierta |
 | [D-183](#d-183--vos-y-n-personas-más-muestra-un-número-por-debajo-de-los-umbrales) | «Vos y N personas más» muestra un número por debajo de los umbrales | Media | Abierta |
 | [D-184](#d-184--los-reportes-que-retiran-un-aporte-pueden-salir-de-una-sola-sala) | Los reportes que retiran un aporte pueden salir de una sola sala | Media | Abierta |
+| [D-185](#d-185--corregir-una-fecha-en-el-contrato-de-una-campaña-abierta-la-saca-de-línea) | Corregir una fecha en el contrato de una campaña abierta la saca de línea | Media | Abierta |
+| [D-186](#d-186--un-grupo-que-comparte-un-aporte-lo-puede-meter-en-lo-que-nos-une) | Un grupo que comparte un aporte lo puede meter en «Lo que nos une» | Media | Abierta |
 
 ---
 
@@ -2463,9 +2465,11 @@ Antes de confirmar el retiro, la pantalla le dice a la persona que «el aporte s
 **Dónde:** `v2/apps/web/index.html` y `v2/apps/web/src/lib/meta-de-cronica.ts`.
 **Encontrada:** 2026-10-22, al agregarle a la bitácora título, descripción, dirección canónica y datos estructurados por crónica.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-26**
 
 El sitio es una aplicación de una sola página: Vercel entrega el mismo `index.html` para cualquier dirección y el resto lo arma el navegador. Desde el 22/10 cada crónica pone su propio título, descripción, canónica y datos `BlogPosting`, y eso lo ve quien ejecuta JavaScript, como Google. WhatsApp, X, LinkedIn y Facebook no lo ejecutan: leen el `<head>` tal como llega, así que un link a cualquier crónica se comparte con el título y la descripción genéricos del sitio y sin imagen. Pendiente: generar en el build un HTML por crónica con sus etiquetas `og:` y `twitter:` y su portada, o una función que responda esas etiquetas a los rastreadores.
+
+**Resuelta (2026-11-26, `1b4a3ba0`).** Al terminar el build, `vistasPrevias()` (`v2/apps/web/vite.config.ts`) escribe `dist/bitacora/<slug>/index.html` por cada crónica publicada, con su título, su resumen, su dirección canónica y su portada; la lógica pura vive en `v2/apps/web/src/lib/vista-previa.ts`, con sus tests. Vercel sirve ese archivo antes de reescribir a `index.html`, y la copia arranca la misma aplicación. X y WhatsApp no muestran SVG: las cuatro portadas SVG tienen un PNG hermano en `public/media/bitacora/editorial/`, y una portada SVG sin PNG cae en la imagen del sitio. Comprobado en producción con el agente de WhatsApp: `/bitacora/el-pueblo-no-delibera-ni-gobierna` devuelve su `og:title`, su `og:url` y la portada en `image/png`. Las campañas siguen con la vista previa genérica (D-168).
 
 ### D-150 · La sombra de las figuras del lector nunca se dibuja
 
@@ -2651,6 +2655,8 @@ Ninguna dirección del sitio tiene etiquetas `og:` ni imagen: por WhatsApp, cual
 
 **Resuelto en parte (2026-11-11).** `index.html` lleva título, descripción e imagen para la vista previa (`og:` y `twitter:card`), iguales para todas las direcciones, con la marca de `public/media/prensa/` como imagen. Va sin `og:url`, que apuntaría siempre a la portada. La guarda de la CSP que revisa los hosts del documento deja pasar el dominio propio, y un test comprueba que la imagen exista. Falta desplegarlo y mirarlo en WhatsApp. **Sigue pendiente:** que «Compartir mi aporte» lleve al aporte y que esa página pregunte la provincia; y el título propio de cada campaña o crónica en la vista previa (D-149), que pide una función aparte.
 
+**Avance (2026-11-26).** Las crónicas ya tienen su vista previa (D-149, resuelta). «Compartir mi aporte» lleva a `/senal/<id>` y no a Ver, con el texto «¿Vos también lo querés?» y #MiArgentinaIdeal. La página del aporte pregunta la provincia antes de opinar cuando ni el navegador ni el servidor la saben (`sabeProvincia` en `GET /api/v1/pila/aportes/:id`), así que una opinión que llega por un enlace cuenta para su región; eso cierra la mitad de D-169 (2) que pasa por esa página. Sobre si esas opiniones cuentan, la decisión de Juan del 26/11 fue que cuenten y que quede dicho: `pila_respuestas.fuera_de_mirar` (migración 0044) marca la opinión que no pidió el reparto, y en «Lo que nos une» y «Donde no coincidimos» cada aporte dice qué parte de sus opiniones llegó así. Es una enmienda a la spec del 19/10 (§5) que la spec todavía no recoge. Lo que eso no resuelve está en D-186. **Sigue pendiente:** la vista previa propia de cada campaña.
+
 **Lo resuelto, desplegado y comprobado en producción el 11/11/2026 (`7a3284d2`).** Pedida como la pide WhatsApp, `/campanas/mi-argentina-ideal` devuelve `og:title`, `og:description`, `og:image` y `twitter:card`, y la imagen responde 200 como `image/png`. Falta mirarlo en un teléfono: WhatsApp guarda la vista previa vieja de un enlace que ya se compartió.
 
 ### D-169 · Opiniones que cuentan de más o que no cuentan para ninguna región
@@ -2827,3 +2833,12 @@ Toda edición del contrato de una campaña la devuelve a borrador y abre una edi
 Por eso la corrección del 25/11/2026 se hizo a mano en la base, y queda anotada acá porque el historial de la campaña no la muestra. La campaña nacional se había abierto el 27/10/2026 para probarla y no se anunció. El día del lanzamiento, la frase del contrato «Se reciben aportes desde el 27 de octubre de 2026 hasta el 28 de febrero de 2027» pasó a decir «desde el 25 de noviembre de 2026», en el contrato vigente y en la copia de la edición 1. No cambió nada más: el cierre, la lectura y la devolución quedaron igual, y la fecha de creación del registro sigue siendo el 27 de octubre. En ese momento la campaña tenía un solo aporte, del 9 de noviembre, ya retirado por quien lo publicó.
 
 Pendiente: decidir si hace falta una corrección menor con motivo escrito, que quede en el historial sin abrir edición.
+
+### D-186 · Un grupo que comparte un aporte lo puede meter en «Lo que nos une»
+
+**Dónde:** `v2/packages/civic-core/src/vision/leer.ts`, `v2/apps/web/src/pages/MiArgentinaIdeal/ver/formato.ts` (`fraseFueraDeMirar`).
+**Encontrada:** 2026-11-26, al hacer que «Compartir mi aporte» lleve al aporte (D-168).
+**Severidad:** media.
+**Estado:** abierta.
+
+Las opiniones que llegan por un enlace compartido cuentan igual que las de Mirar, y Ver dice qué parte son. Decirlo no lo impide: quien escribe un aporte y se lo pasa a veinte conocidos de dos regiones lo pone en «Lo que nos une», con una línea que dice que la mayoría de esas opiniones llegó por un enlace. Es lo que se eligió el 26/11, antes de saber cómo se comporta la gente. La marca es por opinión, así que la decisión se puede revisar con los datos sin perder nada. Pendiente, cuando haya datos de la primera edición: mirar qué parte de las opiniones de los aportes que entran llega por enlace y decidir si la regla pide un piso de opiniones de Mirar en cada región que cuenta. La marca se pierde en una opinión dada en la página del aporte que antes había salido en una tanda: esa queda como de Mirar.

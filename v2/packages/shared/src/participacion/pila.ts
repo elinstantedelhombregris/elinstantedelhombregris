@@ -210,6 +210,12 @@ export interface ResultadoOpinion {
 export interface OpinionDeAporte {
   enMirar: boolean;
   miOpinion: ValorDeOpinion | null;
+  /**
+   * Si ya se sabe de qué provincia es quien mira, por una opinión o un aporte anteriores.
+   * Si no, la página del aporte la pregunta antes de opinar: a esa página se llega por un
+   * enlace compartido, muchas veces sin haber pasado nunca por Mirar (D-168, D-169).
+   */
+  sabeProvincia: boolean;
 }
 
 export interface AporteEnGestion {

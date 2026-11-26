@@ -45,6 +45,12 @@ export const pilaRespuestas = pgTable(
     provinciaId: integer('provincia_id').references(() => geographicLocations.id),
     /** Derivada en el servidor de `provincia_id`: así «cuenta en este aporte» no repite la conversión. */
     region: text('region'),
+    /**
+     * La opinión no la pidió el reparto de Mirar: se dio en la página del aporte, a la que
+     * se llega por un enlace compartido o recorriendo el sitio (D-168). Cuenta igual que
+     * las otras; Ver dice qué parte de las opiniones de cada aporte llegó así.
+     */
+    fueraDeMirar: boolean('fuera_de_mirar').notNull().default(false),
     mostradaEn: timestamp('mostrada_en', { withTimezone: true }).notNull().defaultNow(),
     respondidaEn: timestamp('respondida_en', { withTimezone: true }),
   },
